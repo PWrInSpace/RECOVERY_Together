@@ -1,0 +1,2 @@
+/home/suchy/Recovery/components/PressureSensor/build/CMakeFiles/edit_cache.dir
+/home/suchy/Recovery/components/PressureSensor/build/CMakeFiles/rebuild_cache.dir
