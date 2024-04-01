@@ -20,11 +20,14 @@ typedef struct{
     bool teleIgniterCont;
     bool endCone;
 
-}recovery_device_t
+}recovery_device_t;
+
+recovery_device_t recovery_system;
 
 uint8_t recovery_Init();
 uint8_t first_Stage_Deploy();
 uint8_t second_Stage_Deploy();
 void check_Cont();
+void apogee_isr_handler(void *args);
 
 #endif

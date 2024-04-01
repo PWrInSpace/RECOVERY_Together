@@ -2,8 +2,6 @@
 
 static const char *TAG = "RECOVERY";
 
-static recovery_device_t recovery_system;
-
 uint8_t recovery_Init(){
 
     ESP_LOGI(TAG,"Recovery System Initialization");
@@ -14,7 +12,7 @@ uint8_t recovery_Init(){
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE
         .intr_type = GPIO_INTR_DISABLE,
-    };
+    };intr_alloc_flags
 
     gpio_config_t gpio_outputs{
         .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << TELE_IGNITER_FIRE) | (1ULL << EASY_IGNITER_FIRE)),
@@ -95,4 +93,15 @@ void check_Cont(){
     else recovery_system.teleIngiterCont = false;
 
     ESP_LOGI(TAG,"Checking continuity done");
+
+    return RET_SUCCESS;
+}
+
+void apogee_isr_handler(void *args){
+
+    ESP_LOGI(LOG,"APOGEE DETECTED !!!");
+    ESP_LOGI(LOG,"DEPLOYING PILOT PARACHUTE");
+
+    first_Stage_Deploy();
+
 }

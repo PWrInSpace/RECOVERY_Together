@@ -1,4 +1,4 @@
-# Install script for directory: /home/suchy/Recovery/main
+# Install script for directory: /home/suchy/OBC/OBC_Recovery/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

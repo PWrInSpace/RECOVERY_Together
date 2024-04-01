@@ -2,16 +2,17 @@
 #define COTS_H 
 
 #include <stdio.h>
-#include  "driver/gpio.h"
-#include "esp_log.h"
+#include "driver/gpio.h"
 #include "config.h"
+#include "pinout.h"
+#include "freertos/FreeRTOS.h"
 
 typedef enum{
 
     COTS_DEVICE_TELEMETRUM = 0,
     COTS_DEVICE_EASYMINI,
     
-}cots_device_t
+}cots_device_t;
 
 typedef struct {
 
@@ -27,6 +28,8 @@ typedef struct {
 
 } cots_struct_t;
 
+cots_struct_t telemetrum_device;
+cots_struct_t easymini_device;
 
 uint8_t cots_init(cots_device_t cots_device);
 uint8_t cots_arming(cots_device_t cots_device);

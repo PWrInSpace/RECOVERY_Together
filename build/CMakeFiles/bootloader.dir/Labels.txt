@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/suchy/Recovery/build/CMakeFiles/bootloader
-/home/suchy/Recovery/build/CMakeFiles/bootloader.rule
-/home/suchy/Recovery/build/CMakeFiles/bootloader-complete.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/suchy/Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/suchy/OBC/OBC_Recovery/build/CMakeFiles/bootloader
+/home/suchy/OBC/OBC_Recovery/build/CMakeFiles/bootloader.rule
+/home/suchy/OBC/OBC_Recovery/build/CMakeFiles/bootloader-complete.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/suchy/OBC/OBC_Recovery/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

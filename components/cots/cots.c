@@ -1,9 +1,6 @@
 #include "cots.h"
-
+#include "esp_log.h"
 static const char *TAG = "COTS";
-
-static cots_struct_t telemetrum_device;
-static cots_struct_t easymini_device;
 
 uint8_t cots_init(cots_device_t cots_device){
    
@@ -20,7 +17,7 @@ uint8_t cots_init(cots_device_t cots_device){
         };
 
         gpio_config_t igniter_cont_input = {
-            .pin_bit_mask = (1ULL << TELE_IGNITER_CONT);
+            .pin_bit_mask = (1ULL << TELE_IGNITER_CONT),
             .mode = GPIO_MODE_INPUT,
             .pull_up_en = GPIO_PULLUP_DISABLE,
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -28,7 +25,7 @@ uint8_t cots_init(cots_device_t cots_device){
         };
 
         gpio_config_t apogee_input = {
-            .pin_bit_mask = (1ULL << TELE_APOGEE_CHECK);
+            .pin_bit_mask = (1ULL << TELE_APOGEE_CHECK),
             .mode = GPIO_MODE_INPUT,
             .pull_up_en = GPIO_PULLUP_DISABLE,
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -58,7 +55,7 @@ uint8_t cots_init(cots_device_t cots_device){
         };
 
         gpio_config_t igniter_cont_input = {
-            .pin_bit_mask = (1ULL << EASY_IGNITER_CONT);
+            .pin_bit_mask = (1ULL << EASY_IGNITER_CONT),
             .mode = GPIO_MODE_INPUT,
             .pull_up_en = GPIO_PULLUP_DISABLE,
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -66,7 +63,7 @@ uint8_t cots_init(cots_device_t cots_device){
         };
 
         gpio_config_t apogee_input = {
-            .pin_bit_mask = (1ULL << EASY_APOGEE_CHECK);
+            .pin_bit_mask = (1ULL << EASY_APOGEE_CHECK),
             .mode = GPIO_MODE_INPUT,
             .pull_up_en = GPIO_PULLUP_DISABLE,
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -89,7 +86,7 @@ uint8_t cots_init(cots_device_t cots_device){
         return RET_FAILTURE;
     }
 
-    return RET_SUCCESS
+    return RET_SUCCESS;
 }
 ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
 
@@ -126,7 +123,7 @@ uint8_t cots_arming(cots_device_t cots_device){
         ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
         return RET_FAILTURE;
     }
-    return RET_SUCCESS
+    return RET_SUCCESS;
       
 }
 
@@ -169,7 +166,7 @@ uint8_t cots_disarm(cots_device_t cots_device){
 uint8_t apogee_check(cots_device_t cots_device){
 
     // TO DO IF NEEDED
-
+    return RET_SUCCESS;
 
 }
 

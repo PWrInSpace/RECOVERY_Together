@@ -10,7 +10,7 @@
 
 #define COTS_ARM 0x00
 #define COTS_DISARM 0x01
-#define PILOT_DEPLOY 0xAA
+#define PILOT_DEPLOY_CMD 0xAA
 #define MAIN_DEPLOY 0xBB
 
 /**************************  ARMING STATUS  ***********************************/

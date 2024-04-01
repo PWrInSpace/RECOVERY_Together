@@ -1,7 +1,6 @@
 #ifndef PINOUT_H
 #define PINOUT_H
 
-#include "config.h"
 
 /******************* PINOUT FOR LEFT ESP PICO  ********************/
 

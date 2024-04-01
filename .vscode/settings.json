@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "cots.h": "c",
+        "config.h": "c"
+    }
+}

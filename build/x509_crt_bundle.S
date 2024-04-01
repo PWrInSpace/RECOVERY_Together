@@ -1,4 +1,4 @@
-/* * Data converted from /home/suchy/Recovery/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/suchy/OBC/OBC_Recovery/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded
