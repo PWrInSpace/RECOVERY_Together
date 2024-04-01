@@ -5,6 +5,7 @@
 #include "driver/gpio.h"
 #include "esp_log.h"
 #include "config.h"
+#include "pinout.h"
 
 typedef struct{
 
@@ -22,7 +23,7 @@ typedef struct{
 
 }recovery_device_t;
 
-recovery_device_t recovery_system;
+extern recovery_device_t recovery_system;
 
 uint8_t recovery_Init();
 uint8_t first_Stage_Deploy();
