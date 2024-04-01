@@ -2,76 +2,174 @@
 
 static const char *TAG = "COTS";
 
+static cots_struct_t telemetrum_device;
+static cots_struct_t easymini_device;
 
-uint8_t cots_init(Cots_t *telemetrum_ptr, Cots_t *easymini_ptr){
+uint8_t cots_init(cots_device_t cots_device){
    
     ESP_LOGI(TAG,"Cots initialization");
  
-    gpio_reset_pin(EASY_ARMING);
-    gpio_set_direction(EASY_ARMING,GPIO_MODE_OUTPUT);
-    gpio_reset_pin(EASY_APOGEE);
-    gpio_set_direction(EASY_APOGEE_CHECK,GPIO_MODE_INPUT);
-    gpio_reset_pin(EASY_IGNITER_CONT);
-    gpio_set_direction(EASY_IGNITER_CONT,GPIO_MODE_INPUT);
+    if(cots_device == COTS_DEVICE_TELEMETRUM){
+        ESP_LOGI(TAG,"**** TELEMETRUM ****");
+        gpio_config_t arming_output = {
+            .pin_bit_mask = (1ULL << TELE_ARMING),
+            .mode = GPIO_MODE_OUTPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_DISABLE,
+        };
 
-    gpio_reset_pin(TELE_ARMING);
-    gpio_set_direction(TELE_ARMING,GPIO_MODE_OUTPUT);
-    gpio_reset_pin(TELE_APOGEE);
-    gpio_set_direction(TELE_APOGEE_CHECK,GPIO_MODE_INPUT);
-    gpio_reset_pin(TELE_IGNITER_CONT);
-    gpio_set_direction(TELE_IGNITER_CONT,GPIO_MODE_INPUT);
+        gpio_config_t igniter_cont_input = {
+            .pin_bit_mask = (1ULL << TELE_IGNITER_CONT);
+            .mode = GPIO_MODE_INPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_DISABLE,
+        };
 
+        gpio_config_t apogee_input = {
+            .pin_bit_mask = (1ULL << TELE_APOGEE_CHECK);
+            .mode = GPIO_MODE_INPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_LOW_LEVEL,
+        };
 
-    easymini_ptr->armingPin = EASY_ARMING;
-    easymini_ptr->apogeePin = EASY_APOGEE_CHECK;
-    easymini_ptr->igniterPin = EASY_IGNITER_CONT;
-    telemetrum_ptr->armingPin = TELE_ARMING;
-    telemetrum_ptr->apogeePin = TELE_APOGEE_CHECK;
-    telemetrum_ptr->igniterPin = TELE_IGNITER_CONT;
+        ESP_ERROR_CHECK(gpio_config(&arming_output));
+        ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
+        ESP_ERROR_CHECK(gpio_config(&apogee_input));
+
+        telemetrum_device.armingPin = TELE_ARMING;
+        telemetrum_device.igniterPin = TELE_IGNITER_CONT;
+        telemetrum_device.apogeePin = TELE_APOGEE_CHECK;
+
+        ESP_LOGI(TAG,"Telemetrum initialization done :D");
+
+    }
+    else if(cots_device == COTS_DEVICE_EASYMINI){
+        ESP_LOGI(TAG,"***** EASYMINI *****");
+
+        gpio_config_t arming_output = {
+            .pin_bit_mask = (1ULL << EASY_ARMING),
+            .mode = GPIO_MODE_OUTPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_DISABLE,
+        };
+
+        gpio_config_t igniter_cont_input = {
+            .pin_bit_mask = (1ULL << EASY_IGNITER_CONT);
+            .mode = GPIO_MODE_INPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_DISABLE,
+        };
+
+        gpio_config_t apogee_input = {
+            .pin_bit_mask = (1ULL << EASY_APOGEE_CHECK);
+            .mode = GPIO_MODE_INPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_LOW_LEVEL,
+        };
+
+        ESP_ERROR_CHECK(gpio_config(&arming_output));
+        ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
+        ESP_ERROR_CHECK(gpio_config(&apogee_input));
+
+        easymini_device.armingPin = EASY_ARMING;
+        easymini_device.igniterPin = EASY_IGNITER_CONT;
+        easymini_device.apogeePin = EASY_APOGEE_CHECK;
+
+        ESP_LOGI(TAG,"EasyMini initialization done :D");
+
+    }
+    else{
+        ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
+        return RET_FAILTURE;
+    }
 
     return RET_SUCCESS
 }
+ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
 
+uint8_t cots_arming(cots_device_t cots_device){
 
-uint8_t cots_arming(Cots_t *telemetrum_ptr, Cots_t *easymini_ptr){
-    gpio_set_level(telemetrum_ptr->armingPin,1);
-    telemetrum_ptr->armStatus = true;
-    gpio_set_level(easymini_ptr->armingPin,1);
-    easymini_ptr->armStatus = true;
-    if(telemetrum_ptr->armStatus & easymini_ptr->armStatus)
-        return RET_SUCCESS
+    ESP_LOGI(TAG,"COTS ARMING");
 
-    return RET_FEILTURE    
+    if(cots_device == COTS_DEVICE_TELEMETRUM){
+
+        ESP_LOGI(TAG,"**** TELEMETRUM ****");
+        
+        if(gpio_set_level(telemetrum_device.armingPin,1) != ESP_OK){
+            ESP_LOGE(TAG,"Faild to arm Telemetrum !!!!");
+            return RET_FAILTURE;
+        }
+        telemetrum_device.armStatus = ARMED;
+
+        ESP_LOGI(TAG,"Telemetrum arming done");
+
+    }
+    else if(cots_device == COTS_DEVICE_EASYMINI){
+
+        ESP_LOGI(TAG,"***** EASYMINI *****");
+        
+        if(gpio_set_level(easymini_device.armingPin,1) != ESP_OK){
+            ESP_LOGE(TAG,"Faild to arm EasyMini !!!!");
+            return RET_FAILTURE;
+        }
+        easymini_device.armStatus = ARMED;
+
+        ESP_LOGI(TAG,"EasyMini arming done");
+    }
+    else{
+        ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
+        return RET_FAILTURE;
+    }
+    return RET_SUCCESS
+      
 }
 
-uint8_t cots_disarm(Cots_t *telemetrum_ptr, Cots_t *easymini_ptr){
-    gpio_set_level(telemetrum_ptr->armingPin,0);
-    telemetrum_ptr->armStatus = false;
-    gpio_set_level(easymini_ptr->armingPin,0);
-    easymini_ptr->armStatus = false;
+uint8_t cots_disarm(cots_device_t cots_device){
 
-    if(telemetrum_ptr->armStatus & easymini_ptr->armStatus)
-        return RET_FEILTURE
+    ESP_LOGI(TAG,"COTS DISARMING");
 
+    if(cots_device == COTS_DEVICE_TELEMETRUM){
+
+        ESP_LOGI(TAG,"**** TELEMETRUM ****");
+        
+        if(gpio_set_level(telemetrum_device.armingPin,0) != ESP_OK){
+            ESP_LOGE(TAG,"Faild to disarm Telemetrum !!!!");
+            return RET_FAILTURE;
+        }
+        telemetrum_device.armStatus = ARMED;
+
+        ESP_LOGI(TAG,"Telemetrum disarming done");
+
+    }
+    else if(cots_device == COTS_DEVICE_EASYMINI){
+
+        ESP_LOGI(TAG,"***** EASYMINI *****");
+        
+        if(gpio_set_level(easymini_device.armingPin,0) != ESP_OK){
+            ESP_LOGE(TAG,"Faild to disarm EasyMini !!!!");
+            return RET_FAILTURE;
+        }
+        easymini_device.armStatus = ARMED;
+
+        ESP_LOGI(TAG,"EasyMini disarming done");
+    }
+    else{
+        ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
+        return RET_FAILTURE;
+    }
     return RET_SUCCESS;
 }
 
-uint8_t apogee_check(Cots_t *telemetrum_ptr, Cots_t *easymini_ptr){
+uint8_t apogee_check(cots_device_t cots_device){
 
-    if(gpio_get_level(telemetrum_ptr->apogeePin)){
-        // pilot parachute deploy !!!
-        telemetrum_ptr->apogeeDetection = true; 
-    }
+    // TO DO IF NEEDED
 
-    if(gpio_get_level(easymini_ptr->apogeePin)){
-        // pilot parachute deploy !!!
-        easymini_ptr->apogeeDetection = true;
-    }
-
-    if(easymini_ptr->apogeeDetection | telemetrum_ptr->apogeeDetection)
-        return APOGEE;
-
-    return OTHER_STATE;
 
 }
 

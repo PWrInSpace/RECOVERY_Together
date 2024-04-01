@@ -27,7 +27,7 @@
 /**************************  RETURN STATUS  ***********************************/
 
 #define RET_SUCCESS 0x00
-#define RET_FEILTURE 0x01
+#define RET_FAILTURE 0x01
 
 
 

@@ -6,6 +6,13 @@
 #include "esp_log.h"
 #include "config.h"
 
+typedef enum{
+
+    COTS_DEVICE_TELEMETRUM = 0,
+    COTS_DEVICE_EASYMINI,
+    
+}cots_device_t
+
 typedef struct {
 
     // Arming control and status
@@ -13,18 +20,18 @@ typedef struct {
     gpio_num_t armingPin;
 
     // GPIOs for detecting apogee and main deploy atitude
-    bool apogeeDetection;
+    bool apogeeDetection; // Probably useless 
     gpio_num_t apogeePin;
     gpio_num_t igniterPin;
 
 
-} Cots_t;
+} cots_struct_t;
 
 
-uint8_t cots_init(Cots_t *telemtrum_ptr, Cots_t *easymini_ptr);
-uint8_t cots_arming(Cots_t *telemtrum_ptr, Cots_t *easymini_ptr);
-uint8_t cots_disarm(Cots_t *telemtrum_ptr, Cots_t *easymini_ptr);
-uint8_t apogee_check(Cots_t *telemtrum_ptr, Cots_t *easymini_ptr);
+uint8_t cots_init(cots_device_t cots_device);
+uint8_t cots_arming(cots_device_t cots_device);
+uint8_t cots_disarm(cots_device_t cots_device);
+uint8_t apogee_check(cots_device_t cots_device);
 
 
 
