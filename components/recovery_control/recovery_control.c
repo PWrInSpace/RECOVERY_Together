@@ -2,81 +2,97 @@
 
 static const char *TAG = "RECOVERY";
 
-uint8_t recovery_Init(Recovery_system_t *recovery_ptr){
+static recovery_device_t recovery_system;
+
+uint8_t recovery_Init(){
 
     ESP_LOGI(TAG,"Recovery System Initialization");
 
-    gpio_reset_pin(END_CONE);
-    gpio_set_direction(END_CONE,GPIO_MODE_INPUT);
-    gpio_reset_pin(TELE_IGNITER_CONT);
-    gpio_set_direction(TELE_IGNITER_CONT,GPIO_MODE_INPUT);
-    gpio_reset_pin(EASY_IGNITER_CONT);
-    gpio_set_direction(EASY_IGNITER_CONT,GPIO_MODE_INPUT);
-    gpio_reset_pin(PILOT_DEPLOY);
-    gpio_set_direction(PILOT_DEPLOY,GPIO_MODE_OUTPUT);
-    gpio_reset_pin(TELE_IGNITER_FIRE);
-    gpio_set_direction(TELE_IGNITER_FIRE,GPIO_MODE_OUTPUT);
-    gpio_reset_pin(EASY_IGNITER_FIRE);
-    gpio_set_direction(EASY_IGNITER_FIRE,GPIO_MODE_OUTPUT);
+    gpio_config_t gpio_inputs{
+        .pin_bit_mask = ((1ULL << END_CONE) | (1ULL << TELE_IGNITER_CONT) | (1ULL << EASY_IGNITER_CONT)),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE
+        .intr_type = GPIO_INTR_DISABLE,
+    };
 
-    recovery_ptr->endconePin = END_CONE;
-    recovery_ptr->pilotDeployPin = PILOT_DEPLOY;
-    recovery_ptr->easyIgniterContPin = EASY_IGNITER_CONT;
-    recovery_ptr->teleIgniterFirePin = TELE_IGNITER_CONT;
-    recovery_ptr->easyIgniterfirePin = EASY_IGNITER_FIRE;
-    recovery_ptr->teleIgniterFirePin = TELE_IGNITER_FIRE;
+    gpio_config_t gpio_outputs{
+        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << TELE_IGNITER_FIRE) | (1ULL << EASY_IGNITER_FIRE)),
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
 
+    ESP_ERROR_CHECK(gpio_config(&gpio_inputs));
+    ESP_ERROR_CHECK(gpio_config(&gpio_outputs));
+
+    recovery_system.endconePin = END_CONE;
+    recovery_system.pilotDeployPin = PILOT_DEPLOY;
+    recovery_system.easyIgniterContPin = TELE_IGNITER_CONT;
+    recovery_system.teleIngiterContPin = EASY_IGNITER_CONT;
+    recovery_system.easyIngiterFirePin = EASY_IGNITER_FIRE;
+    recovery_system.teleIgniterFirePin = TELE_IGNITER_FIRE;
+
+    ESP_LOGI(TAG,"Recovery system initialization done :D");
     return RET_SUCCESS;
 }
 
-uint8_t first_Stage_Deploy(Recovery_system_t *recovery_ptr){
+uint8_t first_Stage_Deploy(){
 
     ESP_LOGI(TAG,"First stage deploy event");
 
-    gpio_set_level(recovery_ptr->pilotDeployPin,1);
+    gpio_set_level(recovery_system.pilotDeployPin,1);
 
-    while(!gpio_get_level(recovery_ptr->endconePin)){
+    while(!gpio_get_level(recovery_system.endconePin)){
 
-        gpio_set_level(recovery_ptr->pilotDeployPin,1);
+        gpio_set_level(recovery_system.pilotDeployPin,1);
 
         ESP_LOGW(TAG,"No confirmation for first stage deploy!!!");
 
     }
-    recovery_ptr->firstStageDone = true;
+    recovery_system.firstStageDone = true;
+
+    ESP_LOGI(TAG,"Recovery first stage done");
+
     return RET_SUCCESS;
 
 }
 
-uint8_t second_Stage_Deploy(Recovery_system_t *recovery_ptr){
+uint8_t second_Stage_Deploy(){
 
     ESP_LOGI(TAG,"Second stage deploy event");
 
-    gpio_set_level(recovery_ptr->easyIgniterFirePin,1);
-    gpio_set_level(recovery_ptr->teleIgniterFirePin,1);
+    gpio_set_level(recovery_system.easyIgniterFire,1);
+    gpio_set_level(recovery_system.teleIgniterFirePin,1);
 
-    while(!gpio_get_level(recovery_ptr->easyIgniterContPin) && !gpio_get_level(recovery_ptr->teleIgniterContPin)){
-        gpio_set_level(recovery_ptr->easyIgniterFirePin,1);
-        gpio_set_level(recovery_ptr->teleIgniterFirePin,1);
+    while(!gpio_get_level(recovery_system.easyIgniterContPin) && !gpio_get_level(recovery_system.teleIgniterContPin)){
+        gpio_set_level(recovery_system.easyIgniterFirePin,1);
+        gpio_set_level(recovery_system.teleIgniterFirePin,1);
         
         ESP_LOGW(TAG,"No confirmation for second stage deploy!!!");
     }
 
     recovery_ptr->secondStageDone = true;
+
+    ESP_LOGI(TAG,"Second stage recovery done");
+
     return RET_SUCCESS;
 
 }
 
-void check_Cont(Recovery_system_t *recovery_ptr){
+void check_Cont(){
 
-    ESP_LOGI(TAG,"Cecking continuinty");
+    ESP_LOGI(TAG,"Checking continuinty");
 
-    if(gpio_get_level(recovery_ptr->endconePin)) recovery_ptr->endCone = true;
+    if(gpio_get_level(recovery_system.endconePin)) recovery_system.endCone = true;
     else recovery_ptr->endCone = false;
 
-    if(gpio_get_level(recovery_ptr->easyIgniterContPin)) recovery_ptr->easyIngiterCont = true;
+    if(gpio_get_level(recovery_system.easyIgniterContPin)) recovery_system.easyIngiterCont = true;
     else recovery_ptr->easyIngiterCont = false;
 
-    if(gpio_get_level(recovery_ptr->teleIngiterContPin)) recovery_ptr->teleIngiterCont = true;
-    else recovery_ptr->teleIngiterCont = false;
+    if(gpio_get_level(recovery_system.teleIngiterContPin)) recovery_system.teleIngiterCont = true;
+    else recovery_system.teleIngiterCont = false;
 
+    ESP_LOGI(TAG,"Checking continuity done");
 }

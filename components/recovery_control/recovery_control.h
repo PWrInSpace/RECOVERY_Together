@@ -2,7 +2,7 @@
 #define RECOVERY_CONTROL_H
 
 #include <stdio.h>
-#include  "driver/gpio.h"
+#include "driver/gpio.h"
 #include "esp_log.h"
 #include "config.h"
 
@@ -20,11 +20,11 @@ typedef struct{
     bool teleIgniterCont;
     bool endCone;
 
-}Recovery_system_t
+}recovery_device_t
 
-uint8_t recovery_Init(Recovery_system_t *recovery_ptr);
-uint8_t first_Stage_Deploy(Recovery_system_t *recovery_ptr);
-uint8_t second_Stage_Deploy(Recovery_system_t *recovery_ptr);
-void check_Cont(Recovery_system_t *recovery_ptr);
+uint8_t recovery_Init();
+uint8_t first_Stage_Deploy();
+uint8_t second_Stage_Deploy();
+void check_Cont();
 
 #endif
