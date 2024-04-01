@@ -1,6 +1,11 @@
 #include "cots.h"
 #include "esp_log.h"
+
 static const char *TAG = "COTS";
+
+cots_struct_t telemetrum_device;
+cots_struct_t easymini_device;
+
 
 uint8_t cots_init(cots_device_t cots_device){
    
@@ -88,7 +93,7 @@ uint8_t cots_init(cots_device_t cots_device){
 
     return RET_SUCCESS;
 }
-ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
+
 
 uint8_t cots_arming(cots_device_t cots_device){
 

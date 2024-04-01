@@ -5,7 +5,6 @@
 #include "driver/gpio.h"
 #include "config.h"
 #include "pinout.h"
-#include "freertos/FreeRTOS.h"
 
 typedef enum{
 
@@ -28,8 +27,8 @@ typedef struct {
 
 } cots_struct_t;
 
-cots_struct_t telemetrum_device;
-cots_struct_t easymini_device;
+extern cots_struct_t telemetrum_device;
+extern cots_struct_t easymini_device;
 
 uint8_t cots_init(cots_device_t cots_device);
 uint8_t cots_arming(cots_device_t cots_device);

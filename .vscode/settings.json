@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "cots.h": "c",
-        "config.h": "c"
+        "config.h": "c",
+        "recovery_control.h": "c"
     }
 }
