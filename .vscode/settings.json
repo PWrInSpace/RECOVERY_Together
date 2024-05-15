@@ -2,6 +2,7 @@
     "files.associations": {
         "cots.h": "c",
         "config.h": "c",
-        "recovery_control.h": "c"
+        "recovery_control.h": "c",
+        "datastructs.h": "c"
     }
 }

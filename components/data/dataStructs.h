@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include "config.h"
 
-
 typedef struct {
     bool isArmed :1;
     bool isTeleActive :1;
@@ -18,11 +17,18 @@ typedef struct {
     bool secondStageDone :1;
     bool firstStageContinouity :1;
     bool secondStageContinouity :1;
+    uint8_t pressure : 6; 
 
-    #ifdef ESP_RIGHT
-    uint32_t pressure;
-    #endif
 
 } data_to_mcb;
+
+extern data_to_mcb data_to_send;
+
+typedef struct {
+
+    uint32_t cmd;
+    int32_t payload;
+
+}data_from_mcb;
 
 #endif // DATA_STRUCTS_H

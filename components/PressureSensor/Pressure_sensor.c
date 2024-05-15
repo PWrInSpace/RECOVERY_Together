@@ -40,7 +40,7 @@ uint16_t pressure_sensor_init(Pressure_Sensor_t *sensor_ptr) {
   return RET_SUCCESS;
 }
 
-uint32_t get_pr VALVE_CLOSE_POSITION(Pressure_Sensor_t *sensor_ptr) {
+uint32_t get_pressure(Pressure_Sensor_t *sensor_ptr) {
   ESP_ERROR_CHECK(adc_oneshot_read(*(sensor_ptr->adc_handle),
                                    sensor_ptr->adc_channel,
                                    (int *)&sensor_ptr->adc_raw));

@@ -1,0 +1,1319 @@
+[0;33m--- esp-idf-monitor 1.3.4 on /dev/ttyUSB0 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d650: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c3: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:566
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d662: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d662: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d65d: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d653: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bde: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:29
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d650: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089818: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d650: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981b: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c8: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:568
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084be4: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:30
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089806: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:194
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d658: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981b: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d653: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089803: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:193
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d653: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c8: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:568
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d658: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d662: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d65d: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d653: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d65a: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d65d: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d66e: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400897f6: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:159
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089803: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:193
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d658: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084be4: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:30
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089818: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981b: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bdc: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:28
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084be4: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:30
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089812: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:199
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981e: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:203
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084bde: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:29
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980f: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:198
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d662: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d653: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c8: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:568
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008981b: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c8: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:568
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089812: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:199
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084be6: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:32
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089818: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:202
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008d658: xthal_save_extra_nw at /Users/igrokhotkov/e/esp32/hal/hal/state_asm.S:72
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084be4: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:30
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080100: _WindowOverflow12 at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:2173
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400897f6: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:159
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40084be6: _xt_panic at /home/suchy/esp/esp-idf/components/esp_system/port/arch/xtensa/panic_handler_asm.S:32
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089803: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:193
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40089815: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:200
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400803c0: _DoubleExceptionVector at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S:564
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x4008980c: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:197
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400897f6: _xt_context_save at /home/suchy/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_context.S:159
+[0m
+[0;33m0x40081886: panicHandler at /home/suchy/esp/esp-idf/components/esp_system/port/panic_handler.c:217
+[0m
+[0;33m0x40081200: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0m

@@ -9,7 +9,7 @@ uint8_t recovery_Init(){
     ESP_LOGI(TAG,"Recovery System Initialization");
 
     gpio_config_t gpio_inputs = {
-        .pin_bit_mask = ((1ULL << END_CONE) | (1ULL << TELE_IGNITER_CONT) | (1ULL << EASY_IGNITER_CONT)),
+        .pin_bit_mask = ((1ULL << END_CONE)),
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -17,15 +17,19 @@ uint8_t recovery_Init(){
     };
 
     gpio_config_t gpio_outputs = {
-        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << TELE_IGNITER_FIRE) | (1ULL << EASY_IGNITER_FIRE)),
+        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << EASY_IGNITER_FIRE) |
+                         (1ULL << TELE_IGNITER_FIRE) | (1ULL << EASY_ARMING) | (1ULL << TELE_ARMING)),
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
         .intr_type = GPIO_INTR_DISABLE,
     };
 
+    ESP_LOGI(TAG,"DUPA");
     ESP_ERROR_CHECK(gpio_config(&gpio_inputs));
+    ESP_LOGI(TAG,"DUPA2");
     ESP_ERROR_CHECK(gpio_config(&gpio_outputs));
+    ESP_LOGI(TAG,"DUPA3");
 
     recovery_system.endconePin = END_CONE;
     recovery_system.pilotDeployPin = PILOT_DEPLOY;
@@ -85,6 +89,9 @@ void check_Cont(){
 
     ESP_LOGI(TAG,"Checking continuinty");
 
+    bool previous_easymini_igniter_cont = recovery_system.easyIgniterCont;
+    bool previous_telemetrum_igniter_cont = recovery_system.teleIgniterCont;
+
     if(gpio_get_level(recovery_system.endconePin)) recovery_system.endCone = true;
     else recovery_system.endCone = false;
 
@@ -94,6 +101,18 @@ void check_Cont(){
     if(gpio_get_level(recovery_system.teleIgniterContPin)) recovery_system.teleIgniterCont = true;
     else recovery_system.teleIgniterCont = false;
 
+    if(recovery_system.teleIgniterCont && recovery_system.easyIgniterCont) recovery_system.secondStageCont = true;
+    else recovery_system.secondStageCont = false;
+
+    if(previous_easymini_igniter_cont != recovery_system.easyIgniterCont){
+        recovery_system.secondStageDone = true;
+        recovery_system.easySecondStage = false;
+    }
+    else if(previous_telemetrum_igniter_cont != recovery_system.teleIgniterCont){
+        recovery_system.secondStageDone = true;
+        recovery_system.teleSecondStage = false;
+    }
+recovery_system.secondStageDone = true;
     ESP_LOGI(TAG,"Checking continuity done");
 
 }
@@ -104,5 +123,6 @@ void apogee_isr_handler(void *args){
     ESP_LOGI(TAG,"DEPLOYING PILOT PARACHUTE");
 
     first_Stage_Deploy();
+    
 
 }

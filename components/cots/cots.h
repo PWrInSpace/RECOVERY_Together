@@ -33,7 +33,7 @@ extern cots_struct_t easymini_device;
 uint8_t cots_init(cots_device_t cots_device);
 uint8_t cots_arming(cots_device_t cots_device);
 uint8_t cots_disarm(cots_device_t cots_device);
-uint8_t apogee_check(cots_device_t cots_device);
+uint8_t apogee_check();
 
 
 

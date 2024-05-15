@@ -1,0 +1,1919 @@
+ets Jun  8 2016 00:22:57�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (125) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (167) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (187) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (187) boot: Disabling RNG early entropy source...[0m
+[0;32mI (199) cpu_start: Multicore app[0m
+[0;32mI (199) cpu_start: Pro cpu up.[0m
+[0;32mI (199) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (217) cpu_start: Pro cpu start user code[0m
+[0;32mI (217) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (217) cpu_start: Application information:[0m
+[0;32mI (222) cpu_start: Project name:     main[0m
+[0;32mI (226) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (232) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (238) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (244) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (250) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (255) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (260) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (265) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (272) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (278) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (284) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (290) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (297) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (304) spi_flash: detected chip: gd[0m
+[0;32mI (307) spi_flash: flash io: dio[0m
+[0;33mW (311) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (325) app_start: Starting scheduler on CPU0[0m
+[0;32mI (329) app_start: Starting scheduler on CPU1[0m
+[0;32mI (329) main_task: Started on CPU0[0m
+[0;32mI (339) main_task: Calling app_main()[0m
+[0;32mI (339) RECOVERY: Recovery System Initialization[0m
+[0;32mI (339) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (349) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (359) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (369) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (379) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x40084614[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x40084614[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x400803c0[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x400803c8[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+eׁJun�8�0L��:�&���C��t��� (�jU�OΥ�E�JI�ot'�� (�j�1=�_��QaU�*zU�*UzSDR�%U%}RE�e%�)��W����g��KAd�+�5
+et.R�n ��0���:�&g�SH���.��x�B�=]RO�%UM�)�����ųB�A%}FA*�e1�Hߨꊕj
+c�K�gsZ� 1����5�&	A%�P�e�,k�E�v:��0,qE��:0���}�r�'�A0��.����:�����_d����0,w}��v:��0�[��:�R�	�oc�"�v:�H���:�����03�ɕn:ʲ
+녑:�Ѱ���0�ɕn:�M�!�+��0x4��ets����8�&���00'&Ҫ7���.��� 	�]�RO�%U�ET�I��t:0�3�i�}MT_�*M!_Bϊ�j
+co˥��ip���º7�MSb�S�R��xeYC�,�}�rv���0,qߖ��0x�b"}dr�'��0,c.��rv:������dr�'��0,�}��v:��0�������R�	����k �Z��j
+�+��0x3���030�+��70�SH��+�i0x����00����:1�M�j
+l+��0x4�8��b╹i4!�8 tXZ� r��4
+�+�i0x��40����:3���H����y �Ѱ��c�[0;32mI (31) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI��ׁJu�2�L�0:&��7�HH���0x�B��WŪ���ETJI�ot'��3 �*�}�T�*�Hߨ�Uj
+co˥�si� Lº�7��b�S�R��e�,k���:0�0)}�rv'��0,�E�v:���i�A_d.W�x0�h�E�v:���i��d���0C!닕�DI����k �Z�����:����03����:7ʲj
+l+��0x���0�,�YK�5��j
+l�X��x��4�bb�n�SH��8 tXZ� ���j
+l�X��x��4�����38�SH����y���008��5
+[0;32mI (31) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (166) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (180) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (180) boot: Factory app partition is not bootable[0m
+[0;31mE (181) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE  1�A�����	`XShM�D��gZ�YQH�J�LSJ�IDW�a\�AT+^V�MVGTW�"�n%b;b4dL|KIaII*K�Xj\TQU^+mM�HQY�X�a\aF�h�5H!HgH�X�a\aF%^+mM�HQ[^*|�HEuiR�BdAQuf�T�iF�n4�Ikl`IQV�4	uZ�dn�`\	`KaHQV��e[aG�n�`\	aLaHQV��aG n �ׁJu�2�L�0�&Ҫ7��HH��:0�LBB=]ER�}�ESQ�I��t���3 �*��F�*�e1SH��ꊕj
+c˙�gsZ� 1����5�&	A%]�:���
+clk_drv:`x0 ,a_d�v:`�00Hȟ��v:`�``\�s0�drv:0�`0,h쾈�����º�}e�.R�n  �20L��e�.R�n ����6 �:�&'�Sȍ!��i0xLB��WE��}IES�U�I���i0x�&B�A%}�AS�e1�SHߨꊕj
+����gsZ�Lº�7��bA%�P:�5
+c��E�v:��0)}��v:eׁJ]� 2�L��:2&��SH�
+�.��x1�	�]�ROΥMET)I���:0�L&BA%}FAS�e1�SHߨꊕj
+�˙�gs�� �����54&	��IW�'e
+,�}�rv���0,q_���0x0��}�rv:��0i��_dr�'��0,h�E��:0��b��}��v:��0������DR����� d���j
+loX����ff���,l�K���6!녑:0x��00�k�i15��j����i0x��00�+�i4�끸���� 4����j
+loa����008�04�+�i38�SH��tr����008�4�C�[0;32mI (31) bo�t:@���-IDF �i.1.b-365-ge6`�`235ad@"nd@sta�e b�otloader[0m
+[0;32mI (31) boot: compile time Apr  1 b024@2cr`3:5`[`�
+��{cb�2�"&   �ߟ���et�Rչ  ����� �Ғ��5�C!HH��i0xLB��WE��}�ESQU�I���:0�3�i�}�T_*MH_��Q�
+�˙�gs��L���7��bA%]P:���5
+c��E�v:��0)}��v:���	}�rv���0,c.���v:�����}dr�'��0,�}��v:���C!닕�DIO	��ck���i2!�+�:��f����,�YK��9�C!�+��0x4�7���b╹i15M�j
+loX����0�0��bb���4��8 t�Z� r��4
+녑:0��4�����387�C!����A0x�6��H�[0;32mI (31) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (166) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (180) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (180) boot: Factory app partition is not bootable[0m
+[0;31mE (181) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (164) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (198) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;31mE (212) esp_image: Checksum failed. Calculated 0x33 read 0x42[0m
+[0;31mE (212) boot: Factory app partition is not bootable[0m
+[0;31mE (213) boot: No bootable app partitions in the partition table[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (61) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (61) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (64) boot: Multicore bootloader[0m
+[0;32mI (68) boot: chip revision: v1.0[0m
+[0;32mI (71) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (76) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (81) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (85) boot: Enabling RNG early entropy source...[0m
+[0;32mI (91) boot: Partition Table:[0m
+[0;32mI (94) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (101) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (109) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (117) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (124) boot: End of partition table[0m
+[0;32mI (128) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (156) esp_image: segment 2: paddr=0001c448 vaddr=40080000 s�zey`3b�`ЀP@aecabQ@�}!�h
+����                  ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+  � D  �� � � �    :              �     ���    ����@  �   0       �F� p� �����         ����                       �   �  �<|��   �� �~��4�`�  0��| @     ��  �    d � >           �             � �          p�0  � ��                 �      �            �                      �  �                                               �����                    �ets���Q>�-!ets�eets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (31) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (125) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (166) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (187) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (187) boot: Disabling RNG early entropy source...[0m
+[0;32mI (199) cpu_start: Multicore app[0m
+[0;32mI (199) cpu_start: Pro cpu up.[0m
+[0;32mI (199) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (217) cpu_start: Pro cpu start user code[0m
+[0;32mI (217) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (217) cpu_start: Application information:[0m
+[0;32mI (222) cpu_start: Project name:     main[0m
+[0;32mI (226) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (232) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (238) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (244) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (250) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (255) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (260) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (265) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (272) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (278) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (284) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (290) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (297) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (304) spi_flash: detected chip: gd[0m
+[0;32mI (307) spi_flash: flash io: dio[0m
+[0;33mW (311) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (325) app_start: Starting scheduler on CPU0[0m
+[0;32mI (329) app_start: Starting scheduler on CPU1[0m
+[0;32mI (329) main_task: Started on CPU0[0m
+[0;32mI (339) main_task: Calling app_main()[0m
+[0;32mI (339) RECOVERY: Recovery System Initialization[0m
+[0;32mI (339) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (349) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (359) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (369) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (379) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x4008461c[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x4008461c[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x40084616[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x40084619[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x400803c0[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x400803c0[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (288) cpu_start: ELF file SHA256:  9bd834af5f1b80fb...[0m
+[0;32mI (294) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (300) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (305) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (310) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (322) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (328) heap_init: At 3FFB2A08 len 0002D5F8 (181 KiB): DRAM[0m
+[0;32mI (334) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (340) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (347) heap_init: At 4008C1D8 len 00013E28 (79 KiB): IRAM[0m
+[0;32mI (355) spi_flash: detected chip: gd[0m
+[0;32mI (357) spi_flash: flash io: dio[0m
+[0;33mW (361) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (375) app_start: Starting scheduler on CPU0[0m
+[0;32mI (379) app_start: Starting scheduler on CPU1[0m
+[0;32mI (379) main_task: Started on CPU0[0m
+[0;32mI (389) main_task: Calling app_main()[0m
+[0;32mI (389) RECOVERY: Recovery System Initialization[0m
+[0;32mI (389) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (399) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (409) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (419) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (429) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+ets Jun  8 2016 00:22:57
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (63) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (63) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (65) boot: Multicore bootloader[0m
+[0;32mI (69) boot: chip revision: v1.0[0m
+[0;32mI (73) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (78) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (82) boot.esp32: SPI Flash Size : 2MB[0m
+[0;33mW (87) boot.esp32: PRO CPU has been reset by WDT.[0m
+[0;33mW (92) boot.esp32: WDT reset info: PRO CPU PC=0x400803c8[0m
+[0;33mW (98) boot.esp32: WDT reset info: APP CPU PC=0x40081776[0m
+[0;32mI (104) boot: Enabling RNG early entropy source...[0m
+[0;32mI (109) boot: Partition Table:[0m
+[0;32mI (113) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (121) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (128) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (136) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (143) boot: End of partition table[0m
+[0;32mI (147) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a2d0h ( 41680) map[0m
+[0;32mI (171) esp_image: segment 1: paddr=0001a2f8 vaddr=3ffb0000 size=02148h (  8520) load[0m
+[0;32mI (175) esp_image: segment 2: paddr=0001c448 vaddr=40080000 size=03bd0h ( 15312) load[0m
+[0;32mI (183) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=151bch ( 86460) map[0m
+[0;32mI (217) esp_image: segment 4: paddr=000351e4 vaddr=40083bd0 size=08608h ( 34312) load[0m
+[0;32mI (237) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (237) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Multicore app[0m
+[0;32mI (249) cpu_start: Pro cpu up.[0m
+[0;32mI (249) cpu_start: Starting app cpu, entry point is 0x400810f0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (267) cpu_start: Pro cpu start user code[0m
+[0;32mI (267) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (267) cpu_start: Application information:[0m
+[0;32mI (272) cpu_start: Project name:     main[0m
+[0;32mI (277) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (282) cpu_start: Compile timeets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 

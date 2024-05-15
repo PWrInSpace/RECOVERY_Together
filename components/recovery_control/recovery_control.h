@@ -15,11 +15,14 @@ typedef struct{
     gpio_num_t teleIgniterContPin;
     gpio_num_t easyIgniterFirePin;
     gpio_num_t teleIgniterFirePin;
-    bool firstStageDone;
-    bool secondStageDone;
-    bool easyIgniterCont;
-    bool teleIgniterCont;
-    bool endCone;
+    bool firstStageDone : 1;
+    bool secondStageDone : 1;
+    bool easyIgniterCont : 1;
+    bool teleIgniterCont : 1;
+    bool endCone : 1;
+    bool easySecondStage : 1;
+    bool teleSecondStage : 1;
+    bool secondStageCont : 1;
 
 }recovery_device_t;
 

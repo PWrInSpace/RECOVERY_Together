@@ -1,0 +1,1261 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (32) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b218h ( 45592) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0001b240 vaddr=3ffb0000 size=02178h (  8568) load[0m
+[0;32mI (126) esp_image: segment 2: paddr=0001d3c0 vaddr=40080000 size=02c58h ( 11352) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16230h ( 90672) map[0m
+[0;32mI (170) esp_image: segment 4: paddr=00036258 vaddr=40082c58 size=0a86ch ( 43116) load[0m
+[0;32mI (195) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (195) boot: Disabling RNG early entropy source...[0m
+[0;32mI (206) cpu_start: Multicore app[0m
+[0;32mI (206) cpu_start: Pro cpu up.[0m
+[0;32mI (207) cpu_start: Starting app cpu, entry point is 0x400811f8[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (224) cpu_start: Pro cpu start user code[0m
+[0;32mI (224) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (224) cpu_start: Application information:[0m
+[0;32mI (229) cpu_start: Project name:     main[0m
+[0;32mI (234) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (239) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (245) cpu_start: ELF file SHA256:  47b6a55fd4f6c855...[0m
+[0;32mI (251) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (258) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (262) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (267) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (272) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (279) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (285) heap_init: At 3FFB2A48 len 0002D5B8 (181 KiB): DRAM[0m
+[0;32mI (291) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (298) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (304) heap_init: At 4008D4C4 len 00012B3C (74 KiB): IRAM[0m
+[0;32mI (312) spi_flash: detected chip: gd[0m
+[0;32mI (315) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (332) app_start: Starting scheduler on CPU0[0m
+[0;32mI (337) app_start: Starting scheduler on CPU1[0m
+[0;32mI (337) main_task: Started on CPU0[0m
+[0;32mI (347) main_task: Calling app_main()[0m
+[0;32mI (347) COTS: Cots initialization[0m
+[0;32mI (347) COTS: **** TELEMETRUM ****[0m
+[0;32mI (357) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (367) gpio: GPIO[22]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (377) gpio: GPIO[19]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:4 [0m
+[0;32mI (377) COTS: Telemetrum initialization done :D[0m
+[0;32mI (387) COTS: Cots initialization[0m
+[0;32mI (387) COTS: ***** EASYMINI *****[0m
+[0;32mI (397) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (407) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (417) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:4 [0m
+[0;32mI (427) COTS: EasyMini initialization done :D[0m
+[0;32mI (427) RECOVERY: Recovery System Initialization[0m
+[0;32mI (437) RECOVERY: DUPA[0m
+[0;32mI (437) gpio: GPIO[9]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (447) RECOVERY: DUPA2[0m
+[0;32mI (447) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (457) gpio: GPIO[14]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (467) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (477) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (487) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (497) RECOVERY: DUPA3[0m
+[0;32mI (497) RECOVERY: Recovery system initialization done :D[0m
+[0;32mI (507) I2C: I2C INIT[0m
+[0;32mI (507) I2C: DUPA[0m
+[0;32mI (507) I2C: DUPA2[0m
+[0;32mI (517) I2C: DUPA3 [0m
+[0;32mI (517) APP: Init completed, entering recovery loop[0m
+[0;32mI (517) APP: Status: 0[0m
+[0;32mI (527) COTS: COTS ARMING[0m
+[0;32mI (527) COTS: ***** EASYMINI *****[0m
+[0;32mI (527) COTS: EasyMini arming done[0m
+[0;32mI (1537) APP: Status: 1[0m
+[0;32mI (1537) COTS: COTS DISARMING[0m
+[0;32mI (1537) COTS: ***** EASYMINI *****[0m
+[0;32mI (1537) COTS: EasyMini disarming done[0m
+[0;32mI (1537) APP: Status: 0[0m
+[0;32mI (1537) COTS: COTS ARMING[0m
+[0;32mI (1547) COTS: ***** EASYMINI *****[0m
+[0;32mI (1547) COTS: EasyMini arming done[0m
+[0;32mI (2547) APP: Status: 1[0m
+[0;32mI (2547) COTS: COTS DISARMING[0m
+[0;32mI (2547) COTS: ***** EASYMINI *****[0m
+[0;32mI (2547) COTS: EasyMini disarming done[0m
+[0;32mI (2547) APP: Status: 0[0m
+[0;32mI (2547) COTS: COTS ARMING[0m
+[0;32mI (2557) COTS: ***** EASYMINI *****[0m
+[0;32mI (2557) COTS: EasyMini arming done[0m
+[0;32mI (3557) APP: Status: 1[0m
+[0;32mI (3557) COTS: COTS DISARMING[0m
+[0;32mI (3557) COTS: ***** EASYMINI *****[0m
+[0;32mI (3557) COTS: EasyMini disarming done[0m
+[0;32mI (3557) APP: Status: 0[0m
+[0;32mI (3557) COTS: COTS ARMING[0m
+[0;32mI (3567) COTS: ***** EASYMINI *****[0m
+[0;32mI (3567) COTS: EasyMini arming done[0m
+[0;32mI (4567) APP: Status: 1[0m
+[0;32mI (4567) COTS: COTS DISARMING[0m
+[0;32mI (4567) COTS: ***** EASYMINI *****[0m
+[0;32mI (4567) COTS: EasyMini disarming done[0m
+[0;32mI (4567) APP: Status: 0[0m
+[0;32mI (4567) COTS: COTS ARMING[0m
+[0;32mI (4577) COTS: ***** EASYMINI *****[0m
+[0;32mI (4577) COTS: EasyMini arming done[0m
+[0;32mI (5577) APP: Status: 1[0m
+[0;32mI (5577) COTS: COTS DISARMING[0m
+[0;32mI (5577) COTS: ***** EASYMINI *****[0m
+[0;32mI (5577) COTS: EasyMini disarming done[0m
+[0;32mI (5577) APP: Status: 0[0m
+[0;32mI (5577) COTS: COTS ARMING[0m
+[0;32mI (5587) COTS: ***** EASYMINI *****[0m
+[0;32mI (5587) COTS: EasyMini arming done[0m
+[0;32mI (6587) APP: Status: 1[0m
+[0;32mI (6587) COTS: COTS DISARMING[0m
+[0;32mI (6587) COTS: ***** EASYMINI *****[0m
+[0;32mI (6587) COTS: EasyMini disarming done[0m
+[0;32mI (6587) APP: Status: 0[0m
+[0;32mI (6587) COTS: COTS ARMING[0m
+[0;32mI (6597) COTS: ***** EASYMINI *****[0m
+[0;32mI (6597) COTS: EasyMini arming done[0m
+[0;32mI (7597) APP: Status: 1[0m
+[0;32mI (7597) COTS: COTS DISARMING[0m
+[0;32mI (7597) COTS: ***** EASYMINI *****[0m
+[0;32mI (7597) COTS: EasyMini disarming done[0m
+[0;32mI (7597) APP: Status: 0[0m
+[0;32mI (7597) COTS: COTS ARMING[0m
+[0;32mI (7607) COTS: ***** EASYMINI *****[0m
+[0;32mI (7607) COTS: EasyMini arming done[0m
+[0;32mI (8607) APP: Status: 1[0m
+[0;32mI (8607) COTS: COTS DISARMING[0m
+[0;32mI (8607) COTS: ***** EASYMINI *****[0m
+[0;32mI (8607) COTS: EasyMini disarming done[0m
+[0;32mI (8607) APP: Status: 0[0m
+[0;32mI (8607) COTS: COTS ARMING[0m
+[0;32mI (8617) COTS: ***** EASYMINI *****[0m
+[0;32mI (8617) COTS: EasyMini arming done[0m
+[0;32mI (9617) APP: Status: 1[0m
+[0;32mI (9617) COTS: COTS DISARMING[0m
+[0;32mI (9617) COTS: ***** EASYMINI *****[0m
+[0;32mI (9617) COTS: EasyMini disarming done[0m
+[0;32mI (9617) APP: Status: 0[0m
+[0;32mI (9617) COTS: COTS ARMING[0m
+[0;32mI (9627) COTS: ***** EASYMINI *****[0m
+[0;32mI (9627) COTS: EasyMini arming done[0m
+[0;32mI (10627) APP: Status: 1[0m
+[0;32mI (10627) COTS: COTS DISARMING[0m
+[0;32mI (10627) COTS: ***** EASYMINI *****[0m
+[0;32mI (10627) COTS: EasyMini disarming done[0m
+[0;32mI (10627) APP: Status: 0[0m
+[0;32mI (10627) COTS: COTS ARMING[0m
+[0;32mI (10637) COTS: ***** EASYMINI *****[0m
+[0;32mI (10637) COTS: EasyMini arming done[0m
+[0;32mI (11637) APP: Status: 1[0m
+[0;32mI (11637) COTS: COTS DISARMING[0m
+[0;32mI (11637) COTS: ***** EASYMINI *****[0m
+[0;32mI (11637) COTS: EasyMini disarming done[0m
+[0;32mI (11637) APP: Status: 0[0m
+[0;32mI (11637) COTS: COTS ARMING[0m
+[0;32mI (11647) COTS: ***** EASYMINI *****[0m
+[0;32mI (11647) COTS: EasyMini arming done[0m
+[0;32mI (12647) APP: Status: 1[0m
+[0;32mI (12647) COTS: COTS DISARMING[0m
+[0;32mI (12647) COTS: ***** EASYMINI *****[0m
+[0;32mI (12647) COTS: EasyMini disarming done[0m
+[0;32mI (12647) APP: Status: 0[0m
+[0;32mI (12647) COTS: COTS ARMING[0m
+[0;32mI (12657) COTS: ***** EASYMINI *****[0m
+[0;32mI (12657) COTS: EasyMini arming done[0m
+[0;32mI (13657) APP: Status: 1[0m
+[0;32mI (13657) COTS: COTS DISARMING[0m
+[0;32mI (13657) COTS: ***** EASYMINI *****[0m
+[0;32mI (13657) COTS: EasyMini disarming done[0m
+[0;32mI (13657) APP: Status: 0[0m
+[0;32mI (13657) COTS: COTS ARMING[0m
+[0;32mI (13667) COTS: ***** EASYMINI *****[0m
+[0;32mI (13667) COTS: EasyMini arming done[0m
+[0;32mI (14667) APP: Status: 1[0m
+[0;32mI (14667) COTS: COTS DISARMING[0m
+[0;32mI (14667) COTS: ***** EASYMINI *****[0m
+[0;32mI (14667) COTS: EasyMini disarming done[0m
+[0;32mI (14667) APP: Status: 0[0m
+[0;32mI (14667) COTS: COTS ARMING[0m
+[0;32mI (14677) COTS: ***** EASYMINI *****[0m
+[0;32mI (14677) COTS: EasyMini arming done[0m
+[0;32mI (15677) APP: Status: 1[0m
+[0;32mI (15677) COTS: COTS DISARMING[0m
+[0;32mI (15677) COTS: ***** EASYMINI *****[0m
+[0;32mI (15677) COTS: EasyMini disarming done[0m
+[0;32mI (15677) APP: Status: 0[0m
+[0;32mI (15677) COTS: COTS ARMING[0m
+[0;32mI (15687) COTS: ***** EASYMINI *****[0m
+[0;32mI (15687) COTS: EasyMini arming done[0m
+[0;32mI (16687) APP: Status: 1[0m
+[0;32mI (16687) COTS: COTS DISARMING[0m
+[0;32mI (16687) COTS: ***** EASYMINI *****[0m
+[0;32mI (16687) COTS: EasyMini disarming done[0m
+[0;32mI (16687) APP: Status: 0[0m
+[0;32mI (16687) COTS: COTS ARMING[0m
+[0;32mI (16697) COTS: ***** EASYMINI *****[0m
+[0;32mI (16697) COTS: EasyMini arming done[0m
+[0;32mI (17697) APP: Status: 1[0m
+[0;32mI (17697) COTS: COTS DISARMING[0m
+[0;32mI (17697) COTS: ***** EASYMINI *****[0m
+[0;32mI (17697) COTS: EasyMini disarming done[0m
+[0;32mI (17697) APP: Status: 0[0m
+[0;32mI (17697) COTS: COTS ARMING[0m
+[0;32mI (17707) COTS: ***** EASYMINI *****[0m
+[0;32mI (17707) COTS: EasyMini arming done[0m
+[0;32mI (18707) APP: Status: 1[0m
+[0;32mI (18707) COTS: COTS DISARMING[0m
+[0;32mI (18707) COTS: ***** EASYMINI *****[0m
+[0;32mI (18707) COTS: EasyMini disarming done[0m
+[0;32mI (18707) APP: Status: 0[0m
+[0;32mI (18707) COTS: COTS ARMING[0m
+[0;32mI (18717) COTS: ***** EASYMINI *****[0m
+[0;32mI (18717) COTS: EasyMini arming done[0m
+[0;32mI (19717) APP: Status: 1[0m
+[0;32mI (19717) COTS: COTS DISARMING[0m
+[0;32mI (19717) COTS: ***** EASYMINI *****[0m
+[0;32mI (19717) COTS: EasyMini disarming done[0m
+[0;32mI (19717) APP: Status: 0[0m
+[0;32mI (19717) COTS: COTS ARMING[0m
+[0;32mI (19727) COTS: ***** EASYMINI *****[0m
+[0;32mI (19727) COTS: EasyMini arming done[0m
+[0;32mI (20727) APP: Status: 1[0m
+[0;32mI (20727) COTS: COTS DISARMING[0m
+[0;32mI (20727) COTS: ***** EASYMINI *****[0m
+[0;32mI (20727) COTS: EasyMini disarming done[0m
+[0;32mI (20727) APP: Status: 0[0m
+[0;32mI (20727) COTS: COTS ARMING[0m
+[0;32mI (20737) COTS: ***** EASYMINI *****[0m
+[0;32mI (20737) COTS: EasyMini arming done[0m
+[0;32mI (21737) APP: Status: 1[0m
+[0;32mI (21737) COTS: COTS DISARMING[0m
+[0;32mI (21737) COTS: ***** EASYMINI *****[0m
+[0;32mI (21737) COTS: EasyMini disarming done[0m
+[0;32mI (21737) APP: Status: 0[0m
+[0;32mI (21737) COTS: COTS ARMING[0m
+[0;32mI (21747) COTS: ***** EASYMINI *****[0m
+[0;32mI (21747) COTS: EasyMini arming done[0m
+[0;32mI (22747) APP: Status: 1[0m
+[0;32mI (22747) COTS: COTS DISARMING[0m
+[0;32mI (22747) COTS: ***** EASYMINI *****[0m
+[0;32mI (22747) COTS: EasyMini disarming done[0m
+[0;32mI (22747) APP: Status: 0[0m
+[0;32mI (22747) COTS: COTS ARMING[0m
+[0;32mI (22757) COTS: ***** EASYMINI *****[0m
+[0;32mI (22757) COTS: EasyMini arming done[0m
+[0;32mI (23757) APP: Status: 1[0m
+[0;32mI (23757) COTS: COTS DISARMING[0m
+[0;32mI (23757) COTS: ***** EASYMINI *****[0m
+[0;32mI (23757) COTS: EasyMini disarming done[0m
+[0;32mI (23757) APP: Status: 0[0m
+[0;32mI (23757) COTS: COTS ARMING[0m
+[0;32mI (23767) COTS: ***** EASYMINI *****[0m
+[0;32mI (23767) COTS: EasyMini arming done[0m
+[0;32mI (24767) APP: Status: 1[0m
+[0;32mI (24767) COTS: COTS DISARMING[0m
+[0;32mI (24767) COTS: ***** EASYMINI *****[0m
+[0;32mI (24767) COTS: EasyMini disarming done[0m
+[0;32mI (24767) APP: Status: 0[0m
+[0;32mI (24767) COTS: COTS ARMING[0m
+[0;32mI (24777) COTS: ***** EASYMINI *****[0m
+[0;32mI (24777) COTS: EasyMini arming done[0m
+[0;32mI (25777) APP: Status: 1[0m
+[0;32mI (25777) COTS: COTS DISARMING[0m
+[0;32mI (25777) COTS: ***** EASYMINI *****[0m
+[0;32mI (25777) COTS: EasyMini disarming done[0m
+[0;32mI (25777) APP: Status: 0[0m
+[0;32mI (25777) COTS: COTS ARMING[0m
+[0;32mI (25787) COTS: ***** EASYMINI *****[0m
+[0;32mI (25787) COTS: EasyMini arming done[0m
+[0;32mI (26787) APP: Status: 1[0m
+[0;32mI (26787) COTS: COTS DISARMING[0m
+[0;32mI (26787) COTS: ***** EASYMINI *****[0m
+[0;32mI (26787) COTS: EasyMini disarming done[0m
+[0;32mI (26787) APP: Status: 0[0m
+[0;32mI (26787) COTS: COTS ARMING[0m
+[0;32mI (26797) COTS: ***** EASYMINI *****[0m
+[0;32mI (26797) COTS: EasyMini arming done[0m
+[0;32mI (27797) APP: Status: 1[0m
+[0;32mI (27797) COTS: COTS DISARMING[0m
+[0;32mI (27797) COTS: ***** EASYMINI *****[0m
+[0;32mI (27797) COTS: EasyMini disarming done[0m
+[0;32mI (27797) APP: Status: 0[0m
+[0;32mI (27797) COTS: COTS ARMING[0m
+[0;32mI (27807) COTS: ***** EASYMINI *****[0m
+[0;32mI (27807) COTS: EasyMini arming done[0m
+[0;32mI (28807) APP: Status: 1[0m
+[0;32mI (28807) COTS: COTS DISARMING[0m
+[0;32mI (28807) COTS: ***** EASYMINI *****[0m
+[0;32mI (28807) COTS: EasyMini disarming done[0m
+[0;32mI (28807) APP: Status: 0[0m
+[0;32mI (28807) COTS: COTS ARMING[0m
+[0;32mI (28817) COTS: ***** EASYMINI *****[0m
+[0;32mI (28817) COTS: EasyMini arming done[0m
+[0;32mI (29817) APP: Status: 1[0m
+[0;32mI (29817) COTS: COTS DISARMING[0m
+[0;32mI (29817) COTS: ***** EASYMINI *****[0m
+[0;32mI (29817) COTS: EasyMini disarming done[0m
+[0;32mI (29817) APP: Status: 0[0m
+[0;32mI (29817) COTS: COTS ARMING[0m
+[0;32mI (29827) COTS: ***** EASYMINI *****[0m
+[0;32mI (29827) COTS: EasyMini arming done[0m
+[0;32mI (30827) APP: Status: 1[0m
+[0;32mI (30827) COTS: COTS DISARMING[0m
+[0;32mI (30827) COTS: ***** EASYMINI *****[0m
+[0;32mI (30827) COTS: EasyMini disarming done[0m
+[0;32mI (30827) APP: Status: 0[0m
+[0;32mI (30827) COTS: COTS ARMING[0m
+[0;32mI (30837) COTS: ***** EASYMINI *****[0m
+[0;32mI (30837) COTS: EasyMini arming done[0m
+[0;32mI (31837) APP: Status: 1[0m
+[0;32mI (31837) COTS: COTS DISARMING[0m
+[0;32mI (31837) COTS: ***** EASYMINI *****[0m
+[0;32mI (31837) COTS: EasyMini disarming done[0m
+[0;32mI (31837) APP: Status: 0[0m
+[0;32mI (31837) COTS: COTS ARMING[0m
+[0;32mI (31847) COTS: ***** EASYMINI *****[0m
+[0;32mI (31847) COTS: EasyMini arming done[0m
+[0;32mI (32847) APP: Status: 1[0m
+[0;32mI (32847) COTS: COTS DISARMING[0m
+[0;32mI (32847) COTS: ***** EASYMINI *****[0m
+[0;32mI (32847) COTS: EasyMini disarming done[0m
+[0;32mI (32847) APP: Status: 0[0m
+[0;32mI (32847) COTS: COTS ARMING[0m
+[0;32mI (32857) COTS: ***** EASYMINI *****[0m
+[0;32mI (32857) COTS: EasyMini arming done[0m
+[0;32mI (33857) APP: Status: 1[0m
+[0;32mI (33857) COTS: COTS DISARMING[0m
+[0;32mI (33857) COTS: ***** EASYMINI *****[0m
+[0;32mI (33857) COTS: EasyMini disarming done[0m
+[0;32mI (33857) APP: Status: 0[0m
+[0;32mI (33857) COTS: COTS ARMING[0m
+[0;32mI (33867) COTS: ***** EASYMINI *****[0m
+[0;32mI (33867) COTS: EasyMini arming done[0m
+[0;32mI (34867) APP: Status: 1[0m
+[0;32mI (34867) COTS: COTS DISARMING[0m
+[0;32mI (34867) COTS: ***** EASYMINI *****[0m
+[0;32mI (34867) COTS: EasyMini disarming done[0m
+[0;32mI (34867) APP: Status: 0[0m
+[0;32mI (34867) COTS: COTS ARMING[0m
+[0;32mI (34877) COTS: ***** EASYMINI *****[0m
+[0;32mI (34877) COTS: EasyMini arming done[0m
+[0;32mI (35877) APP: Status: 1[0m
+[0;32mI (35877) COTS: COTS DISARMING[0m
+[0;32mI (35877) COTS: ***** EASYMINI *****[0m
+[0;32mI (35877) COTS: EasyMini disarming done[0m
+[0;32mI (35877) APP: Status: 0[0m
+[0;32mI (35877) COTS: COTS ARMING[0m
+[0;32mI (35887) COTS: ***** EASYMINI *****[0m
+[0;32mI (35887) COTS: EasyMini arming done[0m
+[0;32mI (36887) APP: Status: 1[0m
+[0;32mI (36887) COTS: COTS DISARMING[0m
+[0;32mI (36887) COTS: ***** EASYMINI *****[0m
+[0;32mI (36887) COTS: EasyMini disarming done[0m
+[0;32mI (36887) APP: Status: 0[0m
+[0;32mI (36887) COTS: COTS ARMING[0m
+[0;32mI (36897) COTS: ***** EASYMINI *****[0m
+[0;32mI (36897) COTS: EasyMini arming done[0m
+[0;32mI (37897) APP: Status: 1[0m
+[0;32mI (37897) COTS: COTS DISARMING[0m
+[0;32mI (37897) COTS: ***** EASYMINI *****[0m
+[0;32mI (37897) COTS: EasyMini disarming done[0m
+[0;32mI (37897) APP: Status: 0[0m
+[0;32mI (37897) COTS: COTS ARMING[0m
+[0;32mI (37907) COTS: ***** EASYMINI *****[0m
+[0;32mI (37907) COTS: EasyMini arming done[0m
+[0;32mI (38907) APP: Status: 1[0m
+[0;32mI (38907) COTS: COTS DISARMING[0m
+[0;32mI (38907) COTS: ***** EASYMINI *****[0m
+[0;32mI (38907) COTS: EasyMini disarming done[0m
+[0;32mI (38907) APP: Status: 0[0m
+[0;32mI (38907) COTS: COTS ARMING[0m
+[0;32mI (38917) COTS: ***** EASYMINI *****[0m
+[0;32mI (38917) COTS: EasyMini arming done[0m
+[0;32mI (39917) APP: Status: 1[0m
+[0;32mI (39917) COTS: COTS DISARMING[0m
+[0;32mI (39917) COTS: ***** EASYMINI *****[0m
+[0;32mI (39917) COTS: EasyMini disarming done[0m
+[0;32mI (39917) APP: Status: 0[0m
+[0;32mI (39917) COTS: COTS ARMING[0m
+[0;32mI (39927) COTS: ***** EASYMINI *****[0m
+[0;32mI (39927) COTS: EasyMini arming done[0m
+[0;32mI (40927) APP: Status: 1[0m
+[0;32mI (40927) COTS: COTS DISARMING[0m
+[0;32mI (40927) COTS: ***** EASYMINI *****[0m
+[0;32mI (40927) COTS: EasyMini disarming done[0m
+[0;32mI (40927) APP: Status: 0[0m
+[0;32mI (40927) COTS: COTS ARMING[0m
+[0;32mI (40937) COTS: ***** EASYMINI *****[0m
+[0;32mI (40937) COTS: EasyMini arming done[0m
+[0;32mI (41937) APP: Status: 1[0m
+[0;32mI (41937) COTS: COTS DISARMING[0m
+[0;32mI (41937) COTS: ***** EASYMINI *****[0m
+[0;32mI (41937) COTS: EasyMini disarming done[0m
+[0;32mI (41937) APP: Status: 0[0m
+[0;32mI (41937) COTS: COTS ARMING[0m
+[0;32mI (41947) COTS: ***** EASYMINI *****[0m
+[0;32mI (41947) COTS: EasyMini arming done[0m
+[0;32mI (42947) APP: Status: 1[0m
+[0;32mI (42947) COTS: COTS DISARMING[0m
+[0;32mI (42947) COTS: ***** EASYMINI *****[0m
+[0;32mI (42947) COTS: EasyMini disarming done[0m
+[0;32mI (42947) APP: Status: 0[0m
+[0;32mI (42947) COTS: COTS ARMING[0m
+[0;32mI (42957) COTS: ***** EASYMINI *****[0m
+[0;32mI (42957) COTS: EasyMini arming done[0m
+[0;32mI (43957) APP: Status: 1[0m
+[0;32mI (43957) COTS: COTS DISARMING[0m
+[0;32mI (43957) COTS: ***** EASYMINI *****[0m
+[0;32mI (43957) COTS: EasyMini disarming done[0m
+[0;32mI (43957) APP: Status: 0[0m
+[0;32mI (43957) COTS: COTS ARMING[0m
+[0;32mI (43967) COTS: ***** EASYMINI *****[0m
+[0;32mI (43967) COTS: EasyMini arming done[0m
+[0;32mI (44967) APP: Status: 1[0m
+[0;32mI (44967) COTS: COTS DISARMING[0m
+[0;32mI (44967) COTS: ***** EASYMINI *****[0m
+[0;32mI (44967) COTS: EasyMini disarming done[0m
+[0;32mI (44967) APP: Status: 0[0m
+[0;32mI (44967) COTS: COTS ARMING[0m
+[0;32mI (44977) COTS: ***** EASYMINI *****[0m
+[0;32mI (44977) COTS: EasyMini arming done[0m
+[0;32mI (45977) APP: Status: 1[0m
+[0;32mI (45977) COTS: COTS DISARMING[0m
+[0;32mI (45977) COTS: ***** EASYMINI *****[0m
+[0;32mI (45977) COTS: EasyMini disarming done[0m
+[0;32mI (45977) APP: Status: 0[0m
+[0;32mI (45977) COTS: COTS ARMING[0m
+[0;32mI (45987) COTS: ***** EASYMINI *****[0m
+[0;32mI (45987) COTS: EasyMini arming done[0m
+[0;32mI (46987) APP: Status: 1[0m
+[0;32mI (46987) COTS: COTS DISARMING[0m
+[0;32mI (46987) COTS: ***** EASYMINI *****[0m
+[0;32mI (46987) COTS: EasyMini disarming done[0m
+[0;32mI (46987) APP: Status: 0[0m
+[0;32mI (46987) COTS: COTS ARMING[0m
+[0;32mI (46997) COTS: ***** EASYMINI *****[0m
+[0;32mI (46997) COTS: EasyMini arming done[0m
+[0;32mI (47997) APP: Status: 1[0m
+[0;32mI (47997) COTS: COTS DISARMING[0m
+[0;32mI (47997) COTS: ***** EASYMINI *****[0m
+[0;32mI (47997) COTS: EasyMini disarming done[0m
+[0;32mI (47997) APP: Status: 0[0m
+[0;32mI (47997) COTS: COTS ARMING[0m
+[0;32mI (48007) COTS: ***** EASYMINI *****[0m
+[0;32mI (48007) COTS: EasyMini arming done[0m
+[0;32mI (49007) APP: Status: 1[0m
+[0;32mI (49007) COTS: COTS DISARMING[0m
+[0;32mI (49007) COTS: ***** EASYMINI *****[0m
+[0;32mI (49007) COTS: EasyMini disarming done[0m
+[0;32mI (49007) APP: Status: 0[0m
+[0;32mI (49007) COTS: COTS ARMING[0m
+[0;32mI (49017) COTS: ***** EASYMINI *****[0m
+[0;32mI (49017) COTS: EasyMini arming done[0m
+[0;32mI (50017) APP: Status: 1[0m
+[0;32mI (50017) COTS: COTS DISARMING[0m
+[0;32mI (50017) COTS: ***** EASYMINI *****[0m
+[0;32mI (50017) COTS: EasyMini disarming done[0m
+[0;32mI (50017) APP: Status: 0[0m
+[0;32mI (50017) COTS: COTS ARMING[0m
+[0;32mI (50027) COTS: ***** EASYMINI *****[0m
+[0;32mI (50027) COTS: EasyMini arming done[0m
+[0;32mI (51027) APP: Status: 1[0m
+[0;32mI (51027) COTS: COTS DISARMING[0m
+[0;32mI (51027) COTS: ***** EASYMINI *****[0m
+[0;32mI (51027) COTS: EasyMini disarming done[0m
+[0;32mI (51027) APP: Status: 0[0m
+[0;32mI (51027) COTS: COTS ARMING[0m
+[0;32mI (51037) COTS: ***** EASYMINI *****[0m
+[0;32mI (51037) COTS: EasyMini arming done[0m
+[0;32mI (52037) APP: Status: 1[0m
+[0;32mI (52037) COTS: COTS DISARMING[0m
+[0;32mI (52037) COTS: ***** EASYMINI *****[0m
+[0;32mI (52037) COTS: EasyMini disarming done[0m
+[0;32mI (52037) APP: Status: 0[0m
+[0;32mI (52037) COTS: COTS ARMING[0m
+[0;32mI (52047) COTS: ***** EASYMINI *****[0m
+[0;32mI (52047) COTS: EasyMini arming done[0m
+[0;32mI (53047) APP: Status: 1[0m
+[0;32mI (53047) COTS: COTS DISARMING[0m
+[0;32mI (53047) COTS: ***** EASYMINI *****[0m
+[0;32mI (53047) COTS: EasyMini disarming done[0m
+[0;32mI (53047) APP: Status: 0[0m
+[0;32mI (53047) COTS: COTS ARMING[0m
+[0;32mI (53057) COTS: ***** EASYMINI *****[0m
+[0;32mI (53057) COTS: EasyMini arming done[0m
+[0;32mI (54057) APP: Status: 1[0m
+[0;32mI (54057) COTS: COTS DISARMING[0m
+[0;32mI (54057) COTS: ***** EASYMINI *****[0m
+[0;32mI (54057) COTS: EasyMini disarming done[0m
+[0;32mI (54057) APP: Status: 0[0m
+[0;32mI (54057) COTS: COTS ARMING[0m
+[0;32mI (54067) COTS: ***** EASYMINI *****[0m
+[0;32mI (54067) COTS: EasyMini arming done[0m
+[0;32mI (55067) APP: Status: 1[0m
+[0;32mI (55067) COTS: COTS DISARMING[0m
+[0;32mI (55067) COTS: ***** EASYMINI *****[0m
+[0;32mI (55067) COTS: EasyMini disarming done[0m
+[0;32mI (55067) APP: Status: 0[0m
+[0;32mI (55067) COTS: COTS ARMING[0m
+[0;32mI (55077) COTS: ***** EASYMINI *****[0m
+[0;32mI (55077) COTS: EasyMini arming done[0m
+[0;32mI (56077) APP: Status: 1[0m
+[0;32mI (56077) COTS: COTS DISARMING[0m
+[0;32mI (56077) COTS: ***** EASYMINI *****[0m
+[0;32mI (56077) COTS: EasyMini disarming done[0m
+[0;32mI (56077) APP: Status: 0[0m
+[0;32mI (56077) COTS: COTS ARMING[0m
+[0;32mI (56087) COTS: ***** EASYMINI *****[0m
+[0;32mI (56087) COTS: EasyMini arming done[0m
+[0;32mI (57087) APP: Status: 1[0m
+[0;32mI (57087) COTS: COTS DISARMING[0m
+[0;32mI (57087) COTS: ***** EASYMINI *****[0m
+[0;32mI (57087) COTS: EasyMini disarming done[0m
+[0;32mI (57087) APP: Status: 0[0m
+[0;32mI (57087) COTS: COTS ARMING[0m
+[0;32mI (57097) COTS: ***** EASYMINI *****[0m
+[0;32mI (57097) COTS: EasyMini arming done[0m
+[0;32mI (58097) APP: Status: 1[0m
+[0;32mI (58097) COTS: COTS DISARMING[0m
+[0;32mI (58097) COTS: ***** EASYMINI *****[0m
+[0;32mI (58097) COTS: EasyMini disarming done[0m
+[0;32mI (58097) APP: Status: 0[0m
+[0;32mI (58097) COTS: COTS ARMING[0m
+[0;32mI (58107) COTS: ***** EASYMINI *****[0m
+[0;32mI (58107) COTS: EasyMini arming done[0m
+[0;32mI (59107) APP: Status: 1[0m
+[0;32mI (59107) COTS: COTS DISARMING[0m
+[0;32mI (59107) COTS: ***** EASYMINI *****[0m
+[0;32mI (59107) COTS: EasyMini disarming done[0m
+[0;32mI (59107) APP: Status: 0[0m
+[0;32mI (59107) COTS: COTS ARMING[0m
+[0;32mI (59117) COTS: ***** EASYMINI *****[0m
+[0;32mI (59117) COTS: EasyMini arming done[0m
+[0;32mI (60117) APP: Status: 1[0m
+[0;32mI (60117) COTS: COTS DISARMING[0m
+[0;32mI (60117) COTS: ***** EASYMINI *****[0m
+[0;32mI (60117) COTS: EasyMini disarming done[0m
+[0;32mI (60117) APP: Status: 0[0m
+[0;32mI (60117) COTS: COTS ARMING[0m
+[0;32mI (60127) COTS: ***** EASYMINI *****[0m
+[0;32mI (60127) COTS: EasyMini arming done[0m
+[0;32mI (61127) APP: Status: 1[0m
+[0;32mI (61127) COTS: COTS DISARMING[0m
+[0;32mI (61127) COTS: ***** EASYMINI *****[0m
+[0;32mI (61127) COTS: EasyMini disarming done[0m
+[0;32mI (61127) APP: Status: 0[0m
+[0;32mI (61127) COTS: COTS ARMING[0m
+[0;32mI (61137) COTS: ***** EASYMINI *****[0m
+[0;32mI (61137) COTS: EasyMini arming done[0m
+[0;32mI (62137) APP: Status: 1[0m
+[0;32mI (62137) COTS: COTS DISARMING[0m
+[0;32mI (62137) COTS: ***** EASYMINI *****[0m
+[0;32mI (62137) COTS: EasyMini disarming done[0m
+[0;32mI (62137) APP: Status: 0[0m
+[0;32mI (62137) COTS: COTS ARMING[0m
+[0;32mI (62147) COTS: ***** EASYMINI *****[0m
+[0;32mI (62147) COTS: EasyMini arming done[0m
+[0;32mI (63147) APP: Status: 1[0m
+[0;32mI (63147) COTS: COTS DISARMING[0m
+[0;32mI (63147) COTS: ***** EASYMINI *****[0m
+[0;32mI (63147) COTS: EasyMini disarming done[0m
+[0;32mI (63147) APP: Status: 0[0m
+[0;32mI (63147) COTS: COTS ARMING[0m
+[0;32mI (63157) COTS: ***** EASYMINI *****[0m
+[0;32mI (63157) COTS: EasyMini arming done[0m
+[0;32mI (64157) APP: Status: 1[0m
+[0;32mI (64157) COTS: COTS DISARMING[0m
+[0;32mI (64157) COTS: ***** EASYMINI *****[0m
+[0;32mI (64157) COTS: EasyMini disarming done[0m
+[0;32mI (64157) APP: Status: 0[0m
+[0;32mI (64157) COTS: COTS ARMING[0m
+[0;32mI (64167) COTS: ***** EASYMINI *****[0m
+[0;32mI (64167) COTS: EasyMini arming done[0m
+[0;32mI (65167) APP: Status: 1[0m
+[0;32mI (65167) COTS: COTS DISARMING[0m
+[0;32mI (65167) COTS: ***** EASYMINI *****[0m
+[0;32mI (65167) COTS: EasyMini disarming done[0m
+[0;32mI (65167) APP: Status: 0[0m
+[0;32mI (65167) COTS: COTS ARMING[0m
+[0;32mI (65177) COTS: ***** EASYMINI *****[0m
+[0;32mI (65177) COTS: EasyMini arming done[0m
+[0;32mI (66177) APP: Status: 1[0m
+[0;32mI (66177) COTS: COTS DISARMING[0m
+[0;32mI (66177) COTS: ***** EASYMINI *****[0m
+[0;32mI (66177) COTS: EasyMini disarming done[0m
+[0;32mI (66177) APP: Status: 0[0m
+[0;32mI (66177) COTS: COTS ARMING[0m
+[0;32mI (66187) COTS: ***** EASYMINI *****[0m
+[0;32mI (66187) COTS: EasyMini arming done[0m
+[0;32mI (67187) APP: Status: 1[0m
+[0;32mI (67187) COTS: COTS DISARMING[0m
+[0;32mI (67187) COTS: ***** EASYMINI *****[0m
+[0;32mI (67187) COTS: EasyMini disarming done[0m
+[0;32mI (67187) APP: Status: 0[0m
+[0;32mI (67187) COTS: COTS ARMING[0m
+[0;32mI (67197) COTS: ***** EASYMINI *****[0m
+[0;32mI (67197) COTS: EasyMini arming done[0m
+[0;32mI (68197) APP: Status: 1[0m
+[0;32mI (68197) COTS: COTS DISARMING[0m
+[0;32mI (68197) COTS: ***** EASYMINI *****[0m
+[0;32mI (68197) COTS: EasyMini disarming done[0m
+[0;32mI (68197) APP: Status: 0[0m
+[0;32mI (68197) COTS: COTS ARMING[0m
+[0;32mI (68207) COTS: ***** EASYMINI *****[0m
+[0;32mI (68207) COTS: EasyMini arming done[0m
+[0;32mI (69207) APP: Status: 1[0m
+[0;32mI (69207) COTS: COTS DISARMING[0m
+[0;32mI (69207) COTS: ***** EASYMINI *****[0m
+[0;32mI (69207) COTS: EasyMini disarming done[0m
+[0;32mI (69207) APP: Status: 0[0m
+[0;32mI (69207) COTS: COTS ARMING[0m
+[0;32mI (69217) COTS: ***** EASYMINI *****[0m
+[0;32mI (69217) COTS: EasyMini arming done[0m
+[0;32mI (70217) APP: Status: 1[0m
+[0;32mI (70217) COTS: COTS DISARMING[0m
+[0;32mI (70217) COTS: ***** EASYMINI *****[0m
+[0;32mI (70217) COTS: EasyMini disarming done[0m
+[0;32mI (70217) APP: Status: 0[0m
+[0;32mI (70217) COTS: COTS ARMING[0m
+[0;32mI (70227) COTS: ***** EASYMINI *****[0m
+[0;32mI (70227) COTS: EasyMini arming done[0m
+[0;32mI (71227) APP: Status: 1[0m
+[0;32mI (71227) COTS: COTS DISARMING[0m
+[0;32mI (71227) COTS: ***** EASYMINI *****[0m
+[0;32mI (71227) COTS: EasyMini disarming done[0m
+[0;32mI (71227) APP: Status: 0[0m
+[0;32mI (71227) COTS: COTS ARMING[0m
+[0;32mI (71237) COTS: ***** EASYMINI *****[0m
+[0;32mI (71237) COTS: EasyMini arming done[0m
+[0;32mI (72237) APP: Status: 1[0m
+[0;32mI (72237) COTS: COTS DISARMING[0m
+[0;32mI (72237) COTS: ***** EASYMINI *****[0m
+[0;32mI (72237) COTS: EasyMini disarming done[0m
+[0;32mI (72237) APP: Status: 0[0m
+[0;32mI (72237) COTS: COTS ARMING[0m
+[0;32mI (72247) COTS: ***** EASYMINI *****[0m
+[0;32mI (72247) COTS: EasyMini arming done[0m
+[0;32mI (73247) APP: Status: 1[0m
+[0;32mI (73247) COTS: COTS DISARMING[0m
+[0;32mI (73247) COTS: ***** EASYMINI *****[0m
+[0;32mI (73247) COTS: EasyMini disarming done[0m
+[0;32mI (73247) APP: Status: 0[0m
+[0;32mI (73247) COTS: COTS ARMING[0m
+[0;32mI (73257) COTS: ***** EASYMINI *****[0m
+[0;32mI (73257) COTS: EasyMini arming done[0m
+[0;32mI (74257) APP: Status: 1[0m
+[0;32mI (74257) COTS: COTS DISARMING[0m
+[0;32mI (74257) COTS: ***** EASYMINI *****[0m
+[0;32mI (74257) COTS: EasyMini disarming done[0m
+[0;32mI (74257) APP: Status: 0[0m
+[0;32mI (74257) COTS: COTS ARMING[0m
+[0;32mI (74267) COTS: ***** EASYMINI *****[0m
+[0;32mI (74267) COTS: EasyMini arming done[0m
+[0;32mI (75267) APP: Status: 1[0m
+[0;32mI (75267) COTS: COTS DISARMING[0m
+[0;32mI (75267) COTS: ***** EASYMINI *****[0m
+[0;32mI (75267) COTS: EasyMini disarming done[0m
+[0;32mI (75267) APP: Status: 0[0m
+[0;32mI (75267) COTS: COTS ARMING[0m
+[0;32mI (75277) COTS: ***** EASYMINI *****[0m
+[0;32mI (75277) COTS: EasyMini arming done[0m
+[0;32mI (76277) APP: Status: 1[0m
+[0;32mI (76277) COTS: COTS DISARMING[0m
+[0;32mI (76277) COTS: ***** EASYMINI *****[0m
+[0;32mI (76277) COTS: EasyMini disarming done[0m
+[0;32mI (76277) APP: Status: 0[0m
+[0;32mI (76277) COTS: COTS ARMING[0m
+[0;32mI (76287) COTS: ***** EASYMINI *****[0m
+[0;32mI (76287) COTS: EasyMini arming done[0m
+[0;32mI (77287) APP: Status: 1[0m
+[0;32mI (77287) COTS: COTS DISARMING[0m
+[0;32mI (77287) COTS: ***** EASYMINI *****[0m
+[0;32mI (77287) COTS: EasyMini disarming done[0m
+[0;32mI (77287) APP: Status: 0[0m
+[0;32mI (77287) COTS: COTS ARMING[0m
+[0;32mI (77297) COTS: ***** EASYMINI *****[0m
+[0;32mI (77297) COTS: EasyMini arming done[0m
+[0;32mI (78297) APP: Status: 1[0m
+[0;32mI (78297) COTS: COTS DISARMING[0m
+[0;32mI (78297) COTS: ***** EASYMINI *****[0m
+[0;32mI (78297) COTS: EasyMini disarming done[0m
+[0;32mI (78297) APP: Status: 0[0m
+[0;32mI (78297) COTS: COTS ARMING[0m
+[0;32mI (78307) COTS: ***** EASYMINI *****[0m
+[0;32mI (78307) COTS: EasyMini arming done[0m
+[0;32mI (79307) APP: Status: 1[0m
+[0;32mI (79307) COTS: COTS DISARMING[0m
+[0;32mI (79307) COTS: ***** EASYMINI *****[0m
+[0;32mI (79307) COTS: EasyMini disarming done[0m
+[0;32mI (79307) APP: Status: 0[0m
+[0;32mI (79307) COTS: COTS ARMING[0m
+[0;32mI (79317) COTS: ***** EASYMINI *****[0m
+[0;32mI (79317) COTS: EasyMini arming done[0m
+[0;32mI (80317) APP: Status: 1[0m
+[0;32mI (80317) COTS: COTS DISARMING[0m
+[0;32mI (80317) COTS: ***** EASYMINI *****[0m
+[0;32mI (80317) COTS: EasyMini disarming done[0m
+[0;32mI (80317) APP: Status: 0[0m
+[0;32mI (80317) COTS: COTS ARMING[0m
+[0;32mI (80327) COTS: ***** EASYMINI *****[0m
+[0;32mI (80327) COTS: EasyMini arming done[0m
+[0;32mI (81327) APP: Status: 1[0m
+[0;32mI (81327) COTS: COTS DISARMING[0m
+[0;32mI (81327) COTS: ***** EASYMINI *****[0m
+[0;32mI (81327) COTS: EasyMini disarming done[0m
+[0;32mI (81327) APP: Status: 0[0m
+[0;32mI (81327) COTS: COTS ARMING[0m
+[0;32mI (81337) COTS: ***** EASYMINI *****[0m
+[0;32mI (81337) COTS: EasyMini arming done[0m
+[0;32mI (82337) APP: Status: 1[0m
+[0;32mI (82337) COTS: COTS DISARMING[0m
+[0;32mI (82337) COTS: ***** EASYMINI *****[0m
+[0;32mI (82337) COTS: EasyMini disarming done[0m
+[0;32mI (82337) APP: Status: 0[0m
+[0;32mI (82337) COTS: COTS ARMING[0m
+[0;32mI (82347) COTS: ***** EASYMINI *****[0m
+[0;32mI (82347) COTS: EasyMini arming done[0m
+[0;32mI (83347) APP: Status: 1[0m
+[0;32mI (83347) COTS: COTS DISARMING[0m
+[0;32mI (83347) COTS: ***** EASYMINI *****[0m
+[0;32mI (83347) COTS: EasyMini disarming done[0m
+[0;32mI (83347) APP: Status: 0[0m
+[0;32mI (83347) COTS: COTS ARMING[0m
+[0;32mI (83357) COTS: ***** EASYMINI *****[0m
+[0;32mI (83357) COTS: EasyMini arming done[0m
+[0;32mI (84357) APP: Status: 1[0m
+[0;32mI (84357) COTS: COTS DISARMING[0m
+[0;32mI (84357) COTS: ***** EASYMINI *****[0m
+[0;32mI (84357) COTS: EasyMini disarming done[0m
+[0;32mI (84357) APP: Status: 0[0m
+[0;32mI (84357) COTS: COTS ARMING[0m
+[0;32mI (84367) COTS: ***** EASYMINI *****[0m
+[0;32mI (84367) COTS: EasyMini arming done[0m
+[0;32mI (85367) APP: Status: 1[0m
+[0;32mI (85367) COTS: COTS DISARMING[0m
+[0;32mI (85367) COTS: ***** EASYMINI *****[0m
+[0;32mI (85367) COTS: EasyMini disarming done[0m
+[0;32mI (85367) APP: Status: 0[0m
+[0;32mI (85367) COTS: COTS ARMING[0m
+[0;32mI (85377) COTS: ***** EASYMINI *****[0m
+[0;32mI (85377) COTS: EasyMini arming done[0m
+[0;32mI (86377) APP: Status: 1[0m
+[0;32mI (86377) COTS: COTS DISARMING[0m
+[0;32mI (86377) COTS: ***** EASYMINI *****[0m
+[0;32mI (86377) COTS: EasyMini disarming done[0m
+[0;32mI (86377) APP: Status: 0[0m
+[0;32mI (86377) COTS: COTS ARMING[0m
+[0;32mI (86387) COTS: ***** EASYMINI *****[0m
+[0;32mI (86387) COTS: EasyMini arming done[0m
+[0;32mI (87387) APP: Status: 1[0m
+[0;32mI (87387) COTS: COTS DISARMING[0m
+[0;32mI (87387) COTS: ***** EASYMINI *****[0m
+[0;32mI (87387) COTS: EasyMini disarming done[0m
+[0;32mI (87387) APP: Status: 0[0m
+[0;32mI (87387) COTS: COTS ARMING[0m
+[0;32mI (87397) COTS: ***** EASYMINI *****[0m
+[0;32mI (87397) COTS: EasyMini arming done[0m
+[0;32mI (88397) APP: Status: 1[0m
+[0;32mI (88397) COTS: COTS DISARMING[0m
+[0;32mI (88397) COTS: ***** EASYMINI *****[0m
+[0;32mI (88397) COTS: EasyMini disarming done[0m
+[0;32mI (88397) APP: Status: 0[0m
+[0;32mI (88397) COTS: COTS ARMING[0m
+[0;32mI (88407) COTS: ***** EASYMINI *****[0m
+[0;32mI (88407) COTS: EasyMini arming done[0m
+[0;32mI (89407) APP: Status: 1[0m
+[0;32mI (89407) COTS: COTS DISARMING[0m
+[0;32mI (89407) COTS: ***** EASYMINI *****[0m
+[0;32mI (89407) COTS: EasyMini disarming done[0m
+[0;32mI (89407) APP: Status: 0[0m
+[0;32mI (89407) COTS: COTS ARMING[0m
+[0;32mI (89417) COTS: ***** EASYMINI *****[0m
+[0;32mI (89417) COTS: EasyMini arming done[0m
+[0;32mI (90417) APP: Status: 1[0m
+[0;32mI (90417) COTS: COTS DISARMING[0m
+[0;32mI (90417) COTS: ***** EASYMINI *****[0m
+[0;32mI (90417) COTS: EasyMini disarming done[0m
+[0;32mI (90417) APP: Status: 0[0m
+[0;32mI (90417) COTS: COTS ARMING[0m
+[0;32mI (90427) COTS: ***** EASYMINI *****[0m
+[0;32mI (90427) COTS: EasyMini arming done[0m
+[0;32mI (91427) APP: Status: 1[0m
+[0;32mI (91427) COTS: COTS DISARMING[0m
+[0;32mI (91427) COTS: ***** EASYMINI *****[0m
+[0;32mI (91427) COTS: EasyMini disarming done[0m
+[0;32mI (91427) APP: Status: 0[0m
+[0;32mI (91427) COTS: COTS ARMING[0m
+[0;32mI (91437) COTS: ***** EASYMINI *****[0m
+[0;32mI (91437) COTS: EasyMini arming done[0m
+[0;32mI (92437) APP: Status: 1[0m
+[0;32mI (92437) COTS: COTS DISARMING[0m
+[0;32mI (92437) COTS: ***** EASYMINI *****[0m
+[0;32mI (92437) COTS: EasyMini disarming done[0m
+[0;32mI (92437) APP: Status: 0[0m
+[0;32mI (92437) COTS: COTS ARMING[0m
+[0;32mI (92447) COTS: ***** EASYMINI *****[0m
+[0;32mI (92447) COTS: EasyMini arming done[0m
+[0;32mI (93447) APP: Status: 1[0m
+[0;32mI (93447) COTS: COTS DISARMING[0m
+[0;32mI (93447) COTS: ***** EASYMINI *****[0m
+[0;32mI (93447) COTS: EasyMini disarming done[0m
+[0;32mI (93447) APP: Status: 0[0m
+[0;32mI (93447) COTS: COTS ARMING[0m
+[0;32mI (93457) COTS: ***** EASYMINI *****[0m
+[0;32mI (93457) COTS: EasyMini arming done[0m
+[0;32mI (94457) APP: Status: 1[0m
+[0;32mI (94457) COTS: COTS DISARMING[0m
+[0;32mI (94457) COTS: ***** EASYMINI *****[0m
+[0;32mI (94457) COTS: EasyMini disarming done[0m
+[0;32mI (94457) APP: Status: 0[0m
+[0;32mI (94457) COTS: COTS ARMING[0m
+[0;32mI (94467) COTS: ***** EASYMINI *****[0m
+[0;32mI (94467) COTS: EasyMini arming done[0m
+ets Jun  8 2016�ets J�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (32) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label           �ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (32) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b218h ( 45592) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0001b240 vaddr=3ffb0000 size=02178h (  8568) load[0m
+[0;32mI (126) esp_image: segment 2: paddr=0001d3c0 vaddr=40080000 size=02c58h ( 11352) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16230h ( 90672) map[0m
+[0;32mI (170) esp_image: segment 4: paddr=00036258 vaddr=40082c58 size=0a86ch ( 43116) load[0m
+[0;32mI (194) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (195) boot: Disabling RNG early entropy source...[0m
+[0;32mI (206) cpu_start: Multicore app[0m
+[0;32mI (206) cpu_start: Pro cpu up.[0m
+[0;32mI (206) cpu_start: Starting app cpu, entry point is 0x400811f8[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (224) cpu_start: Pro cpu start user code[0m
+[0;32mI (224) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (224) cpu_start: Application information:[0m
+[0;32mI (229) cpu_start: Project name:     main[0m
+[0;32mI (234) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (239) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (245) cpu_start: ELF file SHA256:  47b6a55fd4f6c855...[0m
+[0;32mI (251) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (258) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (262) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (267) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (272) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (279) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (285) heap_init: At 3FFB2A48 len 0002D5B8 (181 KiB): DRAM[0m
+[0;32mI (291) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (298) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (304) heap_init: At 4008D4C4 len 00012B3C (74 KiB): IRAM[0m
+[0;32mI (312) spi_flash: detected chip: gd[0m
+[0;32mI (315) spi_flash: flash io: dio[0m
+[0;33mW (318) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (332) app_start: Starting scheduler on CPU0[0m
+[0;32mI (337) app_start: Starting scheduler on CPU1[0m
+[0;32mI (337) main_task: Started on CPU0[0m
+[0;32mI (347) main_task: Calling app_main()[0m
+[0;32mI (347) COTS: Cots initialization[0m
+[0;32mI (347) COTS: **** TELEMETRUM ****[0m
+[0;32mI (357) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (367) gpio: GPIO[22]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (377) gpio: GPIO[19]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:4 [0m
+[0;32mI (377) COTS: Telemetrum initialization done :D[0m
+[0;32mI (387) COTS: Cots initialization[0m
+[0;32mI (387) COTS: ***** EASYMINI *****[0m
+[0;32mI (397) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (407) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (417) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:4 [0m
+[0;32mI (427) COTS: EasyMini initialization done :D[0m
+[0;32mI (427) RECOVERY: Recovery System Initialization[0m
+[0;32mI (437) RECOVERY: DUPA[0m
+[0;32mI (437) gpio: GPIO[9]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (447) RECOVERY: DUPA2[0m
+[0;32mI (447) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (457) gpio: GPIO[14]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (467) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (477) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (487) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (497) RECOVERY: DUPA3[0m
+[0;32mI (497) RECOVERY: Recovery system initialization done :D[0m
+[0;32mI (507) I2C: I2C INIT[0m
+[0;32mI (507) I2C: DUPA[0m
+[0;32mI (507) I2C: DUPA2[0m
+[0;32mI (517) I2C: DUPA3 [0m
+[0;32mI (517) APP: Init completed, entering recovery loop[0m
+[0;32mI (517) APP: Status: 0[0m
+[0;32mI (527) COTS: COTS ARMING[0m
+[0;32mI (527) COTS: ***** EASYMINI *****[0m
+[0;32mI (527) COTS: EasyMini arming done[0m
+[0;32mI (1537) APP: Status: 1[0m
+[0;32mI (1537) COTS: COTS DISARMING[0m
+[0;32mI (1537) COTS: ***** EASYMINI *****[0m
+[0;32mI (1537) COTS: EasyMini disarming done[0m
+[0;32mI (1537) APP: Status: 0[0m
+[0;32mI (1537) COTS: COTS ARMING[0m
+[0;32mI (1547) COTS: ***** EASYMINI *****[0m
+[0;32mI (1547) COTS: EasyMini arming done[0m
+[0;32mI (2547) APP: Status: 1[0m
+[0;32mI (2547) COTS: COTS DISARMING[0m
+[0;32mI (2547) COTS: ***** EASYMINI *****[0m
+[0;32mI (2547) COTS: EasyMini disarming done[0m
+[0;32mI (2547) APP: Status: 0[0m
+[0;32mI (2547) COTS: COTS ARMING[0m
+[0;32mI (2557) COTS: ***** EASYMINI *****[0m
+[0;32mI (2557) COTS: EasyMini arming done[0m
+[0;32mI (3557) APP: Status: 1[0m
+[0;32mI (3557) COTS: COTS DISARMING[0m
+[0;32mI (3557) COTS: ***** EASYMINI *****[0m
+[0;32mI (3557) COTS: EasyMini disarming done[0m
+[0;32mI (3557) APP: Status: 0[0m
+[0;32mI (3557) COTS: COTS ARMING[0m
+[0;32mI (3567) COTS: ***** EASYMINI *****[0m
+[0;32mI (3567) COTS: EasyMini arming done[0m
+[0;32mI (4567) APP: Status: 1[0m
+[0;32mI (4567) COTS: COTS DISARMING[0m
+[0;32mI (4567) COTS: ***** EASYMINI *****[0m
+[0;32mI (4567) COTS: EasyMini disarming done[0m
+[0;32mI (4567) APP: Status: 0[0m
+[0;32mI (4567) COTS: COTS ARMING[0m
+[0;32mI (4577) COTS: ***** EASYMINI *****[0m
+[0;32mI (4577) COTS: EasyMini arming done[0m
+[0;32mI (5577) APP: Status: 1[0m
+[0;32mI (5577) COTS: COTS DISARMING[0m
+[0;32mI (5577) COTS: ***** EASYMINI *****[0m
+[0;32mI (5577) COTS: EasyMini disarming done[0m
+[0;32mI (5577) APP: Status: 0[0m
+[0;32mI (5577) COTS: COTS ARMING[0m
+[0;32mI (5587) COTS: ***** EASYMINI *****[0m
+[0;32mI (5587) COTS: EasyMini arming done[0m
+[0;32mI (6587) APP: Status: 1[0m
+[0;32mI (6587) COTS: COTS DISARMING[0m
+[0;32mI (6587) COTS: ***** EASYMINI *****[0m
+[0;32mI (6587) COTS: EasyMini disarming done[0m
+[0;32mI (6587) APP: Status: 0[0m
+[0;32mI (6587) COTS: COTS ARMING[0m
+[0;32mI (6597) COTS: ***** EASYMINI *****[0m
+[0;32mI (6597) COTS: EasyMini arming done[0m
+[0;32mI (7597) APP: Status: 1[0m
+[0;32mI (7597) COTS: COTS DISARMING[0m
+[0;32mI (7597) COTS: ***** EASYMINI *****[0m
+[0;32mI (7597) COTS: EasyMini disarming done[0m
+[0;32mI (7597) APP: Status: 0[0m
+[0;32mI (7597) COTS: COTS ARMING[0m
+[0;32mI (7607) COTS: ***** EASYMINI *****[0m
+[0;32mI (7607) COTS: EasyMini arming done[0m
+[0;32mI (8607) APP: Status: 1[0m
+[0;32mI (8607) COTS: COTS DISARMING[0m
+[0;32mI (8607) COTS: ***** EASYMINI *****[0m
+[0;32mI (8607) COTS: EasyMini disarming done[0m
+[0;32mI (8607) APP: Status: 0[0m
+[0;32mI (8607) COTS: COTS ARMING[0m
+[0;32mI (8617) COTS: ***** EASYMINI *****[0m
+[0;32mI (8617) COTS: EasyMini arming done[0m
+[0;32mI (9617) APP: Status: 1[0m
+[0;32mI (9617) COTS: COTS DISARMING[0m
+[0;32mI (9617) COTS: ***** EASYMINI *****[0m
+[0;32mI (9617) COTS: EasyMini disarming done[0m
+[0;32mI (9617) APP: Status: 0[0m
+[0;32mI (9617) COTS: COTS ARMING[0m
+[0;32mI (9627) COTS: ***** EASYMINI *****[0m
+[0;32mI (9627) COTS: EasyMini arming done[0m
+[0;32mI (10627) APP: Status: 1[0m
+[0;32mI (10627) COTS: COTS DISARMING[0m
+[0;32mI (10627) COTS: ***** EASYMINI *****[0m
+[0;32mI (10627) COTS: EasyMini disarming done[0m
+[0;32mI (10627) APP: Status: 0[0m
+[0;32mI (10627) COTS: COTS ARMING[0m
+[0;32mI (10637) COTS: ***** EASYMINI *****[0m
+[0;32mI (10637) COTS: EasyMini arming done[0m
+[0;32mI (11637) APP: Status: 1[0m
+[0;32mI (11637) COTS: COTS DISARMING[0m
+[0;32mI (11637) COTS: ***** EASYMINI *****[0m
+[0;32mI (11637) COTS: EasyMini disarming done[0m
+[0;32mI (11637) APP: Status: 0[0m
+[0;32mI (11637) COTS: COTS ARMING[0m
+[0;32mI (11647) COTS: ***** EASYMINI *****[0m
+[0;32mI (11647) COTS: EasyMini arming done[0m
+[0;32mI (12647) APP: Status: 1[0m
+[0;32mI (12647) COTS: COTS DISARMING[0m
+[0;32mI (12647) COTS: ***** EASYMINI *****[0m
+[0;32mI (12647) COTS: EasyMini disarming done[0m
+[0;32mI (12647) APP: Status: 0[0m
+[0;32mI (12647) COTS: COTS ARMING[0m
+[0;32mI (12657) COTS: ***** EASYMINI *****[0m
+[0;32mI (12657) COTS: EasyMini arming done[0m
+[0;32mI (13657) APP: Status: 1[0m
+[0;32mI (13657) COTS: COTS DISARMING[0m
+[0;32mI (13657) COTS: ***** EASYMINI *****[0m
+[0;32mI (13657) COTS: EasyMini disarming done[0m
+[0;32mI (13657) APP: Status: 0[0m
+[0;32mI (13657) COTS: COTS ARMING[0m
+[0;32mI (13667) COTS: ***** EASYMINI *****[0m
+[0;32mI (13667) COTS: EasyMini arming done[0m
+[0;32mI (14667) APP: Status: 1[0m
+[0;32mI (14667) COTS: COTS DISARMING[0m
+[0;32mI (14667) COTS: ***** EASYMINI *****[0m
+[0;32mI (14667) COTS: EasyMini disarming done[0m
+[0;32mI (14667) APP: Status: 0[0m
+[0;32mI (14667) COTS: COTS ARMING[0m
+[0;32mI (14677) COTS: ***** EASYMINI *****[0m
+[0;32mI (14677) COTS: EasyMini arming done[0m
+[0;32mI (15677) APP: Status: 1[0m
+[0;32mI (15677) COTS: COTS DISARMING[0m
+[0;32mI (15677) COTS: ***** EASYMINI *****[0m
+[0;32mI (15677) COTS: EasyMini disarming done[0m
+[0;32mI (15677) APP: Status: 0[0m
+[0;32mI (15677) COTS: COTS ARMING[0m
+[0;32mI (15687) COTS: ***** EASYMINI *****[0m
+[0;32mI (15687) COTS: EasyMini arming done[0m
+[0;32mI (16687) APP: Status: 1[0m
+[0;32mI (16687) COTS: COTS DISARMING[0m
+[0;32mI (16687) COTS: ***** EASYMINI *****[0m
+[0;32mI (16687) COTS: EasyMini disarming done[0m
+[0;32mI (16687) APP: Status: 0[0m
+[0;32mI (16687) COTS: COTS ARMING[0m
+[0;32mI (16697) COTS: ***** EASYMINI *****[0m
+[0;32mI (16697) COTS: EasyMini arming done[0m
+[0;32mI (17697) APP: Status: 1[0m
+[0;32mI (17697) COTS: COTS DISARMING[0m
+[0;32mI (17697) COTS: ***** EASYMINI *****[0m
+[0;32mI (17697) COTS: EasyMini disarming done[0m
+[0;32mI (17697) APP: Status: 0[0m
+[0;32mI (17697) COTS: COTS ARMING[0m
+[0;32mI (17707) COTS: ***** EASYMINI *****[0m
+[0;32mI (17707) COTS: EasyMini arming done[0m
+[0;32mI (18707) APP: Status: 1[0m
+[0;32mI (18707) COTS: COTS DISARMING[0m
+[0;32mI (18707) COTS: ***** EASYMINI *****[0m
+[0;32mI (18707) COTS: EasyMini disarming done[0m
+[0;32mI (18707) APP: Status: 0[0m
+[0;32mI (18707) COTS: COTS ARMING[0m
+[0;32mI (18717) COTS: ***** EASYMINI *****[0m
+[0;32mI (18717) COTS: EasyMini arming done[0m
+[0;32mI (19717) APP: Status: 1[0m
+[0;32mI (19717) COTS: COTS DISARMING[0m
+[0;32mI (19717) COTS: ***** EASYMINI *****[0m
+[0;32mI (19717) COTS: EasyMini disarming done[0m
+[0;32mI (19717) APP: Status: 0[0m
+[0;32mI (19717) COTS: COTS ARMING[0m
+[0;32mI (19727) COTS: ***** EASYMINI *****[0m
+[0;32mI (19727) COTS: EasyMini arming done[0m
+[0;32mI (20727) APP: Status: 1[0m
+[0;32mI (20727) COTS: COTS DISARMING[0m
+[0;32mI (20727) COTS: ***** EASYMINI *****[0m
+[0;32mI (20727) COTS: EasyMini disarming done[0m
+[0;32mI (20727) APP: Status: 0[0m
+[0;32mI (20727) COTS: COTS ARMING[0m
+[0;32mI (20737) COTS: ***** EASYMINI *****[0m
+[0;32mI (20737) COTS: EasyMini arming done[0m
+[0;32mI (21737) APP: Status: 1[0m
+[0;32mI (21737) COTS: COTS DISARMING[0m
+[0;32mI (21737) COTS: ***** EASYMINI *****[0m
+[0;32mI (21737) COTS: EasyMini disarming done[0m
+[0;32mI (21737) APP: Status: 0[0m
+[0;32mI (21737) COTS: COTS ARMING[0m
+[0;32mI (21747) COTS: ***** EASYMINI *****[0m
+[0;32mI (21747) COTS: EasyMini arming done[0m
+[0;32mI (22747) APP: Status: 1[0m
+[0;32mI (22747) COTS: COTS DISARMING[0m
+[0;32mI (22747) COTS: ***** EASYMINI *****[0m
+[0;32mI (22747) COTS: EasyMini disarming done[0m
+[0;32mI (22747) APP: Status: 0[0m
+[0;32mI (22747) COTS: COTS ARMING[0m
+[0;32mI (22757) COTS: ***** EASYMINI *****[0m
+[0;32mI (22757) COTS: EasyMini arming done[0m
+[0;32mI (23757) APP: Status: 1[0m
+[0;32mI (23757) COTS: COTS DISARMING[0m
+[0;32mI (23757) COTS: ***** EASYMINI *****[0m
+[0;32mI (23757) COTS: EasyMini disarming done[0m
+[0;32mI (23757) APP: Status: 0[0m
+[0;32mI (23757) COTS: COTS ARMING[0m
+[0;32mI (23767) COTS: ***** EASYMINI *****[0m
+[0;32mI (23767) COTS: EasyMini arming done[0m
+[0;32mI (24767) APP: Status: 1[0m
+[0;32mI (24767) COTS: COTS DISARMING[0m
+[0;32mI (24767) COTS: ***** EASYMINI *****[0m
+[0;32mI (24767) COTS: EasyMini disarming done[0m
+[0;32mI (24767) APP: Status: 0[0m
+[0;32mI (24767) COTS: COTS ARMING[0m
+[0;32mI (24777) COTS: ***** EASYMINI *****[0m
+[0;32mI (24777) COTS: EasyMini arming done[0m
+[0;32mI (25777) APP: Status: 1[0m
+[0;32mI (25777) COTS: COTS DISARMING[0m
+[0;32mI (25777) COTS: ***** EASYMINI *****[0m
+[0;32mI (25777) COTS: EasyMini disarming done[0m
+[0;32mI (25777) APP: Status: 0[0m
+[0;32mI (25777) COTS: COTS ARMING[0m
+[0;32mI (25787) COTS: ***** EASYMINI *****[0m
+[0;32mI (25787) COTS: EasyMini arming done[0m
+[0;32mI (26787) APP: Status: 1[0m
+[0;32mI (26787) COTS: COTS DISARMING[0m
+[0;32mI (26787) COTS: ***** EASYMINI *****[0m
+[0;32mI (26787) COTS: EasyMini disarming done[0m
+[0;32mI (26787) APP: Status: 0[0m
+[0;32mI (26787) COTS: COTS ARMING[0m
+[0;32mI (26797) COTS: ***** EASYMINI *****[0m
+[0;32mI (26797) COTS: EasyMini arming done[0m
+[0;32mI (27797) APP: Status: 1[0m
+[0;32mI (27797) COTS: COTS DISARMING[0m
+[0;32mI (27797) COTS: ***** EASYMINI *****[0m
+[0;32mI (27797) COTS: EasyMini disarming done[0m
+[0;32mI (27797) APP: Status: 0[0m
+[0;32mI (27797) COTS: COTS ARMING[0m
+[0;32mI (27807) COTS: ***** EASYMINI *****[0m
+[0;32mI (27807) COTS: EasyMini arming done[0m
+[0;32mI (28807) APP: Status: 1[0m
+[0;32mI (28807) COTS: COTS DISARMING[0m
+[0;32mI (28807) COTS: ***** EASYMINI *****[0m
+[0;32mI (28807) COTS: EasyMini disarming done[0m
+[0;32mI (28807) APP: Status: 0[0m
+[0;32mI (28807) COTS: COTS ARMING[0m
+[0;32mI (28817) COTS: ***** EASYMINI *****[0m
+[0;32mI (28817) COTS: EasyMini arming done[0m
+[0;32mI (29817) APP: Status: 1[0m
+[0;32mI (29817) COTS: COTS DISARMING[0m
+[0;32mI (29817) COTS: ***** EASYMINI *****[0m
+[0;32mI (29817) COTS: EasyMini disarming done[0m
+[0;32mI (29817) APP: Status: 0[0m
+[0;32mI (29817) COTS: COTS ARMING[0m
+[0;32mI (29827) COTS: ***** EASYMINI *****[0m
+[0;32mI (29827) COTS: EasyMini arming done[0m
+[0;32mI (30827) APP: Status: 1[0m
+[0;32mI (30827) COTS: COTS DISARMING[0m
+[0;32mI (30827) COTS: ***** EASYMINI *****[0m
+[0;32mI (30827) COTS: EasyMini disarming done[0m
+[0;32mI (30827) APP: Status: 0[0m
+[0;32mI (30827) COTS: COTS ARMING[0m
+[0;32mI (30837) COTS: ***** EASYMINI *****[0m
+[0;32mI (30837) COTS: EasyMini arming done[0m
+[0;32mI (31837) APP: Status: 1[0m
+[0;32mI (31837) COTS: COTS DISARMING[0m
+[0;32mI (31837) COTS: ***** EASYMINI *****[0m
+[0;32mI (31837) COTS: EasyMini disarming done[0m
+[0;32mI (31837) APP: Status: 0[0m
+[0;32mI (31837) COTS: COTS ARMING[0m
+[0;32mI (31847) COTS: ***** EASYMINI *****[0m
+[0;32mI (31847) COTS: EasyMini arming done[0m
+[0;32mI (32847) APP: Status: 1[0m
+[0;32mI (32847) COTS: COTS DISARMING[0m
+[0;32mI (32847) COTS: ***** EASYMINI *****[0m
+[0;32mI (32847) COTS: EasyMini disarming done[0m
+[0;32mI (32847) APP: Status: 0[0m
+[0;32mI (32847) COTS: COTS ARMING[0m
+[0;32mI (32857) COTS: ***** EASYMINI *****[0m
+[0;32mI (32857) COTS: EasyMini arming done[0m
+[0;32mI (33857) APP: Status: 1[0m
+[0;32mI (33857) COTS: COTS DISARMING[0m
+[0;32mI (33857) COTS: ***** EASYMINI *****[0m
+[0;32mI (33857) COTS: EasyMini disarming done[0m
+[0;32mI (33857) APP: Status: 0[0m
+[0;32mI (33857) COTS: COTS ARMING[0m
+[0;32mI (33867) COTS: ***** EASYMINI *****[0m
+[0;32mI (33867) COTS: EasyMini arming done[0m
+[0;32mI (34867) APP: Status: 1[0m
+[0;32mI (34867) COTS: COTS DISARMING[0m
+[0;32mI (34867) COTS: ***** EASYMINI *****[0m
+[0;32mI (34867) COTS: EasyMini disarming done[0m
+[0;32mI (34867) APP: Status: 0[0m
+[0;32mI (34867) COTS: COTS ARMING[0m
+[0;32mI (34877) COTS: ***** EASYMINI *****[0m
+[0;32mI (34877) COTS: EasyMini arming done[0m
+[0;32mI (35877) APP: Status: 1[0m
+[0;32mI (35877) COTS: COTS DISARMING[0m
+[0;32mI (35877) COTS: ***** EASYMINI *****[0m
+[0;32mI (35877) COTS: EasyMini disarming done[0m
+[0;32mI (35877) APP: Status: 0[0m
+[0;32mI (35877) COTS: COTS ARMING[0m
+[0;32mI (35887) COTS: ***** EASYMINI *****[0m
+[0;32mI (35887) COTS: EasyMini arming done[0m
+[0;32mI (36887) APP: Status: 1[0m
+[0;32mI (36887) COTS: COTS DISARMING[0m
+[0;32mI (36887) COTS: ***** EASYMINI *****[0m
+[0;32mI (36887) COTS: EasyMini disarming done[0m
+[0;32mI (36887) APP: Status: 0[0m
+[0;32mI (36887) COTS: COTS ARMING[0m
+[0;32mI (36897) COTS: ***** EASYMINI *****[0m
+[0;32mI (36897) COTS: EasyMini arming done[0m
+[0;32mI (37897) APP: Status: 1[0m
+[0;32mI (37897) COTS: COTS DISARMING[0m
+[0;32mI (37897) COTS: ***** EASYMINI *****[0m
+[0;32mI (37897) COTS: EasyMini disarming done[0m
+[0;32mI (37897) APP: Status: 0[0m
+[0;32mI (37897) COTS: COTS ARMING[0m
+[0;32mI (37907) COTS: ***** EASYMINI *****[0m
+[0;32mI (37907) COTS: EasyMini arming done[0m
+[0;32mI (38907) APP: Status: 1[0m
+[0;32mI (38907) COTS: COTS DISARMING[0m
+[0;32mI (38907) COTS: ***** EASYMINI *****[0m
+[0;32mI (38907) COTS: EasyMini disarming done[0m
+[0;32mI (38907) APP: Status: 0[0m
+[0;32mI (38907) COTS: COTS ARMING[0m
+[0;32mI (38917) COTS: ***** EASYMINI *****[0m
+[0;32mI (38917) COTS: EasyMini arming done[0m

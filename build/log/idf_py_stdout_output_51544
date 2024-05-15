@@ -1,0 +1,606 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
+waiting for download
+�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (32) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Apr  1 2024 23:03:50[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b270h ( 45680) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0001b298 vaddr=3ffb0000 size=02178h (  8568) load[0m
+[0;32mI (127) esp_image: segment 2: paddr=0001d418 vaddr=40080000 size=02c00h ( 11264) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16240h ( 90688) map[0m
+[0;32mI (170) esp_image: segment 4: paddr=00036268 vaddr=40082c00 size=0a8c4h ( 43204) load[0m
+[0;32mI (195) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (195) boot: Disabling RNG early entropy source...[0m
+[0;32mI (206) cpu_start: Multicore app[0m
+[0;32mI (207) cpu_start: Pro cpu up.[0m
+[0;32mI (207) cpu_start: Starting app cpu, entry point is 0x400811f8[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (225) cpu_start: Pro cpu start user code[0m
+[0;32mI (225) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (225) cpu_start: Application information:[0m
+[0;32mI (230) cpu_start: Project name:     main[0m
+[0;32mI (234) cpu_start: App version:      2de3fa6-dirty[0m
+[0;32mI (240) cpu_start: Compile time:     Apr  1 2024 23:03:46[0m
+[0;32mI (246) cpu_start: ELF file SHA256:  a5a3228dd5457469...[0m
+[0;32mI (252) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (258) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (263) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (268) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (272) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (280) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (286) heap_init: At 3FFB2A40 len 0002D5C0 (181 KiB): DRAM[0m
+[0;32mI (292) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (298) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (305) heap_init: At 4008D4C4 len 00012B3C (74 KiB): IRAM[0m
+[0;32mI (312) spi_flash: detected chip: gd[0m
+[0;32mI (315) spi_flash: flash io: dio[0m
+[0;33mW (319) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (333) app_start: Starting scheduler on CPU0[0m
+[0;32mI (337) app_start: Starting scheduler on CPU1[0m
+[0;32mI (337) main_task: Started on CPU0[0m
+[0;32mI (347) main_task: Calling app_main()[0m
+[0;32mI (347) COTS: Cots initialization[0m
+[0;32mI (347) COTS: **** TELEMETRUM ****[0m
+[0;32mI (357) COTS: Telemetrum initialization done :D[0m
+[0;32mI (357) COTS: Cots initialization[0m
+[0;32mI (367) COTS: ***** EASYMINI *****[0m
+[0;32mI (367) gpio: GPIO[9]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (377) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (387) gpio: GPIO[18]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:4 [0m
+[0;32mI (397) COTS: EasyMini initialization done :D[0m
+[0;32mI (397) RECOVERY: Recovery System Initialization[0m
+[0;32mI (407) RECOVERY: DUPA[0m
+[0;32mI (407) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (417) gpio: GPIO[12]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (427) RECOVERY: DUPA2[0m
+[0;32mI (427) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (437) gpio: GPIO[10]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (447) RECOVERY: DUPA3[0m
+[0;32mI (447) RECOVERY: Recovery system initialization done :D[0m
+[0;32mI (457) I2C: I2C INIT[0m
+[0;32mI (457) I2C: DUPA[0m
+[0;32mI (467) I2C: DUPA2[0m
+[0;32mI (467) I2C: DUPA3 [0m
+[0;32mI (467) APP: Init completed, entering recovery loop[0m
+[0;32mI (477) RECOVERY: Checking continuinty[0m
+[0;32mI (477) RECOVERY: Checking continuity done[0m
+[0;32mI (487) APP: SIEMA[0m
+[0;32mI (487) RECOVERY: Checking continuinty[0m
+[0;32mI (487) RECOVERY: Checking continuity done[0m
+[0;32mI (497) APP: SIEMA[0m
+[0;32mI (497) RECOVERY: Checking continuinty[0m
+[0;32mI (497) RECOVERY: Checking continuity done[0m
+[0;32mI (507) APP: SIEMA[0m
+[0;32mI (507) RECOVERY: Checking continuinty[0m
+[0;32mI (517) RECOVERY: Checking continuity done[0m
+[0;32mI (517) APP: SIEMA[0m
+[0;32mI (517) RECOVERY: Checking continuinty[0m
+[0;32mI (527) RECOVERY: Checking continuity done[0m
+[0;32mI (527) APP: SIEMA[0m
+[0;32mI (537) RECOVERY: Checking continuinty[0m
+[0;32mI (537) RECOVERY: Checking continuity done[0m
+[0;32mI (547) APP: SIEMA[0m
+[0;32mI (547) RECOVERY: Checking continuinty[0m
+[0;32mI (547) RECOVERY: Checking continuity done[0m
+[0;32mI (557) APP: SIEMA[0m
+[0;32mI (557) RECOVERY: Checking continuinty[0m
+[0;32mI (557) RECOVERY: Checking continuity done[0m
+[0;32mI (567) APP: SIEMA[0m
+[0;32mI (567) RECOVERY: Checking continuinty[0m
+[0;32mI (577) RECOVERY: Checking continuity done[0m
+[0;32mI (577) APP: SIEMA[0m
+[0;32mI (577) RECOVERY: Checking continuinty[0m
+[0;32mI (587) RECOVERY: Checking continuity done[0m
+[0;32mI (587) APP: SIEMA[0m
+[0;32mI (597) RECOVERY: Checking continuinty[0m
+[0;32mI (597) RECOVERY: Checking continuity done[0m
+[0;32mI (597) APP: SIEMA[0m
+[0;32mI (607) RECOVERY: Checking continuinty[0m
+[0;32mI (607) RECOVERY: Checking continuity done[0m
+[0;32mI (617) APP: SIEMA[0m
+[0;32mI (617) RECOVERY: Checking continuinty[0m
+[0;32mI (617) RECOVERY: Checking continuity done[0m
+[0;32mI (627) APP: SIEMA[0m
+[0;32mI (627) RECOVERY: Checking continuinty[0m
+[0;32mI (637) RECOVERY: Checking continuity done[0m
+[0;32mI (637) APP: SIEMA[0m
+[0;32mI (637) RECOVERY: Checking continuinty[0m
+[0;32mI (647) RECOVERY: Checking continuity done[0m
+[0;32mI (647) APP: SIEMA[0m
+[0;32mI (657) RECOVERY: Checking continuinty[0m
+[0;32mI (657) RECOVERY: Checking continuity done[0m
+[0;32mI (657) APP: SIEMA[0m
+[0;32mI (667) RECOVERY: Checking continuinty[0m
+[0;32mI (667) RECOVERY: Checking continuity done[0m
+[0;32mI (677) APP: SIEMA[0m
+[0;32mI (677) RECOVERY: Checking continuinty[0m
+[0;32mI (677) RECOVERY: Checking continuity done[0m
+[0;32mI (687) APP: SIEMA[0m
+[0;32mI (687) RECOVERY: Checking continuinty[0m
+[0;32mI (697) RECOVERY: Checking continuity done[0m
+[0;32mI (697) APP: SIEMA[0m
+[0;32mI (697) RECOVERY: Checking continuinty[0m
+[0;32mI (707) RECOVERY: Checking continuity done[0m
+[0;32mI (707) APP: SIEMA[0m
+[0;32mI (707) RECOVERY: Checking continuinty[0m
+[0;32mI (717) RECOVERY: Checking continuity done[0m
+[0;32mI (717) APP: SIEMA[0m
+[0;32mI (727) RECOVERY: Checking continuinty[0m
+[0;32mI (727) RECOVERY: Checking continuity done[0m
+[0;32mI (737) APP: SIEMA[0m
+[0;32mI (737) RECOVERY: Checking continuinty[0m
+[0;32mI (737) RECOVERY: Checking continuity done[0m
+[0;32mI (747) APP: SIEMA[0m
+[0;32mI (747) RECOVERY: Checking continuinty[0m
+[0;32mI (747) RECOVERY: Checking continuity done[0m
+[0;32mI (757) APP: SIEMA[0m
+[0;32mI (757) RECOVERY: Checking continuinty[0m
+[0;32mI (767) RECOVERY: Checking continuity done[0m
+[0;32mI (767) APP: SIEMA[0m
+[0;32mI (767) RECOVERY: Checking continuinty[0m
+[0;32mI (777) RECOVERY: Checking continuity done[0m
+[0;32mI (777) APP: SIEMA[0m
+[0;32mI (787) RECOVERY: Checking continuinty[0m
+[0;32mI (787) RECOVERY: Checking continuity done[0m
+[0;32mI (797) APP: SIEMA[0m
+[0;32mI (797) RECOVERY: Checking continuinty[0m
+[0;32mI (797) RECOVERY: Checking continuity done[0m
+[0;32mI (807) APP: SIEMA[0m
+[0;32mI (807) RECOVERY: Checking continuinty[0m
+[0;32mI (807) RECOVERY: Checking continuity done[0m
+[0;32mI (817) APP: SIEMA[0m
+[0;32mI (817) RECOVERY: Checking continuinty[0m
+[0;32mI (827) RECOVERY: Checking continuity done[0m
+[0;32mI (827) APP: SIEMA[0m
+[0;32mI (827) RECOVERY: Checking continuinty[0m
+[0;32mI (837) RECOVERY: Checking continuity done[0m
+[0;32mI (837) APP: SIEMA[0m
+[0;32mI (847) RECOVERY: Checking continuinty[0m
+[0;32mI (847) RECOVERY: Checking continuity done[0m
+[0;32mI (847) APP: SIEMA[0m
+[0;32mI (857) RECOVERY: Checking continuinty[0m
+[0;32mI (857) RECOVERY: Checking continuity done[0m
+[0;32mI (867) APP: SIEMA[0m
+[0;32mI (867) RECOVERY: Checking continuinty[0m
+[0;32mI (867) RECOVERY: Checking continuity done[0m
+[0;32mI (877) APP: SIEMA[0m
+[0;32mI (877) RECOVERY: Checking continuinty[0m
+[0;32mI (887) RECOVERY: Checking continuity done[0m
+[0;32mI (887) APP: SIEMA[0m
+[0;32mI (887) RECOVERY: Checking continuinty[0m
+[0;32mI (897) RECOVERY: Checking continuity done[0m
+[0;32mI (897) APP: SIEMA[0m
+[0;32mI (897) RECOVERY: Checking continuinty[0m
+[0;32mI (907) RECOVERY: Checking continuity done[0m
+[0;32mI (907) APP: SIEMA[0m
+[0;32mI (917) RECOVERY: Checking continuinty[0m
+[0;32mI (917) RECOVERY: Checking continuity done[0m
+[0;32mI (927) APP: SIEMA[0m
+[0;32mI (927) RECOVERY: Checking continuinty[0m
+[0;32mI (927) RECOVERY: Checking continuity done[0m
+[0;32mI (937) APP: SIEMA[0m
+[0;32mI (937) RECOVERY: Checking continuinty[0m
+[0;32mI (937) RECOVERY: Checking continuity done[0m
+[0;32mI (947) APP: SIEMA[0m
+[0;32mI (947) RECOVERY: Checking continuinty[0m
+[0;32mI (957) RECOVERY: Checking continuity done[0m
+[0;32mI (957) APP: SIEMA[0m
+[0;32mI (957) RECOVERY: Checking continuinty[0m
+[0;32mI (967) RECOVERY: Checking continuity done[0m
+[0;32mI (967) APP: SIEMA[0m
+[0;32mI (977) RECOVERY: Checking continuinty[0m
+[0;32mI (977) RECOVERY: Checking continuity done[0m
+[0;32mI (987) APP: SIEMA[0m
+[0;32mI (987) RECOVERY: Checking continuinty[0m
+[0;32mI (987) RECOVERY: Checking continuity done[0m
+[0;32mI (997) APP: SIEMA[0m
+[0;32mI (997) RECOVERY: Checking continuinty[0m
+[0;32mI (997) RECOVERY: Checking continuity done[0m
+[0;32mI (1007) APP: SIEMA[0m
+[0;32mI (1007) RECOVERY: Checking continuinty[0m
+[0;32mI (1017) RECOVERY: Checking continuity done[0m
+[0;32mI (1017) APP: SIEMA[0m
+[0;32mI (1017) RECOVERY: Checking continuinty[0m
+[0;32mI (1027) RECOVERY: Checking continuity done[0m
+[0;32mI (1027) APP: SIEMA[0m
+[0;32mI (1037) RECOVERY: Checking continuinty[0m
+[0;32mI (1037) RECOVERY: Checking continuity done[0m
+[0;32mI (1047) APP: SIEMA[0m
+[0;32mI (1047) RECOVERY: Checking continuinty[0m
+[0;32mI (1047) RECOVERY: Checking continuity done[0m
+[0;32mI (1057) APP: SIEMA[0m
+[0;32mI (1057) RECOVERY: Checking continuinty[0m
+[0;32mI (1067) RECOVERY: Checking continuity done[0m
+[0;32mI (1067) APP: SIEMA[0m
+[0;32mI (1067) RECOVERY: Checking continuinty[0m
+[0;32mI (1077) RECOVERY: Checking continuity done[0m
+[0;32mI (1077) APP: SIEMA[0m
+[0;32mI (1077) RECOVERY: Checking continuinty[0m
+[0;32mI (1087) RECOVERY: Checking continuity done[0m
+[0;32mI (1087) APP: SIEMA[0m
+[0;32mI (1097) RECOVERY: Checking continuinty[0m
+[0;32mI (1097) RECOVERY: Checking continuity done[0m
+[0;32mI (1107) APP: SIEMA[0m
+[0;32mI (1107) RECOVERY: Checking continuinty[0m
+[0;32mI (1107) RECOVERY: Checking continuity done[0m
+[0;32mI (1117) APP: SIEMA[0m
+[0;32mI (1117) RECOVERY: Checking continuinty[0m
+[0;32mI (1127) RECOVERY: Checking continuity done[0m
+[0;32mI (1127) APP: SIEMA[0m
+[0;32mI (1127) RECOVERY: Checking continuinty[0m
+[0;32mI (1137) RECOVERY: Checking continuity done[0m
+[0;32mI (1137) APP: SIEMA[0m
+[0;32mI (1147) RECOVERY: Checking continuinty[0m
+[0;32mI (1147) RECOVERY: Checking continuity done[0m
+[0;32mI (1157) APP: SIEMA[0m
+[0;32mI (1157) RECOVERY: Checking continuinty[0m
+[0;32mI (1157) RECOVERY: Checking continuity done[0m
+[0;32mI (1167) APP: SIEMA[0m
+[0;32mI (1167) RECOVERY: Checking continuinty[0m
+[0;32mI (1167) RECOVERY: Checking continuity done[0m
+[0;32mI (1177) APP: SIEMA[0m
+[0;32mI (1177) RECOVERY: Checking continuinty[0m
+[0;32mI (1187) RECOVERY: Checking continuity done[0m
+[0;32mI (1187) APP: SIEMA[0m
+[0;32mI (1187) RECOVERY: Checking continuinty[0m
+[0;32mI (1197) RECOVERY: Checking continuity done[0m
+[0;32mI (1197) APP: SIEMA[0m
+[0;32mI (1207) RECOVERY: Checking continuinty[0m
+[0;32mI (1207) RECOVERY: Checking continuity done[0m
+[0;32mI (1217) APP: SIEMA[0m
+[0;32mI (1217) RECOVERY: Checking continuinty[0m
+[0;32mI (1217) RECOVERY: Checking continuity done[0m
+[0;32mI (1227) APP: SIEMA[0m
+[0;32mI (1227) RECOVERY: Checking continuinty[0m
+[0;32mI (1237) RECOVERY: Checking continuity done[0m
+[0;32mI (1237) APP: SIEMA[0m
+[0;32mI (1237) RECOVERY: Checking continuinty[0m
+[0;32mI (1247) RECOVERY: Checking continuity done[0m
+[0;32mI (1247) APP: SIEMA[0m
+[0;32mI (1257) RECOVERY: Checking continuinty[0m
+[0;32mI (1257) RECOVERY: Checking continuity done[0m
+[0;32mI (1257) APP: SIEMA[0m
+[0;32mI (1267) RECOVERY: Checking continuinty[0m
+[0;32mI (1267) RECOVERY: Checking continuity done[0m
+[0;32mI (1277) APP: SIEMA[0m
+[0;32mI (1277) RECOVERY: Checking continuinty[0m
+[0;32mI (1277) RECOVERY: Checking continuity done[0m
+[0;32mI (1287) APP: SIEMA[0m
+[0;32mI (1287) RECOVERY: Checking continuinty[0m
+[0;32mI (1297) RECOVERY: Checking continuity done[0m
+[0;32mI (1297) APP: SIEMA[0m
+[0;32mI (1297) RECOVERY: Checking continuinty[0m
+[0;32mI (1307) RECOVERY: Checking continuity done[0m
+[0;32mI (1307) APP: SIEMA[0m
+[0;32mI (1317) RECOVERY: Checking continuinty[0m
+[0;32mI (1317) RECOVERY: Checking continuity done[0m
+[0;32mI (1327) APP: SIEMA[0m
+[0;32mI (1327) RECOVERY: Checking continuinty[0m
+[0;32mI (1327) RECOVERY: Checking continuity done[0m
+[0;32mI (1337) APP: SIEMA[0m
+[0;32mI (1337) RECOVERY: Checking continuinty[0m
+[0;32mI (1337) RECOVERY: Checking continuity done[0m
+[0;32mI (1347) APP: SIEMA[0m
+[0;32mI (1347) RECOVERY: Checking continuinty[0m
+[0;32mI (1357) RECOVERY: Checking continuity done[0m
+[0;32mI (1357) APP: SIEMA[0m
+[0;32mI (1357) RECOVERY: Checking continuinty[0m
+[0;32mI (1367) RECOVERY: Checking continuity done[0m
+[0;32mI (1367) APP: SIEMA[0m
+[0;32mI (1377) RECOVERY: Checking continuinty[0m
+[0;32mI (1377) RECOVERY: Checking continuity done[0m
+[0;32mI (1387) APP: SIEMA[0m
+[0;32mI (1387) RECOVERY: Checking continuinty[0m
+[0;32mI (1387) RECOVERY: Checking continuity done[0m
+[0;32mI (1397) APP: SIEMA[0m
+[0;32mI (1397) RECOVERY: Checking continuinty[0m
+[0;32mI (1407) RECOVERY: Checking continuity done[0m
+[0;32mI (1407) APP: SIEMA[0m
+[0;32mI (1407) RECOVERY: Checking continuinty[0m
+[0;32mI (1417) RECOVERY: Checking continuity done[0m
+[0;32mI (1417) APP: SIEMA[0m
+[0;32mI (1427) RECOVERY: Checking continuinty[0m
+[0;32mI (1427) RECOVERY: Checking continuity done[0m
+[0;32mI (1427) APP: SIEMA[0m
+[0;32mI (1437) RECOVERY: Checking continuinty[0m
+[0;32mI (1437) RECOVERY: Checking continuity done[0m
+[0;32mI (1447) APP: SIEMA[0m
+[0;32mI (1447) RECOVERY: Checking continuinty[0m
+[0;32mI (1447) RECOVERY: Checking continuity done[0m
+[0;32mI (1457) APP: SIEMA[0m
+[0;32mI (1457) RECOVERY: Checking continuinty[0m
+[0;32mI (1467) RECOVERY: Checking continuity done[0m
+[0;32mI (1467) APP: SIEMA[0m
+[0;32mI (1467) RECOVERY: Checking continuinty[0m
+[0;32mI (1477) RECOVERY: Checking continuity done[0m
+[0;32mI (1477) APP: SIEMA[0m
+[0;32mI (1487) RECOVERY: Checking continuinty[0m
+[0;32mI (1487) RECOVERY: Checking continuity done[0m
+[0;32mI (1497) APP: SIEMA[0m
+[0;32mI (1497) RECOVERY: Checking continuinty[0m
+[0;32mI (1497) RECOVERY: Checking continuity done[0m
+[0;32mI (1507) APP: SIEMA[0m
+[0;32mI (1507) RECOVERY: Checking continuinty[0m
+[0;32mI (1507) RECOVERY: Checking continuity done[0m
+[0;32mI (1517) APP: SIEMA[0m
+[0;32mI (1517) RECOVERY: Checking continuinty[0m
+[0;32mI (1527) RECOVERY: Checking continuity done[0m
+[0;32mI (1527) APP: SIEMA[0m
+[0;32mI (1527) RECOVERY: Checking continuinty[0m
+[0;32mI (1537) RECOVERY: Checking continuity done[0m
+[0;32mI (1537) APP: SIEMA[0m
+[0;32mI (1547) RECOVERY: Checking continuinty[0m
+[0;32mI (1547) RECOVERY: Checking continuity done[0m
+[0;32mI (1557) APP: SIEMA[0m
+[0;32mI (1557) RECOVERY: Checking continuinty[0m
+[0;32mI (1557) RECOVERY: Checking continuity done[0m
+[0;32mI (1567) APP: SIEMA[0m
+[0;32mI (1567) RECOVERY: Checking continuinty[0m
+[0;32mI (1577) RECOVERY: Checking continuity done[0m
+[0;32mI (1577) APP: SIEMA[0m
+[0;32mI (1577) RECOVERY: Checking continuinty[0m
+[0;32mI (1587) RECOVERY: Checking continuity done[0m
+[0;32mI (1587) APP: SIEMA[0m
+[0;32mI (1597) RECOVERY: Checking continuinty[0m
+[0;32mI (1597) RECOVERY: Checking continuity done[0m
+[0;32mI (1597) APP: SIEMA[0m
+[0;32mI (1607) RECOVERY: Checking continuinty[0m
+[0;32mI (1607) RECOVERY: Checking continuity done[0m
+[0;32mI (1617) APP: SIEMA[0m
+[0;32mI (1617) RECOVERY: Checking continuinty[0m
+[0;32mI (1617) RECOVERY: Checking continuity done[0m
+[0;32mI (1627) APP: SIEMA[0m
+[0;32mI (1627) RECOVERY: Checking continuinty[0m
+[0;32mI (1637) RECOVERY: Checking continuity done[0m
+[0;32mI (1637) APP: SIEMA[0m
+[0;32mI (1637) RECOVERY: Checking continuinty[0m
+[0;32mI (1647) RECOVERY: Checking continuity done[0m
+[0;32mI (1647) APP: SIEMA[0m
+[0;32mI (1657) RECOVERY: Checking continuinty[0m
+[0;32mI (1657) RECOVERY: Checking continuity done[0m
+[0;32mI (1667) APP: SIEMA[0m
+[0;32mI (1667) RECOVERY: Checking continuinty[0m
+[0;32mI (1667) RECOVERY: Checking continuity done[0m
+[0;32mI (1677) APP: SIEMA[0m
+[0;32mI (1677) RECOVERY: Checking continuinty[0m
+[0;32mI (1677) RECOVERY: Checking continuity done[0m
+[0;32mI (1687) APP: SIEMA[0m
+[0;32mI (1687) RECOVERY: Checking continuinty[0m
+[0;32mI (1697) RECOVERY: Checking continuity done[0m
+[0;32mI (1697) APP: SIEMA[0m
+[0;32mI (1697) RECOVERY: Checking continuinty[0m
+[0;32mI (1707) RECOVERY: Checking continuity done[0m
+[0;32mI (1707) APP: SIEMA[0m
+[0;32mI (1717) RECOVERY: Checking continuinty[0m
+[0;32mI (1717) RECOVERY: Checking continuity done[0m
+[0;32mI (1727) APP: SIEMA[0m
+[0;32mI (1727) RECOVERY: Checking continuinty[0m
+[0;32mI (1727) RECOVERY: Checking continuity done[0m
+[0;32mI (1737) APP: SIEMA[0m
+[0;32mI (1737) RECOVERY: Checking continuinty[0m
+[0;32mI (1747) RECOVERY: Checking continuity done[0m
+[0;32mI (1747) APP: SIEMA[0m
+[0;32mI (1747) RECOVERY: Checking continuinty[0m
+[0;32mI (1757) RECOVERY: Checking continuity done[0m
+[0;32mI (1757) APP: SIEMA[0m
+[0;32mI (1767) RECOVERY: Checking continuinty[0m
+[0;32mI (1767) RECOVERY: Checking continuity done[0m
+[0;32mI (1767) APP: SIEMA[0m
+[0;32mI (1777) RECOVERY: Checking continuinty[0m
+[0;32mI (1777) RECOVERY: Checking continuity done[0m
+[0;32mI (1787) APP: SIEMA[0m
+[0;32mI (1787) RECOVERY: Checking continuinty[0m
+[0;32mI (1787) RECOVERY: Checking continuity done[0m
+[0;32mI (1797) APP: SIEMA[0m
+[0;32mI (1797) RECOVERY: Checking continuinty[0m
+[0;32mI (1807) RECOVERY: Checking continuity done[0m
+[0;32mI (1807) APP: SIEMA[0m
+[0;32mI (1807) RECOVERY: Checking continuinty[0m
+[0;32mI (1817) RECOVERY: Checking continuity done[0m
+[0;32mI (1817) APP: SIEMA[0m
+[0;32mI (1827) RECOVERY: Checking continuinty[0m
+[0;32mI (1827) RECOVERY: Checking continuity done[0m
+[0;32mI (1837) APP: SIEMA[0m
+[0;32mI (1837) RECOVERY: Checking continuinty[0m
+[0;32mI (1837) RECOVERY: Checking continuity done[0m
+[0;32mI (1847) APP: SIEMA[0m
+[0;32mI (1847) RECOVERY: Checking continuinty[0m
+[0;32mI (1847) RECOVERY: Checking continuity done[0m
+[0;32mI (1857) APP: SIEMA[0m
+[0;32mI (1857) RECOVERY: Checking continuinty[0m
+[0;32mI (1867) RECOVERY: Checking continuity done[0m
+[0;32mI (1867) APP: SIEMA[0m
+[0;32mI (1867) RECOVERY: Checking continuinty[0m
+[0;32mI (1877) RECOVERY: Checking continuity done[0m
+[0;32mI (1877) APP: SIEMA[0m
+[0;32mI (1887) RECOVERY: Checking continuinty[0m
+[0;32mI (1887) RECOVERY: Checking continuity done[0m
+[0;32mI (1897) APP: SIEMA[0m
+[0;32mI (1897) RECOVERY: Checking continuinty[0m
+[0;32mI (1897) RECOVERY: Checking continuity done[0m
+[0;32mI (1907) APP: SIEMA[0m
+[0;32mI (1907) RECOVERY: Checking continuinty[0m
+[0;32mI (1917) RECOVERY: Checking continuity done[0m
+[0;32mI (1917) APP: SIEMA[0m
+[0;32mI (1917) RECOVERY: Checking continuinty[0m
+[0;32mI (1927) RECOVERY: Checking continuity done[0m
+[0;32mI (1927) APP: SIEMA[0m
+[0;32mI (1937) RECOVERY: Checking continuinty[0m
+[0;32mI (1937) RECOVERY: Checking continuity done[0m
+[0;32mI (1937) APP: SIEMA[0m
+[0;32mI (1947) RECOVERY: Checking continuinty[0m
+[0;32mI (1947) RECOVERY: Checking continuity done[0m
+[0;32mI (1957) APP: SIEMA[0m
+[0;32mI (1957) RECOVERY: Checking continuinty[0m
+[0;32mI (1957) RECOVERY: Checking continuity done[0m
+[0;32mI (1967) APP: SIEMA[0m
+[0;32mI (1967) RECOVERY: Checking continuinty[0m
+[0;32mI (1977) RECOVERY: Checking continuity done[0m
+[0;32mI (1977) APP: SIEMA[0m
+[0;32mI (1977) RECOVERY: Checking continuinty[0m
+[0;32mI (1987) RECOVERY: Checking continuity done[0m
+[0;32mI (1987) APP: SIEMA[0m
+[0;32mI (1997) RECOVERY: Checking continuinty[0m
+[0;32mI (1997) RECOVERY: Checking continuity done[0m
+[0;32mI (2007) APP: SIEMA[0m
+[0;32mI (2007) RECOVERY: Checking continuinty[0m
+[0;32mI (2007) RECOVERY: Checking continuity done[0m
+[0;32mI (2017) APP: SIEMA[0m
+[0;32mI (2017) RECOVERY: Checking continuinty[0m
+[0;32mI (2027) RECOVERY: Checking continuity done[0m
+[0;32mI (2027) APP: SIEMA[0m
+[0;32mI (2027) RECOVERY: Checking continuinty[0m
+[0;32mI (2037) RECOVERY: Checking continuity done[0m
+[0;32mI (2037) APP: SIEMA[0m
+[0;32mI (2037) RECOVERY: Checking continuinty[0m
+[0;32mI (2047) RECOVERY: Checking continuity done[0m
+[0;32mI (2047) APP: SIEMA[0m
+[0;32mI (2057) RECOVERY: Checking continuinty[0m
+[0;32mI (2057) RECOVERY: Checking continuity done[0m
+[0;32mI (2067) APP: SIEMA[0m
+[0;32mI (2067) RECOVERY: Checking continuinty[0m
+[0;32mI (2067) RECOVERY: Checking continuity done[0m
+[0;32mI (2077) APP: SIEMA[0m
+[0;32mI (2077) RECOVERY: Checking continuinty[0m
+[0;32mI (2087) RECOVERY: Checking continuity done[0m
+[0;32mI (2087) APP: SIEMA[0m
+[0;32mI (2087) RECOVERY: Checking continuinty[0m
+[0;32mI (2097) RECOVERY: Checking continuity done[0m
+[0;32mI (2097) APP: SIEMA[0m
+[0;32mI (2107) RECOVERY: Checking continuinty[0m
+[0;32mI (2107) RECOVERY: Checking continuity done[0m
+[0;32mI (2117) APP: SIEMA[0m
+[0;32mI (2117) RECOVERY: Checking continuinty[0m
+[0;32mI (2117) RECOVERY: Checking continuity done[0m
+[0;32mI (2127) APP: SIEMA[0m
+[0;32mI (2127) RECOVERY: Checking continuinty[0m
+[0;32mI (2127) RECOVERY: Checking continuity done[0m
+[0;32mI (2137) APP: SIEMA[0m
+[0;32mI (2137) RECOVERY: Checking continuinty[0m
+[0;32mI (2147) RECOVERY: Checking continuity done[0m
+[0;32mI (2147) APP: SIEMA[0m
+[0;32mI (2147) RECOVERY: Checking continuinty[0m
+[0;32mI (2157) RECOVERY: Checking continuity done[0m
+[0;32mI (2157) APP: SIEMA[0m
+[0;32mI (2167) RECOVERY: Checking continuinty[0m
+[0;32mI (2167) RECOVERY: Checking continuity done[0m
+[0;32mI (2177) APP: SIEMA[0m
+[0;32mI (2177) RECOVERY: Checking continuinty[0m
+[0;32mI (2177) RECOVERY: Checking continuity done[0m
+[0;32mI (2187) APP: SIEMA[0m
+[0;32mI (2187) RECOVERY: Checking continuinty[0m
+[0;32mI (2197) RECOVERY: Checking continuity done[0m
+[0;32mI (2197) APP: SIEMA[0m
+[0;32mI (2197) RECOVERY: Checking continuinty[0m
+[0;32mI (2207) RECOVERY: Checking continuity done[0m
+[0;32mI (2207) APP: SIEMA[0m
+[0;32mI (2217) RECOVERY: Checking continuinty[0m
+[0;32mI (2217) RECOVERY: Checking continuity done[0m
+[0;32mI (2217) APP: SIEMA[0m
+[0;32mI (2227) RECOVERY: Checking continuinty[0m
+[0;32mI (2227) RECOVERY: Checking continuity done[0m
+[0;32mI (2237) APP: SIEMA[0m
+[0;32mI (2237) RECOVERY: Checking continuinty[0m
+[0;32mI (2237) RECOVERY: Checking continuity done[0m
+[0;32mI (2247) APP: SIEMA[0m
+[0;32mI (2247) RECOVERY: Checking continuinty[0m
+[0;32mI (2257) RECOVERY: Checking continuity done[0m
+[0;32mI (2257) APP: SIEMA[0m
+[0;32mI (2257) RECOVERY: Checking continuinty[0m
+[0;32mI (2267) RECOVERY: Checking continuity done[0m
+[0;32mI (2267) APP: SIEMA[0m
+[0;32mI (2277) RECOVERY: Checking continuinty[0m
+[0;32mI (2277) RECOVERY: Checking continuity done[0m
+[0;32mI (2287) APP: SIEMA[0m
+[0;32mI (2287) RECOVERY: Checking continuinty[0m
+[0;32mI (2287) RECOVERY: Checking continuity done[0m
+[0;32mI (2297) APP: SIEMA[0m
+[0;32mI (2297) RECOVERY: Checking continuinty[0m
+[0;32mI (2297) RECOVERY: Checking continuity done[0m
+[0;32mI (2307) APP: SIEMA[0m
+[0;32mI (2307) RECOVERY: Checking continuinty[0m
+[0;32mI (2317) RECOVERY: Checking continuity done[0m
+[0;32mI (2317) APP: SIEMA[0m
+[0;32mI (2317) RECOVERY: Checking continuinty[0m
+[0;32mI (2327) RECOVERY: Checking continuity done[0m
+[0;32mI (2327) APP: SIEMA[0m
+[0;32mI (2337) RECOVERY: Checking continuinty[0m
+[0;32mI (2337) RECOVERY: Checking continuity done[0m
+[0;32mI (2347) APP: SIEMA[0m
+[0;32mI (2347) RECOVERY: Checking continuinty[0m
+[0;32mI (2347) RECOVERY: Checking continuity done[0m
+[0;32mI (2357) APP: SIEMA[0m
+[0;32mI (2357) RECOVERY: Checking continuinty[0m
+[0;32mI (2367) RECOVERY: Checking continuity done[0m
+[0;32mI (2367) APP: SIEMA[0m
+[0;32mI (2367) RECOVERY: Checking continuinty[0m
+[0;32mI (2377) RECOVERY: Checking continuity done[0m
+[0;32mI (2377) APP: SIEMA[0m
+[0;32mI (2387) RECOVERY: Checking continuinty[0m
+[0;32mI (2387) RECOVERY: Checking continuity done[0m
+[0;32mI (2387) APP: SIEMA[0m
+[0;32mI (2397) RECOVERY: Checking continuinty[0m
+[0;32mI (2397) RECOVERY: Checking continuity done[0m
+[0;32mI (2407) APP: SIEMA[0m
+[0;32mI (2407) RECOVERY: Checking continuinty[0m
+[0;32mI (2407) RECOVERY: Checking continuity done[0m
+[0;32mI (2417) APP: SIEMA[0m
+[0;32mI (2417) RECOVERY: Checking continuinty[0m
+[0;32mI (2427) RECOVERY: Checking continuity done[0m
+[0;32mI (2427) APP: SIEMA[0m
+[0;32mI (2427) RECOVERY: Checking continuinty[0m
+[0;32mI (2437) RECOVERY: Checking continuity done[0m
+[0;32mI (2437) APP: SIEMA[0m
+[0;32mI (2447) RECOVERY: Checking continuinty[0m
+[0;32mI (2447) RECOVERY: Checking continuity done[0m
+[0;32mI (2457) APP: SIEMA[0m
+[0;32mI (2457) RECOVERY: Checking continuinty[0m
+[0;32mI (2457) RECOVERY: Checking continuity done[0m
+[0;32mI (2467) APP: SIEMA[0m
+[0;32mI (2467) RECOVERY: Checking continuinty[0m
+[0;32mI (2467) RECOVERY: Checking continuity done[0m
+[0;32mI (2477) APP: SIEMA[0m
+[0;32mI (2477) RECOVERY: Checking continuinty[0m
+[0;32mI (2487) RECOVERY: Checking continuity done[0m
+[0;32mI (2487) APP: SIEMA[0m
+[0;32mI (2487) RECOVERY: Checking continuinty[0m
+[0;32mI (2497) RECOVERY: Checking continuity done[0m
+[0;32mI (2497) APP: SIEMA[0m
+[0;32mI (2507) RECOVERY: Checking continuinty[0m
+[0;32mI (2507) RECOVERY: Checking continuity done[0m
+[0;32mI (2517) APP: SIEMA[0m
+[0;32mI (2517) RECOVERY: Checking continuinty[0m
+[0;32mI (2517) RECOVERY: Checking continuity done[0m
+[0;32mI (2527) APP: SIEMA[0m

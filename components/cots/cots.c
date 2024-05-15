@@ -14,7 +14,7 @@ uint8_t cots_init(cots_device_t cots_device){
     if(cots_device == COTS_DEVICE_TELEMETRUM){
         ESP_LOGI(TAG,"**** TELEMETRUM ****");
         gpio_config_t arming_output = {
-            .pin_bit_mask = (1ULL << TELE_ARMING),
+            .pin_bit_mask = (1UL << TELE_ARMING),
             .mode = GPIO_MODE_OUTPUT,
             .pull_up_en = GPIO_PULLUP_DISABLE,
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -36,7 +36,7 @@ uint8_t cots_init(cots_device_t cots_device){
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
             .intr_type = GPIO_INTR_LOW_LEVEL,
         };
-
+        
         ESP_ERROR_CHECK(gpio_config(&arming_output));
         ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
         ESP_ERROR_CHECK(gpio_config(&apogee_input));
@@ -144,7 +144,7 @@ uint8_t cots_disarm(cots_device_t cots_device){
             ESP_LOGE(TAG,"Faild to disarm Telemetrum !!!!");
             return RET_FAILTURE;
         }
-        telemetrum_device.armStatus = ARMED;
+        telemetrum_device.armStatus = DISARMED;
 
         ESP_LOGI(TAG,"Telemetrum disarming done");
 
@@ -157,7 +157,7 @@ uint8_t cots_disarm(cots_device_t cots_device){
             ESP_LOGE(TAG,"Faild to disarm EasyMini !!!!");
             return RET_FAILTURE;
         }
-        easymini_device.armStatus = ARMED;
+        easymini_device.armStatus = DISARMED;
 
         ESP_LOGI(TAG,"EasyMini disarming done");
     }
@@ -168,9 +168,15 @@ uint8_t cots_disarm(cots_device_t cots_device){
     return RET_SUCCESS;
 }
 
-uint8_t apogee_check(cots_device_t cots_device){
+uint8_t apogee_check(){
 
-    // TO DO IF NEEDED
+    if(gpio_get_level(telemetrum_device.apogeePin)) telemetrum_device.apogeeDetection = true;
+    else telemetrum_device.apogeeDetection = false;
+
+    if(gpio_get_level(easymini_device.apogeePin)) easymini_device.apogeeDetection = true;
+    else easymini_device.apogeeDetection = false;
+
+
     return RET_SUCCESS;
 
 }

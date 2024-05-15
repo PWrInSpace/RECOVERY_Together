@@ -1,0 +1,10 @@
+[0;33m--- esp-idf-monitor 1.3.4 on /dev/ttyUSB0 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[1;31mNone[0m
+[0;33mWaiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400811f8: call_start_cpu1 at /home/suchy/esp/esp-idf/components/esp_system/port/cpu_start.c:157
+[0m
+[0;33mWarning: checksum mismatch between flashed and built applications. Checksum of built application is 62de22e651cc868669f3fc1bee66f84359ddae266d10c5cfb44b87315b5e3ab8[0m
+[0m
