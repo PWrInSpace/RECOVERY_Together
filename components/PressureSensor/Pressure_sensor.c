@@ -9,7 +9,7 @@
  *
  */
 
-#include "pressure_sensor.h"
+#include "Pressure_sensor.h"
 
 /**************************  PRIVATE INCLUDES  ********************************/
 
@@ -45,7 +45,7 @@ uint32_t get_pressure(Pressure_Sensor_t *sensor_ptr) {
                                    sensor_ptr->adc_channel,
                                    (int *)&sensor_ptr->adc_raw));
 
-  ESP_LOGI(TAG, "PRESSURE_SENSOR Raw Data: %d", sensor_ptr->adc_raw);
+  //ESP_LOGI(TAG, "PRESSURE_SENSOR Raw Data: %d", sensor_ptr->adc_raw);
 
   if (sensor_ptr->cali_enable) {
     ESP_ERROR_CHECK(adc_cali_raw_to_voltage(*(sensor_ptr->adc_cali_handle),

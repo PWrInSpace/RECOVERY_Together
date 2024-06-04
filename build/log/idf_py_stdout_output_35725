@@ -1,0 +1,369 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (32) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Jun  1 2024 15:09:19[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0ba38h ( 47672) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0001ba60 vaddr=3ff80000 size=00004h (     4) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001ba6c vaddr=3ffb0000 size=02178h (  8568) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=0001dbec vaddr=40080000 size=0242ch (  9260) load[0m
+[0;32mI (142) esp_image: segment 4: paddr=00020020 vaddr=400d0020 size=17c58h ( 97368) map[0m
+[0;32mI (181) esp_image: segment 5: paddr=00037c80 vaddr=4008242c size=0b2d0h ( 45776) load[0m
+[0;32mI (207) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (207) boot: Disabling RNG early entropy source...[0m
+[0;32mI (219) cpu_start: Multicore app[0m
+[0;32mI (219) cpu_start: Pro cpu up.[0m
+[0;32mI (219) cpu_start: Starting app cpu, entry point is 0x40081208[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (237) cpu_start: Pro cpu start user code[0m
+[0;32mI (237) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (237) cpu_start: Application information:[0m
+[0;32mI (242) cpu_start: Project name:     main[0m
+[0;32mI (247) cpu_start: App version:      0f541e8-dirty[0m
+[0;32mI (252) cpu_start: Compile time:     Jun  1 2024 15:09:15[0m
+[0;32mI (258) cpu_start: ELF file SHA256:  8fe96de663e23883...[0m
+[0;32mI (264) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (270) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (275) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (280) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (285) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (292) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (298) heap_init: At 3FFB2A80 len 0002D580 (181 KiB): DRAM[0m
+[0;32mI (304) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (311) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (317) heap_init: At 4008D6FC len 00012904 (74 KiB): IRAM[0m
+[0;32mI (325) spi_flash: detected chip: gd[0m
+[0;32mI (327) spi_flash: flash io: dio[0m
+[0;33mW (331) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (346) app_start: Starting scheduler on CPU0[0m
+[0;32mI (350) app_start: Starting scheduler on CPU1[0m
+[0;32mI (350) main_task: Started on CPU0[0m
+[0;32mI (360) main_task: Calling app_main()[0m
+[0;32mI (360) COTS: Cots initialization[0m
+[0;32mI (360) COTS: **** TELEMETRUM ****[0m
+[0;32mI (370) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (380) gpio: GPIO[22]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (390) gpio: GPIO[19]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:2 [0m
+[0;32mI (390) COTS: Telemetrum initialization done :D[0m
+[0;32mI (400) COTS: Cots initialization[0m
+[0;32mI (400) COTS: ***** EASYMINI *****[0m
+[0;32mI (410) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (420) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (430) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:4 [0m
+[0;32mI (440) COTS: EasyMini initialization done :D[0m
+[0;32mI (440) RECOVERY: Recovery System Initialization[0m
+[0;32mI (450) gpio: GPIO[9]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (460) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (460) gpio: GPIO[14]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (470) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (480) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (490) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (500) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (510) RECOVERY: Recovery system initialization done :D[0m
+[0;32mI (520) I2C: I2C INIT[0m
+[0;32mI (520) APP: calibration scheme version is Line Fitting[0m
+[0;32mI (530) APP: Init completed, entering recovery loop[0m
+[0;32mI (530) COTS: COTS ARMING[0m
+[0;32mI (530) COTS: **** TELEMETRUM ****[0m
+[0;32mI (540) COTS: Telemetrum arming done[0m
+[0;32mI (540) APP: Status: 1[0m
+[0;32mI (550) COTS: COTS ARMING[0m
+[0;32mI (550) COTS: ***** EASYMINI *****[0m
+[0;32mI (550) COTS: EasyMini arming done[0m
+[0;32mI (1560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (1560) I2C: Buffer : 3, 0, 0, 0[0m
+[0;32mI (2560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (2560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (3560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (3560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (4560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (4560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (5560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (5560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (6560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (6560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (7560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (7560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (8560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (8560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (9560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (9560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (10560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (10560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (11560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (11560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (12560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (12560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (13560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (13560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (14560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (14560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (15560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (15560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (16560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (16560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (17560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (17560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (18560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (18560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (19560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (19560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (20560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (20560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (21560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (21560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (22560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (22560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (23560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (23560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (24560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (24560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (25560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (25560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (26560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (26560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (27560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (27560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (28560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (28560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (29560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (29560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (30560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (30560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (31560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (31560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (32560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (32560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (33560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (33560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (34560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (34560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (35560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (35560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (36560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (36560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (37560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (37560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (38560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (38560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (39560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (39560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (40560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (40560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (41560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (41560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (42560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (42560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (43560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (43560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (44560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (44560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (45560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (45560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (46560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (46560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (47560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (47560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (48560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (48560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (49560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (49560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (50560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (50560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (51560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (51560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (52560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (52560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (53560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (53560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (54560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (54560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (55560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (55560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (56560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (56560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (57560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (57560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (58560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (58560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (59560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (59560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (60560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (60560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (61560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (61560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (62560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (62560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (63560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (63560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (64560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (64560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (65560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (65560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (66560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (66560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (67560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (67560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (68560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (68560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (69560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (69560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (70560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (70560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (71560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (71560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (72560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (72560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (73560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (73560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (74560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (74560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (75560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (75560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (76560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (76560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (77560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (77560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (78560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (78560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (79560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (79560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (80560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (80560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (81560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (81560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (82560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (82560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (83560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (83560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (84560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (84560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (85560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (85560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (86560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (86560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (87560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (87560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (88560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (88560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (89560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (89560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (90560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (90560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (91560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (91560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (92560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (92560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (93560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (93560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (94560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (94560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (95560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (95560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (96560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (96560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (97560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (97560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (98560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (98560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (99560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (99560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (100560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (100560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (101560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (101560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (102560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (102560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (103560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (103560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (104560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (104560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (105560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (105560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (106560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (106560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (107560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (107560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (108560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (108560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (109560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (109560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (110560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (110560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (111560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (111560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (112560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (112560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (113560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (113560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (114560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (114560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (115560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (115560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (116560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (116560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (117560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (117560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (118560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (118560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (119560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (119560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (120560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (120560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (121560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (121560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (122560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (122560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (123560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (123560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (124560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (124560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (125560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (125560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (126560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (126560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (127560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (127560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (128560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (128560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (129560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (129560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (130560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (130560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (131560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (131560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (132560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (132560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (133560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (133560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (134560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (134560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (135560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (135560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (136560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (136560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (137560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (137560) I2C: Buffer : 3, 4, 0, 0[0m
+[0;32mI (138560) I2C: Writed 4 bytes into the buffer[0m
+[0;32mI (138560) I2C: Buffer : 3, 4, 0, 0[0m

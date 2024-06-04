@@ -3,7 +3,7 @@
 
 /***************************  ESP DEFINE  ************************************/
 
-//#define ESP_LEFT
+// #define ESP_LEFT
  #define ESP_RIGHT
 
 /************************ COMMANDS FROM MCB **********************************/
@@ -32,20 +32,20 @@
 #define RET_FAILTURE 0x01
 
 #ifdef ESP_LEFT
-#define DEV_ADR 0x00
+#define DEV_ADR 0x0B
 #endif
 
 #ifdef ESP_RIGHT
-#define DEV_ADR 0x01
+#define DEV_ADR 0x0A
 #endif
 
 #define I2C_SLAVE_PORT I2C_NUM_0
 #define I2C_SLAVE_TX_BUF_LEN 256
-#define I2C_SLAVE_RX_BUF_LEN 256  
+#define I2C_SLAVE_RX_BUF_LEN 256
 #define I2C_SLAVE_MAX_SPEED 40
 #define MCB_ADR 0x00
 #define DATA_SIZE_FROM_MCB 8
-#define DATA_SIZE_TO_MCB 2
+#define DATA_SIZE_TO_MCB 4
 
 
 #endif //  CONFIG_H

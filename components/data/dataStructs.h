@@ -7,8 +7,8 @@
 #include "config.h"
 
 typedef struct {
-    bool isArmed :1;
-    bool isTeleActive :1;
+    bool isArmed :1; // Easymini arming signall
+    bool isTeleActive :1; 
     bool easyMiniFirstStage :1;
     bool easyMiniSecondStage :1;
     bool telemetrumFirstStage :1;
@@ -17,12 +17,12 @@ typedef struct {
     bool secondStageDone :1;
     bool firstStageContinouity :1;
     bool secondStageContinouity :1;
-    uint8_t pressure : 6; 
+    bool separationSwitch1 :1;
+    bool separationSwitch2 :1;
+    uint16_t pressure1;
+} recovery_data_t;
 
-
-} data_to_mcb;
-
-extern data_to_mcb data_to_send;
+extern recovery_data_t data_to_send;
 
 typedef struct {
 

@@ -17,7 +17,7 @@ uint8_t recovery_Init(){
     };
 
     gpio_config_t gpio_outputs = {
-        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << EASY_IGNITER_FIRE) |
+        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << EASY_IGNITER_FIRE) | (1ULL << LED) |
                          (1ULL << TELE_IGNITER_FIRE) | (1ULL << EASY_ARMING) | (1ULL << TELE_ARMING)),
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
@@ -25,11 +25,11 @@ uint8_t recovery_Init(){
         .intr_type = GPIO_INTR_DISABLE,
     };
 
-    ESP_LOGI(TAG,"DUPA");
+
     ESP_ERROR_CHECK(gpio_config(&gpio_inputs));
-    ESP_LOGI(TAG,"DUPA2");
+
     ESP_ERROR_CHECK(gpio_config(&gpio_outputs));
-    ESP_LOGI(TAG,"DUPA3");
+
 
     recovery_system.endconePin = END_CONE;
     recovery_system.pilotDeployPin = PILOT_DEPLOY;
@@ -44,7 +44,7 @@ uint8_t recovery_Init(){
 
 uint8_t first_Stage_Deploy(){
 
-    ESP_LOGI(TAG,"First stage deploy event");
+   // ESP_LOGI(TAG,"First stage deploy event");
 
     gpio_set_level(recovery_system.pilotDeployPin,1);
 
@@ -52,12 +52,12 @@ uint8_t first_Stage_Deploy(){
 
         gpio_set_level(recovery_system.pilotDeployPin,1);
 
-        ESP_LOGW(TAG,"No confirmation for first stage deploy!!!");
+      //  ESP_LOGW(TAG,"No confirmation for first stage deploy!!!");
 
     }
     recovery_system.firstStageDone = true;
 
-    ESP_LOGI(TAG,"Recovery first stage done");
+   // ESP_LOGI(TAG,"Recovery first stage done");
 
     return RET_SUCCESS;
 
@@ -117,12 +117,18 @@ recovery_system.secondStageDone = true;
 
 }
 
-void apogee_isr_handler(void *args){
+void tele_apogee_isr_handler(void *args){
 
-    ESP_LOGI(TAG,"APOGEE DETECTED !!!");
-    ESP_LOGI(TAG,"DEPLOYING PILOT PARACHUTE");
+    telemetrum_device.apogeeDetection = 1;
+    gpio_set_level(PILOT_DEPLOY,1);
+    recovery_system.firstStageDone = 1;
 
-    first_Stage_Deploy();
-    
+}
+
+void easy_apogee_isr_handler(void *args){
+
+    easymini_device.apogeeDetection = 1;
+    gpio_set_level(PILOT_DEPLOY,1);
+    recovery_system.firstStageDone = 1;
 
 }

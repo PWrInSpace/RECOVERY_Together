@@ -6,6 +6,7 @@
 #include "esp_log.h"
 #include "config.h"
 #include "pinout.h"
+#include "cots.h"
 
 typedef struct{
 
@@ -23,6 +24,7 @@ typedef struct{
     bool easySecondStage : 1;
     bool teleSecondStage : 1;
     bool secondStageCont : 1;
+    bool apogeeDetection : 1;
 
 }recovery_device_t;
 
@@ -32,6 +34,7 @@ uint8_t recovery_Init();
 uint8_t first_Stage_Deploy();
 uint8_t second_Stage_Deploy();
 void check_Cont();
-void apogee_isr_handler(void *args);
+void tele_apogee_isr_handler(void *args);
+void easy_apogee_isr_handler(void *args);
 
 #endif

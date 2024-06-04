@@ -1,0 +1,556 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7096
+load:0x40078000,len:15584
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3876
+entry 0x4008064c
+[0;32mI (30) boot: ESP-IDF v5.1.2-365-ge60b0235ad 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 21 2024 09:39:47[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0ab08h ( 43784) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001ab30 vaddr=3ffb0000 size=02178h (  8568) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001ccb0 vaddr=40080000 size=03368h ( 13160) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16050h ( 90192) map[0m
+[0;32mI (168) esp_image: segment 4: paddr=00036078 vaddr=40083368 size=0a268h ( 41576) load[0m
+[0;32mI (192) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (192) boot: Disabling RNG early entropy source...[0m
+[0;32mI (203) cpu_start: Multicore app[0m
+[0;32mI (204) cpu_start: Pro cpu up.[0m
+[0;32mI (204) cpu_start: Starting app cpu, entry point is 0x40081200[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (222) cpu_start: Pro cpu start user code[0m
+[0;32mI (222) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (222) cpu_start: Application information:[0m
+[0;32mI (226) cpu_start: Project name:     i2c_master[0m
+[0;32mI (232) cpu_start: App version:      1[0m
+[0;32mI (236) cpu_start: Compile time:     May 21 2024 09:39:42[0m
+[0;32mI (242) cpu_start: ELF file SHA256:  7fecc08ca5f2943a...[0m
+[0;32mI (248) cpu_start: ESP-IDF:          v5.1.2-365-ge60b0235ad[0m
+[0;32mI (254) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (259) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (264) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (269) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (276) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (282) heap_init: At 3FFB2A00 len 0002D600 (181 KiB): DRAM[0m
+[0;32mI (288) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (295) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (301) heap_init: At 4008D5D0 len 00012A30 (74 KiB): IRAM[0m
+[0;32mI (309) spi_flash: detected chip: generic[0m
+[0;32mI (312) spi_flash: flash io: dio[0m
+[0;33mW (316) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (329) app_start: Starting scheduler on CPU0[0m
+[0;32mI (334) app_start: Starting scheduler on CPU1[0m
+[0;32mI (334) main_task: Started on CPU0[0m
+[0;32mI (344) main_task: Calling app_main()[0m
+[0;32mI (344) i2c-master: I2C initialized successfully[0m
+[0;32mI (2344) i2c-master: isArmed: 1[0m
+[0;32mI (2344) i2c-master: isTeleActive: 1[0m
+[0;32mI (2344) i2c-master: easyMiniFirstStage: 1[0m
+[0;32mI (2344) i2c-master: easyMiniSecondStage: 1[0m
+[0;32mI (2344) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (2354) i2c-master: telemetrumSecondStage: 1[0m
+[0;32mI (2354) i2c-master: firstStageDone: 1[0m
+[0;32mI (2364) i2c-master: secondStageDone: 1[0m
+[0;32mI (2364) i2c-master: firstStageContinouity: 1[0m
+[0;32mI (2374) i2c-master: secondStageContinouity: 1[0m
+[0;32mI (2374) i2c-master: separationSwitch1: 1[0m
+[0;32mI (2384) i2c-master: separationSwitch2: 1[0m
+[0;32mI (2384) i2c-master: pressure1: 16367[0m
+[0;32mI (9384) i2c-master: isArmed: 1[0m
+[0;32mI (9384) i2c-master: isTeleActive: 1[0m
+[0;32mI (9384) i2c-master: easyMiniFirstStage: 1[0m
+[0;32mI (9384) i2c-master: easyMiniSecondStage: 1[0m
+[0;32mI (9384) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (9394) i2c-master: telemetrumSecondStage: 1[0m
+[0;32mI (9394) i2c-master: firstStageDone: 1[0m
+[0;32mI (9404) i2c-master: secondStageDone: 1[0m
+[0;32mI (9404) i2c-master: firstStageContinouity: 1[0m
+[0;32mI (9414) i2c-master: secondStageContinouity: 1[0m
+[0;32mI (9414) i2c-master: separationSwitch1: 1[0m
+[0;32mI (9424) i2c-master: separationSwitch2: 1[0m
+[0;32mI (9424) i2c-master: pressure1: 33007[0m
+[0;32mI (15424) i2c-master: isArmed: 1[0m
+[0;32mI (15424) i2c-master: isTeleActive: 1[0m
+[0;32mI (15424) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (15424) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (15424) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (15434) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (15434) i2c-master: firstStageDone: 0[0m
+[0;32mI (15444) i2c-master: secondStageDone: 0[0m
+[0;32mI (15444) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (15454) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (15454) i2c-master: separationSwitch1: 1[0m
+[0;32mI (15464) i2c-master: separationSwitch2: 0[0m
+[0;32mI (15464) i2c-master: pressure1: 0[0m
+[0;32mI (21474) i2c-master: isArmed: 1[0m
+[0;32mI (21474) i2c-master: isTeleActive: 1[0m
+[0;32mI (21474) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (21474) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (21474) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (21484) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (21484) i2c-master: firstStageDone: 0[0m
+[0;32mI (21494) i2c-master: secondStageDone: 0[0m
+[0;32mI (21494) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (21504) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (21504) i2c-master: separationSwitch1: 1[0m
+[0;32mI (21514) i2c-master: separationSwitch2: 0[0m
+[0;32mI (21514) i2c-master: pressure1: 0[0m
+[0;32mI (27524) i2c-master: isArmed: 1[0m
+[0;32mI (27524) i2c-master: isTeleActive: 1[0m
+[0;32mI (27524) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (27524) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (27524) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (27534) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (27534) i2c-master: firstStageDone: 0[0m
+[0;32mI (27544) i2c-master: secondStageDone: 0[0m
+[0;32mI (27544) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (27554) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (27554) i2c-master: separationSwitch1: 1[0m
+[0;32mI (27564) i2c-master: separationSwitch2: 0[0m
+[0;32mI (27564) i2c-master: pressure1: 0[0m
+[0;32mI (33574) i2c-master: isArmed: 1[0m
+[0;32mI (33574) i2c-master: isTeleActive: 1[0m
+[0;32mI (33574) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (33574) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (33574) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (33584) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (33584) i2c-master: firstStageDone: 0[0m
+[0;32mI (33594) i2c-master: secondStageDone: 0[0m
+[0;32mI (33594) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (33604) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (33604) i2c-master: separationSwitch1: 1[0m
+[0;32mI (33614) i2c-master: separationSwitch2: 0[0m
+[0;32mI (33614) i2c-master: pressure1: 0[0m
+[0;32mI (39624) i2c-master: isArmed: 1[0m
+[0;32mI (39624) i2c-master: isTeleActive: 1[0m
+[0;32mI (39624) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (39624) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (39624) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (39634) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (39634) i2c-master: firstStageDone: 0[0m
+[0;32mI (39644) i2c-master: secondStageDone: 0[0m
+[0;32mI (39644) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (39654) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (39654) i2c-master: separationSwitch1: 1[0m
+[0;32mI (39664) i2c-master: separationSwitch2: 0[0m
+[0;32mI (39664) i2c-master: pressure1: 0[0m
+[0;32mI (45674) i2c-master: isArmed: 1[0m
+[0;32mI (45674) i2c-master: isTeleActive: 1[0m
+[0;32mI (45674) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (45674) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (45674) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (45684) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (45684) i2c-master: firstStageDone: 0[0m
+[0;32mI (45694) i2c-master: secondStageDone: 0[0m
+[0;32mI (45694) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (45704) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (45704) i2c-master: separationSwitch1: 1[0m
+[0;32mI (45714) i2c-master: separationSwitch2: 0[0m
+[0;32mI (45714) i2c-master: pressure1: 0[0m
+[0;32mI (51724) i2c-master: isArmed: 1[0m
+[0;32mI (51724) i2c-master: isTeleActive: 1[0m
+[0;32mI (51724) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (51724) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (51724) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (51734) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (51734) i2c-master: firstStageDone: 0[0m
+[0;32mI (51744) i2c-master: secondStageDone: 0[0m
+[0;32mI (51744) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (51754) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (51754) i2c-master: separationSwitch1: 1[0m
+[0;32mI (51764) i2c-master: separationSwitch2: 0[0m
+[0;32mI (51764) i2c-master: pressure1: 0[0m
+[0;32mI (57774) i2c-master: isArmed: 1[0m
+[0;32mI (57774) i2c-master: isTeleActive: 1[0m
+[0;32mI (57774) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (57774) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (57774) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (57784) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (57784) i2c-master: firstStageDone: 0[0m
+[0;32mI (57794) i2c-master: secondStageDone: 0[0m
+[0;32mI (57794) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (57804) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (57804) i2c-master: separationSwitch1: 1[0m
+[0;32mI (57814) i2c-master: separationSwitch2: 0[0m
+[0;32mI (57814) i2c-master: pressure1: 0[0m
+[0;32mI (63824) i2c-master: isArmed: 1[0m
+[0;32mI (63824) i2c-master: isTeleActive: 1[0m
+[0;32mI (63824) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (63824) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (63824) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (63834) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (63834) i2c-master: firstStageDone: 0[0m
+[0;32mI (63844) i2c-master: secondStageDone: 0[0m
+[0;32mI (63844) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (63854) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (63854) i2c-master: separationSwitch1: 1[0m
+[0;32mI (63864) i2c-master: separationSwitch2: 0[0m
+[0;32mI (63864) i2c-master: pressure1: 0[0m
+[0;32mI (69874) i2c-master: isArmed: 1[0m
+[0;32mI (69874) i2c-master: isTeleActive: 1[0m
+[0;32mI (69874) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (69874) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (69874) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (69884) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (69884) i2c-master: firstStageDone: 0[0m
+[0;32mI (69894) i2c-master: secondStageDone: 0[0m
+[0;32mI (69894) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (69904) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (69904) i2c-master: separationSwitch1: 1[0m
+[0;32mI (69914) i2c-master: separationSwitch2: 0[0m
+[0;32mI (69914) i2c-master: pressure1: 0[0m
+[0;32mI (75924) i2c-master: isArmed: 1[0m
+[0;32mI (75924) i2c-master: isTeleActive: 1[0m
+[0;32mI (75924) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (75924) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (75924) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (75934) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (75934) i2c-master: firstStageDone: 0[0m
+[0;32mI (75944) i2c-master: secondStageDone: 0[0m
+[0;32mI (75944) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (75954) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (75954) i2c-master: separationSwitch1: 1[0m
+[0;32mI (75964) i2c-master: separationSwitch2: 0[0m
+[0;32mI (75964) i2c-master: pressure1: 0[0m
+[0;32mI (81974) i2c-master: isArmed: 1[0m
+[0;32mI (81974) i2c-master: isTeleActive: 1[0m
+[0;32mI (81974) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (81974) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (81974) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (81984) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (81984) i2c-master: firstStageDone: 0[0m
+[0;32mI (81994) i2c-master: secondStageDone: 0[0m
+[0;32mI (81994) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (82004) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (82004) i2c-master: separationSwitch1: 1[0m
+[0;32mI (82014) i2c-master: separationSwitch2: 0[0m
+[0;32mI (82014) i2c-master: pressure1: 0[0m
+[0;32mI (88024) i2c-master: isArmed: 1[0m
+[0;32mI (88024) i2c-master: isTeleActive: 1[0m
+[0;32mI (88024) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (88024) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (88024) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (88034) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (88034) i2c-master: firstStageDone: 0[0m
+[0;32mI (88044) i2c-master: secondStageDone: 0[0m
+[0;32mI (88044) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (88054) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (88054) i2c-master: separationSwitch1: 1[0m
+[0;32mI (88064) i2c-master: separationSwitch2: 0[0m
+[0;32mI (88064) i2c-master: pressure1: 0[0m
+[0;32mI (94074) i2c-master: isArmed: 1[0m
+[0;32mI (94074) i2c-master: isTeleActive: 1[0m
+[0;32mI (94074) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (94074) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (94074) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (94084) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (94084) i2c-master: firstStageDone: 0[0m
+[0;32mI (94094) i2c-master: secondStageDone: 0[0m
+[0;32mI (94094) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (94104) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (94104) i2c-master: separationSwitch1: 1[0m
+[0;32mI (94114) i2c-master: separationSwitch2: 0[0m
+[0;32mI (94114) i2c-master: pressure1: 0[0m
+[0;32mI (100124) i2c-master: isArmed: 1[0m
+[0;32mI (100124) i2c-master: isTeleActive: 1[0m
+[0;32mI (100124) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (100124) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (100124) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (100134) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (100134) i2c-master: firstStageDone: 0[0m
+[0;32mI (100144) i2c-master: secondStageDone: 0[0m
+[0;32mI (100144) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (100154) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (100154) i2c-master: separationSwitch1: 1[0m
+[0;32mI (100164) i2c-master: separationSwitch2: 0[0m
+[0;32mI (100164) i2c-master: pressure1: 0[0m
+[0;32mI (106174) i2c-master: isArmed: 1[0m
+[0;32mI (106174) i2c-master: isTeleActive: 1[0m
+[0;32mI (106174) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (106174) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (106174) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (106184) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (106184) i2c-master: firstStageDone: 0[0m
+[0;32mI (106194) i2c-master: secondStageDone: 0[0m
+[0;32mI (106194) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (106204) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (106204) i2c-master: separationSwitch1: 1[0m
+[0;32mI (106214) i2c-master: separationSwitch2: 0[0m
+[0;32mI (106214) i2c-master: pressure1: 0[0m
+[0;32mI (112224) i2c-master: isArmed: 1[0m
+[0;32mI (112224) i2c-master: isTeleActive: 1[0m
+[0;32mI (112224) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (112224) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (112224) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (112234) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (112234) i2c-master: firstStageDone: 0[0m
+[0;32mI (112244) i2c-master: secondStageDone: 0[0m
+[0;32mI (112244) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (112254) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (112254) i2c-master: separationSwitch1: 1[0m
+[0;32mI (112264) i2c-master: separationSwitch2: 0[0m
+[0;32mI (112264) i2c-master: pressure1: 0[0m
+[0;32mI (118274) i2c-master: isArmed: 1[0m
+[0;32mI (118274) i2c-master: isTeleActive: 1[0m
+[0;32mI (118274) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (118274) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (118274) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (118284) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (118284) i2c-master: firstStageDone: 0[0m
+[0;32mI (118294) i2c-master: secondStageDone: 0[0m
+[0;32mI (118294) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (118304) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (118304) i2c-master: separationSwitch1: 1[0m
+[0;32mI (118314) i2c-master: separationSwitch2: 0[0m
+[0;32mI (118314) i2c-master: pressure1: 0[0m
+[0;32mI (124324) i2c-master: isArmed: 1[0m
+[0;32mI (124324) i2c-master: isTeleActive: 1[0m
+[0;32mI (124324) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (124324) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (124324) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (124334) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (124334) i2c-master: firstStageDone: 0[0m
+[0;32mI (124344) i2c-master: secondStageDone: 0[0m
+[0;32mI (124344) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (124354) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (124354) i2c-master: separationSwitch1: 1[0m
+[0;32mI (124364) i2c-master: separationSwitch2: 0[0m
+[0;32mI (124364) i2c-master: pressure1: 0[0m
+[0;32mI (130374) i2c-master: isArmed: 1[0m
+[0;32mI (130374) i2c-master: isTeleActive: 1[0m
+[0;32mI (130374) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (130374) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (130374) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (130384) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (130384) i2c-master: firstStageDone: 0[0m
+[0;32mI (130394) i2c-master: secondStageDone: 0[0m
+[0;32mI (130394) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (130404) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (130404) i2c-master: separationSwitch1: 1[0m
+[0;32mI (130414) i2c-master: separationSwitch2: 0[0m
+[0;32mI (130414) i2c-master: pressure1: 0[0m
+[0;32mI (136424) i2c-master: isArmed: 1[0m
+[0;32mI (136424) i2c-master: isTeleActive: 1[0m
+[0;32mI (136424) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (136424) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (136424) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (136434) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (136434) i2c-master: firstStageDone: 0[0m
+[0;32mI (136444) i2c-master: secondStageDone: 0[0m
+[0;32mI (136444) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (136454) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (136454) i2c-master: separationSwitch1: 1[0m
+[0;32mI (136464) i2c-master: separationSwitch2: 0[0m
+[0;32mI (136464) i2c-master: pressure1: 0[0m
+[0;32mI (142474) i2c-master: isArmed: 1[0m
+[0;32mI (142474) i2c-master: isTeleActive: 1[0m
+[0;32mI (142474) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (142474) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (142474) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (142484) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (142484) i2c-master: firstStageDone: 0[0m
+[0;32mI (142494) i2c-master: secondStageDone: 0[0m
+[0;32mI (142494) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (142504) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (142504) i2c-master: separationSwitch1: 1[0m
+[0;32mI (142514) i2c-master: separationSwitch2: 0[0m
+[0;32mI (142514) i2c-master: pressure1: 0[0m
+[0;32mI (148524) i2c-master: isArmed: 1[0m
+[0;32mI (148524) i2c-master: isTeleActive: 1[0m
+[0;32mI (148524) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (148524) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (148524) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (148534) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (148534) i2c-master: firstStageDone: 0[0m
+[0;32mI (148544) i2c-master: secondStageDone: 0[0m
+[0;32mI (148544) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (148554) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (148554) i2c-master: separationSwitch1: 1[0m
+[0;32mI (148564) i2c-master: separationSwitch2: 0[0m
+[0;32mI (148564) i2c-master: pressure1: 0[0m
+[0;32mI (154574) i2c-master: isArmed: 1[0m
+[0;32mI (154574) i2c-master: isTeleActive: 1[0m
+[0;32mI (154574) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (154574) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (154574) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (154584) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (154584) i2c-master: firstStageDone: 0[0m
+[0;32mI (154594) i2c-master: secondStageDone: 0[0m
+[0;32mI (154594) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (154604) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (154604) i2c-master: separationSwitch1: 1[0m
+[0;32mI (154614) i2c-master: separationSwitch2: 0[0m
+[0;32mI (154614) i2c-master: pressure1: 0[0m
+[0;32mI (160624) i2c-master: isArmed: 1[0m
+[0;32mI (160624) i2c-master: isTeleActive: 1[0m
+[0;32mI (160624) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (160624) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (160624) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (160634) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (160634) i2c-master: firstStageDone: 0[0m
+[0;32mI (160644) i2c-master: secondStageDone: 0[0m
+[0;32mI (160644) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (160654) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (160654) i2c-master: separationSwitch1: 1[0m
+[0;32mI (160664) i2c-master: separationSwitch2: 0[0m
+[0;32mI (160664) i2c-master: pressure1: 0[0m
+[0;32mI (166674) i2c-master: isArmed: 1[0m
+[0;32mI (166674) i2c-master: isTeleActive: 1[0m
+[0;32mI (166674) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (166674) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (166674) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (166684) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (166684) i2c-master: firstStageDone: 0[0m
+[0;32mI (166694) i2c-master: secondStageDone: 0[0m
+[0;32mI (166694) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (166704) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (166704) i2c-master: separationSwitch1: 1[0m
+[0;32mI (166714) i2c-master: separationSwitch2: 0[0m
+[0;32mI (166714) i2c-master: pressure1: 0[0m
+[0;32mI (172724) i2c-master: isArmed: 1[0m
+[0;32mI (172724) i2c-master: isTeleActive: 1[0m
+[0;32mI (172724) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (172724) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (172724) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (172734) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (172734) i2c-master: firstStageDone: 0[0m
+[0;32mI (172744) i2c-master: secondStageDone: 0[0m
+[0;32mI (172744) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (172754) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (172754) i2c-master: separationSwitch1: 1[0m
+[0;32mI (172764) i2c-master: separationSwitch2: 0[0m
+[0;32mI (172764) i2c-master: pressure1: 0[0m
+[0;32mI (178774) i2c-master: isArmed: 1[0m
+[0;32mI (178774) i2c-master: isTeleActive: 1[0m
+[0;32mI (178774) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (178774) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (178774) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (178784) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (178784) i2c-master: firstStageDone: 0[0m
+[0;32mI (178794) i2c-master: secondStageDone: 0[0m
+[0;32mI (178794) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (178804) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (178804) i2c-master: separationSwitch1: 1[0m
+[0;32mI (178814) i2c-master: separationSwitch2: 0[0m
+[0;32mI (178814) i2c-master: pressure1: 0[0m
+[0;32mI (184824) i2c-master: isArmed: 1[0m
+[0;32mI (184824) i2c-master: isTeleActive: 1[0m
+[0;32mI (184824) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (184824) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (184824) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (184834) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (184834) i2c-master: firstStageDone: 0[0m
+[0;32mI (184844) i2c-master: secondStageDone: 0[0m
+[0;32mI (184844) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (184854) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (184854) i2c-master: separationSwitch1: 1[0m
+[0;32mI (184864) i2c-master: separationSwitch2: 0[0m
+[0;32mI (184864) i2c-master: pressure1: 0[0m
+[0;32mI (190874) i2c-master: isArmed: 1[0m
+[0;32mI (190874) i2c-master: isTeleActive: 1[0m
+[0;32mI (190874) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (190874) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (190874) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (190884) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (190884) i2c-master: firstStageDone: 0[0m
+[0;32mI (190894) i2c-master: secondStageDone: 0[0m
+[0;32mI (190894) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (190904) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (190904) i2c-master: separationSwitch1: 1[0m
+[0;32mI (190914) i2c-master: separationSwitch2: 0[0m
+[0;32mI (190914) i2c-master: pressure1: 0[0m
+[0;32mI (196924) i2c-master: isArmed: 1[0m
+[0;32mI (196924) i2c-master: isTeleActive: 1[0m
+[0;32mI (196924) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (196924) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (196924) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (196934) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (196934) i2c-master: firstStageDone: 0[0m
+[0;32mI (196944) i2c-master: secondStageDone: 0[0m
+[0;32mI (196944) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (196954) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (196954) i2c-master: separationSwitch1: 1[0m
+[0;32mI (196964) i2c-master: separationSwitch2: 0[0m
+[0;32mI (196964) i2c-master: pressure1: 0[0m
+[0;32mI (202974) i2c-master: isArmed: 1[0m
+[0;32mI (202974) i2c-master: isTeleActive: 1[0m
+[0;32mI (202974) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (202974) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (202974) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (202984) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (202984) i2c-master: firstStageDone: 0[0m
+[0;32mI (202994) i2c-master: secondStageDone: 0[0m
+[0;32mI (202994) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (203004) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (203004) i2c-master: separationSwitch1: 1[0m
+[0;32mI (203014) i2c-master: separationSwitch2: 0[0m
+[0;32mI (203014) i2c-master: pressure1: 0[0m
+[0;32mI (209024) i2c-master: isArmed: 1[0m
+[0;32mI (209024) i2c-master: isTeleActive: 1[0m
+[0;32mI (209024) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (209024) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (209024) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (209034) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (209034) i2c-master: firstStageDone: 0[0m
+[0;32mI (209044) i2c-master: secondStageDone: 0[0m
+[0;32mI (209044) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (209054) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (209054) i2c-master: separationSwitch1: 1[0m
+[0;32mI (209064) i2c-master: separationSwitch2: 0[0m
+[0;32mI (209064) i2c-master: pressure1: 0[0m
+[0;32mI (215074) i2c-master: isArmed: 1[0m
+[0;32mI (215074) i2c-master: isTeleActive: 1[0m
+[0;32mI (215074) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (215074) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (215074) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (215084) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (215084) i2c-master: firstStageDone: 0[0m
+[0;32mI (215094) i2c-master: secondStageDone: 0[0m
+[0;32mI (215094) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (215104) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (215104) i2c-master: separationSwitch1: 1[0m
+[0;32mI (215114) i2c-master: separationSwitch2: 0[0m
+[0;32mI (215114) i2c-master: pressure1: 0[0m
+[0;32mI (221124) i2c-master: isArmed: 1[0m
+[0;32mI (221124) i2c-master: isTeleActive: 1[0m
+[0;32mI (221124) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (221124) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (221124) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (221134) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (221134) i2c-master: firstStageDone: 0[0m
+[0;32mI (221144) i2c-master: secondStageDone: 0[0m
+[0;32mI (221144) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (221154) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (221154) i2c-master: separationSwitch1: 1[0m
+[0;32mI (221164) i2c-master: separationSwitch2: 0[0m
+[0;32mI (221164) i2c-master: pressure1: 0[0m
+[0;32mI (227174) i2c-master: isArmed: 1[0m
+[0;32mI (227174) i2c-master: isTeleActive: 1[0m
+[0;32mI (227174) i2c-master: easyMiniFirstStage: 0[0m
+[0;32mI (227174) i2c-master: easyMiniSecondStage: 0[0m
+[0;32mI (227174) i2c-master: telemetrumFirstStage: 0[0m
+[0;32mI (227184) i2c-master: telemetrumSecondStage: 0[0m
+[0;32mI (227184) i2c-master: firstStageDone: 0[0m
+[0;32mI (227194) i2c-master: secondStageDone: 0[0m
+[0;32mI (227194) i2c-master: firstStageContinouity: 0[0m
+[0;32mI (227204) i2c-master: secondStageContinouity: 0[0m
+[0;32mI (227204) i2c-master: separationSwitch1: 1[0m
+[0;32mI (227214) i2c-master: separationSwitch2: 0[0m
+[0;32mI (227214) i2c-master: pressure1: 0[0m

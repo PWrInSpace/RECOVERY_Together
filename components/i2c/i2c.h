@@ -8,9 +8,17 @@
 #include "pinout.h"
 #include "string.h"
 
+typedef union {
+    struct command {
+        uint32_t command;
+        int32_t payload;
+    } cmd;
 
-extern uint8_t tx_buffer[2];
-extern uint32_t rx_buffer[2];
+    uint8_t raw[sizeof(struct command)];
+} cmd_message_t;
+
+extern uint8_t tx_buffer[4];
+extern cmd_message_t rx_buffer;
 
 uint8_t I2C_slave_init();
 uint8_t I2C_buffer_write();

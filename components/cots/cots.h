@@ -15,15 +15,11 @@ typedef enum{
 
 typedef struct {
 
-    // Arming control and status
     bool armStatus;
     gpio_num_t armingPin;
-
-    // GPIOs for detecting apogee and main deploy atitude
-    bool apogeeDetection; // Probably useless 
     gpio_num_t apogeePin;
     gpio_num_t igniterPin;
-
+    bool apogeeDetection;
 
 } cots_struct_t;
 

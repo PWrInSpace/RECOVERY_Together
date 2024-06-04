@@ -28,7 +28,7 @@
 /**************************  DEFINES  *****************************************/
 
 // ADC channel attenuation - can be changed
-#define ADC_ATTEN_PRESSURE ADC_ATTEN_DB_11
+#define ADC_ATTEN_PRESSURE ADC_ATTEN_DB_12
 
 /**************************  INIT *********************************************/
 
