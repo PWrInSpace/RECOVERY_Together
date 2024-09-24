@@ -55,7 +55,7 @@ uint32_t get_pressure(Pressure_Sensor_t *sensor_ptr) {
     //          sensor_ptr->adc_channel, sensor_ptr->voltage);
   }
 
-  if(sensor_ptr->adc_raw < 430){
+   if(sensor_ptr->adc_raw < 430){
     return 0;
   } else if(sensor_ptr->adc_raw > 1850){
     return 100;
@@ -63,3 +63,5 @@ uint32_t get_pressure(Pressure_Sensor_t *sensor_ptr) {
     return map(sensor_ptr->adc_raw, 430, 1850, 0, 100);
   }
 }
+
+

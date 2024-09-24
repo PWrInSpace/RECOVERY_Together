@@ -7,7 +7,7 @@
 #include "config.h"
 
 typedef struct {
-    bool isArmed :1; // Easymini arming signall
+    bool isArmed :1;
     bool isTeleActive :1; 
     bool easyMiniFirstStage :1;
     bool easyMiniSecondStage :1;
@@ -22,7 +22,7 @@ typedef struct {
     uint16_t pressure1;
 } recovery_data_t;
 
-extern recovery_data_t data_to_send;
+extern recovery_data_t data_to_send; 
 
 typedef struct {
 

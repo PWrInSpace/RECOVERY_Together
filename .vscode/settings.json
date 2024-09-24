@@ -3,6 +3,7 @@
         "cots.h": "c",
         "config.h": "c",
         "recovery_control.h": "c",
-        "datastructs.h": "c"
+        "datastructs.h": "c",
+        "pressure_sensor.h": "c"
     }
 }
