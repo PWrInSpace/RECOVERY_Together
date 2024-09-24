@@ -3,17 +3,17 @@
 
 /***************************  ESP DEFINE  ************************************/
 
-// #define ESP_LEFT
+ //#define ESP_LEFT
  #define ESP_RIGHT
 
 /************************ COMMANDS FROM MCB **********************************/
 
-#define PILOT_DEPLOY_CMD 0x01
-#define MAIN_DEPLOY_CMD 0x02
+#define EASYMINI_ARM_CMD 0x01
+#define EASYMINI_DISARM_CMD 0x02
 #define TELEMETRUM_ARM_CMD 0x03
 #define TELEMETRUM_DISARM_CMD 0x04
-#define EASYMINI_ARM_CMD 0x05
-#define EASYMINI_DISARM_CMD 0x06
+#define FORCE_FIRST_STAGE_CMD 0xa5
+#define FORCE_SECOND_STAGE_CMD 0x5a
 
 /**************************  ARMING STATUS  ***********************************/
 

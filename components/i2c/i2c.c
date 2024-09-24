@@ -20,7 +20,7 @@ uint8_t I2C_slave_init(){
         .clk_flags = 0,
     };  
     i2c_param_config(I2C_SLAVE_PORT,&i2c_slave_config);
-    ESP_ERROR_CHECK(i2c_driver_install(I2C_SLAVE_PORT, I2C_MODE_SLAVE, I2C_SLAVE_RX_BUF_LEN, I2C_SLAVE_TX_BUF_LEN, 0 ));
+    ESP_ERROR_CHECK(i2c_driver_install(I2C_SLAVE_PORT, I2C_MODE_SLAVE, I2C_SLAVE_RX_BUF_LEN, I2C_SLAVE_TX_BUF_LEN, 1 ));
     return RET_SUCCESS;
 }
 
@@ -35,13 +35,14 @@ uint8_t I2C_buffer_write(){
 }
 
 uint8_t I2C_buffer_read(){
-    uint8_t readBytes;
-    readBytes = i2c_slave_read_buffer(I2C_SLAVE_PORT, &rx_buffer.raw[0], DATA_SIZE_FROM_MCB,100 / portTICK_PERIOD_MS);
-    i2c_reset_rx_fifo(I2C_SLAVE_PORT);
 
-    ESP_LOGI(TAG,"readed %d bytes",readBytes);
+     uint8_t readBytes;
+     readBytes = i2c_slave_read_buffer(I2C_SLAVE_PORT, &rx_buffer.raw[0], DATA_SIZE_FROM_MCB,1000 / portTICK_PERIOD_MS);
+     i2c_reset_rx_fifo(I2C_SLAVE_PORT);
+
+     ESP_LOGI(TAG,"readed %d bytes",readBytes);
 
 
-    return RET_SUCCESS;
+     return RET_SUCCESS;
 
 }

@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "main",
-    "project_version":    "0f541e8-dirty",
+    "project_version":    "ff2cf52-dirty",
     "project_path":       "/home/suchy/OBC/OBC_Recovery",
     "idf_path":           "/home/suchy/esp/esp-idf",
     "build_dir":          "/home/suchy/OBC/OBC_Recovery/build",

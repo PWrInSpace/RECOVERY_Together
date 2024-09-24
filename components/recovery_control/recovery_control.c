@@ -2,7 +2,17 @@
 
 static const char *TAG = "RECOVERY";
 
-recovery_device_t recovery_system;
+recovery_device_t recovery_system = {
+    .firstStageDone = 0,
+    .secondStageDone = 0,
+    .easyIgniterCont = 0,
+    .teleIgniterCont = 0,
+    .endCone = 0,
+    .easySecondStage = 0,
+    .teleSecondStage = 0,
+    .secondStageCont = 0,
+    .apogeeDetection = 0
+};
 
 uint8_t recovery_Init(){
 
@@ -33,8 +43,8 @@ uint8_t recovery_Init(){
 
     recovery_system.endconePin = END_CONE;
     recovery_system.pilotDeployPin = PILOT_DEPLOY;
-    recovery_system.easyIgniterContPin = TELE_IGNITER_CONT;
-    recovery_system.teleIgniterContPin = EASY_IGNITER_CONT;
+    recovery_system.easyIgniterContPin = EASY_IGNITER_CONT;
+    recovery_system.teleIgniterContPin = TELE_IGNITER_CONT;
     recovery_system.easyIgniterFirePin = EASY_IGNITER_FIRE;
     recovery_system.teleIgniterFirePin = TELE_IGNITER_FIRE;
 
@@ -48,16 +58,16 @@ uint8_t first_Stage_Deploy(){
 
     gpio_set_level(recovery_system.pilotDeployPin,1);
 
-    while(!gpio_get_level(recovery_system.endconePin)){
+    //while(!gpio_get_level(recovery_system.endconePin)){
 
-        gpio_set_level(recovery_system.pilotDeployPin,1);
+    //    gpio_set_level(recovery_system.pilotDeployPin,1);
 
       //  ESP_LOGW(TAG,"No confirmation for first stage deploy!!!");
 
-    }
+    //}
     recovery_system.firstStageDone = true;
 
-   // ESP_LOGI(TAG,"Recovery first stage done");
+    ESP_LOGI(TAG,"Recovery first stage done");
 
     return RET_SUCCESS;
 
@@ -70,12 +80,12 @@ uint8_t second_Stage_Deploy(){
     gpio_set_level(recovery_system.easyIgniterFirePin,1);
     gpio_set_level(recovery_system.teleIgniterFirePin,1);
 
-    while(!gpio_get_level(recovery_system.easyIgniterContPin) && !gpio_get_level(recovery_system.teleIgniterContPin)){
-        gpio_set_level(recovery_system.easyIgniterFirePin,1);
-        gpio_set_level(recovery_system.teleIgniterFirePin,1);
+    // while(!gpio_get_level(recovery_system.easyIgniterContPin) && !gpio_get_level(recovery_system.teleIgniterContPin)){
+    //     gpio_set_level(recovery_system.easyIgniterFirePin,1);
+    //     gpio_set_level(recovery_system.teleIgniterFirePin,1);
         
-        ESP_LOGW(TAG,"No confirmation for second stage deploy!!!");
-    }
+    //     ESP_LOGW(TAG,"No confirmation for second stage deploy!!!");
+    // }
 
     recovery_system.secondStageDone = true;
 
@@ -87,33 +97,27 @@ uint8_t second_Stage_Deploy(){
 
 void check_Cont(){
 
-    ESP_LOGI(TAG,"Checking continuinty");
 
     bool previous_easymini_igniter_cont = recovery_system.easyIgniterCont;
     bool previous_telemetrum_igniter_cont = recovery_system.teleIgniterCont;
 
-    if(gpio_get_level(recovery_system.endconePin)) recovery_system.endCone = true;
-    else recovery_system.endCone = false;
 
-    if(gpio_get_level(recovery_system.easyIgniterContPin)) recovery_system.easyIgniterCont = true;
-    else recovery_system.easyIgniterCont = false;
-
-    if(gpio_get_level(recovery_system.teleIgniterContPin)) recovery_system.teleIgniterCont = true;
+    if(!gpio_get_level(recovery_system.teleIgniterContPin)) recovery_system.teleIgniterCont = true;
     else recovery_system.teleIgniterCont = false;
 
-    if(recovery_system.teleIgniterCont && recovery_system.easyIgniterCont) recovery_system.secondStageCont = true;
-    else recovery_system.secondStageCont = false;
+    if(!gpio_get_level(recovery_system.easyIgniterContPin)) {recovery_system.easyIgniterCont = true;
+    }
+    else {recovery_system.easyIgniterCont = false;
+    }
 
-    if(previous_easymini_igniter_cont != recovery_system.easyIgniterCont){
+    if(previous_easymini_igniter_cont == 1 && recovery_system.easyIgniterCont == 0){
         recovery_system.secondStageDone = true;
-        recovery_system.easySecondStage = false;
+        recovery_system.easySecondStage = true;
     }
-    else if(previous_telemetrum_igniter_cont != recovery_system.teleIgniterCont){
+    else if(previous_telemetrum_igniter_cont == 1 && recovery_system.teleIgniterCont == 0){
         recovery_system.secondStageDone = true;
-        recovery_system.teleSecondStage = false;
+        recovery_system.teleSecondStage = true;
     }
-recovery_system.secondStageDone = true;
-    ESP_LOGI(TAG,"Checking continuity done");
 
 }
 
