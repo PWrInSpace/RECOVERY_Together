@@ -151,6 +151,7 @@ void app_main(void)
      }
 
     adc_init();
+    servo_init();
 
     /************************ INTERRUPT HANDLERS *****************************/
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);

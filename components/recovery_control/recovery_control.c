@@ -14,6 +14,8 @@ recovery_device_t recovery_system = {
     .apogeeDetection = 0
 };
 
+esp_timer_handle_t resistance_off_timer;
+
 uint8_t recovery_Init(){
 
     ESP_LOGI(TAG,"Recovery System Initialization");
@@ -27,8 +29,8 @@ uint8_t recovery_Init(){
     };
 
     gpio_config_t gpio_outputs = {
-        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << EASY_IGNITER_FIRE) | (1ULL << LED) |
-                         (1ULL << TELE_IGNITER_FIRE) | (1ULL << EASY_ARMING) | (1ULL << TELE_ARMING)),
+        .pin_bit_mask = ((1ULL << PILOT_DEPLOY) | (1ULL << LED)
+                        |(1ULL << EASY_ARMING)  | (1ULL << TELE_ARMING)),
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -48,23 +50,19 @@ uint8_t recovery_Init(){
     recovery_system.easyIgniterFirePin = EASY_IGNITER_FIRE;
     recovery_system.teleIgniterFirePin = TELE_IGNITER_FIRE;
 
+    setup_resistance_timer();
+
     ESP_LOGI(TAG,"Recovery system initialization done :D");
     return RET_SUCCESS;
 }
 
 uint8_t first_Stage_Deploy(){
 
-   // ESP_LOGI(TAG,"First stage deploy event");
+    ESP_LOGI(TAG,"First stage deploy event");
 
-    gpio_set_level(recovery_system.pilotDeployPin,1);
-
-    //while(!gpio_get_level(recovery_system.endconePin)){
-
-    //    gpio_set_level(recovery_system.pilotDeployPin,1);
-
-      //  ESP_LOGW(TAG,"No confirmation for first stage deploy!!!");
-
-    //}
+    gpio_set_level(recovery_system.pilotDeployPin, 1);
+    ESP_LOGI(TAG,"Resistance wire turned on");
+    ESP_ERROR_CHECK(esp_timer_start_once(resistance_off_timer, RESISTANCE_BURN_TIME_US));
     recovery_system.firstStageDone = true;
 
     ESP_LOGI(TAG,"Recovery first stage done");
@@ -77,16 +75,7 @@ uint8_t second_Stage_Deploy(){
 
     ESP_LOGI(TAG,"Second stage deploy event");
 
-    gpio_set_level(recovery_system.easyIgniterFirePin,1);
-    gpio_set_level(recovery_system.teleIgniterFirePin,1);
-
-    // while(!gpio_get_level(recovery_system.easyIgniterContPin) && !gpio_get_level(recovery_system.teleIgniterContPin)){
-    //     gpio_set_level(recovery_system.easyIgniterFirePin,1);
-    //     gpio_set_level(recovery_system.teleIgniterFirePin,1);
-        
-    //     ESP_LOGW(TAG,"No confirmation for second stage deploy!!!");
-    // }
-
+    servo_open_for(SERVO_OPEN_TIME_US);
     recovery_system.secondStageDone = true;
 
     ESP_LOGI(TAG,"Second stage recovery done");
@@ -97,18 +86,11 @@ uint8_t second_Stage_Deploy(){
 
 void check_Cont(){
 
-
     bool previous_easymini_igniter_cont = recovery_system.easyIgniterCont;
     bool previous_telemetrum_igniter_cont = recovery_system.teleIgniterCont;
 
-
-    if(!gpio_get_level(recovery_system.teleIgniterContPin)) recovery_system.teleIgniterCont = true;
-    else recovery_system.teleIgniterCont = false;
-
-    if(!gpio_get_level(recovery_system.easyIgniterContPin)) {recovery_system.easyIgniterCont = true;
-    }
-    else {recovery_system.easyIgniterCont = false;
-    }
+    recovery_system.teleIgniterCont = !gpio_get_level(recovery_system.teleIgniterContPin);
+    recovery_system.easyIgniterCont = !gpio_get_level(recovery_system.easyIgniterContPin);
 
     if(previous_easymini_igniter_cont == 1 && recovery_system.easyIgniterCont == 0){
         recovery_system.secondStageDone = true;
@@ -132,7 +114,24 @@ void tele_apogee_isr_handler(void *args){
 void easy_apogee_isr_handler(void *args){
 
     easymini_device.apogeeDetection = 1;
-    gpio_set_level(PILOT_DEPLOY,1);
+    gpio_set_level(PILOT_DEPLOY, 1);
     recovery_system.firstStageDone = 1;
+
+}
+
+void turn_off_resistance_timer(void* arg) {
+
+    gpio_set_level(recovery_system.pilotDeployPin, 0);
+    ESP_LOGI(TAG, "Resistance wire turned off");
+
+}
+
+void setup_resistance_timer() {
+
+    const esp_timer_create_args_t timer_args = {
+        .callback = &turn_off_resistance_timer,
+        .name = "resistance_off_timer"
+    };
+    esp_timer_create(&timer_args, &resistance_off_timer);
 
 }

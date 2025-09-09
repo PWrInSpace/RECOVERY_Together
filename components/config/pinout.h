@@ -35,7 +35,8 @@
 #define TELE_IGNITER_CONT 18U
 #define EASY_IGNITER_CONT 17U
 #define PRESSURE 4U
-#define PILOT_DEPLOY 25U  
+#define PILOT_DEPLOY 25U //TODO: change to real value  
+#define SERVO 33U //TODO: change to real value
 #define EASY_IGNITER_FIRE 33U 
 #define TELE_IGNITER_FIRE 26U 
 #define EASY_ARMING 32U

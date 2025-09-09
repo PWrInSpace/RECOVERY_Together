@@ -6,7 +6,12 @@
 #include "esp_log.h"
 #include "config.h"
 #include "pinout.h"
+#include "servo_control.h"
 #include "cots.h"
+#include "esp_timer.h"
+
+#define RESISTANCE_BURN_TIME_US 5000000
+#define SERVO_OPEN_TIME_US      5000000
 
 typedef struct{
 
@@ -29,6 +34,7 @@ typedef struct{
 }recovery_device_t;
 
 extern recovery_device_t recovery_system;
+extern esp_timer_handle_t resistance_off_timer;
 
 uint8_t recovery_Init();
 uint8_t first_Stage_Deploy();
@@ -36,5 +42,7 @@ uint8_t second_Stage_Deploy();
 void check_Cont();
 void tele_apogee_isr_handler(void *args);
 void easy_apogee_isr_handler(void *args);
+void turn_off_resistance_timer(void* arg);
+void setup_resistance_timer();
 
 #endif
