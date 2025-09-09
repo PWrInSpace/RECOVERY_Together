@@ -6,7 +6,7 @@
 #include "esp_log.h"
 #include "config.h"
 #include "pinout.h"
-
+#include "esp_timer.h"
 
 #define SERVO_MIN_PULSEWIDTH_US 500   // Minimum pulse width in microsecond
 #define SERVO_MAX_PULSEWIDTH_US 2500  // Maximum pulse width in microsecond
