@@ -3,8 +3,8 @@
 
 /***************************  ESP DEFINE  ************************************/
 
- //#define ESP_LEFT
- #define ESP_RIGHT
+ #define ESP_LEFT
+ //#define ESP_RIGHT
 
 /************************ COMMANDS FROM MCB **********************************/
 

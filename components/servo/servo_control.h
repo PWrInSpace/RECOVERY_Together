@@ -15,8 +15,8 @@
 #define SERVO_FREQUENCY_HZ 1000000    // Frequency of the PWM signal for the servo
 #define SERVO_TIMEBASE_PERIOD 20000   // 20000 ticks, 20ms
 
-#define SERVO_CLOSED 0U
-#define SERVO_OPENED 180U
+#define SERVO_CLOSED 50U
+#define SERVO_OPENED 80U
 
 typedef struct {
     gpio_num_t servo_pin;

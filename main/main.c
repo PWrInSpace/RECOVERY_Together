@@ -12,6 +12,7 @@
 #include "esp_adc/adc_cali.h"
 #include "esp_adc/adc_cali_scheme.h"
 #include "esp_adc/adc_oneshot.h"
+#include "console_config.h"
 
 static const char *TAG = "APP";
 
@@ -23,6 +24,7 @@ adc_oneshot_unit_handle_t adc_handle = NULL;
 void read_data(){
 
     data_to_send.isArmed = easymini_device.armStatus; //  EasyMini arm status
+    //data_to_send.isArmed = 1;
     data_to_send.isTeleActive =  telemetrum_device.armStatus; // Telemetrum arm status
     data_to_send.easyMiniFirstStage = easymini_device.apogeeDetection; // easyminiApogee Detection
     data_to_send.easyMiniSecondStage = recovery_system.easySecondStage; // easyMini igniter fire
@@ -34,7 +36,7 @@ void read_data(){
     data_to_send.secondStageContinouity = !gpio_get_level(recovery_system.teleIgniterContPin); // TeleIgniterCont
     data_to_send.separationSwitch1 = !gpio_get_level(END_CONE);
     data_to_send.pressure1 = (uint16_t)get_pressure(&pressure_sensor);
-    ESP_LOGI(TAG,"PRESSURE: %d", data_to_send.pressure1);
+    //ESP_LOGI(TAG,"PRESSURE: %d", data_to_send.pressure1);
 
 }
 
@@ -152,6 +154,11 @@ void app_main(void)
 
     adc_init();
     servo_init();
+
+    if(init_console() != ESP_OK){
+        ESP_LOGE(TAG,"Console init failed, restarting ...");
+        esp_restart();
+    }
 
     /************************ INTERRUPT HANDLERS *****************************/
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);

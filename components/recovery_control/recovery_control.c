@@ -21,11 +21,19 @@ uint8_t recovery_Init(){
     ESP_LOGI(TAG,"Recovery System Initialization");
 
     gpio_config_t gpio_inputs = {
-        .pin_bit_mask = ((1ULL << END_CONE)),
+        .pin_bit_mask = ((1ULL << END_CONE) | (1ULL << EASY_IGNITER_CONT) | (1ULL << TELE_IGNITER_CONT)),
         .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
         .intr_type = GPIO_INTR_DISABLE,
+    };
+
+    gpio_config_t gpio_apogee_inputs = {
+        .pin_bit_mask = ((1ULL << TELE_APOGEE_CHECK) | (1ULL << EASY_APOGEE_CHECK)),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_POSEDGE,
     };
 
     gpio_config_t gpio_outputs = {
@@ -39,6 +47,7 @@ uint8_t recovery_Init(){
 
 
     ESP_ERROR_CHECK(gpio_config(&gpio_inputs));
+    ESP_ERROR_CHECK(gpio_config(&gpio_apogee_inputs));
 
     ESP_ERROR_CHECK(gpio_config(&gpio_outputs));
 

@@ -11,7 +11,8 @@
 #define EASY_APOGEE_CHECK 25U
 #define TELE_IGNITER_CONT 32U
 #define EASY_IGNITER_CONT  33U
-#define PILOT_DEPLOY  18U
+#define PILOT_DEPLOY  17U
+#define SERVO 18U
 #define EASY_IGNITER_FIRE 19U 
 #define TELE_IGNITER_FIRE 17U 
 #define EASY_ARMING 21U
@@ -32,11 +33,10 @@
 #define END_CONE 21U
 #define TELE_APOGEE_CHECK 19U
 #define EASY_APOGEE_CHECK 16U
-#define TELE_IGNITER_CONT 18U
+#define TELE_IGNITER_CONT 25U
 #define EASY_IGNITER_CONT 17U
 #define PRESSURE 4U
 #define PILOT_DEPLOY 25U //TODO: change to real value  
-#define SERVO 33U //TODO: change to real value
 #define EASY_IGNITER_FIRE 33U 
 #define TELE_IGNITER_FIRE 26U 
 #define EASY_ARMING 32U
