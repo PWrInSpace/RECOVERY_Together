@@ -19,7 +19,6 @@ typedef struct {
     bool secondStageContinouity :1;
     bool separationSwitch1 :1;
     bool separationSwitch2 :1;
-    uint16_t pressure1;
 } recovery_data_t;
 
 extern recovery_data_t data_to_send; 

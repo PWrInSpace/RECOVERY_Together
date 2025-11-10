@@ -21,14 +21,6 @@ uint8_t cots_init(cots_device_t cots_device){
             .intr_type = GPIO_INTR_DISABLE,
         };
 
-        gpio_config_t igniter_cont_input = {
-            .pin_bit_mask = (1ULL << TELE_IGNITER_CONT),
-            .mode = GPIO_MODE_INPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_DISABLE,
-        };
-
         gpio_config_t apogee_input = {
             .pin_bit_mask = (1ULL << TELE_APOGEE_CHECK),
             .mode = GPIO_MODE_INPUT,
@@ -38,11 +30,9 @@ uint8_t cots_init(cots_device_t cots_device){
         };
         
         ESP_ERROR_CHECK(gpio_config(&arming_output));
-        ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
         ESP_ERROR_CHECK(gpio_config(&apogee_input));
 
         telemetrum_device.armingPin = TELE_ARMING;
-        telemetrum_device.igniterPin = TELE_IGNITER_CONT;
         telemetrum_device.apogeePin = TELE_APOGEE_CHECK;
 
         ESP_LOGI(TAG,"Telemetrum initialization done :D");
@@ -59,14 +49,6 @@ uint8_t cots_init(cots_device_t cots_device){
             .intr_type = GPIO_INTR_DISABLE,
         };
 
-        gpio_config_t igniter_cont_input = {
-            .pin_bit_mask = (1ULL << EASY_IGNITER_CONT),
-            .mode = GPIO_MODE_INPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_DISABLE,
-        };
-
         gpio_config_t apogee_input = {
             .pin_bit_mask = (1ULL << EASY_APOGEE_CHECK),
             .mode = GPIO_MODE_INPUT,
@@ -76,11 +58,9 @@ uint8_t cots_init(cots_device_t cots_device){
         };
 
         ESP_ERROR_CHECK(gpio_config(&arming_output));
-        ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
         ESP_ERROR_CHECK(gpio_config(&apogee_input));
 
         easymini_device.armingPin = EASY_ARMING;
-        easymini_device.igniterPin = EASY_IGNITER_CONT;
         easymini_device.apogeePin = EASY_APOGEE_CHECK;
 
         ESP_LOGI(TAG,"EasyMini initialization done :D");

@@ -6,7 +6,6 @@
 #include "pinout.h"
 #include "cots.h"
 #include "dataStructs.h"
-#include "Pressure_sensor.h"
 #include "recovery_control.h"
 #include "i2c.h"
 #include "esp_adc/adc_cali.h"
@@ -17,14 +16,10 @@
 static const char *TAG = "APP";
 
 recovery_data_t data_to_send;
-Pressure_Sensor_t pressure_sensor;
-adc_cali_handle_t handle = NULL;
-adc_oneshot_unit_handle_t adc_handle = NULL;
 
 void read_data(){
 
     data_to_send.isArmed = easymini_device.armStatus; //  EasyMini arm status
-    //data_to_send.isArmed = 1;
     data_to_send.isTeleActive =  telemetrum_device.armStatus; // Telemetrum arm status
     data_to_send.easyMiniFirstStage = easymini_device.apogeeDetection; // easyminiApogee Detection
     data_to_send.easyMiniSecondStage = recovery_system.easySecondStage; // easyMini igniter fire
@@ -32,10 +27,8 @@ void read_data(){
     data_to_send.telemetrumSecondStage = recovery_system.teleSecondStage; // telemetrum igniter fire
     data_to_send.firstStageDone = recovery_system.firstStageDone; // first stage confirmation
     data_to_send.secondStageDone = recovery_system.secondStageDone; // second stage confirmation
-    data_to_send.firstStageContinouity = !gpio_get_level(recovery_system.easyIgniterContPin); // easyIgniterCont
-    data_to_send.secondStageContinouity = !gpio_get_level(recovery_system.teleIgniterContPin); // TeleIgniterCont
-    data_to_send.separationSwitch1 = !gpio_get_level(END_CONE);
-    data_to_send.pressure1 = (uint16_t)get_pressure(&pressure_sensor);
+    data_to_send.separationSwitch1 = !gpio_get_level(END_CONE_1);
+    data_to_send.separationSwitch2 = !gpio_get_level(END_CONE_2);
     //ESP_LOGI(TAG,"PRESSURE: %d", data_to_send.pressure1);
 
 }
@@ -85,48 +78,6 @@ void execute_cmd(uint32_t data){
     }         
 }
 
-
-
-bool adc_init(){
-    esp_err_t ret = ESP_FAIL;
-    esp_err_t res;
-    bool calibrated = false;
-
-    pressure_sensor.adc_cali_handle = &handle;
-  if (ret == ESP_OK) {
-    ESP_LOGI(TAG, "Calibration Success");
-  } else if (ret == ESP_ERR_NOT_SUPPORTED || !calibrated) {
-    ESP_LOGW(TAG, "eFuse not burnt, skip software calibration");
-  } else {
-    ESP_LOGE(TAG, "Invalid arg or no memory");
-  }
-
-    adc_oneshot_unit_init_cfg_t adc_init_config_2 = {
-      .unit_id = ADC_UNIT,
-  };
-  ESP_ERROR_CHECK(
-      adc_oneshot_new_unit(&adc_init_config_2, &adc_handle));
-    pressure_sensor.adc_handle = &adc_handle;
-
-    if (!calibrated) {
-    ESP_LOGI(TAG, "calibration scheme version is %s", "Line Fitting");
-    adc_cali_line_fitting_config_t cali_config = {
-        .unit_id = ADC_UNIT,
-        .atten = ADC_ATTEN_PRESSURE,
-        .bitwidth = ADC_BITWIDTH_DEFAULT,
-    };
-    ret = adc_cali_create_scheme_line_fitting(&cali_config, &handle);
-    if (ret == ESP_OK) {
-      calibrated = true;
-    }
-  }
-
-    pressure_sensor.cali_enable = calibrated;
-    pressure_sensor.adc_channel = ADC_CHANNEL;
-    res = pressure_sensor_init(&pressure_sensor);
-    return res;
-}
-
 void app_main(void)
 {
 
@@ -151,8 +102,7 @@ void app_main(void)
         ESP_LOGE(TAG,"I2C slave init failed, restarting ...");
         esp_restart();
      }
-
-    adc_init();
+     
     servo_init();
 
     if(init_console() != ESP_OK){

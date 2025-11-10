@@ -21,9 +21,9 @@ uint8_t recovery_Init(){
     ESP_LOGI(TAG,"Recovery System Initialization");
 
     gpio_config_t gpio_inputs = {
-        .pin_bit_mask = ((1ULL << END_CONE) | (1ULL << EASY_IGNITER_CONT) | (1ULL << TELE_IGNITER_CONT)),
+        .pin_bit_mask = ((1ULL << END_CONE_1) | (1ULL << END_CONE_2)),
         .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
         .intr_type = GPIO_INTR_DISABLE,
     };
@@ -52,10 +52,9 @@ uint8_t recovery_Init(){
     ESP_ERROR_CHECK(gpio_config(&gpio_outputs));
 
 
-    recovery_system.endconePin = END_CONE;
+    recovery_system.endconePin = END_CONE_1;
     recovery_system.pilotDeployPin = PILOT_DEPLOY;
-    recovery_system.easyIgniterContPin = EASY_IGNITER_CONT;
-    recovery_system.teleIgniterContPin = TELE_IGNITER_CONT;
+
     recovery_system.easyIgniterFirePin = EASY_IGNITER_FIRE;
     recovery_system.teleIgniterFirePin = TELE_IGNITER_FIRE;
 
