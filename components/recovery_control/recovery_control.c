@@ -65,31 +65,27 @@ uint8_t recovery_Init(){
 }
 
 uint8_t first_Stage_Deploy(){
-
     ESP_LOGI(TAG,"First stage deploy event");
 
     gpio_set_level(recovery_system.pilotDeployPin, 1);
     ESP_LOGI(TAG,"Resistance wire turned on");
-    ESP_ERROR_CHECK(esp_timer_start_once(resistance_off_timer, RESISTANCE_BURN_TIME_US));
+    ESP_ERROR_CHECK(esp_timer_start_once(resistance_off_timer, RESISTANCE_BURN_TIME_MS));
     recovery_system.firstStageDone = true;
 
     ESP_LOGI(TAG,"Recovery first stage done");
 
     return RET_SUCCESS;
-
 }
 
 uint8_t second_Stage_Deploy(){
-
     ESP_LOGI(TAG,"Second stage deploy event");
 
-    servo_open_for(SERVO_OPEN_TIME_US);
+    servo_open_for(SERVO_OPEN_TIME_MS);
     recovery_system.secondStageDone = true;
 
     ESP_LOGI(TAG,"Second stage recovery done");
 
     return RET_SUCCESS;
-
 }
 
 void check_Cont(){
@@ -108,23 +104,18 @@ void check_Cont(){
         recovery_system.secondStageDone = true;
         recovery_system.teleSecondStage = true;
     }
-
 }
 
 void tele_apogee_isr_handler(void *args){
-
     telemetrum_device.apogeeDetection = 1;
     gpio_set_level(PILOT_DEPLOY,1);
     recovery_system.firstStageDone = 1;
-
 }
 
 void easy_apogee_isr_handler(void *args){
-
     easymini_device.apogeeDetection = 1;
     gpio_set_level(PILOT_DEPLOY, 1);
     recovery_system.firstStageDone = 1;
-
 }
 
 void turn_off_resistance_timer(void* arg) {

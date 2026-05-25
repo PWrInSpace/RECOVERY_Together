@@ -10,11 +10,10 @@
 #include "cots.h"
 #include "esp_timer.h"
 
-#define RESISTANCE_BURN_TIME_US 5000
-#define SERVO_OPEN_TIME_US      5000
+#define RESISTANCE_BURN_TIME_MS 5000
+#define SERVO_OPEN_TIME_MS      5000
 
 typedef struct{
-
     gpio_num_t endconePin;
     gpio_num_t pilotDeployPin;
     gpio_num_t easyIgniterContPin;
@@ -30,8 +29,7 @@ typedef struct{
     bool teleSecondStage : 1;
     bool secondStageCont : 1;
     bool apogeeDetection : 1;
-
-}recovery_device_t;
+} recovery_device_t;
 
 extern recovery_device_t recovery_system;
 extern esp_timer_handle_t resistance_off_timer;
