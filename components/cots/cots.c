@@ -11,7 +11,7 @@ uint8_t cots_init(cots_device_t cots_device){
    
     ESP_LOGI(TAG,"Cots initialization");
  
-    if(cots_device == COTS_DEVICE_TELEMETRUM){
+    if (cots_device == COTS_DEVICE_TELEMETRUM){
         ESP_LOGI(TAG,"**** TELEMETRUM ****");
         gpio_config_t arming_output = {
             .pin_bit_mask = (1UL << TELE_ARMING),

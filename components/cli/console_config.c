@@ -49,8 +49,7 @@ static esp_console_cmd_t cmd[] = {
     {"servo-close", "Close servo", NULL, servo_close_cmd, NULL, NULL, NULL},
     {"wire-on", "Turn on resistance wire", NULL, wire_on_cmd, NULL, NULL, NULL},
     {"wire-off", "Turn off resistance wire", NULL, wire_off_cmd, NULL, NULL, NULL},
-    {"servo-open-angle", "Open servo angle", NULL, open_servo_ange, NULL, NULL, NULL},
-
+    {"servo-open-angle", "Open servo angle", NULL, open_servo_ange, NULL, NULL, NULL}
 };
 
 esp_err_t init_console() {

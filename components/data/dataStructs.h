@@ -24,10 +24,8 @@ typedef struct {
 extern recovery_data_t data_to_send; 
 
 typedef struct {
-
     uint32_t cmd;
     int32_t payload;
-
-}data_from_mcb;
+} data_from_mcb;
 
 #endif // DATA_STRUCTS_H

@@ -16,7 +16,7 @@
 #define SERVO_TIMEBASE_PERIOD 20000   // 20000 ticks, 20ms
 
 #define SERVO_CLOSED 85U
-#define SERVO_OPENED 110U //80
+#define SERVO_OPENED 120U
 
 typedef struct {
     gpio_num_t servo_pin;
