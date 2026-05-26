@@ -80,7 +80,7 @@ uint8_t first_Stage_Deploy(){
 uint8_t second_Stage_Deploy(){
     ESP_LOGI(TAG,"Second stage deploy event");
 
-    servo_open_for(SERVO_OPEN_TIME_MS);
+    servo_open();
     recovery_system.secondStageDone = true;
 
     ESP_LOGI(TAG,"Second stage recovery done");

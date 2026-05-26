@@ -10,8 +10,8 @@
 #include "cots.h"
 #include "esp_timer.h"
 
-#define RESISTANCE_BURN_TIME_MS 5000
-#define SERVO_OPEN_TIME_MS      5000
+#define RESISTANCE_BURN_TIME_MS 5000000
+#define SERVO_OPEN_TIME_MS      5000000
 
 typedef struct{
     gpio_num_t endconePin;
