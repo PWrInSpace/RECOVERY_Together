@@ -78,6 +78,8 @@ void execute_cmd(uint32_t data){
     }         
 }
 
+void log_debug_data(void);
+
 void app_main(void)
 {
 
@@ -128,5 +130,25 @@ void app_main(void)
         check_Cont();
         I2C_buffer_write();
         vTaskDelay(pdMS_TO_TICKS(100));
+        log_debug_data();
     }
+}
+
+void log_debug_data() {
+    ESP_LOGI(TAG, "**** RECOVERY DATA ****");
+    ESP_LOGI(TAG, "first stage done: %d", recovery_system.firstStageDone);
+    ESP_LOGI(TAG, "second stage done: %d", recovery_system.secondStageDone);
+    ESP_LOGI(TAG, "easy mini igniter continuity: %d", recovery_system.easyIgniterCont);
+    ESP_LOGI(TAG, "telemetrum igniter continuity: %d", recovery_system.teleIgniterCont);
+    ESP_LOGI(TAG, "end cone: %d", recovery_system.endCone);
+    ESP_LOGI(TAG, "easy mini second stage: %d", recovery_system.easySecondStage);
+    ESP_LOGI(TAG, "telemetrum second stage: %d", recovery_system.teleSecondStage);
+    ESP_LOGI(TAG, "second stage continuity: %d", recovery_system.secondStageCont);
+    ESP_LOGI(TAG, "apogee detection: %d", recovery_system.apogeeDetection);
+    ESP_LOGI(TAG, "");
+    ESP_LOGI(TAG, "**** BLUE JAY ****");
+    ESP_LOGI(TAG, "armed: %d", telemetrum_device.armStatus);
+    ESP_LOGI(TAG, "apogee detection: %d", telemetrum_device.apogeeDetection);
+    ESP_LOGI(TAG, "");
+    ESP_LOGI(TAG, "");
 }

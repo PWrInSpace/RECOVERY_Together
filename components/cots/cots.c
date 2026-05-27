@@ -35,6 +35,8 @@ uint8_t cots_init(cots_device_t cots_device){
         telemetrum_device.armingPin = TELE_ARMING;
         telemetrum_device.apogeePin = TELE_APOGEE_CHECK;
 
+        cots_disarm(COTS_DEVICE_TELEMETRUM);
+
         ESP_LOGI(TAG,"Telemetrum initialization done :D");
 
     }
@@ -62,6 +64,8 @@ uint8_t cots_init(cots_device_t cots_device){
 
         easymini_device.armingPin = EASY_ARMING;
         easymini_device.apogeePin = EASY_APOGEE_CHECK;
+
+        cots_disarm(COTS_DEVICE_EASYMINI);
 
         ESP_LOGI(TAG,"EasyMini initialization done :D");
 

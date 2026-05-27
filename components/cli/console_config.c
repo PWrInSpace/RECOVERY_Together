@@ -62,6 +62,21 @@ int second_stage_deploy(int argc, char** argv) {
     return second_Stage_Deploy();
 }
 
+int get_data_cmd(int argc, char** argv) {
+    ESP_LOGI(TAG, "TELEMETRUM Data:");
+    ESP_LOGI(TAG, "armStatus: %d", telemetrum_device.armStatus);
+    ESP_LOGI(TAG, "apogeeDetection: %d", telemetrum_device.apogeeDetection);
+    return 0;
+}
+
+int telemetrum_arm_cmd(int argc, char** argv) {
+    return cots_arming(COTS_DEVICE_TELEMETRUM);
+}
+
+int telemetrum_disarm_cmd(int argc, char** argv) {
+    return cots_disarm(COTS_DEVICE_TELEMETRUM);
+}
+
 static esp_console_cmd_t cmd[] = {
     {"servo-open", "Open servo", NULL, servo_open_cmd, NULL, NULL, NULL},
     {"servo-close", "Close servo", NULL, servo_close_cmd, NULL, NULL, NULL},
@@ -70,7 +85,10 @@ static esp_console_cmd_t cmd[] = {
     {"servo-open-angle", "Open servo angle", NULL, open_servo_angle, NULL, NULL, NULL},
     // {"wire-open-time", "Open resistance wire for specified time (ms)", NULL, wire_open_time, NULL, NULL, NULL},
     {"first-stage", "Deploy first stage recovery", NULL, first_stage_deploy, NULL, NULL, NULL},
-    {"second-stage", "Deploy second stage recovery", NULL, second_stage_deploy, NULL, NULL, NULL}
+    {"second-stage", "Deploy second stage recovery", NULL, second_stage_deploy, NULL, NULL, NULL},
+    {"get-data", "Get recovery data", NULL, get_data_cmd, NULL, NULL, NULL},
+    {"telemetrum-arm", "Arm Telemetrum", NULL, telemetrum_arm_cmd, NULL, NULL, NULL},
+    {"telemetrum-disarm", "Arm Telemetrum", NULL, telemetrum_disarm_cmd, NULL, NULL, NULL},
 };
 
 esp_err_t init_console() {

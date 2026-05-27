@@ -10,7 +10,7 @@
 #include "cots.h"
 #include "esp_timer.h"
 
-#define RESISTANCE_BURN_TIME_MS 5000000
+#define RESISTANCE_BURN_TIME_MS 7500000
 #define SERVO_OPEN_TIME_MS      5000000
 
 typedef struct{
