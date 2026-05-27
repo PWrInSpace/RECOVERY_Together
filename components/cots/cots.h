@@ -16,6 +16,7 @@ typedef struct {
     gpio_num_t armingPin;
     gpio_num_t apogeePin;
     gpio_num_t igniterPin;
+    gpio_num_t mainPin;
     bool apogeeDetection;
 } cots_struct_t;
 

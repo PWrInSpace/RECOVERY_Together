@@ -28,12 +28,22 @@ uint8_t cots_init(cots_device_t cots_device){
             .pull_down_en = GPIO_PULLDOWN_DISABLE,
             .intr_type = GPIO_INTR_NEGEDGE,
         };
+
+        gpio_config_t main_input = {
+            .pin_bit_mask = (1ULL << TELE_IGNITER_FIRE),
+            .mode = GPIO_MODE_INPUT,
+            .pull_up_en = GPIO_PULLUP_DISABLE,
+            .pull_down_en = GPIO_PULLDOWN_DISABLE,
+            .intr_type = GPIO_INTR_POSEDGE,
+        };
         
         ESP_ERROR_CHECK(gpio_config(&arming_output));
         ESP_ERROR_CHECK(gpio_config(&apogee_input));
+        ESP_ERROR_CHECK(gpio_config(&main_input));
 
         telemetrum_device.armingPin = TELE_ARMING;
         telemetrum_device.apogeePin = TELE_APOGEE_CHECK;
+        telemetrum_device.mainPin = TELE_IGNITER_FIRE;
 
         cots_disarm(COTS_DEVICE_TELEMETRUM);
 

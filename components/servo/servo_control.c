@@ -107,16 +107,16 @@ void servo_init(void) {
 
 void servo_set_angle(int angle) {
     if (mcpwm_comparator_set_compare_value(servo.comparator, angle_to_compare(angle)) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to set servo angle");
+        ESP_EARLY_LOGE(TAG, "Failed to set servo angle");
         return;
     }
     servo.angle = angle;
-    ESP_LOGI(TAG, "Servo moved to %d degrees", angle);
+    ESP_EARLY_LOGW(TAG, "Servo moved to %d degrees", angle);
 }
 
 void servo_open(void) {
     servo_set_angle(SERVO_OPENED);
-    ESP_LOGI(TAG, "Servo opened");
+    ESP_EARLY_LOGW(TAG, "Servo opened");
 }
 
 void servo_open_for(uint64_t duration_us) {
