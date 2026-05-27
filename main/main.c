@@ -63,13 +63,13 @@ void execute_cmd(uint32_t data){
 
     case FORCE_FIRST_STAGE_CMD:
 
-        first_Stage_Deploy();
+        first_Stage_Deploy(true);
         rx_buffer.cmd.command = 0x00;
         break;
 
     case FORCE_SECOND_STAGE_CMD:
 
-        second_Stage_Deploy();
+        second_Stage_Deploy(true);
         rx_buffer.cmd.command = 0x00;
         break;
 
@@ -114,8 +114,9 @@ void app_main(void)
 
     /************************ INTERRUPT HANDLERS *****************************/
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
-    gpio_isr_handler_add(TELE_APOGEE_CHECK,tele_apogee_isr_handler,NULL);
-    gpio_isr_handler_add(EASY_APOGEE_CHECK,easy_apogee_isr_handler,NULL);
+    gpio_isr_handler_add(TELE_APOGEE_CHECK, tele_apogee_isr_handler, NULL);
+    gpio_isr_handler_add(EASY_APOGEE_CHECK, easy_apogee_isr_handler, NULL);
+    gpio_isr_handler_add(TELE_IGNITER_FIRE, tele_main_isr_handler, NULL);
 
     ESP_LOGI(TAG,"Init completed, entering recovery loop");
     gpio_set_level(LED,1);
@@ -123,7 +124,7 @@ void app_main(void)
 
     read_data();
 
-    while(1){
+    while (true) {
         I2C_buffer_read();
         execute_cmd(rx_buffer.cmd.command);
         read_data();

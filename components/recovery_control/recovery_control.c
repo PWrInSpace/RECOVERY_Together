@@ -64,26 +64,32 @@ uint8_t recovery_Init(){
     return RET_SUCCESS;
 }
 
-uint8_t first_Stage_Deploy(){
-    ESP_LOGI(TAG,"First stage deploy event");
+uint8_t first_Stage_Deploy(bool log){
+    if (esp_timer_start_once(resistance_off_timer, RESISTANCE_BURN_TIME_MS) != ESP_OK) {
+        return RET_FAILTURE;
+    }
+
+    if (log) ESP_EARLY_LOGW(TAG,"First stage deploy event");
 
     gpio_set_level(recovery_system.pilotDeployPin, 1);
-    ESP_LOGI(TAG,"Resistance wire turned on");
-    ESP_ERROR_CHECK(esp_timer_start_once(resistance_off_timer, RESISTANCE_BURN_TIME_MS));
+
+    if (log) ESP_EARLY_LOGW(TAG,"Resistance wire turned on");
+
+
     recovery_system.firstStageDone = true;
 
-    ESP_LOGI(TAG,"Recovery first stage done");
+    if (log) ESP_EARLY_LOGW(TAG,"Recovery first stage done");
 
     return RET_SUCCESS;
 }
 
-uint8_t second_Stage_Deploy(){
-    ESP_LOGI(TAG,"Second stage deploy event");
+uint8_t second_Stage_Deploy(bool log){
+    if (log) ESP_EARLY_LOGW(TAG,"Second stage deploy event");
 
     servo_open();
     recovery_system.secondStageDone = true;
 
-    ESP_LOGI(TAG,"Second stage recovery done");
+    if (log) ESP_EARLY_LOGW(TAG,"Second stage recovery done");
 
     return RET_SUCCESS;
 }
@@ -106,23 +112,23 @@ void check_Cont(){
     }
 }
 
-void tele_apogee_isr_handler(void *args){
+void tele_apogee_isr_handler(void *args) {
     telemetrum_device.apogeeDetection = 1;
-    gpio_set_level(PILOT_DEPLOY,1);
-    recovery_system.firstStageDone = 1;
+    first_Stage_Deploy(true);
 }
 
-void easy_apogee_isr_handler(void *args){
+void easy_apogee_isr_handler(void *args) {
     easymini_device.apogeeDetection = 1;
-    gpio_set_level(PILOT_DEPLOY, 1);
-    recovery_system.firstStageDone = 1;
+    first_Stage_Deploy(true);
+}
+
+void tele_main_isr_handler(void *args) {
+    second_Stage_Deploy(true);
 }
 
 void turn_off_resistance_timer(void* arg) {
-
     gpio_set_level(recovery_system.pilotDeployPin, 0);
-    ESP_LOGI(TAG, "Resistance wire turned off");
-
+    ESP_EARLY_LOGW(TAG, "Resistance wire turned off");
 }
 
 void setup_resistance_timer() {

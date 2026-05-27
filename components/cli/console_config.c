@@ -55,11 +55,11 @@ int wire_open_time_cmd(int argc, char** argv) {
 }
 
 int first_stage_deploy(int argc, char** argv) {
-    return first_Stage_Deploy();
+    return first_Stage_Deploy(true);
 }
 
 int second_stage_deploy(int argc, char** argv) {
-    return second_Stage_Deploy();
+    return second_Stage_Deploy(true);
 }
 
 int get_data_cmd(int argc, char** argv) {

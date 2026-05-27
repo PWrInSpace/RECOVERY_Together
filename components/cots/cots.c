@@ -162,6 +162,5 @@ uint8_t apogee_check(){
 
 
     return RET_SUCCESS;
-
 }
 

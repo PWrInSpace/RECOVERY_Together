@@ -35,11 +35,12 @@ extern recovery_device_t recovery_system;
 extern esp_timer_handle_t resistance_off_timer;
 
 uint8_t recovery_Init();
-uint8_t first_Stage_Deploy();
-uint8_t second_Stage_Deploy();
+uint8_t first_Stage_Deploy(bool log);
+uint8_t second_Stage_Deploy(bool log);
 void check_Cont();
 void tele_apogee_isr_handler(void *args);
 void easy_apogee_isr_handler(void *args);
+void tele_main_isr_handler(void *args);
 void turn_off_resistance_timer(void* arg);
 void setup_resistance_timer();
 
