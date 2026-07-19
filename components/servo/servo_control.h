@@ -18,6 +18,8 @@
 #define SERVO_CLOSED 85U
 #define SERVO_OPENED 120U
 
+#define TAG "SERVO"
+
 typedef struct {
     gpio_num_t servo_pin;
     mcpwm_timer_handle_t timer;
@@ -28,10 +30,10 @@ typedef struct {
 } servo_control_t;
 
 uint32_t angle_to_compare(int angle);
-void servo_init(void);
-void servo_set_angle(int angle);
-void servo_open(void);
-void servo_close(void);
-void servo_open_for(uint64_t duration_us);
+void servo_init(servo_control_t *servo);
+void servo_set_angle(servo_control_t *servo, int angle);
+void servo_open(servo_control_t *servo);
+void servo_close(servo_control_t *servo);
+void servo_open_for(servo_control_t *servo, uint64_t duration_us);
 
 #endif
