@@ -1,21 +1,29 @@
 #ifndef COTS_H
 #define COTS_H 
 
-#include <stdio.h>
 #include "driver/gpio.h"
-#include "config.h"
-#include "pinout.h"
+#include "esp_log.h"
+
+#define DISARMED 0
+#define ARMED 1
 
 typedef struct {
-    bool armed;
-    bool apogee_detected;
     gpio_num_t arming_pin;
     gpio_num_t apogee_pin;
     gpio_num_t main_pin;
-} cots_t;
+} cots_config_t;
 
-extern cots_t telemetrum_device;
-extern cots_t easymini_device;
+typedef struct {
+    bool armed: 1;
+    bool apogee_detected: 1;
+    bool first_stage: 1;
+    bool second_stage: 1;
+} cots_data_t;
+
+typedef struct {
+    cots_config_t config;
+    cots_data_t data;
+} cots_t;
 
 esp_err_t cots_init(cots_t *cots);
 
