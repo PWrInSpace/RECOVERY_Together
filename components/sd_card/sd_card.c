@@ -29,3 +29,33 @@ esp_err_t deinit_sd_card(sd_card_t *card) {
     }
     return ESP_OK;
 }
+
+esp_err_t sd_card_write(const sd_card_t *card, const char *path, const char *data) {
+    if (!card->mounted) {
+        ESP_LOGE(TAG, "SD card not mounted.");
+        return ESP_FAIL;
+    }
+
+    if (sdmmc_get_status(card->card) != ESP_OK) {
+        ESP_LOGE(TAG, "SD card error.");
+        return ESP_FAIL;
+    }
+
+    FILE *file = fopen(path, "a");
+    if (file == NULL) {
+        ESP_LOGE(TAG, "Failed to open file for writing.");
+        return ESP_FAIL;
+    }
+
+    const size_t written = fprintf(file, "%s", data);
+    if (written < 0) {
+        ESP_LOGE(TAG, "Failed to write to file.");
+        fclose(file);
+        return ESP_FAIL;
+    }
+
+    fclose(file);
+    return ESP_OK;
+}
+
+

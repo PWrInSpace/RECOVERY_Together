@@ -2,6 +2,7 @@
 #define SD_CARD_H
 
 #include "esp_vfs_fat.h"
+#include "sdmmc_cmd.h"
 
 #define TAG "SD_CARD"
 #define MOUNT_PATH "/sdcard"
@@ -23,5 +24,7 @@ typedef struct {
 esp_err_t init_sd_card(const sd_card_config_t *config, sd_card_t *card);
 
 esp_err_t deinit_sd_card(sd_card_t *card);
+
+esp_err_t sd_card_write(const sd_card_t *card, const char *path, const char *data);
 
 #endif
