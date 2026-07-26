@@ -1,49 +1,31 @@
 #include "sd_card.h"
 
-static sdmmc_host_t host = SDMMC_HOST_DEFAULT();
-static sdmmc_card_t *card;
+esp_err_t init_sd_card(const sd_card_config_t *config, sd_card_t *card) {
+    sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
+    slot_config.gpio_cs = config->cs_pin;
+    slot_config.gpio_cd = config->cd_pin;
+    slot_config.host_id = config->host;
 
-esp_err_t init_sd_card() {
-    if (sdmmc_host_init() != ESP_OK) {
+    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
+    host.slot = config->host;
+
+    card->config = *config;
+
+    if (esp_vfs_fat_sdspi_mount(config->mount_point, &host, &slot_config, &config->mount_config, &card->card) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to mount SD card.");
         return ESP_FAIL;
     }
-
-    sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT();
-    if (sdmmc_host_init_slot(SDMMC_HOST_SLOT_1, &slot_config) != ESP_OK) {
-        return ESP_FAIL;
-    }
-
-    if (sdmmc_card_init(&host, card) != ESP_OK) {
-        return ESP_FAIL;
-    }
-
-    esp_vfs_fat_mount_config_t mount_config = {
-        .format_if_mount_failed = false,
-        .max_files = 3,
-        .allocation_unit_size = 0,
-        .disk_status_check_enable = false
-    };
-    if (esp_vfs_fat_sdmmc_mount(MOUNT_PATH, &host, &slot_config, &mount_config, &card) != ESP_OK) {
-        return ESP_FAIL;
-    }
-
+    card->mounted = true;
     return ESP_OK;
 }
 
-esp_err_t write_to_sd_card(const char* path, const char* data, size_t length) {
-    FILE *file = fopen(path, "a");
-    if (file == NULL) {
-        ESP_LOGE(TAG, "Failed to open file for writing");
-        return ESP_FAIL;
+esp_err_t deinit_sd_card(sd_card_t *card) {
+    if (card->mounted) {
+        if (esp_vfs_fat_sdcard_unmount(card->config.mount_point, card->card) != ESP_OK) {
+            ESP_LOGE(TAG, "Failed to unmount SD card.");
+            return ESP_FAIL;
+        }
+        card->mounted = false;
     }
-
-    size_t written = fprintf(file, "%s", data);
-    fclose(file);
-
-    if (written < length) {
-        ESP_LOGE(TAG, "Failed to write data to file");
-        return ESP_FAIL;
-    }
-
     return ESP_OK;
 }
