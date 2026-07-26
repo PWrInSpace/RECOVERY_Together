@@ -1,6 +1,8 @@
 #include "sd_card.h"
 
-esp_err_t init_sd_card(const sd_card_config_t *config, sd_card_t *card) {
+#include <sys/stat.h>
+
+esp_err_t SD_mount(const sd_card_config_t *config, sd_card_t *card) {
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
     slot_config.gpio_cs = config->cs_pin;
     slot_config.gpio_cd = config->cd_pin;
@@ -19,7 +21,7 @@ esp_err_t init_sd_card(const sd_card_config_t *config, sd_card_t *card) {
     return ESP_OK;
 }
 
-esp_err_t deinit_sd_card(sd_card_t *card) {
+esp_err_t SD_unmount(sd_card_t *card) {
     if (card->mounted) {
         if (esp_vfs_fat_sdcard_unmount(card->config.mount_point, card->card) != ESP_OK) {
             ESP_LOGE(TAG, "Failed to unmount SD card.");
@@ -30,7 +32,19 @@ esp_err_t deinit_sd_card(sd_card_t *card) {
     return ESP_OK;
 }
 
-esp_err_t sd_card_write(const sd_card_t *card, const char *path, const char *data) {
+esp_err_t SD_remount(sd_card_t *card) {
+    if (SD_unmount(card) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to unmount SD card for remounting.");
+        return ESP_FAIL;
+    }
+    if (SD_mount(&card->config, card) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to remount SD card.");
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
+esp_err_t SD_write(const sd_card_t *card, const char *path, const char *data) {
     if (!card->mounted) {
         ESP_LOGE(TAG, "SD card not mounted.");
         return ESP_FAIL;
@@ -47,7 +61,7 @@ esp_err_t sd_card_write(const sd_card_t *card, const char *path, const char *dat
         return ESP_FAIL;
     }
 
-    const size_t written = fprintf(file, "%s", data);
+    const int written = fprintf(file, "%s", data);
     if (written < 0) {
         ESP_LOGE(TAG, "Failed to write to file.");
         fclose(file);
@@ -58,4 +72,31 @@ esp_err_t sd_card_write(const sd_card_t *card, const char *path, const char *dat
     return ESP_OK;
 }
 
+bool SD_file_exists(const sd_card_t *card, const char *path) {
+    if (!card->mounted) {
+        ESP_LOGE(TAG, "SD card not mounted.");
+        return false;
+    }
 
+    struct stat st;
+    if (stat(path, &st) != 0) {
+        return true;
+    }
+    return false;
+}
+
+esp_err_t SD_create_file_path(const sd_card_t *card, const char *filename, char *path, const size_t path_len) {
+    if (!card->mounted) {
+        ESP_LOGE(TAG, "SD card not mounted.");
+        return ESP_FAIL;
+    }
+
+    for (int i = 1; i < 1000; i++) {
+        snprintf(path, path_len, "%s/%s_%d", path, filename, i);
+        if (!SD_file_exists(card, path)) {
+            return ESP_OK;
+        }
+    }
+
+    return ESP_FAIL;
+}

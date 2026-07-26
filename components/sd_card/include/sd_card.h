@@ -21,10 +21,16 @@ typedef struct {
     bool mounted;
 } sd_card_t;
 
-esp_err_t init_sd_card(const sd_card_config_t *config, sd_card_t *card);
+esp_err_t SD_mount(const sd_card_config_t *config, sd_card_t *card);
 
-esp_err_t deinit_sd_card(sd_card_t *card);
+esp_err_t SD_unmount(sd_card_t *card);
 
-esp_err_t sd_card_write(const sd_card_t *card, const char *path, const char *data);
+esp_err_t SD_remount(sd_card_t *card);
+
+esp_err_t SD_write(const sd_card_t *card, const char *path, const char *data);
+
+bool SD_file_exists(const sd_card_t *card, const char *path);
+
+esp_err_t SD_create_file_path(const sd_card_t *card, const char *filename, char *path, const size_t path_len);
 
 #endif
