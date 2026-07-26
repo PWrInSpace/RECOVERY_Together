@@ -12,7 +12,6 @@ typedef struct {
     esp_vfs_fat_mount_config_t mount_config;
     const char *mount_point;
     uint8_t cs_pin;
-    uint8_t cd_pin;
 } sd_card_config_t;
 
 typedef struct {

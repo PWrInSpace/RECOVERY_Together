@@ -3,16 +3,11 @@
 
 #include "spi.h"
 
-#define MISO_PIN 32
-#define MOSI_PIN 25
-#define SCK_PIN 33
-#define SPI_HOST SPI2_HOST
-
 const spi_config_t spi_config = {
     .host_device = SPI_HOST,
-    .mosi_pin = MOSI_PIN,
-    .miso_pin = MISO_PIN,
-    .sck_pin = SCK_PIN
+    .mosi_pin = 25U,
+    .miso_pin = 32U,
+    .sck_pin = 33U
 };
 
-#endif //SPI_CONFIG_H
+#endif
