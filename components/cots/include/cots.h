@@ -4,6 +4,7 @@
 #include "driver/gpio.h"
 #include "esp_log.h"
 
+#define TAG "COTS"
 #define DISARMED 0
 #define ARMED 1
 

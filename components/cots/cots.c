@@ -1,12 +1,10 @@
-#include "cots.h"
-
-static const char *TAG = "COTS";
+#include "include/cots.h"
 
 esp_err_t cots_init(cots_t *cots){
     ESP_LOGI(TAG,"Cots initialization");
 
     const gpio_config_t arming_output = {
-        .pin_bit_mask = (1ULL << cots->config.arming_pin),
+        .pin_bit_mask = 1ULL << cots->config.arming_pin,
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -14,7 +12,7 @@ esp_err_t cots_init(cots_t *cots){
     };
 
     const gpio_config_t apogee_input = {
-        .pin_bit_mask = (1ULL << cots->config.apogee_pin),
+        .pin_bit_mask = 1ULL << cots->config.apogee_pin,
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -22,7 +20,7 @@ esp_err_t cots_init(cots_t *cots){
     };
 
     const gpio_config_t main_input = {
-        .pin_bit_mask = (1ULL << cots->config.main_pin),
+        .pin_bit_mask = 1ULL << cots->config.main_pin,
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,

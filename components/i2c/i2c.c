@@ -1,4 +1,4 @@
-#include <i2c.h>
+#include "i2c.h"
 
 uint8_t tx_buffer[4];
 cmd_message_t rx_buffer;

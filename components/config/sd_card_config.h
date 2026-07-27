@@ -2,7 +2,7 @@
 #define SD_CARD_CONFIG_H
 #include "sd_card.h"
 
-inline sd_card_config_t sd_card_config = {
+sd_card_config_t sd_card_config = {
     .host = SPI2_HOST,
     .mount_config = {
         .format_if_mount_failed = false,
@@ -10,7 +10,7 @@ inline sd_card_config_t sd_card_config = {
         .allocation_unit_size = 16 * 1024
     },
     .mount_point = "/sdcard",
-    .cs_pin = 26U,
+    .cs_pin = ,
 };
 
 #endif

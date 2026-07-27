@@ -3,8 +3,8 @@
 
 #include "spi.h"
 
-const spi_config_t spi_config = {
-    .host_device = SPI_HOST,
+static const spi_config_t spi_config = {
+    .host_device = SPI2_HOST,
     .mosi_pin = 25U,
     .miso_pin = 32U,
     .sck_pin = 33U

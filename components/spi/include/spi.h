@@ -1,6 +1,8 @@
 #ifndef SPI_H
 #define SPI_H
 
+#include <stdint.h>
+#include "esp_err.h"
 #include "driver/spi_master.h"
 
 #define TAG "SPI"
