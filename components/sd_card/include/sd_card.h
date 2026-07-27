@@ -3,6 +3,7 @@
 
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
+#include <sys/stat.h>
 
 #define TAG "SD_CARD"
 #define MOUNT_PATH "/sdcard"
@@ -30,6 +31,6 @@ esp_err_t SD_write(const sd_card_t *card, const char *path, const char *data);
 
 bool SD_file_exists(const sd_card_t *card, const char *path);
 
-esp_err_t SD_create_file_path(const sd_card_t *card, const char *filename, char *path, const size_t path_len);
+esp_err_t SD_create_file_path(const sd_card_t *card, const char *filename, char *path, size_t path_len);
 
 #endif
