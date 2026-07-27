@@ -4,8 +4,8 @@ static const char *TAG = "COTS";
 
 esp_err_t cots_init(cots_t *cots){
     ESP_LOGI(TAG,"Cots initialization");
- 
-    gpio_config_t arming_output = {
+
+    const gpio_config_t arming_output = {
         .pin_bit_mask = (1ULL << cots->config.arming_pin),
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
@@ -13,7 +13,7 @@ esp_err_t cots_init(cots_t *cots){
         .intr_type = GPIO_INTR_DISABLE,
     };
 
-    gpio_config_t apogee_input = {
+    const gpio_config_t apogee_input = {
         .pin_bit_mask = (1ULL << cots->config.apogee_pin),
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
@@ -21,7 +21,7 @@ esp_err_t cots_init(cots_t *cots){
         .intr_type = GPIO_INTR_NEGEDGE,
     };
 
-    gpio_config_t main_input = {
+    const gpio_config_t main_input = {
         .pin_bit_mask = (1ULL << cots->config.main_pin),
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,

@@ -29,4 +29,6 @@
 #define DATA_SIZE_FROM_MCB 8
 #define DATA_SIZE_TO_MCB 4
 
+#define DEV_ADR 0x0B
+
 #endif //  CONFIG_H

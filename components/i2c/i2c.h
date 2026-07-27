@@ -4,9 +4,11 @@
 #include "driver/i2c.h"
 #include "esp_log.h"
 #include "config.h"
-#include "dataStructs.h"
 #include "pinout.h"
 #include "string.h"
+#include "recovery.h"
+
+#define TAG "I2C"
 
 typedef union {
     struct command {
@@ -16,6 +18,8 @@ typedef union {
 
     uint8_t raw[sizeof(struct command)];
 } cmd_message_t;
+
+recovery_data_t data_to_send;
 
 extern uint8_t tx_buffer[4];
 extern cmd_message_t rx_buffer;
