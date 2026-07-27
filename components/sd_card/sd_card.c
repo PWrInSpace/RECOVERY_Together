@@ -89,7 +89,7 @@ esp_err_t SD_create_file_path(const sd_card_t *card, const char *filename, char 
     }
 
     for (int i = 1; i < 1000; i++) {
-        snprintf(path, path_len, "%s/%s_%03d", card->config.mount_point, filename, i);
+        snprintf(path, path_len, "%s/%s_%03d.csv", card->config.mount_point, filename, i);
         if (!SD_file_exists(card, path)) {
             return ESP_OK;
         }
