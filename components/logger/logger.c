@@ -1,20 +1,73 @@
 #include "logger.h"
 
+#include <sys/unistd.h>
+
+static esp_err_t save_data(const logger_task_t *logger) {
+    uint8_t data[logger->config.data_item_size];
+    char buffer[logger->config.data_frame_size];
+
+    if (xQueueReceive(logger->data_queue, data, 0) == pdFALSE) {
+        ESP_LOGE(TAG, "Unable to read data from queue");
+        return ESP_FAIL;
+    }
+
+    const size_t written = logger->config.create_sd_frame_fnc(buffer, sizeof(buffer), data, sizeof(data));
+    if (written != sizeof(data)) {
+        ESP_LOGE(TAG, "Unable to create sd frame");
+    }
+
+    fwrite(buffer, sizeof(char), written, logger->config.log_file);
+    fflush(logger->config.log_file);
+    fsync(fileno(logger->config.log_file));
+
+    return ESP_OK;
+}
+
+static esp_err_t data_check(const logger_task_t *logger) {
+    if (uxQueueMessagesWaiting(logger->data_queue) < logger->config.data_drop_value) {
+        ESP_LOGI(TAG, "Queue drop value not reached");
+        return ESP_FAIL;
+    }
+
+    if (save_data(logger) != ESP_OK) {
+        ESP_LOGE(TAG, "Unable to save data");
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
+}
+
 static void sd_task(void *args) {
+    const logger_task_t *logger = (logger_task_t *)args;
     ESP_LOGI(TAG, "Starting logger task");
     while (true) {
-        // todo napisać pisanie na kartę sd
+        if (xSemaphoreTake(logger->config.spi_mutex, 10) == pdTRUE) {
+            data_check(logger);
+            xSemaphoreGive(logger->config.spi_mutex);
+        } else {
+            // error
+        }
     }
 }
 
-static esp_err_t init_sd_card(logger_task_t *logger_task) {
-    if (SD_mount(&logger_task->config.sd_card_config, &logger_task->sd_card) != ESP_OK) {
+static esp_err_t init_sd_card(const logger_task_t *logger_task, const sd_card_config_t *sd_card_config) {
+    if (SD_mount(sd_card_config, logger_task->sd_card) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to initialize SD card");
         return ESP_FAIL;
     }
 
-    if (SD_create_file_path(&logger_task->sd_card, logger_task->config.filename, logger_task->config.log_path, logger_task->config.log_path_size) != ESP_OK) {
+    return ESP_OK;
+}
+
+static esp_err_t init_file(logger_task_t *logger_task) {
+    if (SD_create_file_path(logger_task->sd_card, logger_task->config.filename, logger_task->config.log_path, logger_task->config.log_path_size) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to create file %s", logger_task->config.filename);
+        return ESP_FAIL;
+    }
+
+    logger_task->config.log_file = fopen(logger_task->sd_card->config.mount_point, "a");
+    if (logger_task->config.log_file == NULL) {
+        ESP_LOGE(TAG, "Unable to open file %s", logger_task->config.filename);
         return ESP_FAIL;
     }
 
@@ -22,7 +75,7 @@ static esp_err_t init_sd_card(logger_task_t *logger_task) {
 }
 
 static esp_err_t init_task(logger_task_t *logger_task) {
-    logger_task->data_queue = xQueueCreate(logger_task->config.data_queue_size, logger_task->config.date_item_size);
+    logger_task->data_queue = xQueueCreate(logger_task->config.data_queue_size, logger_task->config.data_item_size);
     if (logger_task->data_queue == NULL) {
         ESP_LOGE(TAG, "Unable to create data queue");
         return ESP_FAIL;
@@ -32,7 +85,7 @@ static esp_err_t init_task(logger_task_t *logger_task) {
         sd_task,
         "logger task",
         logger_task->config.stack_depth,
-        NULL,
+        logger_task,
         logger_task->config.priority,
         &logger_task->task_handle,
         logger_task->config.core_id
@@ -46,11 +99,16 @@ static esp_err_t init_task(logger_task_t *logger_task) {
     return ESP_OK;
 }
 
-esp_err_t init_logger(const logger_task_config_t *config, logger_task_t *logger_task) {
-    logger_task->config = *config;
+esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_card_config_t *sd_card_config, logger_task_t *logger_task) {
+    logger_task->config = *logger_task_config;
 
-    if (init_sd_card(logger_task) != ESP_OK) {
+    if (init_sd_card(logger_task, sd_card_config) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to initialize SD card");
+        return ESP_FAIL;
+    }
+
+    if (init_file(logger_task) != ESP_OK) {
+        ESP_LOGE(TAG, "Unable to initialize file %s", logger_task->config.filename);
         return ESP_FAIL;
     }
 

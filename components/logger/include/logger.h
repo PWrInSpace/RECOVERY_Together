@@ -2,6 +2,7 @@
 #define LOGGER_H
 
 #include "sd_card.h"
+#include "spi.h"
 #include "freertos/task.h"
 
 typedef enum {
@@ -17,37 +18,45 @@ typedef size_t (*create_sd_header)(char *buffer, size_t buffer_size, void* data,
 typedef size_t (*get_sd_header_size)(void);
 
 typedef struct {
+    // sd card config
     const char *filename;
     char *log_path;
     size_t log_path_size;
-    sd_card_config_t sd_card_config;
+    FILE *log_file;
 
-    uint32_t stack_depth;
+    // thread config
     BaseType_t core_id;
+    uint32_t stack_depth;
     UBaseType_t priority;
     SemaphoreHandle_t mutex;
 
+    // data queue config
+    size_t data_queue_size;
+    size_t data_item_size;
+    size_t data_drop_value;
+    size_t data_frame_size;
+
+    // callback functions config
     error_handler error_handler_fnc;
     create_sd_frame create_sd_frame_fnc;
     create_sd_header create_sd_header_fnc;
     get_sd_header_size get_sd_header_size_fnc;
 
-    size_t data_queue_size;
-    size_t date_item_size;
+    // mutex
+    SemaphoreHandle_t spi_mutex;
 } logger_task_config_t;
 
 typedef struct {
     logger_task_config_t config;
 
-    sd_card_t sd_card;
+    sd_card_t *sd_card;
 
     TaskHandle_t task_handle;
     QueueHandle_t data_queue;
-    SemaphoreHandle_t spi_mutex;
 } logger_task_t;
 
-esp_err_t init_logger(const logger_task_config_t *config, logger_task_t *logger_task);
+esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_card_config_t *sd_card_config, logger_task_t *logger_task);
 
-esp_err_t terminate_logger(void);
+esp_err_t terminate_logger(logger_task_t *logger_task);
 
 #endif

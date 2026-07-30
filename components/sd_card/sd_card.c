@@ -76,7 +76,7 @@ bool SD_file_exists(const sd_card_t *card, const char *path) {
     }
 
     struct stat st;
-    if (stat(path, &st) != 0) {
+    if (stat(path, &st) == 0) {
         return true;
     }
     return false;
