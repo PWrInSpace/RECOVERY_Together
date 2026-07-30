@@ -16,9 +16,8 @@ static esp_err_t save_data(const logger_task_t *logger) {
         ESP_LOGE(TAG, "Unable to create sd frame");
     }
 
-    fwrite(buffer, sizeof(char), written, logger->config.log_file);
-    fflush(logger->config.log_file);
-    fsync(fileno(logger->config.log_file));
+    fwrite(buffer, sizeof(char), written, logger->log_file);
+    fflush(logger->log_file);
 
     return ESP_OK;
 }
@@ -47,6 +46,7 @@ static void sd_task(void *args) {
         } else {
             // error
         }
+        vTaskDelay(pdMS_TO_TICKS(logger->config.task_delay_ms));
     }
 }
 
@@ -65,8 +65,8 @@ static esp_err_t init_file(logger_task_t *logger_task) {
         return ESP_FAIL;
     }
 
-    logger_task->config.log_file = fopen(logger_task->sd_card->config.mount_point, "a");
-    if (logger_task->config.log_file == NULL) {
+    logger_task->log_file = fopen(logger_task->config.log_path, "a");
+    if (logger_task->log_file == NULL) {
         ESP_LOGE(TAG, "Unable to open file %s", logger_task->config.filename);
         return ESP_FAIL;
     }

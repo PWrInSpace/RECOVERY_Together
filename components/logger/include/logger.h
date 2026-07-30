@@ -22,13 +22,13 @@ typedef struct {
     const char *filename;
     char *log_path;
     size_t log_path_size;
-    FILE *log_file;
 
     // thread config
     BaseType_t core_id;
     uint32_t stack_depth;
     UBaseType_t priority;
     SemaphoreHandle_t mutex;
+    int task_delay_ms;
 
     // data queue config
     size_t data_queue_size;
@@ -50,6 +50,7 @@ typedef struct {
     logger_task_config_t config;
 
     sd_card_t *sd_card;
+    FILE *log_file;
 
     TaskHandle_t task_handle;
     QueueHandle_t data_queue;
