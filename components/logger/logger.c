@@ -4,52 +4,52 @@
 
 static const char* TAG = "LOGGER";
 
-static esp_err_t save_data(const logger_task_t *logger) {
-    while (uxQueueMessagesWaiting(logger->data_queue) > 0) {
-        if (xQueueReceive(logger->data_queue, logger->config.data_buffer, 0) == pdFALSE) {
+static esp_err_t save_data(const logger_task_t *logger_task) {
+    while (uxQueueMessagesWaiting(logger_task->data_queue) > 0) {
+        if (xQueueReceive(logger_task->data_queue, logger_task->config.data_buffer, 0) == pdFALSE) {
             ESP_LOGE(TAG, "Unable to read data from queue");
             return ESP_FAIL;
         }
 
-        const size_t written = logger->config.create_sd_frame_fnc(
-            logger->config.frame_buffer, 
-            logger->config.frame_buffer_size,
-            logger->config.data_buffer, 
-            logger->config.data_buffer_size
+        const size_t written = logger_task->config.create_sd_frame_fnc(
+            logger_task->config.frame_buffer,
+            logger_task->config.frame_buffer_size,
+            logger_task->config.data_buffer,
+            logger_task->config.data_buffer_size
         );
         if (written == 0) {
             ESP_LOGE(TAG, "Unable to create sd frame");
         }
 
-        fwrite(logger->config.frame_buffer, sizeof(char), written, logger->log_file);
+        fwrite(logger_task->config.frame_buffer, sizeof(char), written, logger_task->log_file);
     }
-    fflush(logger->log_file);
+    fflush(logger_task->log_file);
 
     return ESP_OK;
 }
 
-static bool data_check(const logger_task_t *logger) {
-    if (uxQueueMessagesWaiting(logger->data_queue) < logger->config.data_drop_value) {
+static bool data_check(const logger_task_t *logger_task) {
+    if (uxQueueMessagesWaiting(logger_task->data_queue) < logger_task->config.data_drop_value) {
         return false;
     }
     return true;
 }
 
-static void process_logger_step(const logger_task_t *logger) {
-    if (data_check(logger) && xSemaphoreTake(logger->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
-        if (save_data(logger) != ESP_OK) {
+static void process_logger_step(const logger_task_t *logger_task) {
+    if (xSemaphoreTake(logger_task->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+        if (save_data(logger_task) != ESP_OK) {
             ESP_LOGE(TAG, "Unable to save data");
         }
-        xSemaphoreGive(logger->config.spi_mutex);
+        xSemaphoreGive(logger_task->config.spi_mutex);
     }
 }
 
 static void sd_task(void *args) {
-    const logger_task_t *logger = (logger_task_t *)args;
+    const logger_task_t *logger_task = (logger_task_t *)args;
     ESP_LOGI(TAG, "Starting logger task");
     while (true) {
-        process_logger_step(logger);
-        vTaskDelay(pdMS_TO_TICKS(logger->config.task_delay_ms));
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+        process_logger_step(logger_task);
     }
 }
 
@@ -166,6 +166,10 @@ esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const
     if (xQueueSend(logger_task->data_queue, data, 0) == pdFALSE) {
         ESP_LOGE(TAG, "Unable to add data to queue");
         return ESP_FAIL;
+    }
+
+    if (data_check(logger_task)) {
+        xTaskNotifyGive(logger_task->task_handle);
     }
 
     return ESP_OK;
