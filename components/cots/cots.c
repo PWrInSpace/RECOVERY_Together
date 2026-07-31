@@ -1,5 +1,7 @@
 #include "include/cots.h"
 
+static const char* TAG = "COTS";
+
 esp_err_t cots_init(cots_t *cots){
     ESP_LOGI(TAG,"Cots initialization");
 

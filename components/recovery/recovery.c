@@ -1,5 +1,7 @@
 #include "recovery.h"
 
+static const char* TAG = "RECOVERY";
+
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     ESP_LOGI(TAG, "Recovery System Initialization");
 

@@ -1,4 +1,4 @@
 idf_component_register(SRCS "config.c"
                     INCLUDE_DIRS "."
-                    REQUIRES spi sd_card
+                    REQUIRES sys sd_card
 )

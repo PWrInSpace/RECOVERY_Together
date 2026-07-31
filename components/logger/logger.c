@@ -2,6 +2,8 @@
 
 #include <sys/unistd.h>
 
+static const char* TAG = "LOGGER";
+
 static esp_err_t save_data(const logger_task_t *logger) {
     uint8_t data[logger->config.data_item_size];
     char buffer[logger->config.data_frame_size];

@@ -5,8 +5,6 @@
 #include "esp_err.h"
 #include "driver/spi_master.h"
 
-#define TAG "SPI"
-
 typedef struct {
     spi_host_device_t host_device;
     uint8_t mosi_pin;

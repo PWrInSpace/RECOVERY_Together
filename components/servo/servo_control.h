@@ -18,8 +18,6 @@
 #define SERVO_CLOSED 85U
 #define SERVO_OPENED 120U
 
-#define TAG "SERVO"
-
 typedef struct {
     gpio_num_t servo_pin;
     mcpwm_timer_handle_t timer;

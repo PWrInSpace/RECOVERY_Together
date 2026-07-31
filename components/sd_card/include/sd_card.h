@@ -5,7 +5,6 @@
 #include "sdmmc_cmd.h"
 #include <sys/stat.h>
 
-#define TAG "SD_CARD"
 #define MOUNT_PATH "/sdcard"
 
 typedef struct {

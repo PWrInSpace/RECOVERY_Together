@@ -8,9 +8,7 @@
 #include "string.h"
 #include "recovery.h"
 
-
 //todo do przerobienia i napisania na nowy sterownik
-#define TAG "I2C"
 
 typedef union {
     struct command {

@@ -1,5 +1,7 @@
 #include "spi.h"
 
+static const char* TAG = "SPI";
+
 esp_err_t spi_init(const spi_config_t *spi_config) {
     spi_bus_config_t bus_config = {0};
 

@@ -1,5 +1,7 @@
 #include "servo_control.h"
 
+static const char* TAG = "SERVO";
+
 static esp_timer_handle_t servo_close_timer;
 
 static void servo_close_callback(void* arg) {

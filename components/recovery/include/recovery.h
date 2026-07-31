@@ -5,8 +5,6 @@
 #include "driver/gpio.h"
 #include "esp_timer.h"
 
-#define TAG "RECOVERY"
-
 #define COTS_COUNT 1
 #define SECOND 1000000
 #define RESISTANCE_BURN_TIME_MS 7500

@@ -1,8 +1,9 @@
 #include "i2c.h"
 
+static const char* TAG = "I2C";
+
 uint8_t tx_buffer[4];
 cmd_message_t rx_buffer;
-
 
 uint8_t I2C_slave_init(){
     ESP_LOGI(TAG,"I2C INIT");

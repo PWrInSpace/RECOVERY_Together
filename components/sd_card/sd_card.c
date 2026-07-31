@@ -1,5 +1,7 @@
 #include "sd_card.h"
 
+static const char* TAG = "SD";
+
 esp_err_t SD_mount(const sd_card_config_t *config, sd_card_t *card) {
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
     slot_config.gpio_cs = config->cs_pin;
