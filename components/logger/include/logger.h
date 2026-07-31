@@ -34,7 +34,8 @@ typedef struct {
     size_t data_queue_size;
     size_t data_item_size;
     size_t data_drop_value;
-    size_t data_frame_size;
+    uint8_t *data_buffer;
+    char *frame_buffer;
 
     // callback functions config
     error_handler error_handler_fnc;
@@ -49,7 +50,7 @@ typedef struct {
 typedef struct {
     logger_task_config_t config;
 
-    sd_card_t *sd_card;
+    sd_card_t sd_card;
     FILE *log_file;
 
     TaskHandle_t task_handle;

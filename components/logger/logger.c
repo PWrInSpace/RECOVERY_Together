@@ -5,20 +5,24 @@
 static const char* TAG = "LOGGER";
 
 static esp_err_t save_data(const logger_task_t *logger) {
-    uint8_t data[logger->config.data_item_size];
-    char buffer[logger->config.data_frame_size];
+    while (uxQueueMessagesWaiting(logger->data_queue) > 0) {
+        if (xQueueReceive(logger->data_queue, logger->config.data_buffer, 0) == pdFALSE) {
+            ESP_LOGE(TAG, "Unable to read data from queue");
+            return ESP_FAIL;
+        }
 
-    if (xQueueReceive(logger->data_queue, data, 0) == pdFALSE) {
-        ESP_LOGE(TAG, "Unable to read data from queue");
-        return ESP_FAIL;
+        const size_t written = logger->config.create_sd_frame_fnc(
+            logger->config.frame_buffer, 
+            logger->config.data_frame_size, 
+            logger->config.data_buffer, 
+            logger->config.data_item_size
+        );
+        if (written != logger->config.data_item_size) {
+            ESP_LOGE(TAG, "Unable to create sd frame");
+        }
+
+        fwrite(logger->config.frame_buffer, sizeof(char), written, logger->log_file);
     }
-
-    const size_t written = logger->config.create_sd_frame_fnc(buffer, sizeof(buffer), data, sizeof(data));
-    if (written != sizeof(data)) {
-        ESP_LOGE(TAG, "Unable to create sd frame");
-    }
-
-    fwrite(buffer, sizeof(char), written, logger->log_file);
     fflush(logger->log_file);
 
     return ESP_OK;
@@ -52,8 +56,8 @@ static void sd_task(void *args) {
     }
 }
 
-static esp_err_t init_sd_card(const logger_task_t *logger_task, const sd_card_config_t *sd_card_config) {
-    if (SD_mount(sd_card_config, logger_task->sd_card) != ESP_OK) {
+static esp_err_t init_sd_card(logger_task_t *logger_task, const sd_card_config_t *sd_card_config) {
+    if (SD_mount(sd_card_config, &logger_task->sd_card) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to initialize SD card");
         return ESP_FAIL;
     }
@@ -62,7 +66,7 @@ static esp_err_t init_sd_card(const logger_task_t *logger_task, const sd_card_co
 }
 
 static esp_err_t init_file(logger_task_t *logger_task) {
-    if (SD_create_file_path(logger_task->sd_card, logger_task->config.filename, logger_task->config.log_path, logger_task->config.log_path_size) != ESP_OK) {
+    if (SD_create_file_path(&logger_task->sd_card, logger_task->config.filename, logger_task->config.log_path, logger_task->config.log_path_size) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to create file %s", logger_task->config.filename);
         return ESP_FAIL;
     }
@@ -83,7 +87,7 @@ static esp_err_t init_task(logger_task_t *logger_task) {
         return ESP_FAIL;
     }
 
-    xTaskCreatePinnedToCore(
+    BaseType_t res = xTaskCreatePinnedToCore(
         sd_task,
         "logger task",
         logger_task->config.stack_depth,
@@ -91,8 +95,8 @@ static esp_err_t init_task(logger_task_t *logger_task) {
         logger_task->config.priority,
         &logger_task->task_handle,
         logger_task->config.core_id
-        );
-    if (logger_task->task_handle == NULL) {
+    );
+    if (res != pdPASS) {
         ESP_LOGE(TAG, "Unable to create task handle");
         vQueueDelete(logger_task->data_queue);
         return ESP_FAIL;
@@ -116,6 +120,7 @@ esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_c
 
     if (init_task(logger_task) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to initialize logger task");
+        fclose(logger_task->log_file);
         return ESP_FAIL;
     }
 
