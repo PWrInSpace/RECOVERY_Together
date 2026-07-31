@@ -34,8 +34,12 @@ typedef struct {
     size_t data_queue_size;
     size_t data_item_size;
     size_t data_drop_value;
+
+    // buffers
     uint8_t *data_buffer;
+    size_t data_buffer_size;
     char *frame_buffer;
+    size_t frame_buffer_size;
 
     // callback functions config
     error_handler error_handler_fnc;

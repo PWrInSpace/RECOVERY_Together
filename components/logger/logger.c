@@ -13,11 +13,11 @@ static esp_err_t save_data(const logger_task_t *logger) {
 
         const size_t written = logger->config.create_sd_frame_fnc(
             logger->config.frame_buffer, 
-            logger->config.data_frame_size, 
+            logger->config.frame_buffer_size,
             logger->config.data_buffer, 
-            logger->config.data_item_size
+            logger->config.data_buffer_size
         );
-        if (written != logger->config.data_item_size) {
+        if (written == 0) {
             ESP_LOGE(TAG, "Unable to create sd frame");
         }
 
@@ -87,7 +87,7 @@ static esp_err_t init_task(logger_task_t *logger_task) {
         return ESP_FAIL;
     }
 
-    BaseType_t res = xTaskCreatePinnedToCore(
+    const BaseType_t res = xTaskCreatePinnedToCore(
         sd_task,
         "logger task",
         logger_task->config.stack_depth,
