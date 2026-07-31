@@ -147,3 +147,26 @@ esp_err_t terminate_logger(logger_task_t *logger_task) {
 
     return ESP_OK;
 }
+
+esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const size_t data_size) {
+    if (logger_task == NULL || logger_task->data_queue == NULL) {
+        return ESP_FAIL;
+    }
+
+    if (data_size != logger_task->config.data_item_size) {
+        ESP_LOGE(TAG, "Data size mismatch: expected %zu, got %zu", logger_task->config.data_item_size, data_size);
+        return ESP_FAIL;
+    }
+
+    if (logger_task->sd_card.mounted == false) {
+        ESP_LOGE(TAG, "SD card is not mounted");
+        return ESP_FAIL;
+    }
+
+    if (xQueueSend(logger_task->data_queue, data, 0) == pdFALSE) {
+        ESP_LOGE(TAG, "Unable to add data to queue");
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
+}

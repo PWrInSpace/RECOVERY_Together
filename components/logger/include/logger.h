@@ -27,7 +27,7 @@ typedef struct {
     size_t data_drop_value;
 
     // buffers
-    uint8_t *data_buffer;
+    void *data_buffer;
     size_t data_buffer_size;
     char *frame_buffer;
     size_t frame_buffer_size;
@@ -53,5 +53,7 @@ typedef struct {
 esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_card_config_t *sd_card_config, logger_task_t *logger_task);
 
 esp_err_t terminate_logger(logger_task_t *logger_task);
+
+esp_err_t logger_write(const logger_task_t *logger_task, const void *data, size_t data_size);
 
 #endif
