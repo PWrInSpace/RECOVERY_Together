@@ -5,17 +5,8 @@
 #include "spi.h"
 #include "freertos/task.h"
 
-typedef enum {
-    SD_INIT,
-    SD_QUEUE_READ,
-    SD_WRITE,
-    SD_MUTEX,
-} LOGGER_TASK_ERROR;
-
-typedef void (*error_handler)(LOGGER_TASK_ERROR error_code);
 typedef size_t (*create_sd_frame)(char *buffer, size_t buffer_size, void* data, size_t size);
 typedef size_t (*create_sd_header)(char *buffer, size_t buffer_size, void* data, size_t size);
-typedef size_t (*get_sd_header_size)(void);
 
 typedef struct {
     // sd card config
@@ -42,10 +33,8 @@ typedef struct {
     size_t frame_buffer_size;
 
     // callback functions config
-    error_handler error_handler_fnc;
     create_sd_frame create_sd_frame_fnc;
     create_sd_header create_sd_header_fnc;
-    get_sd_header_size get_sd_header_size_fnc;
 
     // mutex
     SemaphoreHandle_t spi_mutex;

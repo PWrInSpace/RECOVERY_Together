@@ -28,30 +28,27 @@ static esp_err_t save_data(const logger_task_t *logger) {
     return ESP_OK;
 }
 
-static esp_err_t data_check(const logger_task_t *logger) {
+static bool data_check(const logger_task_t *logger) {
     if (uxQueueMessagesWaiting(logger->data_queue) < logger->config.data_drop_value) {
-        ESP_LOGI(TAG, "Queue drop value not reached");
-        return ESP_FAIL;
+        return false;
     }
+    return true;
+}
 
-    if (save_data(logger) != ESP_OK) {
-        ESP_LOGE(TAG, "Unable to save data");
-        return ESP_FAIL;
+static void process_logger_step(const logger_task_t *logger) {
+    if (data_check(logger) && xSemaphoreTake(logger->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+        if (save_data(logger) != ESP_OK) {
+            ESP_LOGE(TAG, "Unable to save data");
+        }
+        xSemaphoreGive(logger->config.spi_mutex);
     }
-
-    return ESP_OK;
 }
 
 static void sd_task(void *args) {
     const logger_task_t *logger = (logger_task_t *)args;
     ESP_LOGI(TAG, "Starting logger task");
     while (true) {
-        if (xSemaphoreTake(logger->config.spi_mutex, 10) == pdTRUE) {
-            data_check(logger);
-            xSemaphoreGive(logger->config.spi_mutex);
-        } else {
-            // error
-        }
+        process_logger_step(logger);
         vTaskDelay(pdMS_TO_TICKS(logger->config.task_delay_ms));
     }
 }
@@ -106,6 +103,7 @@ static esp_err_t init_task(logger_task_t *logger_task) {
 }
 
 esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_card_config_t *sd_card_config, logger_task_t *logger_task) {
+    ESP_LOGI(TAG, "Starting logger task");
     logger_task->config = *logger_task_config;
 
     if (init_sd_card(logger_task, sd_card_config) != ESP_OK) {
@@ -123,6 +121,29 @@ esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_c
         fclose(logger_task->log_file);
         return ESP_FAIL;
     }
+
+    return ESP_OK;
+}
+
+esp_err_t terminate_logger(logger_task_t *logger_task) {
+    ESP_LOGI(TAG, "Terminating logger task");
+
+    if (logger_task->task_handle != NULL) {
+        vTaskDelete(logger_task->task_handle);
+        logger_task->task_handle = NULL;
+    }
+
+    if (logger_task->data_queue != NULL) {
+        vQueueDelete(logger_task->data_queue);
+        logger_task->data_queue = NULL;
+    }
+
+    if (logger_task->log_file != NULL) {
+        fclose(logger_task->log_file);
+        logger_task->log_file = NULL;
+    }
+
+    SD_unmount(&logger_task->sd_card);
 
     return ESP_OK;
 }
