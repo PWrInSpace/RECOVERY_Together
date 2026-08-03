@@ -27,7 +27,7 @@ typedef struct {
 
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots);
 
-esp_err_t cots_arming(cots_t *cots);
+esp_err_t cots_arm(cots_t *cots);
 
 esp_err_t cots_disarm(cots_t *cots);
 

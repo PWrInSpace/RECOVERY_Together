@@ -1,4 +1,4 @@
-#include "include/cots.h"
+#include "cots.h"
 
 static const char* TAG = "COTS";
 
@@ -46,7 +46,7 @@ esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
 }
 
 
-esp_err_t cots_arming(cots_t *cots){
+esp_err_t cots_arm(cots_t *cots){
     ESP_LOGI(TAG, "Cots arming");
 
     if (gpio_set_level(cots->config.arming_pin, 1) != ESP_OK) {

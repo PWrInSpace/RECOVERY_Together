@@ -4,6 +4,7 @@
 #define CONSOLE_H
 
 #include "esp_console.h"
+#include "esp_err.h"
 
 // For some serial monitors this lib is crashing
 // Works with cutecom ...
