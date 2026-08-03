@@ -20,10 +20,12 @@ typedef struct{
     gpio_num_t second_stage_pin;
     first_stage_fnc first_stage;
     second_stage_fnc second_stage;
+    int cots_count;
+    cots_data_t *cots_buffer;
 } recovery_config_t;
 
 typedef struct {
-    cots_data_t cots[COTS_COUNT];
+    cots_data_t *cots;
     bool first_stage_continuity: 1;
     bool second_stage_continuity: 1;
     bool separation_1: 1;
@@ -40,17 +42,5 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery);
 esp_err_t first_stage_deploy(const recovery_t *recovery);
 
 esp_err_t second_stage_deploy(const recovery_t *recovery);
-
-// void check_continuity();
-//
-// void tele_apogee_isr_handler(void *args);
-//
-// void easy_apogee_isr_handler(void *args);
-//
-// void tele_main_isr_handler(void *args);
-//
-// void turn_off_resistance_timer(void* arg);
-//
-// void setup_resistance_timer();
 
 #endif

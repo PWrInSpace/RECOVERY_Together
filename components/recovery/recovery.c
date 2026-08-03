@@ -5,7 +5,21 @@ static const char* TAG = "RECOVERY";
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     ESP_LOGI(TAG, "Recovery System Initialization");
 
-    recovery->config = *config;
+    if (config->cots_buffer == NULL && config->cots_count > 0) {
+        ESP_LOGE(TAG, "Buffer for COTS not provided!");
+        return ESP_FAIL;
+    }
+
+    *recovery = (recovery_t){
+        .config = *config,
+        .data = {
+            .cots = config->cots_buffer,
+            .first_stage_continuity = false,
+            .second_stage_continuity = false,
+            .separation_1 = false,
+            .separation_2 = false,
+        },
+    };
 
     const gpio_config_t separation_1_input = {
         .pin_bit_mask = 1ULL << recovery->config.separation_1_pin,
@@ -55,8 +69,6 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
         return ESP_FAIL;
     }
 
-    // setup_resistance_timer();
-
     ESP_LOGI(TAG, "Recovery system initialization done :D");
     return ESP_OK;
 }
@@ -78,50 +90,3 @@ esp_err_t second_stage_deploy(const recovery_t *recovery){
 
     return ESP_OK;
 }
-
-// void check_continuity(){
-//
-//     bool previous_easymini_igniter_cont = recovery_system.easyIgniterCont;
-//     bool previous_telemetrum_igniter_cont = recovery_system.teleIgniterCont;
-//
-//     recovery_system.teleIgniterCont = !gpio_get_level(recovery_system.teleIgniterContPin);
-//     recovery_system.easyIgniterCont = !gpio_get_level(recovery_system.easyIgniterContPin);
-//
-//     if(previous_easymini_igniter_cont == 1 && recovery_system.easyIgniterCont == 0){
-//         recovery_system.second_stage = true;
-//         recovery_system.easySecondStage = true;
-//     }
-//     else if(previous_telemetrum_igniter_cont == 1 && recovery_system.teleIgniterCont == 0){
-//         recovery_system.second_stage = true;
-//         recovery_system.teleSecondStage = true;
-//     }
-// }
-
-// void tele_apogee_isr_handler(void *args) {
-//     telemetrum_device.apogee_detected = 1;
-//     first_stage_deploy();
-// }
-//
-// void easy_apogee_isr_handler(void *args) {
-//     easymini_device.apogee_detected = 1;
-//     first_stage_deploy();
-// }
-//
-// void tele_main_isr_handler(void *args) {
-//     second_stage_deploy();
-// }
-//
-// void turn_off_resistance_timer(void* arg) {
-//     gpio_set_level(recovery_system.pilot_deploy_pin, 0);
-//     ESP_EARLY_LOGW(TAG, "Resistance wire turned off");
-// }
-
-// void setup_resistance_timer() {
-//
-//     const esp_timer_create_args_t timer_args = {
-//         .callback = &turn_off_resistance_timer,
-//         .name = "resistance_off_timer"
-//     };
-//     esp_timer_create(&timer_args, &resistance_off_timer);
-//
-// }
