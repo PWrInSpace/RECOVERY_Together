@@ -1,16 +1,10 @@
-#include <stdio.h>
 #include "esp_log.h"
-#include "driver/gpio.h"
 
+#include "app.h"
 #include "config.h"
 #include "pinout.h"
-#include "../components/cots/include/cots.h"
-#include "recovery.h"
+#include "../components/app/include/app.h"
 #include "../components/i2c/include/i2c.h"
-#include "esp_adc/adc_cali.h"
-#include "esp_adc/adc_cali_scheme.h"
-#include "esp_adc/adc_oneshot.h"
-#include "console_config.h"
 
 // static const char *TAG = "APP";
 
@@ -64,38 +58,12 @@ void execute_cmd(uint32_t data){
     // }
 }
 
-void app_main(void)
-{
-    //
-    // /***************************** APP INITIALIZATION *************************/
-    // if(cots_init(COTS_DEVICE_1) != RET_SUCCESS){
-    //     ESP_LOGE(TAG,"Telemetrum init failed, restarting ...");
-    //     esp_restart();
-    // }
-    //
-    // if(cots_init(COTS_DEVICE_2) != RET_SUCCESS){
-    //     ESP_LOGE(TAG,"EasyMini init failed, restarting ...");
-    //     esp_restart();
-    // }
-    //
-    // if(recovery_Init() != RET_SUCCESS){
-    //     ESP_LOGE(TAG,"Recovery init failed, restarting ...");
-    //     esp_restart();
-    // }
-    //
-    //
+void app_main(void) {
+    app_init();
     // if(I2C_slave_init() != RET_SUCCESS){
     //     ESP_LOGE(TAG,"I2C slave init failed, restarting ...");
     //     esp_restart();
     //  }
-    //
-    // servo_init();
-    //
-    // if(init_console() != ESP_OK){
-    //     ESP_LOGE(TAG,"Console init failed, restarting ...");
-    //     esp_restart();
-    // }
-    //
     // /************************ INTERRUPT HANDLERS *****************************/
     // gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
     // gpio_isr_handler_add(TELE_APOGEE_CHECK, tele_apogee_isr_handler, NULL);

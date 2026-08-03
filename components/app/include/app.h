@@ -1,14 +1,12 @@
 #ifndef APP_H
 #define APP_H
 
-#include "recovery.h"
-#include "sd_card.h"
-#include "spi.h"
-#include "cots.h"
+#include "cots_config.h"
+#include "servo_config.h"
+#include "recovery_config.h"
+#include "console_config.h"
+#include "logger_config.h"
 
-typedef enum {
-    TELEMETRUM = 0,
-    EASYMINI
-} cots_e;
+esp_err_t app_init(void);
 
 #endif

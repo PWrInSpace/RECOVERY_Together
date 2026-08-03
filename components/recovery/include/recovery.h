@@ -5,11 +5,6 @@
 #include "driver/gpio.h"
 #include "esp_timer.h"
 
-#define COTS_COUNT 1
-#define SECOND 1000000
-#define RESISTANCE_BURN_TIME_MS 7500
-#define SERVO_OPEN_TIME_MS 5000
-
 typedef esp_err_t (*first_stage_fnc)(void);
 typedef esp_err_t (*second_stage_fnc)(void);
 

@@ -19,7 +19,6 @@ typedef struct {
     uint32_t stack_depth;
     UBaseType_t priority;
     SemaphoreHandle_t mutex;
-    int task_delay_ms;
 
     // data queue config
     size_t data_queue_size;
