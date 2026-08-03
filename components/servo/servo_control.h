@@ -4,22 +4,22 @@
 #include "driver/mcpwm_prelude.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
-#include "config.h"
-#include "pinout.h"
 #include "esp_timer.h"
-
-#define SERVO_MIN_PULSEWIDTH_US 500   // Minimum pulse width in microsecond
-#define SERVO_MAX_PULSEWIDTH_US 2500  // Maximum pulse width in microsecond
-#define SERVO_MIN_ANGLE 0             // Minimum angle
-#define SERVO_MAX_ANGLE 180           // Maximum angle
-#define SERVO_FREQUENCY_HZ 1000000    // Frequency of the PWM signal for the servo
-#define SERVO_TIMEBASE_PERIOD 20000   // 20000 ticks, 20ms
-
-#define SERVO_CLOSED 85U
-#define SERVO_OPENED 120U
 
 typedef struct {
     gpio_num_t servo_pin;
+    uint16_t max_pulse_width_us;
+    uint16_t min_pulse_width_us;
+    uint16_t max_angle;
+    uint16_t min_angle;
+    uint32_t frequency_hz;
+    uint32_t timebase_period;
+    uint16_t open_angle;
+    uint16_t close_angle;
+} servo_config_t;
+
+typedef struct {
+    servo_config_t config;
     mcpwm_timer_handle_t timer;
     mcpwm_oper_handle_t oper;
     mcpwm_gen_handle_t generator;
@@ -27,11 +27,16 @@ typedef struct {
     int angle;
 } servo_control_t;
 
-uint32_t angle_to_compare(int angle);
-void servo_init(servo_control_t *servo);
-void servo_set_angle(servo_control_t *servo, int angle);
-void servo_open(servo_control_t *servo);
-void servo_close(servo_control_t *servo);
-void servo_open_for(servo_control_t *servo, uint64_t duration_us);
+uint32_t angle_to_compare(const servo_control_t *servo, int angle);
+
+esp_err_t servo_init(const servo_config_t *config, servo_control_t *servo);
+
+esp_err_t servo_set_angle(servo_control_t *servo, int angle);
+
+esp_err_t servo_open(servo_control_t *servo);
+
+esp_err_t servo_close(servo_control_t *servo);
+
+esp_err_t servo_open_for(servo_control_t *servo, uint64_t duration_us);
 
 #endif
