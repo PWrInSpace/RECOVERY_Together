@@ -18,10 +18,9 @@ typedef struct {
     BaseType_t core_id;
     uint32_t stack_depth;
     UBaseType_t priority;
-    SemaphoreHandle_t mutex;
 
     // data queue config
-    size_t data_queue_size;
+    QueueHandle_t data_queue;
     size_t data_item_size;
     size_t data_drop_value;
 
@@ -36,7 +35,7 @@ typedef struct {
     create_sd_header create_sd_header_fnc;
 
     // mutex
-    SemaphoreHandle_t spi_mutex;
+    SemaphoreHandle_t *spi_mutex;
 } logger_task_config_t;
 
 typedef struct {
@@ -46,7 +45,6 @@ typedef struct {
     FILE *log_file;
 
     TaskHandle_t task_handle;
-    QueueHandle_t data_queue;
 } logger_task_t;
 
 esp_err_t init_logger(const logger_task_config_t *logger_task_config, const sd_card_config_t *sd_card_config, logger_task_t *logger_task);

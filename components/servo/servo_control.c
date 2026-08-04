@@ -100,7 +100,8 @@ esp_err_t servo_init(const servo_config_t *config, servo_control_t *servo) {
 
     const esp_timer_create_args_t timer_args = {
         .callback = &servo_close_callback,
-        .name = "servo_close_timer"
+        .name = "servo_close_timer",
+        .arg = servo,
     };
 
     if (esp_timer_create(&timer_args, &servo_close_timer) != ESP_OK) {

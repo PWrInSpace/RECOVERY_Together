@@ -1,9 +1,15 @@
 #include "logger_config.h"
+#include "spi_config.h"
+
+#define DATA_QUEUE_SIZE 20
+#define DATA_ITEM_SIZE 5
 
 static const char *TAG = "LOGGER CONFIG";
 
 static char data_buffer[1024];
 static char frame_buffer[1024];
+static uint8_t queue_storage_buffer[DATA_QUEUE_SIZE * DATA_ITEM_SIZE];
+static StaticQueue_t queue_buffer;
 
 static logger_task_config_t logger_config = {
     .filename = "LOG",
@@ -12,20 +18,14 @@ static logger_task_config_t logger_config = {
     .core_id = 1,
     .stack_depth = 8100,
     .priority = 5,
-    .mutex = NULL, // lub odpowiedni wskaźnik na mutex, jeśli jest wymagany
-    .data_queue_size = 20,
     .data_item_size = 5,
     .data_drop_value = 10,
     .data_buffer = data_buffer,
     .data_buffer_size = sizeof(data_buffer),
     .frame_buffer = frame_buffer,
     .frame_buffer_size = sizeof(frame_buffer),
-
     .create_sd_frame_fnc = NULL,
     .create_sd_header_fnc = NULL,
-
-    // mutex
-    .spi_mutex = NULL
 };
 
 static sd_card_config_t sd_card_config = {
@@ -40,6 +40,13 @@ static sd_card_config_t sd_card_config = {
 };
 
 esp_err_t init_logger_task(void) {
+    logger_config.spi_mutex = &spi_mutex;
+    logger_config.data_queue = xQueueCreateStatic(DATA_QUEUE_SIZE, DATA_ITEM_SIZE, queue_storage_buffer, &queue_buffer);
+    if (logger_config.data_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create data queue");
+        return ESP_FAIL;
+    }
+
     if (init_logger(&logger_config, &sd_card_config, &logger_task) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize logger task");
         return ESP_FAIL;

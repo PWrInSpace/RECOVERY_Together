@@ -5,8 +5,8 @@
 static const char* TAG = "LOGGER";
 
 static esp_err_t save_data(const logger_task_t *logger_task) {
-    while (uxQueueMessagesWaiting(logger_task->data_queue) > 0) {
-        if (xQueueReceive(logger_task->data_queue, logger_task->config.data_buffer, 0) == pdFALSE) {
+    while (uxQueueMessagesWaiting(logger_task->config.data_queue) > 0) {
+        if (xQueueReceive(logger_task->config.data_queue, logger_task->config.data_buffer, 0) == pdFALSE) {
             ESP_LOGE(TAG, "Unable to read data from queue");
             return ESP_FAIL;
         }
@@ -29,18 +29,18 @@ static esp_err_t save_data(const logger_task_t *logger_task) {
 }
 
 static bool data_check(const logger_task_t *logger_task) {
-    if (uxQueueMessagesWaiting(logger_task->data_queue) < logger_task->config.data_drop_value) {
+    if (uxQueueMessagesWaiting(logger_task->config.data_queue) < logger_task->config.data_drop_value) {
         return false;
     }
     return true;
 }
 
 static void process_logger_step(const logger_task_t *logger_task) {
-    if (xSemaphoreTake(logger_task->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+    if (xSemaphoreTake(*logger_task->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
         if (save_data(logger_task) != ESP_OK) {
             ESP_LOGE(TAG, "Unable to save data");
         }
-        xSemaphoreGive(logger_task->config.spi_mutex);
+        xSemaphoreGive(*logger_task->config.spi_mutex);
     }
 }
 
@@ -78,8 +78,7 @@ static esp_err_t init_file(logger_task_t *logger_task) {
 }
 
 static esp_err_t init_task(logger_task_t *logger_task) {
-    logger_task->data_queue = xQueueCreate(logger_task->config.data_queue_size, logger_task->config.data_item_size);
-    if (logger_task->data_queue == NULL) {
+    if (logger_task->config.data_queue == NULL) {
         ESP_LOGE(TAG, "Unable to create data queue");
         return ESP_FAIL;
     }
@@ -95,7 +94,7 @@ static esp_err_t init_task(logger_task_t *logger_task) {
     );
     if (res != pdPASS) {
         ESP_LOGE(TAG, "Unable to create task handle");
-        vQueueDelete(logger_task->data_queue);
+        vQueueDelete(logger_task->config.data_queue);
         return ESP_FAIL;
     }
 
@@ -133,11 +132,6 @@ esp_err_t terminate_logger(logger_task_t *logger_task) {
         logger_task->task_handle = NULL;
     }
 
-    if (logger_task->data_queue != NULL) {
-        vQueueDelete(logger_task->data_queue);
-        logger_task->data_queue = NULL;
-    }
-
     if (logger_task->log_file != NULL) {
         fclose(logger_task->log_file);
         logger_task->log_file = NULL;
@@ -149,7 +143,7 @@ esp_err_t terminate_logger(logger_task_t *logger_task) {
 }
 
 esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const size_t data_size) {
-    if (logger_task == NULL || logger_task->data_queue == NULL) {
+    if (logger_task == NULL || logger_task->config.data_queue == NULL) {
         return ESP_FAIL;
     }
 
@@ -163,7 +157,7 @@ esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const
         return ESP_FAIL;
     }
 
-    if (xQueueSend(logger_task->data_queue, data, 0) == pdFALSE) {
+    if (xQueueSend(logger_task->config.data_queue, data, 0) == pdFALSE) {
         ESP_LOGE(TAG, "Unable to add data to queue");
         return ESP_FAIL;
     }

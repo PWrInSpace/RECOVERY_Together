@@ -15,12 +15,9 @@ typedef struct{
     gpio_num_t second_stage_pin;
     first_stage_fnc first_stage;
     second_stage_fnc second_stage;
-    int cots_count;
-    cots_data_t *cots_buffer;
 } recovery_config_t;
 
 typedef struct {
-    cots_data_t *cots;
     bool first_stage_continuity: 1;
     bool second_stage_continuity: 1;
     bool separation_1: 1;
