@@ -1,5 +1,7 @@
 #include "spi.h"
 
+#include "driver/gpio.h"
+
 static const char* TAG = "SPI";
 
 esp_err_t spi_init(const spi_config_t *spi_config) {
@@ -19,6 +21,10 @@ esp_err_t spi_init(const spi_config_t *spi_config) {
     if (spi_bus_initialize(spi_config->host_device, &bus_config, SPI_DMA_CH_AUTO) != ESP_OK) {
         return ESP_FAIL;
     }
+
+    gpio_pullup_en(spi_config->mosi_pin);
+    gpio_pullup_en(spi_config->miso_pin);
+    gpio_pullup_en(spi_config->sck_pin);
 
     return ESP_OK;
 }

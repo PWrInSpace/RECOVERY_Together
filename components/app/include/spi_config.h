@@ -3,6 +3,7 @@
 
 #include "spi.h"
 #include "esp_log.h"
+#include "driver/gpio.h"
 
 extern SemaphoreHandle_t spi_mutex;
 

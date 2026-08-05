@@ -19,4 +19,6 @@ extern app_state_t app_state;
 
 esp_err_t init_app_state(void);
 
+esp_err_t init_app_state_test(void);
+
 #endif

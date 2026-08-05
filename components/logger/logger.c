@@ -24,6 +24,7 @@ static esp_err_t save_data(const logger_task_t *logger_task) {
         fwrite(logger_task->config.frame_buffer, sizeof(char), written, logger_task->log_file);
     }
     fflush(logger_task->log_file);
+    fsync(fileno(logger_task->log_file));
 
     return ESP_OK;
 }
@@ -41,6 +42,8 @@ static void process_logger_step(const logger_task_t *logger_task) {
             ESP_LOGE(TAG, "Unable to save data");
         }
         xSemaphoreGive(*logger_task->config.spi_mutex);
+    } else {
+        ESP_LOGE(TAG, "Unable to take spi mutex");
     }
 }
 
@@ -49,6 +52,7 @@ static void sd_task(void *args) {
     ESP_LOGI(TAG, "Starting logger task");
     while (true) {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+        ESP_LOGI(TAG, "Notify");
         process_logger_step(logger_task);
     }
 }
@@ -162,7 +166,9 @@ esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const
         return ESP_FAIL;
     }
 
+    ESP_LOGI(TAG, "Checking queue");
     if (data_check(logger_task)) {
+        ESP_LOGI(TAG, "Data drop");
         xTaskNotifyGive(logger_task->task_handle);
     }
 

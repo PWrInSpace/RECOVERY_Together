@@ -1,4 +1,4 @@
-idf_component_register( SRCS "console.c" "../app/console_config.c"
+idf_component_register( SRCS "console.c"
                     INCLUDE_DIRS "."
-                    REQUIRES console servo recovery cots sys
+                    REQUIRES console
 )

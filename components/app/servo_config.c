@@ -1,5 +1,7 @@
 #include "servo_config.h"
 
+servo_control_t servo;
+
 static const char *TAG = "SERVO CONFIG";
 
 static servo_config_t servo_config = {

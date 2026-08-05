@@ -1,5 +1,8 @@
 #include "cots_config.h"
 
+cots_t telemetrum;
+cots_t easymini;
+
 static const char *TAG = "COTS CONFIG";
 
 static cots_config_t easymini_config = {

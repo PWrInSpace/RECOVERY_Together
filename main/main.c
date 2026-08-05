@@ -1,19 +1,9 @@
-#include "esp_log.h"
-
 #include "app.h"
-#include "config.h"
-#include "pinout.h"
-#include "../components/app/include/app.h"
-#include "../components/i2c/include/i2c.h"
 
-// static const char *TAG = "APP";
-
-recovery_data_t data_to_send;
-
-void read_data(){
+void read_data() {
 }
 
-void execute_cmd(uint32_t data){
+void execute_cmd(uint32_t data) {
     //
     // switch (data)
     // {

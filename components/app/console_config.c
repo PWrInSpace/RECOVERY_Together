@@ -4,23 +4,23 @@
 
 static const char* TAG = "CONSOLE";
 
-static int servo_open_cmd(int argc, char** argv){
+static int servo_open_cmd(int argc, char** argv) {
     servo_open(&servo);
     return 0;
 }
 
-static int servo_close_cmd(int argc, char** argv){
+static int servo_close_cmd(int argc, char** argv) {
     servo_close(&servo);
     return 0;
 }
 
-static int wire_on_cmd(int argc, char** argv){
+static int wire_on_cmd(int argc, char** argv) {
     gpio_set_level(recovery.config.first_stage_pin, 1);
     ESP_LOGI(TAG, "Resistance wire turned on");
     return 0;
 }
 
-static int wire_off_cmd(int argc, char** argv){
+static int wire_off_cmd(int argc, char** argv) {
     gpio_set_level(recovery.config.first_stage_pin, 0);
     ESP_LOGI(TAG, "Resistance wire turned off");
     return 0;

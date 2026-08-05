@@ -1,8 +1,12 @@
 #include "logger_config.h"
 #include "spi_config.h"
+#include "esp_timer.h"
+#include <stdio.h>
 
 #define DATA_QUEUE_SIZE 20
-#define DATA_ITEM_SIZE 5
+#define DATA_ITEM_SIZE sizeof(float)
+
+logger_task_t logger_task;
 
 static const char *TAG = "LOGGER CONFIG";
 
@@ -11,20 +15,30 @@ static char frame_buffer[1024];
 static uint8_t queue_storage_buffer[DATA_QUEUE_SIZE * DATA_ITEM_SIZE];
 static StaticQueue_t queue_buffer;
 
+static size_t test_create_sd_frame(char *buffer, size_t buffer_size, void* data, size_t size) {
+    if (data == NULL || size < sizeof(float)) {
+        return 0;
+    }
+    float current_time = *(float*)data;
+    return snprintf(buffer, buffer_size, "TIME: %.2f\n", current_time);
+}
+
+static char log_path_buffer[64];
+
 static logger_task_config_t logger_config = {
     .filename = "LOG",
-    .log_path = "/",
-    .log_path_size = 9,
+    .log_path = log_path_buffer,
+    .log_path_size = sizeof(log_path_buffer),
     .core_id = 1,
     .stack_depth = 8100,
     .priority = 5,
-    .data_item_size = 5,
+    .data_item_size = DATA_ITEM_SIZE,
     .data_drop_value = 10,
     .data_buffer = data_buffer,
     .data_buffer_size = sizeof(data_buffer),
     .frame_buffer = frame_buffer,
     .frame_buffer_size = sizeof(frame_buffer),
-    .create_sd_frame_fnc = NULL,
+    .create_sd_frame_fnc = test_create_sd_frame,
     .create_sd_header_fnc = NULL,
 };
 
@@ -36,7 +50,7 @@ static sd_card_config_t sd_card_config = {
         .allocation_unit_size = 16 * 1024
     },
     .mount_point = "/sdcard",
-    .cs_pin = 18
+    .cs_pin = GPIO_NUM_15
 };
 
 esp_err_t init_logger_task(void) {

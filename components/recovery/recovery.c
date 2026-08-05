@@ -5,15 +5,9 @@ static const char* TAG = "RECOVERY";
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     ESP_LOGI(TAG, "Recovery System Initialization");
 
-    if (config->cots_buffer == NULL && config->cots_count > 0) {
-        ESP_LOGE(TAG, "Buffer for COTS not provided!");
-        return ESP_FAIL;
-    }
-
     *recovery = (recovery_t){
         .config = *config,
         .data = {
-            .cots = config->cots_buffer,
             .first_stage_continuity = false,
             .second_stage_continuity = false,
             .separation_1 = false,

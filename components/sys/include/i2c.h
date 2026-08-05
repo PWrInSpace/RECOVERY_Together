@@ -3,29 +3,21 @@
 
 #include "driver/i2c.h"
 #include "esp_log.h"
-#include "config.h"
-#include "pinout.h"
-#include "string.h"
-#include "recovery.h"
+#include "esp_err.h"
 
-//todo do przerobienia i napisania na nowy sterownik
+typedef struct {
+    i2c_port_t port;
+    uint8_t sda_pin;
+    uint8_t scl_pin;
+    uint16_t slave_addr;
+    size_t rx_buffer_size;
+    size_t tx_buffer_size;
+} i2c_slave_config_t;
 
-typedef union {
-    struct command {
-        uint32_t command;
-        int32_t payload;
-    } cmd;
+esp_err_t i2c_slave_init(const i2c_slave_config_t *config);
 
-    uint8_t raw[sizeof(struct command)];
-} cmd_message_t;
+esp_err_t i2c_slave_buffer_write(i2c_port_t i2c_num, const void *data, int size);
 
-recovery_data_t data_to_send;
-
-extern uint8_t tx_buffer[4];
-extern cmd_message_t rx_buffer;
-
-uint8_t I2C_slave_init();
-uint8_t I2C_buffer_write();
-uint8_t I2C_buffer_read();
+int i2c_slave_buffer_read(i2c_port_t i2c_num, void *data, size_t size);
 
 #endif

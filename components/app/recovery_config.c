@@ -3,6 +3,8 @@
 #define COTS_COUNT 1
 #define RESISTANCE_BURN_TIME_US 7500000
 
+recovery_t recovery;
+
 static const char *TAG = "RECOVERY CONFIG";
 
 static esp_timer_handle_t resistance_wire_off_timer;

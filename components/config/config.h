@@ -10,16 +10,7 @@
 #define FORCE_FIRST_STAGE_CMD 0xa5
 #define FORCE_SECOND_STAGE_CMD 0x5a
 
-/***************************  COTS STATES  ************************************/
-
-#define OTHER_STATE 0x00
-#define APOGEE 0xAA
-#define MAIN_ALTITUDE 0xBB 
-
 /**************************  RETURN STATUS  ***********************************/
-
-#define RET_SUCCESS 0x00
-#define RET_FAILTURE 0x01
 
 #define I2C_SLAVE_PORT I2C_NUM_0
 #define I2C_SLAVE_TX_BUF_LEN 256

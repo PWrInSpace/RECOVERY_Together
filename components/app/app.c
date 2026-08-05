@@ -8,12 +8,14 @@ app_state_t* app_get_state(void) {
 }
 
 esp_err_t app_init(void) {
-    telemetrum_init();
-    easymini_init();
-    init_servo();
-    init_recovery();
-    init_console();
+    // telemetrum_init();
+    // easymini_init();
+    // init_servo();
+    // init_recovery();
+    // init_console();
+    init_spi();
     init_logger_task();
+    init_app_state_test();
 
     return ESP_OK;
 }
