@@ -4,6 +4,8 @@
 
 static const char * TAG = "APP STATE";
 
+app_state_t app_state;
+
 static esp_timer_handle_t data_timer_handle;
 static esp_timer_handle_t test_timer_handle;
 

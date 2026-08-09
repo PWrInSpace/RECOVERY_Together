@@ -1,8 +1,8 @@
 #include "servo_config.h"
 
-servo_control_t servo;
-
 static const char *TAG = "SERVO CONFIG";
+
+servo_control_t servo;
 
 static servo_config_t servo_config = {
     .servo_pin = GPIO_NUM_18,

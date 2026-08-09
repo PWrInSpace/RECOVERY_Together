@@ -4,23 +4,54 @@
 #include <stdio.h>
 
 #define DATA_QUEUE_SIZE 20
-#define DATA_ITEM_SIZE sizeof(float)
-
-logger_task_t logger_task;
+#define DATA_ITEM_SIZE sizeof(app_state_t)
 
 static const char *TAG = "LOGGER CONFIG";
+
+logger_task_t logger_task;
 
 static char data_buffer[1024];
 static char frame_buffer[1024];
 static uint8_t queue_storage_buffer[DATA_QUEUE_SIZE * DATA_ITEM_SIZE];
 static StaticQueue_t queue_buffer;
 
-static size_t test_create_sd_frame(char *buffer, size_t buffer_size, void* data, size_t size) {
-    if (data == NULL || size < sizeof(float)) {
+static size_t create_sd_header_callback(char *buffer, const size_t buffer_size) {
+    return snprintf(buffer, buffer_size, "%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n",
+        "telemetrum_armed",
+        "telemetrum_apogee_detection",
+        "telemetrum_first_stage",
+        "telemetrum_second_stage",
+        "easymini_armed",
+        "easymini_apogee_detection",
+        "easymini_first_stage",
+        "easymini_second_stage",
+        "first_stage_continuity",
+        "second_stage_continuity",
+        "separation_1",
+        "separation_2"
+        );
+}
+
+static size_t create_sd_frame_callback(char *buffer, const size_t buffer_size, const void* data, const size_t size) {
+    if (data == NULL || size < sizeof(app_state_t)) {
         return 0;
     }
-    float current_time = *(float*)data;
-    return snprintf(buffer, buffer_size, "TIME: %.2f\n", current_time);
+
+    const app_state_t *state = data;
+    return snprintf(buffer, buffer_size, "%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\n",
+        state->telemetrum_data.armed,
+        state->telemetrum_data.apogee_detected,
+        state->telemetrum_data.first_stage,
+        state->telemetrum_data.second_stage,
+        state->easymini_data.armed,
+        state->easymini_data.apogee_detected,
+        state->easymini_data.first_stage,
+        state->easymini_data.second_stage,
+        state->recovery_data.first_stage_continuity,
+        state->recovery_data.second_stage_continuity,
+        state->recovery_data.separation_1,
+        state->recovery_data.separation_2
+        );
 }
 
 static char log_path_buffer[64];
@@ -38,8 +69,8 @@ static logger_task_config_t logger_config = {
     .data_buffer_size = sizeof(data_buffer),
     .frame_buffer = frame_buffer,
     .frame_buffer_size = sizeof(frame_buffer),
-    .create_sd_frame_fnc = test_create_sd_frame,
-    .create_sd_header_fnc = NULL,
+    .create_sd_frame_fnc = create_sd_frame_callback,
+    .create_sd_header_fnc = create_sd_header_callback,
 };
 
 static sd_card_config_t sd_card_config = {

@@ -1,50 +1,79 @@
 #include "i2c.h"
+#include "driver/i2c.h"
 
-static const char* TAG = "I2C";
+const static char *TAG = "I2C";
 
-esp_err_t i2c_slave_init(const i2c_slave_config_t *config) {
-    ESP_LOGI(TAG, "I2C SLAVE INIT (Port: %d, Addr: 0x%02X)", config->port, config->slave_addr);
+static bool on_recv_done_callback(i2c_slave_dev_handle_t i2c_slave, const i2c_slave_rx_done_event_data_t *evt_data, void *arg) {
+    const i2c_slave_t *slave = arg;
 
-    const i2c_config_t i2c_slave_config = {
-        .mode = I2C_MODE_SLAVE,
-        .sda_io_num = config->sda_pin,
-        .scl_io_num = config->scl_pin,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .slave.addr_10bit_en = 0,
-        .slave.slave_addr = config->slave_addr,
-        .clk_flags = 0,
+    if (slave == NULL || slave->config.receive_callback == NULL) {
+        ESP_LOGE(TAG, "Invalid arguments");
+        return false;
+    }
+
+    return slave->config.receive_callback(evt_data->buffer);
+}
+
+esp_err_t i2c_init(const sys_i2c_config_t *i2c_config, i2c_slave_t *i2c_slave) {
+    const i2c_slave_config_t config = {
+        .addr_bit_len = I2C_ADDR_BIT_LEN_7,
+        .i2c_port = i2c_config->port,
+        .send_buf_depth = i2c_config->tx_buffer_size,
+        .scl_io_num = i2c_config->scl_pin,
+        .sda_io_num = i2c_config->sda_pin,
+        .slave_addr = i2c_config->slave_addr,
     };
-    
-    if (i2c_param_config(config->port, &i2c_slave_config) != ESP_OK) {
-        ESP_LOGE(TAG, "I2C param config failed");
+
+    if (i2c_new_slave_device(&config, &i2c_slave->slave_handle) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to create I2C slave device");
         return ESP_FAIL;
     }
-    
-    if (i2c_driver_install(config->port, I2C_MODE_SLAVE, config->rx_buffer_size, config->tx_buffer_size, 0) != ESP_OK) {
-        ESP_LOGE(TAG, "I2C driver install failed");
+
+    const i2c_slave_event_callbacks_t callbacks = {
+        .on_recv_done = on_recv_done_callback,
+    };
+
+    if (i2c_slave_register_event_callbacks(i2c_slave->slave_handle, &callbacks, i2c_slave) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to register I2C slave event callbacks");
         return ESP_FAIL;
     }
 
     return ESP_OK;
 }
 
-esp_err_t i2c_slave_buffer_write(const i2c_port_t i2c_num, const void *data, const int size) {
-    i2c_reset_tx_fifo(i2c_num);
-    if (i2c_slave_write_buffer(i2c_num, data, size, pdMS_TO_TICKS(1000)) != ESP_OK) {
-        ESP_LOGE(TAG, "I2C write buffer failed");
+esp_err_t i2c_deinit(const i2c_slave_t *i2c_slave) {
+    if (i2c_del_slave_device(i2c_slave->slave_handle) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to delete I2C slave device");
         return ESP_FAIL;
     }
+
     return ESP_OK;
 }
 
-int i2c_slave_buffer_read(const i2c_port_t i2c_num, void *data, const size_t size) {
-    const int read_bytes = i2c_slave_read_buffer(i2c_num, data, size, pdMS_TO_TICKS(1000));
-    if (read_bytes == ESP_FAIL) {
-        ESP_LOGE(TAG, "I2C read buffer failed");
-    } else if (read_bytes == 0) {
-        ESP_LOGW(TAG, "I2C read timeout or empty buffer");
+esp_err_t i2c_write(const i2c_slave_t *i2c_slave, const uint8_t *data, const int data_size) {
+    if (data_size > i2c_slave->config.tx_buffer_size) {
+        ESP_LOGE(TAG, "Data size exceeds TX buffer size");
+        return ESP_FAIL;
     }
-    i2c_reset_rx_fifo(i2c_num);
-    return read_bytes;
+
+    if (i2c_reset_tx_fifo(i2c_slave->config.port) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to reset I2C TX FIFO");
+        return ESP_FAIL;
+    }
+
+    if (i2c_slave_transmit(i2c_slave->slave_handle, data, data_size, 100) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to write data to I2C slave");
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
+}
+
+esp_err_t i2c_read(const i2c_slave_t *i2c_slave) {
+    if (i2c_slave_receive(i2c_slave->slave_handle, i2c_slave->config.rx_buffer, i2c_slave->config.rx_buffer_size) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to start I2C receive");
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
 }

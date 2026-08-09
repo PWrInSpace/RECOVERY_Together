@@ -5,8 +5,8 @@
 #include "spi.h"
 #include "freertos/task.h"
 
-typedef size_t (*create_sd_frame)(char *buffer, size_t buffer_size, void* data, size_t size);
-typedef size_t (*create_sd_header)(char *buffer, size_t buffer_size, void* data, size_t size);
+typedef size_t (*create_sd_frame)(char *buffer, size_t buffer_size, const void* data, size_t size);
+typedef size_t (*create_sd_header)(char *buffer, size_t buffer_size);
 
 typedef struct {
     // sd card config

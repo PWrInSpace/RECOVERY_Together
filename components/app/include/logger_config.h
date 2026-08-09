@@ -2,6 +2,7 @@
 #define LOGGER_CONFIG_H
 
 #include "logger.h"
+#include "app_state.h"
 
 extern logger_task_t logger_task;
 

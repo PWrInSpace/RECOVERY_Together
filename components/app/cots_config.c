@@ -1,9 +1,9 @@
 #include "cots_config.h"
 
+static const char *TAG = "COTS CONFIG";
+
 cots_t telemetrum;
 cots_t easymini;
-
-static const char *TAG = "COTS CONFIG";
 
 static cots_config_t easymini_config = {
     .arming_pin = GPIO_NUM_26,
