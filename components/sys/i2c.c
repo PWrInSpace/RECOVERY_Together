@@ -1,5 +1,4 @@
 #include "i2c.h"
-#include "driver/i2c.h"
 
 const static char *TAG = "I2C";
 
@@ -56,10 +55,6 @@ esp_err_t i2c_write(const i2c_slave_t *i2c_slave, const uint8_t *data, const int
         return ESP_FAIL;
     }
 
-    if (i2c_reset_tx_fifo(i2c_slave->config.port) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to reset I2C TX FIFO");
-        return ESP_FAIL;
-    }
 
     if (i2c_slave_transmit(i2c_slave->slave_handle, data, data_size, 100) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to write data to I2C slave");

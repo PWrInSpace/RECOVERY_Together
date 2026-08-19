@@ -8,6 +8,8 @@
 #include "recovery_config.h"
 #include "logger_config.h"
 #include "esp_err.h"
+#include "i2c.h"
+#include "commands_config.h"
 
 typedef struct {
     cots_data_t telemetrum_data;

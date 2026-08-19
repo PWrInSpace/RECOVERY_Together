@@ -17,7 +17,7 @@ static cots_config_t telemetrum_config = {
     .main_pin = GPIO_NUM_16,
 };
 
-esp_err_t telemetrum_init(void) {
+esp_err_t init_telemetrum(void) {
     if (cots_init(&telemetrum_config, &telemetrum) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize telemetrum");
         return ESP_FAIL;
@@ -25,7 +25,7 @@ esp_err_t telemetrum_init(void) {
     return ESP_OK;
 }
 
-esp_err_t easymini_init(void) {
+esp_err_t init_easymini(void) {
     if (cots_init(&easymini_config, &easymini) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize easymini");
         return ESP_FAIL;

@@ -14,6 +14,7 @@ static void on_data_timer(void *arg) {
     app_state.telemetrum_data = telemetrum.data;
     app_state.recovery_data = recovery.data;
 
+    i2c_write(&i2c, (const uint8_t*)&app_state, sizeof(app_state));
     logger_write(&logger_task, &app_state, sizeof(app_state));
 }
 

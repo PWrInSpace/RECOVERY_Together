@@ -11,8 +11,8 @@ typedef enum {
 extern cots_t telemetrum;
 extern cots_t easymini;
 
-esp_err_t telemetrum_init(void);
+esp_err_t init_telemetrum(void);
 
-esp_err_t easymini_init(void);
+esp_err_t init_easymini(void);
 
 #endif

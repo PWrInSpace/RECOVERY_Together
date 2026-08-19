@@ -8,7 +8,7 @@
 #include "logger_config.h"
 #include "spi_config.h"
 #include "app_state.h"
-#include "i2c_config.h"
+#include "commands_config.h"
 
 esp_err_t app_init(void);
 
