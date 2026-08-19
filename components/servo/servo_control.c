@@ -2,8 +2,6 @@
 
 static const char* TAG = "SERVO";
 
-static esp_timer_handle_t servo_close_timer;
-
 static void servo_close_callback(void* arg) {
     servo_close(arg);
     ESP_LOGI(TAG, "Servo auto-closed after delay");
@@ -27,6 +25,7 @@ esp_err_t servo_init(const servo_config_t *config, servo_control_t *servo) {
         .generator = NULL,
         .comparator = NULL,
         .angle = 0,
+        .auto_close_timer = NULL,
     };
 
     const mcpwm_timer_config_t timer_config = {
@@ -104,7 +103,7 @@ esp_err_t servo_init(const servo_config_t *config, servo_control_t *servo) {
         .arg = servo,
     };
 
-    if (esp_timer_create(&timer_args, &servo_close_timer) != ESP_OK) {
+    if (esp_timer_create(&timer_args, &servo->auto_close_timer) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to create servo timer");
         return ESP_FAIL;
     }
@@ -129,7 +128,7 @@ esp_err_t servo_open(servo_control_t *servo) {
 
 esp_err_t servo_open_for(servo_control_t *servo, uint64_t duration_us) {
     servo_open(servo);  // open normally
-    esp_timer_start_once(servo_close_timer, duration_us);
+    esp_timer_start_once(servo->auto_close_timer, duration_us);
     ESP_LOGI(TAG, "Servo will close automatically after %llu us", duration_us);
 
     return ESP_OK;

@@ -25,6 +25,7 @@ typedef struct {
     mcpwm_gen_handle_t generator;
     mcpwm_cmpr_handle_t comparator;
     int angle;
+    esp_timer_handle_t auto_close_timer;
 } servo_control_t;
 
 uint32_t angle_to_compare(const servo_control_t *servo, int angle);

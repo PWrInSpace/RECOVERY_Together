@@ -52,7 +52,6 @@ static void sd_task(void *args) {
     ESP_LOGI(TAG, "Starting logger task");
     while (true) {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-        ESP_LOGI(TAG, "Notify");
         process_logger_step(logger_task);
     }
 }
@@ -166,9 +165,7 @@ esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const
         return ESP_FAIL;
     }
 
-    ESP_LOGI(TAG, "Checking queue");
     if (data_check(logger_task)) {
-        ESP_LOGI(TAG, "Data drop");
         xTaskNotifyGive(logger_task->task_handle);
     }
 
