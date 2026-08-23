@@ -4,6 +4,7 @@
 #include "recovery.h"
 #include "servo_control.h"
 #include "servo_config.h"
+#include "adc.h"
 
 extern recovery_t recovery;
 

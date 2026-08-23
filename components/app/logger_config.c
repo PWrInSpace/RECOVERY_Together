@@ -16,7 +16,7 @@ static uint8_t queue_storage_buffer[DATA_QUEUE_SIZE * DATA_ITEM_SIZE];
 static StaticQueue_t queue_buffer;
 
 static size_t create_sd_header_callback(char *buffer, const size_t buffer_size) {
-    return snprintf(buffer, buffer_size, "%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n",
+    return snprintf(buffer, buffer_size, "%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n",
         "telemetrum_armed",
         "telemetrum_apogee_detection",
         "telemetrum_first_stage",
@@ -28,7 +28,8 @@ static size_t create_sd_header_callback(char *buffer, const size_t buffer_size) 
         "first_stage_continuity",
         "second_stage_continuity",
         "separation_1",
-        "separation_2"
+        "separation_2",
+        "continuity"
         );
 }
 
@@ -38,7 +39,7 @@ static size_t create_sd_frame_callback(char *buffer, const size_t buffer_size, c
     }
 
     const app_state_t *state = data;
-    return snprintf(buffer, buffer_size, "%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\n",
+    return snprintf(buffer, buffer_size, "%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\n",
         state->telemetrum_data.armed,
         state->telemetrum_data.apogee_detected,
         state->telemetrum_data.first_stage,
@@ -50,7 +51,8 @@ static size_t create_sd_frame_callback(char *buffer, const size_t buffer_size, c
         state->recovery_data.first_stage_continuity,
         state->recovery_data.second_stage_continuity,
         state->recovery_data.separation_1,
-        state->recovery_data.separation_2
+        state->recovery_data.separation_2,
+        state->continuity
         );
 }
 

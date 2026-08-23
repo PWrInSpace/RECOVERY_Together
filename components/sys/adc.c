@@ -32,10 +32,18 @@ esp_err_t adc_deinit(const adc_t *adc) {
     return adc_oneshot_del_unit(adc->handle);
 }
 
-esp_err_t adc_read(const adc_t *adc, int *value) {
+esp_err_t adc_read_raw(const adc_t *adc, int *value) {
     if (adc_oneshot_read(adc->handle, adc->config.channel, value) != ESP_OK) {
-        ESP_LOGE(TAG, "unable to read ADC value");
         return ESP_FAIL;
     }
+    return ESP_OK;
+}
+
+esp_err_t adc_read(const adc_t *adc, int *value) {
+    int raw_value;
+    if (adc_read_raw(adc, &raw_value) != ESP_OK) {
+        return ESP_FAIL;
+    }
+    *value = raw_value * adc->config.v_max / (1 << adc->config.bitwidth);
     return ESP_OK;
 }

@@ -10,11 +10,13 @@
 #include "esp_err.h"
 #include "i2c.h"
 #include "commands_config.h"
+#include "adc.h"
 
 typedef struct {
     cots_data_t telemetrum_data;
     cots_data_t easymini_data;
     recovery_data_t recovery_data;
+    bool continuity: 1;
 } app_state_t;
 
 extern app_state_t app_state;

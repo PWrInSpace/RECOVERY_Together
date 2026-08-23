@@ -9,6 +9,7 @@ typedef struct {
     uint8_t attenuation;
     uint8_t bitwidth;
     uint8_t channel;
+    uint8_t v_max; // maximum voltage in mV for the ADC channel
 } adc_config_t;
 
 typedef struct {
@@ -19,6 +20,8 @@ typedef struct {
 esp_err_t adc_init(const adc_config_t *config, adc_t *adc);
 
 esp_err_t adc_deinit(const adc_t *adc);
+
+esp_err_t adc_read_raw(const adc_t *adc, int *value);
 
 esp_err_t adc_read(const adc_t *adc, int *value);
 
