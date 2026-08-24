@@ -5,17 +5,18 @@
 
 #include "esp_console.h"
 #include "esp_err.h"
+#include "esp_log.h"
 
 // For some serial monitors this lib is crashing
 // Works with cutecom ...
 // Print giga good message to default stream
-#define CONSOLE_WRITE_G(format, ...) printf("G: "format"\n", ##__VA_ARGS__)
+#define CONSOLE_WRITE_G(format, ...) ESP_LOGI("CLI", format, ##__VA_ARGS__)
 
 // Print error message to default stream
-#define CONSOLE_WRITE_E(format, ...) printf("E: "format"\n", ##__VA_ARGS__)
+#define CONSOLE_WRITE_E(format, ...) ESP_LOGE("CLI", format, ##__VA_ARGS__)
 
 // Print to default stream
-#define CONSOLE_WRITE(format, ...) printf(format"\n", ##__VA_ARGS__)
+#define CONSOLE_WRITE(format, ...) ESP_LOGI("CLI", format, ##__VA_ARGS__)
 
 esp_err_t console_init(void);
 

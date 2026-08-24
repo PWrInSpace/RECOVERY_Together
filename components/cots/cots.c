@@ -2,33 +2,76 @@
 
 static const char* TAG = "COTS";
 
+static void cots_task(void* arg) {
+    cots_t* cots = arg;
+    cots_event_t event;
+
+    while (1) {
+        if (xQueueReceive(cots->event_queue, &event, portMAX_DELAY) == pdTRUE) {
+            if (event == COTS_EVENT_APOGEE) {
+                ESP_LOGI(TAG, "Apogee detected");
+                cots->data.apogee_detected = true;
+                cots->data.first_stage = true;
+                if (cots->config.recovery && cots->config.recovery->first_stage) {
+                    cots->config.recovery->first_stage();
+                }
+            } else if (event == COTS_EVENT_MAIN) {
+                ESP_LOGI(TAG, "Main deployment detected");
+                cots->data.second_stage = true;
+                if (cots->config.recovery && cots->config.recovery->second_stage) {
+                    cots->config.recovery->second_stage();
+                }
+            }
+        }
+    }
+}
+
 static void IRAM_ATTR gpio_apogee_handler(void* arg) {
-    cots_t *cots = arg;
+    const cots_t *cots = arg;
+    const cots_event_t event = COTS_EVENT_APOGEE;
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
-    ESP_LOGI(TAG, "Apogee detected");
-
-    cots->data.apogee_detected = true;
-    cots->data.first_stage = true;
-
-    cots->config.recovery->first_stage();
+    if (cots->event_queue) {
+        xQueueSendFromISR(cots->event_queue, &event, &xHigherPriorityTaskWoken);
+    }
+    if (xHigherPriorityTaskWoken) {
+        portYIELD_FROM_ISR();
+    }
 }
 
 static void IRAM_ATTR gpio_main_handler(void* arg) {
-    cots_t *cots = arg;
+    const cots_t *cots = arg;
+    const cots_event_t event = COTS_EVENT_MAIN;
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
-    ESP_LOGI(TAG, "Main deployment detected");
-
-    cots->data.second_stage = true;
-    cots->config.recovery->second_stage();
+    if (cots->event_queue) {
+        xQueueSendFromISR(cots->event_queue, &event, &xHigherPriorityTaskWoken);
+    }
+    if (xHigherPriorityTaskWoken) {
+        portYIELD_FROM_ISR();
+    }
 }
 
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
     *cots = (cots_t){
         .config = *cots_config,
-        .data = {0}
+        .data = {0},
+        .event_queue = NULL,
+        .task_handle = NULL
     };
 
     ESP_LOGI(TAG,"Cots initialization");
+
+    cots->event_queue = xQueueCreateStatic(COTS_EVENT_QUEUE_SIZE, sizeof(cots_event_t), cots->event_queue_storage, &cots->event_queue_buffer);
+    if (cots->event_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create event queue");
+        return ESP_FAIL;
+    }
+
+    if (xTaskCreate(cots_task, "cots_task", 4096, cots, 5, &cots->task_handle) != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create cots task");
+        return ESP_FAIL;
+    }
 
     const gpio_config_t arming_output = {
         .pin_bit_mask = 1ULL << cots_config->arming_pin,
