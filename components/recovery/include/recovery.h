@@ -18,8 +18,6 @@ typedef struct{
 } recovery_config_t;
 
 typedef struct {
-    bool first_stage_continuity: 1;
-    bool second_stage_continuity: 1;
     bool separation_1: 1;
     bool separation_2: 1;
 } recovery_data_t;

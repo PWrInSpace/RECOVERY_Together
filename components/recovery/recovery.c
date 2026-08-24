@@ -8,58 +8,32 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     *recovery = (recovery_t){
         .config = *config,
         .data = {
-            .first_stage_continuity = false,
-            .second_stage_continuity = false,
             .separation_1 = false,
             .separation_2 = false,
         },
     };
 
-    const gpio_config_t separation_1_input = {
-        .pin_bit_mask = 1ULL << recovery->config.separation_1_pin,
+    const gpio_config_t gpio_separation_inputs = {
+        .pin_bit_mask = (1ULL << recovery->config.separation_1_pin) | (1ULL << recovery->config.separation_2_pin),
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_POSEDGE,
+    };
+    if (gpio_config(&gpio_separation_inputs) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure separation pins");
+        return ESP_FAIL;
+    }
+
+    const gpio_config_t gpio_stage_inputs = {
+        .pin_bit_mask = (1ULL << recovery->config.first_stage_pin) | (1ULL << recovery->config.second_stage_pin),
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
         .intr_type = GPIO_INTR_DISABLE,
     };
-    if (gpio_config(&separation_1_input) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to configure separation_1_pin");
-        return ESP_FAIL;
-    }
-
-    const gpio_config_t separation_2_input = {
-        .pin_bit_mask = 1ULL << recovery->config.separation_2_pin,
-        .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_DISABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type = GPIO_INTR_DISABLE,
-    };
-    if (gpio_config(&separation_2_input) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to configure separation_2_pin");
-        return ESP_FAIL;
-    }
-
-    const gpio_config_t first_stage_output = {
-        .pin_bit_mask = 1ULL << recovery->config.first_stage_pin,
-        .mode = GPIO_MODE_OUTPUT,
-        .pull_up_en = GPIO_PULLUP_DISABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type = GPIO_INTR_DISABLE,
-    };
-    if (gpio_config(&first_stage_output) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to configure first_stage_pin");
-        return ESP_FAIL;
-    }
-
-    const gpio_config_t second_stage_output = {
-        .pin_bit_mask = 1ULL << recovery->config.second_stage_pin,
-        .mode = GPIO_MODE_OUTPUT,
-        .pull_up_en = GPIO_PULLUP_DISABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type = GPIO_INTR_DISABLE,
-    };
-    if (gpio_config(&second_stage_output) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to configure second_stage_pin");
+    if (gpio_config(&gpio_stage_inputs) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure stage pins");
         return ESP_FAIL;
     }
 
