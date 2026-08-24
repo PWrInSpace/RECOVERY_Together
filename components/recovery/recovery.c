@@ -30,7 +30,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
             .separation_two = false,
         },
         .separation_one_timer = NULL,
-        .separation_one_timer = NULL,
+        .separation_two_timer = NULL,
     };
 
     const gpio_config_t gpio_separation_inputs = {
@@ -73,7 +73,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     timer_arg = (esp_timer_create_args_t){
         .arg = &recovery,
         .callback = on_separation_two_timer,
-        .name = "separation two timer",1
+        .name = "separation two timer",
     };
     esp_timer_create(&timer_arg, &recovery->separation_two_timer);
     esp_timer_start_periodic(recovery->separation_two_timer, SEPARATION_TIMER_PERIOD_US);
