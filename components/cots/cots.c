@@ -2,6 +2,26 @@
 
 static const char* TAG = "COTS";
 
+static void IRAM_ATTR gpio_apogee_handler(void* arg) {
+    cots_t *cots = arg;
+
+    ESP_LOGI(TAG, "Apogee detected");
+
+    cots->data.apogee_detected = true;
+    cots->data.first_stage = true;
+
+    cots->config.recovery->first_stage();
+}
+
+static void IRAM_ATTR gpio_main_handler(void* arg) {
+    cots_t *cots = arg;
+
+    ESP_LOGI(TAG, "Main deployment detected");
+
+    cots->data.second_stage = true;
+    cots->config.recovery->second_stage();
+}
+
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
     *cots = (cots_t){
         .config = *cots_config,
@@ -34,17 +54,28 @@ esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
         .intr_type = GPIO_INTR_NEGEDGE,
     };
 
-    ESP_ERROR_CHECK(gpio_config(&arming_output));
-    ESP_ERROR_CHECK(gpio_config(&apogee_input));
-    ESP_ERROR_CHECK(gpio_config(&main_input));
+    if (gpio_config(&arming_output) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure arming output");
+        return ESP_FAIL;
+    }
+    if (gpio_config(&apogee_input) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure apogee input");
+        return ESP_FAIL;
+    }
+    if (gpio_config(&main_input) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure main input");
+        return ESP_FAIL;
+    }
 
     cots_disarm(cots);
+
+    gpio_isr_handler_add(cots->config.apogee_pin, gpio_apogee_handler, cots);
+    gpio_isr_handler_add(cots->config.main_pin, gpio_main_handler, cots);
 
     ESP_LOGI(TAG, "Cots initialized");
 
     return ESP_OK;
 }
-
 
 esp_err_t cots_arm(cots_t *cots){
     ESP_LOGI(TAG, "Cots arming");
@@ -83,4 +114,3 @@ esp_err_t apogee_check(cots_t *cots){
 
     return ESP_OK;
 }
-

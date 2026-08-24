@@ -8,13 +8,15 @@ cots_t easymini;
 static cots_config_t easymini_config = {
     .arming_pin = GPIO_NUM_26,
     .apogee_pin = GPIO_NUM_27,
-    .main_pin = GPIO_NUM_14
+    .main_pin = GPIO_NUM_14,
+    .recovery = &recovery.config,
 };
 
 static cots_config_t telemetrum_config = {
     .arming_pin = GPIO_NUM_29,
     .apogee_pin = GPIO_NUM_28,
     .main_pin = GPIO_NUM_16,
+    .recovery = &recovery.config,
 };
 
 esp_err_t init_telemetrum(void) {

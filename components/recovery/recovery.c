@@ -1,6 +1,24 @@
 #include "recovery.h"
 
+#define SEPARATION_TIMER_PERIOD_US 10000
+
 static const char* TAG = "RECOVERY";
+
+static void on_separation_one_timer(void *arg) {
+    recovery_t *recovery = arg;
+    if (!gpio_get_level(recovery->config.separation_one_pin)) {
+        ESP_LOGI(TAG, "Separation one detected");
+        recovery->data.separation_one = true;
+    }
+}
+
+static void on_separation_two_timer(void *arg) {
+    recovery_t *recovery = arg;
+    if (!gpio_get_level(recovery->config.separation_two_pin)) {
+        ESP_LOGI(TAG, "Separation two detected");
+        recovery->data.separation_two = true;
+    }
+}
 
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     ESP_LOGI(TAG, "Recovery System Initialization");
@@ -8,13 +26,15 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     *recovery = (recovery_t){
         .config = *config,
         .data = {
-            .separation_1 = false,
-            .separation_2 = false,
+            .separation_one = false,
+            .separation_two = false,
         },
+        .separation_one_timer = NULL,
+        .separation_one_timer = NULL,
     };
 
     const gpio_config_t gpio_separation_inputs = {
-        .pin_bit_mask = (1ULL << recovery->config.separation_1_pin) | (1ULL << recovery->config.separation_2_pin),
+        .pin_bit_mask = (1ULL << recovery->config.separation_one_pin) | (1ULL << recovery->config.separation_two_pin),
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_ENABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -36,6 +56,27 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
         ESP_LOGE(TAG, "Failed to configure stage pins");
         return ESP_FAIL;
     }
+
+    if (gpio_install_isr_service(0) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to install ISR service");
+        return ESP_FAIL;
+    }
+
+    esp_timer_create_args_t timer_arg = {
+        .arg = &recovery,
+        .callback = on_separation_one_timer,
+        .name = "separation one timer",
+    };
+    esp_timer_create(&timer_arg, &recovery->separation_one_timer);
+    esp_timer_start_periodic(recovery->separation_one_timer, SEPARATION_TIMER_PERIOD_US);
+
+    timer_arg = (esp_timer_create_args_t){
+        .arg = &recovery,
+        .callback = on_separation_two_timer,
+        .name = "separation two timer",1
+    };
+    esp_timer_create(&timer_arg, &recovery->separation_two_timer);
+    esp_timer_start_periodic(recovery->separation_two_timer, SEPARATION_TIMER_PERIOD_US);
 
     ESP_LOGI(TAG, "Recovery system initialization done :D");
     return ESP_OK;

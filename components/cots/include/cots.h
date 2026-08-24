@@ -3,6 +3,8 @@
 
 #include "driver/gpio.h"
 #include "esp_log.h"
+#include "recovery.h"
+#include "esp_attr.h"
 
 #define DISARMED 0
 #define ARMED 1
@@ -11,6 +13,7 @@ typedef struct {
     gpio_num_t arming_pin;
     gpio_num_t apogee_pin;
     gpio_num_t main_pin;
+    recovery_config_t *recovery;
 } cots_config_t;
 
 typedef struct {

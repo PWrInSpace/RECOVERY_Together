@@ -46,8 +46,8 @@ static size_t create_sd_frame_callback(char *buffer, const size_t buffer_size, c
         state->easymini_data.apogee_detected,
         state->easymini_data.first_stage,
         state->easymini_data.second_stage,
-        state->recovery_data.separation_1,
-        state->recovery_data.separation_2,
+        state->recovery_data.separation_one,
+        state->recovery_data.separation_two,
         state->continuity
         );
 }

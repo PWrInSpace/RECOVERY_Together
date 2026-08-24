@@ -2,6 +2,7 @@
 #define COTS_CONFIG_H
 
 #include "cots.h"
+#include "recovery_config.h"
 
 typedef enum {
     TELEMETRUM = 0,

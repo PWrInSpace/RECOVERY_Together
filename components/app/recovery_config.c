@@ -27,7 +27,7 @@ esp_err_t resistance_wire_on_time(const int time) {
 static esp_err_t first_stage_callback(void) {
     resistance_wire_on_time(RESISTANCE_BURN_TIME_US);
 
-    recovery.data.separation_1 = true;
+    recovery.data.separation_one = true;
 
     return ESP_OK;
 }
@@ -37,7 +37,7 @@ static esp_err_t second_stage_callback(void) {
         return ESP_FAIL;
     }
 
-    recovery.data.separation_2 = true;
+    recovery.data.separation_two = true;
 
     return ESP_OK;
 }
@@ -79,8 +79,8 @@ static esp_err_t setup_continuity_timer() {
 }
 
 static recovery_config_t recovery_config = {
-    .separation_1_pin = GPIO_NUM_4,
-    .separation_2_pin = GPIO_NUM_5,
+    .separation_one_pin = GPIO_NUM_4,
+    .separation_two_pin = GPIO_NUM_5,
     .first_stage_pin = GPIO_NUM_18,
     .second_stage_pin = GPIO_NUM_19,
     .first_stage = first_stage_callback,
@@ -107,6 +107,11 @@ esp_err_t init_recovery() {
 
     if (adc_init(&adc_config, &adc) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize ADC");
+        return ESP_FAIL;
+    }
+
+    if (setup_continuity_timer() != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to setup continuity timer");
         return ESP_FAIL;
     }
 
