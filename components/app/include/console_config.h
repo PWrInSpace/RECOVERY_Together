@@ -16,6 +16,6 @@
  *
  * @return esp_err_t initialization status
  */
-esp_err_t init_console();
+esp_err_t init_console(void);
 
 #endif

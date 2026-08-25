@@ -49,5 +49,4 @@ esp_err_t cots_disarm(cots_t *cots);
 
 esp_err_t apogee_check(cots_t *cots);
 
-#endif // COTS_H
-
+#endif

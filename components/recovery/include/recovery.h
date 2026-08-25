@@ -1,9 +1,9 @@
 #ifndef RECOVERY_CONTROL_H
 #define RECOVERY_CONTROL_H
 
-#include "cots.h"
 #include "driver/gpio.h"
 #include "esp_timer.h"
+#include "esp_log.h"
 
 typedef esp_err_t (*first_stage_fnc)(void);
 typedef esp_err_t (*second_stage_fnc)(void);

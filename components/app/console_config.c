@@ -93,7 +93,7 @@ static esp_console_cmd_t cmd[] = {
     {"easymini-disarm", "Disarm EasyMini", NULL, easymini_disarm_cmd, NULL, NULL, NULL},
 };
 
-esp_err_t init_console() {
+esp_err_t init_console(void) {
     if (console_register_commands(cmd, sizeof(cmd) / sizeof(cmd[0])) != ESP_OK) {
         return ESP_FAIL;
     }
