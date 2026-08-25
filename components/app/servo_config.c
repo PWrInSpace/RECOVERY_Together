@@ -1,6 +1,6 @@
 #include "servo_config.h"
 
-#define SERVO_PIN GPIO_NUM_18
+#define SERVO_PIN GPIO_NUM_17
 #define MAX_PULSE_WIDTH_US 500
 #define MIN_PULSE_WIDTH_US 2500
 #define MAX_ANGLE 0

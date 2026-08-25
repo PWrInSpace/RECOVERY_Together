@@ -79,7 +79,7 @@ static sd_card_config_t sd_card_config = {
         .allocation_unit_size = 16 * 1024
     },
     .mount_point = "/sdcard",
-    .cs_pin = GPIO_NUM_15
+    .cs_pin = GPIO_NUM_26
 };
 
 esp_err_t init_logger_task(void) {

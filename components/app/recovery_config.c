@@ -79,14 +79,15 @@ static esp_err_t setup_continuity_timer() {
 }
 
 static recovery_config_t recovery_config = {
-    .separation_one_pin = GPIO_NUM_4,
-    .separation_two_pin = GPIO_NUM_5,
-    .first_stage_pin = GPIO_NUM_18,
-    .second_stage_pin = GPIO_NUM_19,
+    .separation_one_pin = GPIO_NUM_34,
+    .separation_two_pin = GPIO_NUM_23,
+    .first_stage_pin = GPIO_NUM_4,
+    .second_stage_pin = GPIO_NUM_17,
     .first_stage = first_stage_callback,
     .second_stage = second_stage_callback
 };
 
+// todo ustawić
 static adc_config_t adc_config = {
     .unit_id = ADC_UNIT_1,
     .bitwidth = ADC_BITWIDTH_12,

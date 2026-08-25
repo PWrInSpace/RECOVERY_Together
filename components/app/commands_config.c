@@ -50,9 +50,9 @@ static bool process_command_i2c(const uint8_t* data) {
 
 static sys_i2c_config_t i2c_config = {
     .port = I2C_NUM_0,
-    .sda_pin = GPIO_NUM_21,
-    .scl_pin = GPIO_NUM_26,
-    .slave_addr = 0x42,
+    .sda_pin = GPIO_NUM_14,
+    .scl_pin = GPIO_NUM_27,
+    .slave_addr = 0x0A,
     .tx_buffer_size = sizeof(app_state_t),
     .rx_buffer_size = 1,
     .rx_buffer = i2c_buffer,
