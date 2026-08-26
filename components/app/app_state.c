@@ -13,7 +13,21 @@ static void on_data_timer(void *arg) {
     app_state.telemetrum_data = telemetrum.data;
     app_state.recovery_data = recovery.data;
 
-    i2c_write(&i2c, (const uint8_t*)&app_state, sizeof(app_state));
+    const i2c_data_t i2c_data = {
+        .telemetrum_armed = app_state.telemetrum_data.armed,
+        .telemetrum_apogee_detected = app_state.telemetrum_data.apogee_detected,
+        .telemetrum_first_stage = app_state.telemetrum_data.first_stage,
+        .telemetrum_second_stage = app_state.telemetrum_data.second_stage,
+        .easymini_armed = app_state.easymini_data.armed,
+        .easymini_apogee_detected = app_state.easymini_data.apogee_detected,
+        .easymini_first_stage = app_state.easymini_data.first_stage,
+        .easymini_second_stage = app_state.easymini_data.second_stage,
+        .separation_one = app_state.recovery_data.separation_one,
+        .separation_two = app_state.recovery_data.separation_two,
+        .continuity = app_state.continuity
+    };
+
+    i2c_write(&i2c, (const uint8_t*)&i2c_data, sizeof(i2c_data));
 
     logger_write(&logger_task, &app_state, sizeof(app_state));
 }

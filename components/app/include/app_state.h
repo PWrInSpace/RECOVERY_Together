@@ -19,6 +19,20 @@ typedef struct {
     bool continuity: 1;
 } app_state_t;
 
+typedef struct {
+    bool telemetrum_armed: 1;
+    bool telemetrum_apogee_detected: 1;
+    bool telemetrum_first_stage: 1;
+    bool telemetrum_second_stage: 1;
+    bool easymini_armed: 1;
+    bool easymini_apogee_detected: 1;
+    bool easymini_first_stage: 1;
+    bool easymini_second_stage: 1;
+    bool separation_one: 1;
+    bool separation_two: 1;
+    bool continuity: 1;
+} i2c_data_t;
+
 extern app_state_t app_state;
 
 esp_err_t init_app_state(void);
