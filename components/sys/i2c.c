@@ -14,6 +14,8 @@ static bool on_recv_done_callback(i2c_slave_dev_handle_t i2c_slave, const i2c_sl
 }
 
 esp_err_t i2c_init(const sys_i2c_config_t *i2c_config, i2c_slave_t *i2c_slave) {
+    i2c_slave->config = *i2c_config;
+
     const i2c_slave_config_t config = {
         .addr_bit_len = I2C_ADDR_BIT_LEN_7,
         .i2c_port = i2c_config->port,

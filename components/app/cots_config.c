@@ -12,8 +12,8 @@ static cots_config_t easymini_config = {
 };
 
 static cots_config_t telemetrum_config = {
-    .arming_pin = GPIO_NUM_29,
-    .apogee_pin = GPIO_NUM_13,
+    .arming_pin = GPIO_NUM_13,
+    .apogee_pin = GPIO_NUM_19,
     .main_pin = GPIO_NUM_35,
 };
 

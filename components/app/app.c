@@ -17,8 +17,8 @@ esp_err_t app_init(void) {
     init_check(init_easymini);
     init_check(init_console);
     init_check(init_logger_task);
-    init_check(init_app_state);
     init_check(init_commands);
+    init_check(init_app_state);
 
     return ESP_OK;
 }

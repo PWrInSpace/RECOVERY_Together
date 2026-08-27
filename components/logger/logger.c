@@ -77,6 +77,8 @@ static esp_err_t init_file(logger_task_t *logger_task) {
         return ESP_FAIL;
     }
 
+    // todo dodać pisanie headera
+
     return ESP_OK;
 }
 

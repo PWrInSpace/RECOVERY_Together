@@ -7,7 +7,7 @@ static const char* TAG = "RECOVERY";
 static void on_separation_one_timer(void *arg) {
     recovery_t *recovery = arg;
     if (!gpio_get_level(recovery->config.separation_one_pin)) {
-        ESP_LOGI(TAG, "Separation one detected");
+        // ESP_LOGI(TAG, "Separation one detected");
         recovery->data.separation_one = true;
     }
 }
@@ -15,7 +15,7 @@ static void on_separation_one_timer(void *arg) {
 static void on_separation_two_timer(void *arg) {
     recovery_t *recovery = arg;
     if (!gpio_get_level(recovery->config.separation_two_pin)) {
-        ESP_LOGI(TAG, "Separation two detected");
+        // ESP_LOGI(TAG, "Separation two detected");
         recovery->data.separation_two = true;
     }
 }
@@ -36,23 +36,23 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     const gpio_config_t gpio_separation_inputs = {
         .pin_bit_mask = (1ULL << recovery->config.separation_one_pin) | (1ULL << recovery->config.separation_two_pin),
         .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type = GPIO_INTR_POSEDGE,
+        .intr_type = GPIO_INTR_DISABLE,
     };
     if (gpio_config(&gpio_separation_inputs) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to configure separation pins");
         return ESP_FAIL;
     }
 
-    const gpio_config_t gpio_stage_inputs = {
+    const gpio_config_t gpio_stage_outputs = {
         .pin_bit_mask = (1ULL << recovery->config.first_stage_pin) | (1ULL << recovery->config.second_stage_pin),
-        .mode = GPIO_MODE_INPUT,
+        .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
         .intr_type = GPIO_INTR_DISABLE,
     };
-    if (gpio_config(&gpio_stage_inputs) != ESP_OK) {
+    if (gpio_config(&gpio_stage_outputs) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to configure stage pins");
         return ESP_FAIL;
     }

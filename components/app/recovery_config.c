@@ -4,6 +4,7 @@
 
 #define COTS_COUNT 1
 #define RESISTANCE_BURN_TIME_US 7500000
+#define RESISTANCE_TIMER 20000
 #define RESISTANCE_WIRE_CONT_THRESHOLD 2000
 
 static const char *TAG = "RECOVERY CONFIG";
@@ -75,6 +76,11 @@ static esp_err_t setup_continuity_timer() {
     if (esp_timer_create(&timer_args, &continuity_timer) != ESP_OK) {
         return ESP_FAIL;
     }
+
+    if (esp_timer_start_periodic(continuity_timer, RESISTANCE_TIMER) != ESP_OK) {
+      return ESP_FAIL;
+    }
+
     return ESP_OK;
 }
 
@@ -87,7 +93,6 @@ static recovery_config_t recovery_config = {
     .second_stage = second_stage_callback
 };
 
-// todo ustawić
 static adc_config_t adc_config = {
     .unit_id = ADC_UNIT_1,
     .bitwidth = ADC_BITWIDTH_12,
