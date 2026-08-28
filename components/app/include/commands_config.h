@@ -7,6 +7,14 @@
 #include "i2c.h"
 #include "recovery_config.h"
 
+typedef union {
+    struct command {
+        uint32_t command;
+        int32_t payload;
+    } cmd;
+    uint8_t raw[sizeof(struct command)];
+} i2c_command_t;
+
 typedef enum {
     EASYMINI_ARM_CMD = 0x01,
     EASYMINI_DISARM_CMD = 0x02,

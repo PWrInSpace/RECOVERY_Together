@@ -38,11 +38,13 @@ static command_t commands[] = {
 
 i2c_slave_t i2c;
 
-static uint8_t i2c_buffer[1];
+static uint8_t i2c_buffer[sizeof(struct command)];
 
 static bool process_command_i2c(const uint8_t* data) {
-    ESP_LOGI(TAG, "Received command: %d", data[0]);
-    if (process_command(data[0], commands, sizeof(commands) / sizeof(command_t)) != ESP_OK) {
+    const i2c_command_t *cmd = (i2c_command_t*)data;
+
+    ESP_LOGI(TAG, "Received command: %lu", cmd->cmd.command);
+    if (process_command(cmd->cmd.command, commands, sizeof(commands) / sizeof(command_t)) != ESP_OK) {
         return false;
     }
     return true;
@@ -54,7 +56,7 @@ static sys_i2c_config_t i2c_config = {
     .scl_pin = GPIO_NUM_27,
     .slave_addr = 0x0B,
     .tx_buffer_size = sizeof(i2c_data_t) * 100,
-    .rx_buffer_size = 1,
+    .rx_buffer_size = sizeof(i2c_command_t),
     .rx_buffer = i2c_buffer,
     .receive_callback = process_command_i2c,
 };
@@ -62,6 +64,11 @@ static sys_i2c_config_t i2c_config = {
 esp_err_t init_commands() {
     if (i2c_init(&i2c_config, &i2c) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize I2C");
+        return ESP_FAIL;
+    }
+
+    if (i2c_read(&i2c) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to start I2C read");
         return ESP_FAIL;
     }
 

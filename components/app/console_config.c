@@ -94,6 +94,13 @@ static esp_console_cmd_t cmd[] = {
 };
 
 esp_err_t init_console(void) {
+    ESP_LOGI(TAG, "Initializing console");
+    
+    if (console_init() != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize console");
+        return ESP_FAIL;
+    }
+
     if (console_register_commands(cmd, sizeof(cmd) / sizeof(cmd[0])) != ESP_OK) {
         return ESP_FAIL;
     }
