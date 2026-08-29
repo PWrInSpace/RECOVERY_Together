@@ -1,22 +1,25 @@
 #include "recovery.h"
 
-#define SEPARATION_TIMER_PERIOD_US 10000
+#define SEPARATION_TIMER_PERIOD_US 500000
 
 static const char* TAG = "RECOVERY";
 
 static void on_separation_one_timer(void *arg) {
     recovery_t *recovery = arg;
-    if (!gpio_get_level(recovery->config.separation_one_pin)) {
-        // ESP_LOGI(TAG, "Separation one detected");
-        recovery->data.separation_one = true;
+
+    const bool level = gpio_get_level(recovery->config.separation_one_pin);
+    if (level != recovery->data.separation_one) {
+        recovery->data.separation_one = level;
+        ESP_LOGI(TAG, "Separation one: %d", level);
     }
 }
 
 static void on_separation_two_timer(void *arg) {
     recovery_t *recovery = arg;
-    if (!gpio_get_level(recovery->config.separation_two_pin)) {
-        // ESP_LOGI(TAG, "Separation two detected");
-        recovery->data.separation_two = true;
+    const bool level = gpio_get_level(recovery->config.separation_two_pin);
+    if (level != recovery->data.separation_two) {
+        recovery->data.separation_two = level;
+        ESP_LOGI(TAG, "Separation two: %d", level);
     }
 }
 
@@ -63,7 +66,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     }
 
     esp_timer_create_args_t timer_arg = {
-        .arg = &recovery,
+        .arg = recovery,
         .callback = on_separation_one_timer,
         .name = "separation one timer",
     };
@@ -71,7 +74,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     esp_timer_start_periodic(recovery->separation_one_timer, SEPARATION_TIMER_PERIOD_US);
 
     timer_arg = (esp_timer_create_args_t){
-        .arg = &recovery,
+        .arg = recovery,
         .callback = on_separation_two_timer,
         .name = "separation two timer",
     };

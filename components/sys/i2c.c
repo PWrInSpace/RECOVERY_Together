@@ -6,7 +6,6 @@ static bool on_recv_done_callback(i2c_slave_dev_handle_t i2c_slave, const i2c_sl
     const i2c_slave_t *slave = arg;
 
     if (slave == NULL || slave->config.receive_callback == NULL) {
-        ESP_LOGE(TAG, "Invalid arguments");
         return false;
     }
 

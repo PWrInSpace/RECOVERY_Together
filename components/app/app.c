@@ -10,7 +10,7 @@ static void init_check(const init_fnc fnc) {
 }
 
 esp_err_t app_init(void) {
-    vTaskDelay(pdMS_TO_TICKS(10000));
+    vTaskDelay(pdMS_TO_TICKS(3000));
     init_check(init_spi);
     init_check(init_servo);
     init_check(init_recovery);

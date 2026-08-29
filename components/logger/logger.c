@@ -88,7 +88,7 @@ static esp_err_t init_task(logger_task_t *logger_task) {
         return ESP_FAIL;
     }
 
-    const BaseType_t res = xTaskCreatePinnedToCore(
+    if (xTaskCreatePinnedToCore(
         sd_task,
         "logger task",
         logger_task->config.stack_depth,
@@ -96,10 +96,8 @@ static esp_err_t init_task(logger_task_t *logger_task) {
         logger_task->config.priority,
         &logger_task->task_handle,
         logger_task->config.core_id
-    );
-    if (res != pdPASS) {
+    ) != pdPASS) {
         ESP_LOGE(TAG, "Unable to create task handle");
-        vQueueDelete(logger_task->config.data_queue);
         return ESP_FAIL;
     }
 
