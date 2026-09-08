@@ -1,11 +1,19 @@
 #include "commands_config.h"
 #include "app_state.h"
+#include <string.h>
+
+#define COMMAND_QUEUE_SIZE 10
+#define COMMAND_SIZE sizeof(uint32_t)
 
 static const char *TAG = "COMMANDS CONFIG";
 
+static TaskHandle_t command_task;
+static uint8_t queue_storage_buffer[COMMAND_QUEUE_SIZE * COMMAND_SIZE];
+static StaticQueue_t queue_buffer;
+
 static void easymini_arm(void) {
     cots_arm(&easymini);
-};
+}
 
 static void easymini_disarm(void) {
     cots_disarm(&easymini);
@@ -38,16 +46,30 @@ static command_t commands[] = {
 
 i2c_slave_t i2c;
 
+static QueueHandle_t command_queue = NULL;
 static uint8_t i2c_buffer[sizeof(struct command)];
 
 static bool process_command_i2c(const uint8_t* data) {
     const i2c_command_t *cmd = (i2c_command_t*)data;
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
-    ESP_LOGI(TAG, "Received command: %lu", cmd->cmd.command);
-    if (process_command(cmd->cmd.command, commands, sizeof(commands) / sizeof(command_t)) != ESP_OK) {
-        return false;
+    if (command_queue != NULL) {
+        xQueueSendFromISR(command_queue, &cmd->cmd.command, &xHigherPriorityTaskWoken);
     }
-    return true;
+
+    return xHigherPriorityTaskWoken == pdTRUE;
+}
+
+static void commands_task(void *arg) {
+    uint32_t cmd;
+    while (1) {
+        if (xQueueReceive(command_queue, &cmd, portMAX_DELAY) == pdTRUE) {
+            ESP_LOGI(TAG, "Received command: %lu", cmd);
+            process_command(cmd, commands, sizeof(commands) / sizeof(command_t));
+            memset(i2c_buffer, 0, sizeof(i2c_buffer));
+            i2c_read(&i2c);
+        }
+    }
 }
 
 static sys_i2c_config_t i2c_config = {
@@ -55,13 +77,32 @@ static sys_i2c_config_t i2c_config = {
     .sda_pin = GPIO_NUM_14,
     .scl_pin = GPIO_NUM_27,
     .slave_addr = 0x0B,
-    .tx_buffer_size = sizeof(i2c_data_t) * 100,
+    .tx_buffer_size = sizeof(i2c_data_t),
     .rx_buffer_size = sizeof(i2c_command_t),
     .rx_buffer = i2c_buffer,
     .receive_callback = process_command_i2c,
 };
 
 esp_err_t init_commands() {
+    command_queue = xQueueCreateStatic(COMMAND_QUEUE_SIZE, COMMAND_SIZE, queue_storage_buffer, &queue_buffer);
+
+    if (command_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create command queue");
+        return ESP_FAIL;
+    }
+
+    if (xTaskCreatePinnedToCore(
+        commands_task,
+        "commands_task",
+        4096,NULL,
+        5,
+        &command_task,
+        0
+        ) != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create commands task");
+        return ESP_FAIL;
+    }
+
     if (i2c_init(&i2c_config, &i2c) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize I2C");
         return ESP_FAIL;
