@@ -10,6 +10,10 @@ static const char *TAG = "COMMANDS CONFIG";
 static TaskHandle_t command_task;
 static uint8_t queue_storage_buffer[COMMAND_QUEUE_SIZE * COMMAND_SIZE];
 static StaticQueue_t queue_buffer;
+static QueueHandle_t command_queue = NULL;
+static uint8_t i2c_buffer[sizeof(struct command)];
+
+i2c_slave_t i2c;
 
 static void easymini_arm(void) {
     cots_arm(&easymini);
@@ -44,11 +48,6 @@ static command_t commands[] = {
     {.command_id = FORCE_SECOND_STAGE_CMD, .command_fnc = force_second_stage},
 };
 
-i2c_slave_t i2c;
-
-static QueueHandle_t command_queue = NULL;
-static uint8_t i2c_buffer[sizeof(struct command)];
-
 static bool process_command_i2c(const uint8_t* data) {
     const i2c_command_t *cmd = (i2c_command_t*)data;
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
@@ -64,9 +63,11 @@ static void commands_task(void *arg) {
     uint32_t cmd;
     while (1) {
         if (xQueueReceive(command_queue, &cmd, portMAX_DELAY) == pdTRUE) {
-            ESP_LOGI(TAG, "Received command: %lu", cmd);
-            process_command(cmd, commands, sizeof(commands) / sizeof(command_t));
-            memset(i2c_buffer, 0, sizeof(i2c_buffer));
+            if (cmd != -1) {
+                ESP_LOGI(TAG, "Received command: %lu", cmd);
+                process_command(cmd, commands, sizeof(commands) / sizeof(command_t));
+            }
+            memset(i2c_buffer, -1, sizeof(i2c_buffer));
             i2c_read(&i2c);
         }
     }
