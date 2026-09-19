@@ -10,6 +10,6 @@
 #include "app_state.h"
 #include "commands_config.h"
 
-esp_err_t app_init(void);
+void app_init(void);
 
 #endif

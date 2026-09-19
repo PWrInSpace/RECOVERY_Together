@@ -2,4 +2,5 @@
 
 void app_main(void) {
     app_init();
+    vTaskDelete(NULL);
 }

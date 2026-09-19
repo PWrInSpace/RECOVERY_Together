@@ -49,7 +49,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     }
 
     const gpio_config_t gpio_stage_outputs = {
-        .pin_bit_mask = (1ULL << recovery->config.first_stage_pin) | (1ULL << recovery->config.second_stage_pin),
+        .pin_bit_mask = (1ULL << recovery->config.first_stage_pin),
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
