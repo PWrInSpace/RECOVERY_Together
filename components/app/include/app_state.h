@@ -31,6 +31,8 @@ typedef struct {
     bool separation_one: 1;
     bool separation_two: 1;
     bool continuity: 1;
+    bool first_stage: 1;
+    bool second_stage: 1;
 } i2c_data_t;
 
 extern app_state_t app_state;
