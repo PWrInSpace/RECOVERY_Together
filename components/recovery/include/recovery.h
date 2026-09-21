@@ -20,6 +20,8 @@ typedef struct{
 typedef struct {
     bool separation_one: 1;
     bool separation_two: 1;
+    bool first_stage: 1;
+    bool second_stage: 1;
 } recovery_data_t;
 
 typedef struct {
@@ -31,8 +33,8 @@ typedef struct {
 
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery);
 
-esp_err_t first_stage_deploy(const recovery_t *recovery);
+esp_err_t first_stage_deploy(recovery_t *recovery);
 
-esp_err_t second_stage_deploy(const recovery_t *recovery);
+esp_err_t second_stage_deploy(recovery_t *recovery);
 
 #endif

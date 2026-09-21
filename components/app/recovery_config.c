@@ -3,7 +3,7 @@
 #include "app_state.h"
 
 #define COTS_COUNT 1
-#define RESISTANCE_BURN_TIME_US 7500000
+#define RESISTANCE_BURN_TIME_US 5000000
 #define RESISTANCE_TIMER 20000
 #define RESISTANCE_WIRE_CONT_THRESHOLD 2000
 
@@ -27,9 +27,6 @@ esp_err_t resistance_wire_on_time(const int time) {
 
 static esp_err_t first_stage_callback(void) {
     resistance_wire_on_time(RESISTANCE_BURN_TIME_US);
-
-    recovery.data.separation_one = true;
-
     return ESP_OK;
 }
 
@@ -37,9 +34,6 @@ static esp_err_t second_stage_callback(void) {
     if (servo_open(&servo) != ESP_OK) {
         return ESP_FAIL;
     }
-
-    recovery.data.separation_two = true;
-
     return ESP_OK;
 }
 

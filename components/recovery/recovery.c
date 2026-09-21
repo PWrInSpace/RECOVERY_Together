@@ -31,6 +31,8 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
         .data = {
             .separation_one = false,
             .separation_two = false,
+            .first_stage = false,
+            .second_stage = false,
         },
         .separation_one_timer = NULL,
         .separation_two_timer = NULL,
@@ -85,20 +87,24 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     return ESP_OK;
 }
 
-esp_err_t first_stage_deploy(const recovery_t *recovery) {
+esp_err_t first_stage_deploy(recovery_t *recovery) {
     if (recovery->config.first_stage() != ESP_OK) {
         ESP_LOGE(TAG, "Failed to deploy first stage");
         return ESP_FAIL;
     }
 
+    recovery->data.first_stage = true;
+
     return ESP_OK;
 }
 
-esp_err_t second_stage_deploy(const recovery_t *recovery){
+esp_err_t second_stage_deploy(recovery_t *recovery){
     if (recovery->config.second_stage() != ESP_OK) {
         ESP_LOGE(TAG, "Failed to deploy second stage");
         return ESP_FAIL;
     }
+
+    recovery->data.second_stage = true;
 
     return ESP_OK;
 }

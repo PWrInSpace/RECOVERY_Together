@@ -83,6 +83,8 @@ static int print_state(int argc, char** argv) {
     ESP_LOGI(TAG, "Recovery:");
     ESP_LOGI(TAG, "  Separation 1:    %s", recovery.data.separation_one ? "DONE" : "WAITING");
     ESP_LOGI(TAG, "  Separation 2:    %s", recovery.data.separation_two ? "DONE" : "WAITING");
+    ESP_LOGI(TAG, "  Stage 1:         %s", recovery.data.first_stage ? "DONE" : "WAITING");
+    ESP_LOGI(TAG, "  Stage 2:         %s", recovery.data.second_stage ? "DONE" : "WAITING");
     ESP_LOGI(TAG, "------------------------------------");
     ESP_LOGI(TAG, "Telemetrum:");
     ESP_LOGI(TAG, "  Armed:           %s", telemetrum.data.armed ? "YES" : "NO");

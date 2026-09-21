@@ -18,7 +18,7 @@ static cots_config_t telemetrum_config = {
 };
 
 esp_err_t init_telemetrum(void) {
-    telemetrum_config.recovery = &recovery.config;
+    telemetrum_config.recovery = &recovery;
     if (cots_init(&telemetrum_config, &telemetrum) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize telemetrum");
         return ESP_FAIL;
@@ -27,7 +27,7 @@ esp_err_t init_telemetrum(void) {
 }
 
 esp_err_t init_easymini(void) {
-    easymini_config.recovery = &recovery.config;
+    easymini_config.recovery = &recovery;
     if (cots_init(&easymini_config, &easymini) != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize easymini");
         return ESP_FAIL;

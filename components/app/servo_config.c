@@ -1,14 +1,14 @@
 #include "servo_config.h"
 
 #define SERVO_PIN GPIO_NUM_17
-#define MAX_PULSE_WIDTH_US 500
-#define MIN_PULSE_WIDTH_US 2500
+#define MAX_PULSE_WIDTH_US 2500
+#define MIN_PULSE_WIDTH_US 500
 #define MAX_ANGLE 180
 #define MIN_ANGLE 0
 #define FREQUENCY_HZ 1000000
 #define TIMEBASE_PERIOD 20000
-#define OPEN_ANGLE 85U
-#define CLOSE_ANGLE 120U
+#define OPEN_ANGLE 180U
+#define CLOSE_ANGLE 0U
 
 static const char *TAG = "SERVO CONFIG";
 

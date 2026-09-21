@@ -31,7 +31,9 @@ static void on_write_to_mcb(void *arg) {
         .easymini_second_stage = app_state.easymini_data.second_stage,
         .separation_one = app_state.recovery_data.separation_one,
         .separation_two = app_state.recovery_data.separation_two,
-        .continuity = app_state.continuity
+        .continuity = app_state.continuity,
+        .first_stage = app_state.recovery_data.first_stage,
+        .second_stage = app_state.recovery_data.second_stage,
     };
 
     i2c_write(&i2c, (const uint8_t*)&i2c_data, sizeof(i2c_data));

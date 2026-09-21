@@ -12,14 +12,14 @@ static void cots_task(void* arg) {
                 ESP_LOGI(TAG, "Apogee detected");
                 cots->data.apogee_detected = true;
                 cots->data.first_stage = true;
-                if (cots->config.recovery && cots->config.recovery->first_stage) {
-                    cots->config.recovery->first_stage();
+                if (cots->config.recovery) {
+                    first_stage_deploy(cots->config.recovery);
                 }
             } else if (event == COTS_EVENT_MAIN) {
                 ESP_LOGI(TAG, "Main deployment detected");
                 cots->data.second_stage = true;
-                if (cots->config.recovery && cots->config.recovery->second_stage) {
-                    cots->config.recovery->second_stage();
+                if (cots->config.recovery) {
+                    second_stage_deploy(cots->config.recovery);
                 }
             }
         }
