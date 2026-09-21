@@ -66,7 +66,12 @@ static esp_err_t init_sd_card(logger_task_t *logger_task, const sd_card_config_t
 }
 
 static esp_err_t init_file(logger_task_t *logger_task) {
-    if (SD_create_file_path(&logger_task->sd_card, logger_task->config.filename, logger_task->config.log_path, logger_task->config.log_path_size) != ESP_OK) {
+    if (SD_create_file_path(
+        &logger_task->sd_card,
+        logger_task->config.filename,
+        logger_task->config.log_path,
+        logger_task->config.log_path_size
+        ) != ESP_OK) {
         ESP_LOGE(TAG, "Unable to create file %s", logger_task->config.filename);
         return ESP_FAIL;
     }
@@ -77,7 +82,17 @@ static esp_err_t init_file(logger_task_t *logger_task) {
         return ESP_FAIL;
     }
 
-    // todo dodać pisanie headera
+    if (logger_task->config.create_sd_header_fnc != NULL) {
+        const size_t written = logger_task->config.create_sd_header_fnc(
+            logger_task->config.header_buffer,
+            logger_task->config.header_buffer_size
+        );
+        if (written == 0) {
+            ESP_LOGE(TAG, "Unable to create sd header");
+            return ESP_FAIL;
+        }
+        fwrite(logger_task->config.header_buffer, sizeof(char), written, logger_task->log_file);
+    }
 
     return ESP_OK;
 }

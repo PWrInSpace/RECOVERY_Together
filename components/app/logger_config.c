@@ -12,6 +12,7 @@ logger_task_t logger_task;
 
 static char data_buffer[1024];
 static char frame_buffer[1024];
+static char header_buffer[256];
 static uint8_t queue_storage_buffer[DATA_QUEUE_SIZE * DATA_ITEM_SIZE];
 static StaticQueue_t queue_buffer;
 
@@ -69,6 +70,8 @@ static logger_task_config_t logger_config = {
     .frame_buffer_size = sizeof(frame_buffer),
     .create_sd_frame_fnc = create_sd_frame_callback,
     .create_sd_header_fnc = create_sd_header_callback,
+    .header_buffer = header_buffer,
+    .header_buffer_size = sizeof(header_buffer),
 };
 
 static sd_card_config_t sd_card_config = {

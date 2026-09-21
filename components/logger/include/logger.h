@@ -29,6 +29,8 @@ typedef struct {
     size_t data_buffer_size;
     char *frame_buffer;
     size_t frame_buffer_size;
+    char* header_buffer;
+    size_t header_buffer_size;
 
     // callback functions config
     create_sd_frame create_sd_frame_fnc;
