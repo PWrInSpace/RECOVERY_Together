@@ -57,6 +57,7 @@ static void resistance_wire_continuity(void *arg) {
     int raw_value;
     if (adc_read_raw(&adc, &raw_value) != ESP_OK) {
         app_state.continuity = false;
+        return;
     }
     app_state.continuity = raw_value > RESISTANCE_WIRE_CONT_THRESHOLD;
 }
