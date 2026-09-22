@@ -10,14 +10,22 @@ static void cots_task(void* arg) {
         if (xQueueReceive(cots->event_queue, &event, portMAX_DELAY) == pdTRUE) {
             if (event == COTS_EVENT_APOGEE) {
                 ESP_LOGI(TAG, "Apogee detected");
+
+                xSemaphoreTake(cots->mutex, portMAX_DELAY);
                 cots->data.apogee_detected = true;
                 cots->data.first_stage = true;
+                xSemaphoreGive(cots->mutex);
+
                 if (cots->config.recovery) {
                     first_stage_deploy(cots->config.recovery);
                 }
             } else if (event == COTS_EVENT_MAIN) {
                 ESP_LOGI(TAG, "Main deployment detected");
+
+                xSemaphoreTake(cots->mutex, portMAX_DELAY);
                 cots->data.second_stage = true;
+                xSemaphoreGive(cots->mutex);
+
                 if (cots->config.recovery) {
                     second_stage_deploy(cots->config.recovery);
                 }
@@ -59,6 +67,7 @@ esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
         .event_queue = NULL,
         .task_handle = NULL
     };
+    cots->mutex = xSemaphoreCreateMutexStatic(&cots->mutex_buffer);
 
     ESP_LOGI(TAG,"Cots initialization");
 
@@ -127,7 +136,10 @@ esp_err_t cots_arm(cots_t *cots){
         ESP_LOGE(TAG,"Failed to arm");
         return ESP_FAIL;
     }
+
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
     cots->data.armed = ARMED;
+    xSemaphoreGive(cots->mutex);
 
     ESP_LOGI(TAG, "Cots arming done");
 
@@ -141,7 +153,10 @@ esp_err_t cots_disarm(cots_t *cots){
         ESP_LOGE(TAG,"Failed to disarm");
         return ESP_FAIL;
     }
+
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
     cots->data.armed = DISARMED;
+    xSemaphoreGive(cots->mutex);
 
     ESP_LOGI(TAG,"Cots disarming done");
 
@@ -149,11 +164,25 @@ esp_err_t cots_disarm(cots_t *cots){
 }
 
 esp_err_t apogee_check(cots_t *cots){
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
     if (gpio_get_level(cots->config.apogee_pin)) {
         cots->data.apogee_detected = true;
     } else {
         cots->data.apogee_detected = false;
     }
+    xSemaphoreGive(cots->mutex);
+
+    return ESP_OK;
+}
+
+esp_err_t cots_get_data(cots_t *cots, cots_data_t *out_data) {
+    if (cots == NULL || out_data == NULL) {
+        return ESP_FAIL;
+    }
+
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    *out_data = cots->data;
+    xSemaphoreGive(cots->mutex);
 
     return ESP_OK;
 }

@@ -1,6 +1,8 @@
 #ifndef RECOVERY_CONTROL_H
 #define RECOVERY_CONTROL_H
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
 #include "driver/gpio.h"
 #include "esp_timer.h"
 #include "esp_log.h"
@@ -29,9 +31,13 @@ typedef struct {
     recovery_data_t data;
     esp_timer_handle_t separation_one_timer;
     esp_timer_handle_t separation_two_timer;
+    SemaphoreHandle_t mutex;
+    StaticSemaphore_t mutex_buffer;
 } recovery_t;
 
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery);
+
+esp_err_t recovery_get_data(recovery_t *recovery, recovery_data_t *out_data);
 
 esp_err_t first_stage_deploy(recovery_t *recovery);
 

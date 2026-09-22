@@ -8,6 +8,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
+#include "freertos/semphr.h"
 
 #define DISARMED 0
 #define ARMED 1
@@ -39,9 +40,13 @@ typedef struct {
     StaticQueue_t event_queue_buffer;
     uint8_t event_queue_storage[COTS_EVENT_QUEUE_SIZE * sizeof(cots_event_t)];
     TaskHandle_t task_handle;
+    SemaphoreHandle_t mutex;
+    StaticSemaphore_t mutex_buffer;
 } cots_t;
 
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots);
+
+esp_err_t cots_get_data(cots_t *cots, cots_data_t *out_data);
 
 esp_err_t cots_arm(cots_t *cots);
 

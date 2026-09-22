@@ -8,19 +8,23 @@ static void on_separation_one_timer(void *arg) {
     recovery_t *recovery = arg;
 
     const bool level = gpio_get_level(recovery->config.separation_one_pin);
+    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
     if (level != recovery->data.separation_one) {
         recovery->data.separation_one = level;
         ESP_LOGI(TAG, "Separation one: %d", level);
     }
+    xSemaphoreGive(recovery->mutex);
 }
 
 static void on_separation_two_timer(void *arg) {
     recovery_t *recovery = arg;
     const bool level = gpio_get_level(recovery->config.separation_two_pin);
+    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
     if (level != recovery->data.separation_two) {
         recovery->data.separation_two = level;
         ESP_LOGI(TAG, "Separation two: %d", level);
     }
+    xSemaphoreGive(recovery->mutex);
 }
 
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
@@ -37,6 +41,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
         .separation_one_timer = NULL,
         .separation_two_timer = NULL,
     };
+    recovery->mutex = xSemaphoreCreateMutexStatic(&recovery->mutex_buffer);
 
     const gpio_config_t gpio_separation_inputs = {
         .pin_bit_mask = (1ULL << recovery->config.separation_one_pin) | (1ULL << recovery->config.separation_two_pin),
@@ -93,7 +98,9 @@ esp_err_t first_stage_deploy(recovery_t *recovery) {
         return ESP_FAIL;
     }
 
+    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
     recovery->data.first_stage = true;
+    xSemaphoreGive(recovery->mutex);
 
     return ESP_OK;
 }
@@ -104,7 +111,21 @@ esp_err_t second_stage_deploy(recovery_t *recovery){
         return ESP_FAIL;
     }
 
+    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
     recovery->data.second_stage = true;
+    xSemaphoreGive(recovery->mutex);
+
+    return ESP_OK;
+}
+
+esp_err_t recovery_get_data(recovery_t *recovery, recovery_data_t *out_data) {
+    if (recovery == NULL || out_data == NULL) {
+        return ESP_FAIL;
+    }
+
+    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
+    *out_data = recovery->data;
+    xSemaphoreGive(recovery->mutex);
 
     return ESP_OK;
 }
