@@ -1,183 +1,188 @@
 #include "cots.h"
-#include "esp_log.h"
 
-static const char *TAG = "COTS";
+static const char* TAG = "COTS";
 
-cots_struct_t telemetrum_device;
-cots_struct_t easymini_device;
+static void cots_task(void* arg) {
+    cots_t* cots = arg;
+    cots_event_t event;
 
+    while (1) {
+        if (xQueueReceive(cots->event_queue, &event, portMAX_DELAY) == pdTRUE) {
+            if (event == COTS_EVENT_APOGEE) {
+                ESP_LOGI(TAG, "Apogee detected");
 
-uint8_t cots_init(cots_device_t cots_device){
-   
+                xSemaphoreTake(cots->mutex, portMAX_DELAY);
+                cots->data.apogee_detected = true;
+                cots->data.first_stage = true;
+                xSemaphoreGive(cots->mutex);
+
+                if (cots->config.recovery) {
+                    first_stage_deploy(cots->config.recovery);
+                }
+            } else if (event == COTS_EVENT_MAIN) {
+                ESP_LOGI(TAG, "Main deployment detected");
+
+                xSemaphoreTake(cots->mutex, portMAX_DELAY);
+                cots->data.second_stage = true;
+                xSemaphoreGive(cots->mutex);
+
+                if (cots->config.recovery) {
+                    second_stage_deploy(cots->config.recovery);
+                }
+            }
+        }
+    }
+}
+
+static void IRAM_ATTR gpio_apogee_handler(void* arg) {
+    const cots_t *cots = arg;
+    const cots_event_t event = COTS_EVENT_APOGEE;
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    if (cots->event_queue) {
+        xQueueSendFromISR(cots->event_queue, &event, &xHigherPriorityTaskWoken);
+    }
+    if (xHigherPriorityTaskWoken) {
+        portYIELD_FROM_ISR();
+    }
+}
+
+static void IRAM_ATTR gpio_main_handler(void* arg) {
+    const cots_t *cots = arg;
+    const cots_event_t event = COTS_EVENT_MAIN;
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    if (cots->event_queue) {
+        xQueueSendFromISR(cots->event_queue, &event, &xHigherPriorityTaskWoken);
+    }
+    if (xHigherPriorityTaskWoken) {
+        portYIELD_FROM_ISR();
+    }
+}
+
+esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
+    *cots = (cots_t){
+        .config = *cots_config,
+        .data = {0},
+        .event_queue = NULL,
+        .task_handle = NULL
+    };
+    cots->mutex = xSemaphoreCreateMutexStatic(&cots->mutex_buffer);
+
     ESP_LOGI(TAG,"Cots initialization");
- 
-    if(cots_device == COTS_DEVICE_TELEMETRUM){
-        ESP_LOGI(TAG,"**** TELEMETRUM ****");
-        gpio_config_t arming_output = {
-            .pin_bit_mask = (1UL << TELE_ARMING),
-            .mode = GPIO_MODE_OUTPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_DISABLE,
-        };
 
-        gpio_config_t igniter_cont_input = {
-            .pin_bit_mask = (1ULL << TELE_IGNITER_CONT),
-            .mode = GPIO_MODE_INPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_DISABLE,
-        };
-
-        gpio_config_t apogee_input = {
-            .pin_bit_mask = (1ULL << TELE_APOGEE_CHECK),
-            .mode = GPIO_MODE_INPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_NEGEDGE,
-        };
-        
-        ESP_ERROR_CHECK(gpio_config(&arming_output));
-        ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
-        ESP_ERROR_CHECK(gpio_config(&apogee_input));
-
-        telemetrum_device.armingPin = TELE_ARMING;
-        telemetrum_device.igniterPin = TELE_IGNITER_CONT;
-        telemetrum_device.apogeePin = TELE_APOGEE_CHECK;
-
-        ESP_LOGI(TAG,"Telemetrum initialization done :D");
-
-    }
-    else if(cots_device == COTS_DEVICE_EASYMINI){
-        ESP_LOGI(TAG,"***** EASYMINI *****");
-
-        gpio_config_t arming_output = {
-            .pin_bit_mask = (1ULL << EASY_ARMING),
-            .mode = GPIO_MODE_OUTPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_DISABLE,
-        };
-
-        gpio_config_t igniter_cont_input = {
-            .pin_bit_mask = (1ULL << EASY_IGNITER_CONT),
-            .mode = GPIO_MODE_INPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_DISABLE,
-        };
-
-        gpio_config_t apogee_input = {
-            .pin_bit_mask = (1ULL << EASY_APOGEE_CHECK),
-            .mode = GPIO_MODE_INPUT,
-            .pull_up_en = GPIO_PULLUP_DISABLE,
-            .pull_down_en = GPIO_PULLDOWN_DISABLE,
-            .intr_type = GPIO_INTR_LOW_LEVEL,
-        };
-
-        ESP_ERROR_CHECK(gpio_config(&arming_output));
-        ESP_ERROR_CHECK(gpio_config(&igniter_cont_input));
-        ESP_ERROR_CHECK(gpio_config(&apogee_input));
-
-        easymini_device.armingPin = EASY_ARMING;
-        easymini_device.igniterPin = EASY_IGNITER_CONT;
-        easymini_device.apogeePin = EASY_APOGEE_CHECK;
-
-        ESP_LOGI(TAG,"EasyMini initialization done :D");
-
-    }
-    else{
-        ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
-        return RET_FAILTURE;
+    cots->event_queue = xQueueCreateStatic(COTS_EVENT_QUEUE_SIZE, sizeof(cots_event_t), cots->event_queue_storage, &cots->event_queue_buffer);
+    if (cots->event_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create event queue");
+        return ESP_FAIL;
     }
 
-    return RET_SUCCESS;
+    if (xTaskCreate(cots_task, "cots_task", 4096, cots, 5, &cots->task_handle) != pdPASS) {
+        ESP_LOGE(TAG, "Failed to create cots task");
+        return ESP_FAIL;
+    }
+
+    const gpio_config_t arming_output = {
+        .pin_bit_mask = 1ULL << cots_config->arming_pin,
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+
+    const gpio_config_t apogee_input = {
+        .pin_bit_mask = 1ULL << cots_config->apogee_pin,
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_NEGEDGE,
+    };
+
+    const gpio_config_t main_input = {
+        .pin_bit_mask = 1ULL << cots_config->main_pin,
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_NEGEDGE,
+    };
+
+    if (gpio_config(&arming_output) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure arming output");
+        return ESP_FAIL;
+    }
+    if (gpio_config(&apogee_input) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure apogee input");
+        return ESP_FAIL;
+    }
+    if (gpio_config(&main_input) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to configure main input");
+        return ESP_FAIL;
+    }
+
+    cots_disarm(cots);
+
+    gpio_isr_handler_add(cots->config.apogee_pin, gpio_apogee_handler, cots);
+    gpio_isr_handler_add(cots->config.main_pin, gpio_main_handler, cots);
+
+    ESP_LOGI(TAG, "Cots initialized");
+
+    return ESP_OK;
 }
 
+esp_err_t cots_arm(cots_t *cots){
+    ESP_LOGI(TAG, "Cots arming");
 
-uint8_t cots_arming(cots_device_t cots_device){
-
-    ESP_LOGI(TAG,"COTS ARMING");
-
-    if(cots_device == COTS_DEVICE_TELEMETRUM){
-
-        ESP_LOGI(TAG,"**** TELEMETRUM ****");
-        
-        if(gpio_set_level(telemetrum_device.armingPin,1) != ESP_OK){
-            ESP_LOGE(TAG,"Faild to arm Telemetrum !!!!");
-            return RET_FAILTURE;
-        }
-        telemetrum_device.armStatus = ARMED;
-
-        ESP_LOGI(TAG,"Telemetrum arming done");
-
+    if (gpio_set_level(cots->config.arming_pin, 1) != ESP_OK) {
+        ESP_LOGE(TAG,"Failed to arm");
+        return ESP_FAIL;
     }
-    else if(cots_device == COTS_DEVICE_EASYMINI){
 
-        ESP_LOGI(TAG,"***** EASYMINI *****");
-        
-        if(gpio_set_level(easymini_device.armingPin,1) != ESP_OK){
-            ESP_LOGE(TAG,"Faild to arm EasyMini !!!!");
-            return RET_FAILTURE;
-        }
-        easymini_device.armStatus = ARMED;
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    cots->data.armed = ARMED;
+    xSemaphoreGive(cots->mutex);
 
-        ESP_LOGI(TAG,"EasyMini arming done");
-    }
-    else{
-        ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
-        return RET_FAILTURE;
-    }
-    return RET_SUCCESS;
-      
+    ESP_LOGI(TAG, "Cots arming done");
+
+    return ESP_OK;
 }
 
-uint8_t cots_disarm(cots_device_t cots_device){
+esp_err_t cots_disarm(cots_t *cots){
+    ESP_LOGI(TAG,"Cots disarming");
 
-    ESP_LOGI(TAG,"COTS DISARMING");
-
-    if(cots_device == COTS_DEVICE_TELEMETRUM){
-
-        ESP_LOGI(TAG,"**** TELEMETRUM ****");
-        
-        if(gpio_set_level(telemetrum_device.armingPin,0) != ESP_OK){
-            ESP_LOGE(TAG,"Faild to disarm Telemetrum !!!!");
-            return RET_FAILTURE;
-        }
-        telemetrum_device.armStatus = DISARMED;
-
-        ESP_LOGI(TAG,"Telemetrum disarming done");
-
+    if (gpio_set_level(cots->config.arming_pin, 0) != ESP_OK) {
+        ESP_LOGE(TAG,"Failed to disarm");
+        return ESP_FAIL;
     }
-    else if(cots_device == COTS_DEVICE_EASYMINI){
 
-        ESP_LOGI(TAG,"***** EASYMINI *****");
-        
-        if(gpio_set_level(easymini_device.armingPin,0) != ESP_OK){
-            ESP_LOGE(TAG,"Faild to disarm EasyMini !!!!");
-            return RET_FAILTURE;
-        }
-        easymini_device.armStatus = DISARMED;
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    cots->data.armed = DISARMED;
+    xSemaphoreGive(cots->mutex);
 
-        ESP_LOGI(TAG,"EasyMini disarming done");
-    }
-    else{
-        ESP_LOGE(TAG,"WRONG COTS DEVICE !!!!");
-        return RET_FAILTURE;
-    }
-    return RET_SUCCESS;
+    ESP_LOGI(TAG,"Cots disarming done");
+
+    return ESP_OK;
 }
 
-uint8_t apogee_check(){
+esp_err_t apogee_check(cots_t *cots){
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    if (gpio_get_level(cots->config.apogee_pin)) {
+        cots->data.apogee_detected = true;
+    } else {
+        cots->data.apogee_detected = false;
+    }
+    xSemaphoreGive(cots->mutex);
 
-    if(gpio_get_level(telemetrum_device.apogeePin)) telemetrum_device.apogeeDetection = true;
-    else telemetrum_device.apogeeDetection = false;
-
-    if(gpio_get_level(easymini_device.apogeePin)) easymini_device.apogeeDetection = true;
-    else easymini_device.apogeeDetection = false;
-
-
-    return RET_SUCCESS;
-
+    return ESP_OK;
 }
 
+esp_err_t cots_get_data(cots_t *cots, cots_data_t *out_data) {
+    if (cots == NULL || out_data == NULL) {
+        return ESP_FAIL;
+    }
+
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    *out_data = cots->data;
+    xSemaphoreGive(cots->mutex);
+
+    return ESP_OK;
+}

@@ -1,4 +1,6 @@
 .vscode
+.idea
 build
 sdkconfig
 sdkconfig.old
+cmake-build-debug-esp-idf-v5.3.4
