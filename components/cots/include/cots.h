@@ -24,6 +24,7 @@ typedef struct {
     gpio_num_t apogee_pin;
     gpio_num_t main_pin;
     recovery_t *recovery;
+    StaticSemaphore_t *mutex_buffer;
 } cots_config_t;
 
 typedef struct {
@@ -42,7 +43,6 @@ typedef struct {
     uint8_t event_queue_storage[COTS_EVENT_QUEUE_SIZE * sizeof(cots_event_t)];
     TaskHandle_t task_handle;
     SemaphoreHandle_t mutex;
-    StaticSemaphore_t mutex_buffer;
 } cots_t;
 
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots);

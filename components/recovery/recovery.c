@@ -1,6 +1,6 @@
 #include "recovery.h"
 
-#define SEPARATION_TIMER_PERIOD_US 500000
+#define SEPARATION_TIMER_PERIOD_US 5000000
 
 static const char* TAG = "RECOVERY";
 
@@ -41,7 +41,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
         .separation_one_timer = NULL,
         .separation_two_timer = NULL,
     };
-    recovery->mutex = xSemaphoreCreateMutexStatic(&recovery->mutex_buffer);
+    recovery->mutex = xSemaphoreCreateMutexStatic(config->mutex_buffer);
 
     const gpio_config_t gpio_separation_inputs = {
         .pin_bit_mask = (1ULL << recovery->config.separation_one_pin) | (1ULL << recovery->config.separation_two_pin),

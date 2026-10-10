@@ -9,11 +9,8 @@ static const char *TAG = "APP STATE";
 
 app_state_t app_state;
 
-static SemaphoreHandle_t app_state_mutex;
 static StaticSemaphore_t app_state_mutex_buffer;
-
 static esp_timer_handle_t data_timer_handle;
-
 static esp_timer_handle_t write_to_mcb_timer_handle;
 
 static void on_data_timer(void *arg) {
@@ -24,19 +21,19 @@ static void on_data_timer(void *arg) {
     cots_get_data(&telemetrum, &tele_data);
     recovery_get_data(&recovery, &rec_data);
 
-    xSemaphoreTake(app_state_mutex, portMAX_DELAY);
+    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
     app_state.bluejay_data = easy_data;
     app_state.telemetrum_data = tele_data;
     app_state.recovery_data = rec_data;
-    
-    app_state_t state_copy = app_state;
-    xSemaphoreGive(app_state_mutex);
+
+    const app_state_t state_copy = app_state;
+    xSemaphoreGive(app_state.mutex);
 
     logger_write(&logger_task, &state_copy, sizeof(app_state));
 }
 
 static void on_write_to_mcb(void *arg) {
-    xSemaphoreTake(app_state_mutex, portMAX_DELAY);
+    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
     const i2c_data_t i2c_data = {
         .telemetrum_armed = app_state.telemetrum_data.armed,
         .telemetrum_apogee_detected = app_state.telemetrum_data.apogee_detected,
@@ -52,13 +49,13 @@ static void on_write_to_mcb(void *arg) {
         .first_stage = app_state.recovery_data.first_stage,
         .second_stage = app_state.recovery_data.second_stage,
     };
-    xSemaphoreGive(app_state_mutex);
+    xSemaphoreGive(app_state.mutex);
 
     i2c_write(&i2c, (const uint8_t*)&i2c_data, sizeof(i2c_data));
 }
 
 esp_err_t init_app_state(void) {
-    app_state_mutex = xSemaphoreCreateMutexStatic(&app_state_mutex_buffer);
+    app_state.mutex = xSemaphoreCreateMutexStatic(&app_state_mutex_buffer);
 
     app_state = (app_state_t){
         .bluejay_data = {0},

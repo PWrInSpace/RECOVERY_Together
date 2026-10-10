@@ -11,6 +11,7 @@ static const char *TAG = "RECOVERY CONFIG";
 
 recovery_t recovery;
 
+static StaticSemaphore_t recovery_mutex_buffer;
 static esp_timer_handle_t resistance_wire_off_timer;
 static esp_timer_handle_t continuity_timer;
 static adc_t adc;
@@ -22,11 +23,18 @@ esp_err_t resistance_wire_on_time(const int time) {
 
     gpio_set_level(recovery.config.first_stage_pin, 1);
 
+    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
+    app_state.wire_on = true;
+    xSemaphoreGive(app_state.mutex);
+
     return ESP_OK;
 }
 
 static esp_err_t first_stage_callback(void) {
-    resistance_wire_on_time(RESISTANCE_BURN_TIME_US);
+    if (resistance_wire_on_time(RESISTANCE_BURN_TIME_US) != ESP_OK) {
+        return ESP_FAIL;
+    }
+
     return ESP_OK;
 }
 
@@ -39,6 +47,10 @@ static esp_err_t second_stage_callback(void) {
 
 static void turn_off_resistance_timer(void *arg) {
     gpio_set_level(recovery.config.first_stage_pin, 0);
+
+    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
+    app_state.wire_on = false;
+    xSemaphoreGive(app_state.mutex);
 }
 
 static esp_err_t setup_resistance_timer() {
@@ -55,11 +67,16 @@ static esp_err_t setup_resistance_timer() {
 
 static void resistance_wire_continuity(void *arg) {
     int raw_value;
+    bool res;
     if (adc_read_raw(&adc, &raw_value) != ESP_OK) {
-        app_state.continuity = false;
-        return;
+        res = false;
+    } else {
+        res = raw_value > RESISTANCE_WIRE_CONT_THRESHOLD;
     }
-    app_state.continuity = raw_value > RESISTANCE_WIRE_CONT_THRESHOLD;
+
+    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
+    app_state.continuity = res;
+    xSemaphoreGive(app_state.mutex);
 }
 
 static esp_err_t setup_continuity_timer() {
@@ -85,7 +102,8 @@ static recovery_config_t recovery_config = {
     .first_stage_pin = GPIO_NUM_4,
     .second_stage_pin = GPIO_NUM_17,
     .first_stage = first_stage_callback,
-    .second_stage = second_stage_callback
+    .second_stage = second_stage_callback,
+    .mutex_buffer = &recovery_mutex_buffer
 };
 
 static adc_config_t adc_config = {

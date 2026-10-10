@@ -16,7 +16,9 @@ typedef struct {
     cots_data_t telemetrum_data;
     cots_data_t bluejay_data;
     recovery_data_t recovery_data;
+    bool wire_on: 1;
     bool continuity: 1;
+    SemaphoreHandle_t mutex;
 } app_state_t;
 
 typedef struct {

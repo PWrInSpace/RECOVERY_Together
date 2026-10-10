@@ -17,6 +17,7 @@ typedef struct{
     gpio_num_t second_stage_pin;
     first_stage_fnc first_stage;
     second_stage_fnc second_stage;
+    StaticSemaphore_t *mutex_buffer;
 } recovery_config_t;
 
 typedef struct {
@@ -32,7 +33,6 @@ typedef struct {
     esp_timer_handle_t separation_one_timer;
     esp_timer_handle_t separation_two_timer;
     SemaphoreHandle_t mutex;
-    StaticSemaphore_t mutex_buffer;
 } recovery_t;
 
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery);

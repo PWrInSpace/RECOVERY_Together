@@ -5,16 +5,21 @@ static const char *TAG = "COTS CONFIG";
 cots_t telemetrum;
 cots_t bluejay;
 
+static StaticSemaphore_t telemetrum_mutex_buffer;
+static StaticSemaphore_t bluejay_mutex_buffer;
+
 static cots_config_t bluejay_config = {
     .arming_pin = GPIO_NUM_2,
     .apogee_pin = GPIO_NUM_18,
     .main_pin = GPIO_NUM_21,
+    .mutex_buffer = &bluejay_mutex_buffer
 };
 
 static cots_config_t telemetrum_config = {
     .arming_pin = GPIO_NUM_13,
     .apogee_pin = GPIO_NUM_19,
     .main_pin = GPIO_NUM_35,
+    .mutex_buffer = &telemetrum_mutex_buffer
 };
 
 esp_err_t init_telemetrum(void) {
