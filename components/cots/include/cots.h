@@ -31,8 +31,6 @@ typedef struct {
     bool armed: 1;
     bool apogee_detected: 1;
     bool main_deployed: 1;
-    bool first_stage: 1;
-    bool second_stage: 1;
 } cots_data_t;
 
 typedef struct {

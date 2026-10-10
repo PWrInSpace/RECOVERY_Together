@@ -24,17 +24,16 @@ typedef struct {
 typedef struct {
     bool telemetrum_armed: 1;
     bool telemetrum_apogee_detected: 1;
-    bool telemetrum_first_stage: 1;
-    bool telemetrum_second_stage: 1;
+    bool telemetrum_main_deployed: 1;
     bool bluejay_armed: 1;
     bool bluejay_apogee_detected: 1;
-    bool bluejay_first_stage: 1;
-    bool bluejay_second_stage: 1;
+    bool bluejay_main_deployed: 1;
     bool separation_one: 1;
     bool separation_two: 1;
     bool continuity: 1;
-    bool first_stage: 1;
-    bool second_stage: 1;
+    bool wire_on: 1;
+    bool recovery_first_stage: 1;
+    bool recovery_second_stage: 1;
 } i2c_data_t;
 
 extern app_state_t app_state;

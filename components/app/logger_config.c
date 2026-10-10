@@ -26,8 +26,8 @@ static size_t create_sd_header_callback(char *buffer, const size_t buffer_size) 
         "bluejay_main_deployed",
         "recovery_first_stage",
         "recovery_second_stage",
-        "separation_1",
-        "separation_2",
+        "separation_one",
+        "separation_two",
         "wire_on",
         "continuity"
         );
@@ -39,15 +39,18 @@ static size_t create_sd_frame_callback(char *buffer, const size_t buffer_size, c
     }
 
     const app_state_t *state = data;
-    return snprintf(buffer, buffer_size, "%d;%d;%d;%d;%d;%d;%d;%d;%d\n",
+    return snprintf(buffer, buffer_size, "%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\n",
         state->telemetrum_data.armed,
         state->telemetrum_data.apogee_detected,
         state->telemetrum_data.main_deployed,
         state->bluejay_data.armed,
         state->bluejay_data.apogee_detected,
         state->bluejay_data.main_deployed,
+        state->recovery_data.first_stage,
+        state->recovery_data.second_stage,
         state->recovery_data.separation_one,
         state->recovery_data.separation_two,
+        state->wire_on,
         state->continuity
         );
 }

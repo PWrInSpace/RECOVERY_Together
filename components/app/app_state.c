@@ -37,17 +37,16 @@ static void on_write_to_mcb(void *arg) {
     const i2c_data_t i2c_data = {
         .telemetrum_armed = app_state.telemetrum_data.armed,
         .telemetrum_apogee_detected = app_state.telemetrum_data.apogee_detected,
-        .telemetrum_first_stage = app_state.telemetrum_data.first_stage,
-        .telemetrum_second_stage = app_state.telemetrum_data.second_stage,
+        .telemetrum_main_deployed = app_state.telemetrum_data.main_deployed,
         .bluejay_armed = app_state.bluejay_data.armed,
         .bluejay_apogee_detected = app_state.bluejay_data.apogee_detected,
-        .bluejay_first_stage = app_state.bluejay_data.first_stage,
-        .bluejay_second_stage = app_state.bluejay_data.second_stage,
+        .bluejay_main_deployed = app_state.bluejay_data.main_deployed,
         .separation_one = app_state.recovery_data.separation_one,
         .separation_two = app_state.recovery_data.separation_two,
         .continuity = app_state.continuity,
-        .first_stage = app_state.recovery_data.first_stage,
-        .second_stage = app_state.recovery_data.second_stage,
+        .wire_on = app_state.wire_on,
+        .recovery_first_stage = app_state.recovery_data.first_stage,
+        .recovery_second_stage = app_state.recovery_data.second_stage,
     };
     xSemaphoreGive(app_state.mutex);
 
