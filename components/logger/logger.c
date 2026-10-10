@@ -171,7 +171,6 @@ esp_err_t logger_write(const logger_task_t *logger_task, const void *data, const
     }
 
     if (logger_task->sd_card.mounted == false) {
-        ESP_LOGE(TAG, "SD card is not mounted");
         return ESP_FAIL;
     }
 
