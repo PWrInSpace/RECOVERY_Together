@@ -10,6 +10,7 @@ static void init_check(const init_fnc fnc) {
 }
 
 void app_init(void) {
+    init_check(init_app_state);
     init_check(init_spi);
     init_check(init_servo);
     init_check(init_recovery);
@@ -18,5 +19,4 @@ void app_init(void) {
     init_check(init_console);
     init_check(init_logger_task);
     init_check(init_commands);
-    init_check(init_app_state);
 }

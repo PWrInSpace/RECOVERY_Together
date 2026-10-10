@@ -37,11 +37,11 @@ static bool data_check(const logger_task_t *logger_task) {
 }
 
 static void process_logger_step(const logger_task_t *logger_task) {
-    if (xSemaphoreTake(*logger_task->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
+    if (xSemaphoreTake(logger_task->config.spi_mutex, pdMS_TO_TICKS(100)) == pdTRUE) {
         if (save_data(logger_task) != ESP_OK) {
             ESP_LOGE(TAG, "Unable to save data");
         }
-        xSemaphoreGive(*logger_task->config.spi_mutex);
+        xSemaphoreGive(logger_task->config.spi_mutex);
     } else {
         ESP_LOGE(TAG, "Unable to take spi mutex");
     }

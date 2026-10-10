@@ -88,7 +88,7 @@ static sd_card_config_t sd_card_config = {
 };
 
 esp_err_t init_logger_task(void) {
-    logger_config.spi_mutex = &spi_mutex;
+    logger_config.spi_mutex = spi_mutex;
     logger_config.data_queue = xQueueCreateStatic(DATA_QUEUE_SIZE, DATA_ITEM_SIZE, queue_storage_buffer, &queue_buffer);
     if (logger_config.data_queue == NULL) {
         ESP_LOGE(TAG, "Failed to create data queue");

@@ -60,6 +60,8 @@ static void IRAM_ATTR gpio_main_handler(void* arg) {
 }
 
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
+    if (cots_config == NULL || cots_config->mutex_buffer == NULL) return ESP_ERR_INVALID_ARG;
+
     *cots = (cots_t){
         .config = *cots_config,
         .data = {0},
@@ -67,10 +69,11 @@ esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
         .task_handle = NULL
     };
     cots->mutex = xSemaphoreCreateMutexStatic(cots_config->mutex_buffer);
+    if (cots->mutex == NULL) return ESP_FAIL;
 
     ESP_LOGI(TAG,"Cots initialization");
 
-    cots->event_queue = xQueueCreateStatic(COTS_EVENT_QUEUE_SIZE, sizeof(cots_event_t), cots->event_queue_storage, &cots->event_queue_buffer);
+    cots->event_queue = xQueueCreateStatic(COTS_EVENT_QUEUE_SIZE, sizeof(cots_event_t), cots_config->event_queue_storage, cots_config->event_queue_buffer);
     if (cots->event_queue == NULL) {
         ESP_LOGE(TAG, "Failed to create event queue");
         return ESP_FAIL;

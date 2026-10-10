@@ -29,6 +29,7 @@ static void on_separation_two_timer(void *arg) {
 
 esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
     ESP_LOGI(TAG, "Recovery System Initialization");
+    if (config == NULL || config->mutex_buffer == NULL) return ESP_ERR_INVALID_ARG;
 
     *recovery = (recovery_t){
         .config = *config,
@@ -42,6 +43,7 @@ esp_err_t recovery_init(const recovery_config_t *config, recovery_t *recovery) {
         .separation_two_timer = NULL,
     };
     recovery->mutex = xSemaphoreCreateMutexStatic(config->mutex_buffer);
+    if (recovery->mutex == NULL) return ESP_FAIL;
 
     const gpio_config_t gpio_separation_inputs = {
         .pin_bit_mask = (1ULL << recovery->config.separation_one_pin) | (1ULL << recovery->config.separation_two_pin),

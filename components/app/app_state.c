@@ -54,13 +54,18 @@ static void on_write_to_mcb(void *arg) {
 }
 
 esp_err_t init_app_state(void) {
-    app_state.mutex = xSemaphoreCreateMutexStatic(&app_state_mutex_buffer);
-
     app_state = (app_state_t){
         .bluejay_data = {0},
         .telemetrum_data = {0},
         .recovery_data = {0},
+        .continuity = false,
+        .wire_on = false,
+        .mutex = xSemaphoreCreateMutexStatic(&app_state_mutex_buffer)
     };
+
+    if (app_state.mutex == NULL) {
+        return ESP_FAIL;
+    }
 
     cots_get_data(&bluejay, &app_state.bluejay_data);
     cots_get_data(&telemetrum, &app_state.telemetrum_data);
