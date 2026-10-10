@@ -21,7 +21,7 @@ static void on_data_timer(void *arg) {
     cots_get_data(&telemetrum, &tele_data);
     recovery_get_data(&recovery, &rec_data);
 
-    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
+    xSemaphoreTake(app_state.mutex, pdMS_TO_TICKS(100));
     app_state.bluejay_data = easy_data;
     app_state.telemetrum_data = tele_data;
     app_state.recovery_data = rec_data;
@@ -33,7 +33,7 @@ static void on_data_timer(void *arg) {
 }
 
 static void on_write_to_mcb(void *arg) {
-    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
+    xSemaphoreTake(app_state.mutex, pdMS_TO_TICKS(100));
     const i2c_data_t i2c_data = {
         .telemetrum_armed = app_state.telemetrum_data.armed,
         .telemetrum_apogee_detected = app_state.telemetrum_data.apogee_detected,

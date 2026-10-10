@@ -74,7 +74,7 @@ static void resistance_wire_continuity(void *arg) {
         res = raw_value > RESISTANCE_WIRE_CONT_THRESHOLD;
     }
 
-    xSemaphoreTake(app_state.mutex, portMAX_DELAY);
+    xSemaphoreTake(app_state.mutex, pdMS_TO_TICKS(10));
     app_state.continuity = res;
     xSemaphoreGive(app_state.mutex);
 }

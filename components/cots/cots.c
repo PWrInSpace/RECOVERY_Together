@@ -170,7 +170,7 @@ esp_err_t cots_get_data(cots_t *cots, cots_data_t *out_data) {
         return ESP_FAIL;
     }
 
-    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    xSemaphoreTake(cots->mutex, pdMS_TO_TICKS(100));
     *out_data = cots->data;
     xSemaphoreGive(cots->mutex);
 

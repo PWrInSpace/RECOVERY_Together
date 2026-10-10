@@ -8,7 +8,7 @@ static void on_separation_one_timer(void *arg) {
     recovery_t *recovery = arg;
 
     const bool level = gpio_get_level(recovery->config.separation_one_pin);
-    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
+    xSemaphoreTake(recovery->mutex, pdMS_TO_TICKS(10));
     if (level != recovery->data.separation_one) {
         recovery->data.separation_one = level;
         ESP_LOGI(TAG, "Separation one: %d", level);
@@ -19,7 +19,7 @@ static void on_separation_one_timer(void *arg) {
 static void on_separation_two_timer(void *arg) {
     recovery_t *recovery = arg;
     const bool level = gpio_get_level(recovery->config.separation_two_pin);
-    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
+    xSemaphoreTake(recovery->mutex, pdMS_TO_TICKS(10));
     if (level != recovery->data.separation_two) {
         recovery->data.separation_two = level;
         ESP_LOGI(TAG, "Separation two: %d", level);
@@ -125,7 +125,7 @@ esp_err_t recovery_get_data(recovery_t *recovery, recovery_data_t *out_data) {
         return ESP_FAIL;
     }
 
-    xSemaphoreTake(recovery->mutex, portMAX_DELAY);
+    xSemaphoreTake(recovery->mutex, pdMS_TO_TICKS(100));
     *out_data = recovery->data;
     xSemaphoreGive(recovery->mutex);
 
