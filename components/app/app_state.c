@@ -20,12 +20,12 @@ static void on_data_timer(void *arg) {
     cots_data_t easy_data, tele_data;
     recovery_data_t rec_data;
 
-    cots_get_data(&easymini, &easy_data);
+    cots_get_data(&bluejay, &easy_data);
     cots_get_data(&telemetrum, &tele_data);
     recovery_get_data(&recovery, &rec_data);
 
     xSemaphoreTake(app_state_mutex, portMAX_DELAY);
-    app_state.easymini_data = easy_data;
+    app_state.bluejay_data = easy_data;
     app_state.telemetrum_data = tele_data;
     app_state.recovery_data = rec_data;
     
@@ -42,10 +42,10 @@ static void on_write_to_mcb(void *arg) {
         .telemetrum_apogee_detected = app_state.telemetrum_data.apogee_detected,
         .telemetrum_first_stage = app_state.telemetrum_data.first_stage,
         .telemetrum_second_stage = app_state.telemetrum_data.second_stage,
-        .easymini_armed = app_state.easymini_data.armed,
-        .easymini_apogee_detected = app_state.easymini_data.apogee_detected,
-        .easymini_first_stage = app_state.easymini_data.first_stage,
-        .easymini_second_stage = app_state.easymini_data.second_stage,
+        .bluejay_armed = app_state.bluejay_data.armed,
+        .bluejay_apogee_detected = app_state.bluejay_data.apogee_detected,
+        .bluejay_first_stage = app_state.bluejay_data.first_stage,
+        .bluejay_second_stage = app_state.bluejay_data.second_stage,
         .separation_one = app_state.recovery_data.separation_one,
         .separation_two = app_state.recovery_data.separation_two,
         .continuity = app_state.continuity,
@@ -61,12 +61,12 @@ esp_err_t init_app_state(void) {
     app_state_mutex = xSemaphoreCreateMutexStatic(&app_state_mutex_buffer);
 
     app_state = (app_state_t){
-        .easymini_data = {0},
+        .bluejay_data = {0},
         .telemetrum_data = {0},
         .recovery_data = {0},
     };
 
-    cots_get_data(&easymini, &app_state.easymini_data);
+    cots_get_data(&bluejay, &app_state.bluejay_data);
     cots_get_data(&telemetrum, &app_state.telemetrum_data);
     recovery_get_data(&recovery, &app_state.recovery_data);
 

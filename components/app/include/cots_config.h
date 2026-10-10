@@ -6,14 +6,14 @@
 
 typedef enum {
     TELEMETRUM = 0,
-    EASYMINI
+    BLUEJAY
 } cots_e;
 
 extern cots_t telemetrum;
-extern cots_t easymini;
+extern cots_t bluejay;
 
 esp_err_t init_telemetrum(void);
 
-esp_err_t init_easymini(void);
+esp_err_t init_bluejay(void);
 
 #endif

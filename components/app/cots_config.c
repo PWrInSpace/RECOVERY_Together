@@ -3,9 +3,9 @@
 static const char *TAG = "COTS CONFIG";
 
 cots_t telemetrum;
-cots_t easymini;
+cots_t bluejay;
 
-static cots_config_t easymini_config = {
+static cots_config_t bluejay_config = {
     .arming_pin = GPIO_NUM_2,
     .apogee_pin = GPIO_NUM_18,
     .main_pin = GPIO_NUM_21,
@@ -26,10 +26,10 @@ esp_err_t init_telemetrum(void) {
     return ESP_OK;
 }
 
-esp_err_t init_easymini(void) {
-    easymini_config.recovery = &recovery;
-    if (cots_init(&easymini_config, &easymini) != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize easymini");
+esp_err_t init_bluejay(void) {
+    bluejay_config.recovery = &recovery;
+    if (cots_init(&bluejay_config, &bluejay) != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize bluejay");
         return ESP_FAIL;
     }
     return ESP_OK;

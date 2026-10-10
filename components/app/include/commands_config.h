@@ -16,8 +16,8 @@ typedef union {
 } i2c_command_t;
 
 typedef enum {
-    EASYMINI_ARM_CMD = 0x01,
-    EASYMINI_DISARM_CMD = 0x02,
+    BLUEJAY_ARM_CMD = 0x01,
+    BLUEJAY_DISARM_CMD = 0x02,
     TELEMETRUM_ARM_CMD = 0x03,
     TELEMETRUM_DISARM_CMD = 0x04,
     FORCE_FIRST_STAGE_CMD = 0xA5,

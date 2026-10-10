@@ -12,7 +12,6 @@ static void cots_task(void* arg) {
                 ESP_LOGI(TAG, "Apogee detected");
 
                 xSemaphoreTake(cots->mutex, portMAX_DELAY);
-                cots->data.apogee_detected = true;
                 cots->data.first_stage = true;
                 xSemaphoreGive(cots->mutex);
 
@@ -35,9 +34,13 @@ static void cots_task(void* arg) {
 }
 
 static void IRAM_ATTR gpio_apogee_handler(void* arg) {
-    const cots_t *cots = arg;
+    cots_t *cots = arg;
     const cots_event_t event = COTS_EVENT_APOGEE;
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    cots->data.apogee_detected = true;
+    xSemaphoreGive(cots->mutex);
 
     if (cots->event_queue) {
         xQueueSendFromISR(cots->event_queue, &event, &xHigherPriorityTaskWoken);
@@ -48,9 +51,13 @@ static void IRAM_ATTR gpio_apogee_handler(void* arg) {
 }
 
 static void IRAM_ATTR gpio_main_handler(void* arg) {
-    const cots_t *cots = arg;
+    cots_t *cots = arg;
     const cots_event_t event = COTS_EVENT_MAIN;
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    cots->data.main_deployed = true;
+    xSemaphoreGive(cots->mutex);
 
     if (cots->event_queue) {
         xQueueSendFromISR(cots->event_queue, &event, &xHigherPriorityTaskWoken);
@@ -159,18 +166,6 @@ esp_err_t cots_disarm(cots_t *cots){
     xSemaphoreGive(cots->mutex);
 
     ESP_LOGI(TAG,"Cots disarming done");
-
-    return ESP_OK;
-}
-
-esp_err_t apogee_check(cots_t *cots){
-    xSemaphoreTake(cots->mutex, portMAX_DELAY);
-    if (gpio_get_level(cots->config.apogee_pin)) {
-        cots->data.apogee_detected = true;
-    } else {
-        cots->data.apogee_detected = false;
-    }
-    xSemaphoreGive(cots->mutex);
 
     return ESP_OK;
 }

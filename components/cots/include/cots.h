@@ -29,6 +29,7 @@ typedef struct {
 typedef struct {
     bool armed: 1;
     bool apogee_detected: 1;
+    bool main_deployed: 1;
     bool first_stage: 1;
     bool second_stage: 1;
 } cots_data_t;
@@ -51,7 +52,5 @@ esp_err_t cots_get_data(cots_t *cots, cots_data_t *out_data);
 esp_err_t cots_arm(cots_t *cots);
 
 esp_err_t cots_disarm(cots_t *cots);
-
-esp_err_t apogee_check(cots_t *cots);
 
 #endif
