@@ -4,11 +4,6 @@
 #include "cots.h"
 #include "recovery_config.h"
 
-typedef enum {
-    TELEMETRUM = 0,
-    BLUEJAY
-} cots_e;
-
 extern cots_t telemetrum;
 extern cots_t bluejay;
 
