@@ -15,8 +15,8 @@ void app_init(void) {
     init_check(init_recovery);
     init_check(init_telemetrum);
     init_check(init_bluejay);
+    init_logger_task();
     init_check(init_app_state);
     init_check(init_console);
     init_check(init_commands);
-    init_logger_task();
 }
