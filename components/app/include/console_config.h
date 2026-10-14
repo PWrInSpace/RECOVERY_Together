@@ -10,6 +10,7 @@
 #include "recovery_config.h"
 #include "cots.h"
 #include "cots_config.h"
+#include "app_state.h"
 
 /**
  * @brief Initialize cli

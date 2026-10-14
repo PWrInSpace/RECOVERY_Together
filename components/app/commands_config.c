@@ -15,12 +15,12 @@ static uint8_t i2c_buffer[sizeof(struct command)];
 
 i2c_slave_t i2c;
 
-static void easymini_arm(void) {
-    cots_arm(&easymini);
+static void bluejay_arm(void) {
+    cots_arm(&bluejay);
 }
 
-static void easymini_disarm(void) {
-    cots_disarm(&easymini);
+static void bluejay_disarm(void) {
+    cots_disarm(&bluejay);
 }
 
 static void telemetrum_arm(void) {
@@ -40,8 +40,8 @@ static void force_second_stage(void) {
 }
 
 static command_t commands[] = {
-    {.command_id = EASYMINI_ARM_CMD, .command_fnc = easymini_arm},
-    {.command_id = EASYMINI_DISARM_CMD, .command_fnc = easymini_disarm},
+    {.command_id = BLUEJAY_ARM_CMD, .command_fnc = bluejay_arm},
+    {.command_id = BLUEJAY_DISARM_CMD, .command_fnc = bluejay_disarm},
     {.command_id = TELEMETRUM_ARM_CMD, .command_fnc = telemetrum_arm},
     {.command_id = TELEMETRUM_DISARM_CMD, .command_fnc = telemetrum_disarm},
     {.command_id = FORCE_FIRST_STAGE_CMD, .command_fnc = force_first_stage},

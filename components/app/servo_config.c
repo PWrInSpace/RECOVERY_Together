@@ -7,8 +7,8 @@
 #define MIN_ANGLE 0
 #define FREQUENCY_HZ 1000000
 #define TIMEBASE_PERIOD 20000
-#define OPEN_ANGLE 180U
-#define CLOSE_ANGLE 0U
+#define OPEN_ANGLE 90U
+#define CLOSE_ANGLE 30U
 
 static const char *TAG = "SERVO CONFIG";
 
@@ -31,5 +31,8 @@ esp_err_t init_servo(void) {
         ESP_LOGE(TAG, "Failed to initialize servo");
         return ESP_FAIL;
     }
+
+    servo_set_angle(&servo, servo.config.close_angle);
+
     return ESP_OK;
 }

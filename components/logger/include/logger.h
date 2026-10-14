@@ -37,7 +37,7 @@ typedef struct {
     create_sd_header create_sd_header_fnc;
 
     // mutex
-    SemaphoreHandle_t *spi_mutex;
+    SemaphoreHandle_t spi_mutex;
 } logger_task_config_t;
 
 typedef struct {

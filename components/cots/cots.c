@@ -13,7 +13,6 @@ static void cots_task(void* arg) {
 
                 xSemaphoreTake(cots->mutex, portMAX_DELAY);
                 cots->data.apogee_detected = true;
-                cots->data.first_stage = true;
                 xSemaphoreGive(cots->mutex);
 
                 if (cots->config.recovery) {
@@ -23,7 +22,7 @@ static void cots_task(void* arg) {
                 ESP_LOGI(TAG, "Main deployment detected");
 
                 xSemaphoreTake(cots->mutex, portMAX_DELAY);
-                cots->data.second_stage = true;
+                cots->data.main_deployed = true;
                 xSemaphoreGive(cots->mutex);
 
                 if (cots->config.recovery) {
@@ -35,7 +34,7 @@ static void cots_task(void* arg) {
 }
 
 static void IRAM_ATTR gpio_apogee_handler(void* arg) {
-    const cots_t *cots = arg;
+    cots_t *cots = arg;
     const cots_event_t event = COTS_EVENT_APOGEE;
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
@@ -48,7 +47,7 @@ static void IRAM_ATTR gpio_apogee_handler(void* arg) {
 }
 
 static void IRAM_ATTR gpio_main_handler(void* arg) {
-    const cots_t *cots = arg;
+    cots_t *cots = arg;
     const cots_event_t event = COTS_EVENT_MAIN;
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
@@ -61,17 +60,20 @@ static void IRAM_ATTR gpio_main_handler(void* arg) {
 }
 
 esp_err_t cots_init(const cots_config_t *cots_config, cots_t *cots) {
+    if (cots_config == NULL || cots_config->mutex_buffer == NULL) return ESP_ERR_INVALID_ARG;
+
     *cots = (cots_t){
         .config = *cots_config,
         .data = {0},
         .event_queue = NULL,
         .task_handle = NULL
     };
-    cots->mutex = xSemaphoreCreateMutexStatic(&cots->mutex_buffer);
+    cots->mutex = xSemaphoreCreateMutexStatic(cots_config->mutex_buffer);
+    if (cots->mutex == NULL) return ESP_FAIL;
 
     ESP_LOGI(TAG,"Cots initialization");
 
-    cots->event_queue = xQueueCreateStatic(COTS_EVENT_QUEUE_SIZE, sizeof(cots_event_t), cots->event_queue_storage, &cots->event_queue_buffer);
+    cots->event_queue = xQueueCreateStatic(COTS_EVENT_QUEUE_SIZE, sizeof(cots_event_t), cots_config->event_queue_storage, cots_config->event_queue_buffer);
     if (cots->event_queue == NULL) {
         ESP_LOGE(TAG, "Failed to create event queue");
         return ESP_FAIL;
@@ -163,24 +165,12 @@ esp_err_t cots_disarm(cots_t *cots){
     return ESP_OK;
 }
 
-esp_err_t apogee_check(cots_t *cots){
-    xSemaphoreTake(cots->mutex, portMAX_DELAY);
-    if (gpio_get_level(cots->config.apogee_pin)) {
-        cots->data.apogee_detected = true;
-    } else {
-        cots->data.apogee_detected = false;
-    }
-    xSemaphoreGive(cots->mutex);
-
-    return ESP_OK;
-}
-
 esp_err_t cots_get_data(cots_t *cots, cots_data_t *out_data) {
     if (cots == NULL || out_data == NULL) {
         return ESP_FAIL;
     }
 
-    xSemaphoreTake(cots->mutex, portMAX_DELAY);
+    xSemaphoreTake(cots->mutex, pdMS_TO_TICKS(100));
     *out_data = cots->data;
     xSemaphoreGive(cots->mutex);
 
